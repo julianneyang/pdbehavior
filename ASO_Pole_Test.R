@@ -10,6 +10,7 @@ library(tidyr)
 library(dplyr)
 library(knitr)
 
+setwd("../pdbehavior/")
 data<-read.csv("ASO Pole Test - All_Cohorts_Assign_Maximum_Time.csv", header=TRUE)
 data <- data %>%
   rowwise() %>%
@@ -150,13 +151,7 @@ for (variable in cs_variables) {
   
 }
 
-for (variable in long_variables) {
-  # Fit mixed-effects model on full data
-  formula_full <- reformulate(c("Sex", "SLC_Genotype", "Weight", "ASO_Tg"), response = variable)
-  output <- lme(formula = formula_full, random = ~1|MouseID, data = data_long)
-  cat("##", variable, "\n\n", file = output_file, append = TRUE)
-  cat(kable(summary(output)$tTable), "\n\n", file = output_file, append = TRUE)
-}
+
 
 average_tturn <- data %>% filter(Metric=="Average_Tturn")
 fastest_tturn <- data %>% filter(Metric=="Fastest_Tturn")
