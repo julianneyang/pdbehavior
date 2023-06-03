@@ -1,49 +1,69 @@
-#
-# This is a Shiny web application. You can run the application by clicking
-# the 'Run App' button above.
-#
-# Find out more about building applications with Shiny here:
-#
-#    http://shiny.rstudio.com/
-#
-
 library(shiny)
-
-# Define UI for application that draws a histogram
+library(ggplot2)
+library(dplyr)
+library(tidyr)
+# Define the UI
 ui <- fluidPage(
-
-    # Application title
-    titlePanel("Old Faithful Geyser Data"),
-
-    # Sidebar with a slider input for number of bins 
-    sidebarLayout(
-        sidebarPanel(
-            sliderInput("bins",
-                        "Number of bins:",
-                        min = 1,
-                        max = 50,
-                        value = 30)
-        ),
-
-        # Show a plot of the generated distribution
-        mainPanel(
-           plotOutput("distPlot")
-        )
+  titlePanel("Longitudinal Time Data"),
+  sidebarLayout(
+    sidebarPanel(
+      fileInput("data_file", "Upload CSV file with longitudinal data"),
+      checkboxGroupInput("group_var", "Select variable for grouping", choices = NULL)
+    ),
+    mainPanel(
+      plotOutput("line_plot")
     )
+  )
 )
 
-# Define server logic required to draw a histogram
+# Define the server
 server <- function(input, output) {
-
-    output$distPlot <- renderPlot({
-        # generate bins based on input$bins from ui.R
-        x    <- faithful[, 2]
-        bins <- seq(min(x), max(x), length.out = input$bins + 1)
-
-        # draw the histogram with the specified number of bins
-        hist(x, breaks = bins, col = 'darkgray', border = 'white')
-    })
+  
+  # Read in the data from file
+  data <- reactive({
+    req(input$data_file)
+    read.csv(input$data_file$datapath, header = TRUE)
+  })
+  
+  # Update the grouping variable options based on the uploaded data
+  observe({
+    req(data())
+    choices <- names(data())
+    updateCheckboxGroupInput(session, "group_var", choices = choices)
+  })
+  
+  # Generate the plot
+  plot_data <- reactive({
+    req(data())
+    
+    # Group the data by the selected grouping variable
+    group_var <- input$group_var
+    if (is.null(group_var)) {
+      data_grouped <- data()
+    } else {
+      data_grouped <- data() %>% 
+        group_by_at(group_var) %>% 
+        nest()
+    }
+    
+    # Convert the grouped data to a list
+    data_list <- list(
+      x = data_grouped$time,
+      y = data_grouped$value,
+      group = data_grouped$group
+    )
+    
+    # Return the list as JSON
+    asJSON(list(data = data_list), keep_vec_names = TRUE)
+  })
+  
+  # Output the plot
+  output$line_plot <- renderPlotly({
+    req(plot_data())
+    plot_ly(fromJSON(plot_data()))
+  })
 }
 
-# Run the application 
-shinyApp(ui = ui, server = server)
+
+# Run the app
+shinyApp(ui, server)

@@ -7,7 +7,7 @@
 #    http://shiny.rstudio.com/
 #
 
-rotarod <- read.csv("ASO Rotarod B1 and B2 for App - Sheet1.csv",header=TRUE)
+rotarod <- read.csv("ASO Rotarod - Sheet1.csv",header=TRUE)
 rotarod$SLC_Genotype <- factor(rotarod$SLC_Genotype)
 rotarod$ASO_Tg<- factor(rotarod$ASO_Tg)
 rotarod$Day<- factor(rotarod$Day)
