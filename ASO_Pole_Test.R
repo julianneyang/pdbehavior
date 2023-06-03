@@ -76,24 +76,24 @@ generate_boxplots <- function(input_data, X, Y, min,max){
     scale_fill_viridis_d()+
     geom_point(size=1,position=position_jitter(width=0.25),alpha=0.3)+
     theme_cowplot(16) +
-    #ylim(min,max)+
+    ylim(min,max)+
     theme(legend.position = "none") 
 }
 
 ## Compare Tg Negative to Tg Positive -- 
-posvneg_avg_tturn <- generate_boxplots(average_tturn, ASO_Tg, Time,0,20) +
+  posvneg_avg_tturn <- generate_boxplots(data, ASO_Tg,  Average_Tturn,0,12) +
   ylab("Time (seconds)")+
   ggtitle("Average Tturn")+
   theme(plot.title = element_text(hjust = 0.5)) 
-posvneg_avg_ttotal <- generate_boxplots(average_ttotal, ASO_Tg, Time,0,20)+
+posvneg_avg_ttotal <- generate_boxplots(data, ASO_Tg, Average_Ttotal,0,17)+
   ylab("Time (seconds)")+
   ggtitle("Average Ttotal")+
   theme(plot.title = element_text(hjust = 0.5)) 
-posvneg_fast_tturn <- generate_boxplots(fastest_tturn, ASO_Tg, Time,0,20) + 
+posvneg_fast_tturn <- generate_boxplots(data, ASO_Tg, Fastest_Tturn,0,12) + 
   ylab("Time (seconds)")+
   ggtitle("Fastest Tturn")+
   theme(plot.title = element_text(hjust = 0.5)) 
-posvneg_fast_ttotal <- generate_boxplots(fastest_ttotal, ASO_Tg, Time,0,20) +
+posvneg_fast_ttotal <- generate_boxplots(data, ASO_Tg, Fastest_Ttotal,0,17) +
   ylab("Time (seconds)")+
   ggtitle("Fastest Ttotal")+
   theme(plot.title = element_text(hjust = 0.5)) 
@@ -103,11 +103,32 @@ plot_grid(posvneg_avg_tturn, posvneg_avg_ttotal,
 
 ## Compare SLC Genotypes within ASO_Tg --
 
-posvneg_slc_sex <- generate_boxplots(data, SLC_Genotype, Average_Tturn,0,20) + facet_wrap(Sex~ASO_Tg) 
-posvneg_slc_sex <- generate_boxplots(data, SLC_Genotype, Average_Tturn,0,20) + facet_wrap(~ASO_Tg) 
+posvneg_slc_sex_avg_turn <- generate_boxplots(data, SLC_Genotype, Average_Tturn,0,12) + facet_wrap(Sex~ASO_Tg) 
+posvneg_slc_avg_turn <- generate_boxplots(data, SLC_Genotype, Average_Tturn,0,20) + facet_wrap(~ASO_Tg) +
+  ylab("Time (seconds)")+
+  ggtitle("Average Tturn")+
+  theme(plot.title = element_text(hjust = 0.5)) 
 
-generate_boxplots(fastest_tturn, SLC_Genotype, Time,0,20) + facet_wrap(~ASO_Tg)
-generate_boxplots(fastest_tturn, ASO_Tg, Time,0,20) 
+posvneg_slc_sex_avg_total <- generate_boxplots(data, SLC_Genotype, Average_Ttotal,0,17) + facet_wrap(Sex~ASO_Tg) 
+posvneg_slc_avg_total <- generate_boxplots(data, SLC_Genotype, Average_Ttotal,0,20) + facet_wrap(~ASO_Tg) +
+  ylab("Time (seconds)")+
+  ggtitle("Average Ttotal")+
+  theme(plot.title = element_text(hjust = 0.5)) 
+
+posvneg_slc_sex_fast_turn <- generate_boxplots(data, SLC_Genotype, Fastest_Tturn,0,12) + facet_wrap(Sex~ASO_Tg)
+posvneg_slc_fast_turn <- generate_boxplots(data, SLC_Genotype, Fastest_Tturn,0,20) + facet_wrap(~ASO_Tg) +
+  ylab("Time (seconds)")+
+  ggtitle("Fastest Tturn")+
+  theme(plot.title = element_text(hjust = 0.5)) 
+
+posvneg_slc_sex_fast_total <- generate_boxplots(data, SLC_Genotype, Fastest_Ttotal,0,17) + facet_wrap(Sex~ASO_Tg)
+posvneg_slc_fast_total <- generate_boxplots(data, SLC_Genotype, Fastest_Ttotal,0,20) + facet_wrap(~ASO_Tg) +
+  ylab("Time (seconds)")+
+  ggtitle("Fastest Ttotal")+
+  theme(plot.title = element_text(hjust = 0.5))
+
+plot_grid(posvneg_slc_sex_avg_turn, posvneg_slc_sex_avg_total, posvneg_slc_sex_fast_total, posvneg_slc_sex_fast_total)
+plot_grid(posvneg_slc_avg_turn, posvneg_slc_avg_total, posvneg_slc_fast_total, posvneg_slc_fast_total)
 
 ## Statistics --
 # Linear models and mixed effects linear models -
@@ -151,6 +172,10 @@ for (variable in cs_variables) {
   
 }
 
+output <- lme(fixed= Tturn_Time ~ Sex+ SLC_Genotype+ Weight+ ASO_Tg, random=~1|MouseID, data=data_long)
+cat(kable(summary(output)$tTable), "\n\n", file = output_file, append = TRUE)
+output <- lme(fixed= Ttotal_Time ~ Sex+ SLC_Genotype+ Weight+ ASO_Tg, random=~1|MouseID, data=data_long)
+cat(kable(summary(output)$tTable), "\n\n", file = output_file, append = TRUE)
 
 
 average_tturn <- data %>% filter(Metric=="Average_Tturn")
