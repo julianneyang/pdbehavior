@@ -81,7 +81,7 @@ generate_boxplots <- function(input_data, X, Y, min,max){
 }
 
 ## Compare Tg Negative to Tg Positive -- 
-  posvneg_avg_tturn <- generate_boxplots(data, ASO_Tg,  Average_Tturn,0,12) +
+posvneg_avg_tturn <- generate_boxplots(data, ASO_Tg,  Average_Tturn,0,12) +
   ylab("Time (seconds)")+
   ggtitle("Average Tturn")+
   theme(plot.title = element_text(hjust = 0.5)) 
@@ -128,7 +128,7 @@ posvneg_slc_fast_total <- generate_boxplots(data, SLC_Genotype, Fastest_Ttotal,0
   theme(plot.title = element_text(hjust = 0.5))
 
 plot_grid(posvneg_slc_sex_avg_turn, posvneg_slc_sex_avg_total, posvneg_slc_sex_fast_total, posvneg_slc_sex_fast_total)
-plot_grid(posvneg_slc_avg_turn, posvneg_slc_avg_total, posvneg_slc_fast_total, posvneg_slc_fast_total)
+plot_grid(posvneg_slc_avg_turn, posvneg_slc_avg_total, posvneg_slc_fast_turn, posvneg_slc_fast_total)
 
 ## Statistics --
 # Linear models and mixed effects linear models -
@@ -172,38 +172,50 @@ for (variable in cs_variables) {
   
 }
 
-output <- lme(fixed= Tturn_Time ~ Sex+ SLC_Genotype+ Weight+ ASO_Tg, random=~1|MouseID, data=data_long)
-cat(kable(summary(output)$tTable), "\n\n", file = output_file, append = TRUE)
-output <- lme(fixed= Ttotal_Time ~ Sex+ SLC_Genotype+ Weight+ ASO_Tg, random=~1|MouseID, data=data_long)
-cat(kable(summary(output)$tTable), "\n\n", file = output_file, append = TRUE)
+# Perform repeated measures PERMANOVA
+library(vegan)
+permanova_result <- adonis(Average_Tturn ~ ASO_Tg + Weight + Sex + SLC_Genotype, data = data, permutations = 10000)
+permanova_result$aov.tab
+permanova_result <- adonis(Average_Ttotal ~ ASO_Tg + Weight + Sex + SLC_Genotype, data = data, permutations = 10000)
+permanova_result$aov.tab
+permanova_result <- adonis(Fastest_Tturn ~ ASO_Tg + Weight + Sex + SLC_Genotype, data = data, permutations = 10000)
+permanova_result$aov.tab
+permanova_result <- adonis(Fastest_Ttotal ~ ASO_Tg + Weight + Sex + SLC_Genotype, data = data, permutations = 10000)
+permanova_result$aov.tab
+
+permanova_result <- adonis(Fastest_Tturn ~ Weight + Sex + SLC_Genotype, data = subset(data,ASO_Tg=="Positive"), permutations = 10000)
+permanova_result$aov.tab
+permanova_result <- adonis(Fastest_Ttotal ~ Weight + Sex + SLC_Genotype, data = subset(data,ASO_Tg=="Positive"), permutations = 10000)
+permanova_result$aov.tab
+permanova_result <- adonis(Average_Tturn ~ Weight + Sex + SLC_Genotype, data = subset(data,ASO_Tg=="Positive"), permutations = 10000)
+permanova_result$aov.tab
+permanova_result <- adonis(Average_Ttotal ~ Weight + Sex + SLC_Genotype, data = subset(data,ASO_Tg=="Positive"), permutations = 10000)
+permanova_result$aov.tab
 
 
-average_tturn <- data %>% filter(Metric=="Average_Tturn")
-fastest_tturn <- data %>% filter(Metric=="Fastest_Tturn")
+permanova_result <- adonis(Fastest_Tturn ~ Weight + Sex + SLC_Genotype, data = subset(data,ASO_Tg=="Negative"), permutations = 10000)
+permanova_result$aov.tab
+permanova_result <- adonis(Fastest_Ttotal ~ Weight + Sex + SLC_Genotype, data = subset(data,ASO_Tg=="Negative"), permutations = 10000)
+permanova_result$aov.tab
+permanova_result <- adonis(Average_Tturn ~ Weight + Sex + SLC_Genotype, data = subset(data,ASO_Tg=="Negative"), permutations = 10000)
+permanova_result$aov.tab
+permanova_result <- adonis(Average_Ttotal ~ Weight + Sex + SLC_Genotype, data = subset(data,ASO_Tg=="Negative"), permutations = 10000)
+permanova_result$aov.tab
 
-average_ttotal <- data %>% filter(Metric=="Average_Ttotal")
-fastest_ttotal <- data %>% filter(Metric=="Fastest_Ttotal")
+# K-W test
+kruskal.test(Average_Tturn ~ ASO_Tg, data)
+kruskal.test(Average_Ttotal ~ ASO_Tg, data)
+kruskal.test(Fastest_Tturn ~ ASO_Tg, data)
+kruskal.test(Fastest_Ttotal ~ ASO_Tg, data)
 
-average_tturn_neg <- data %>% filter(Metric=="Average_Tturn" & ASO_Tg=="Negative")  
-average_tturn_pos<- data %>% filter(Metric=="Average_Tturn" & ASO_Tg=="Positive")  
+kruskal.test(Average_Tturn ~ SLC_Genotype, data=subset(data, ASO_Tg=="Positive"))
+kruskal.test(Average_Ttotal ~ SLC_Genotype, data=subset(data, ASO_Tg=="Positive"))
+kruskal.test(Fastest_Tturn ~ SLC_Genotype, data=subset(data, ASO_Tg=="Positive"))
+kruskal.test(Fastest_Ttotal ~ SLC_Genotype, data=subset(data, ASO_Tg=="Positive"))
 
-average_tturn_neg_f <- data %>% filter(Metric=="Average_Tturn" & ASO_Tg=="Negative" & Sex =="Female")  
-average_tturn_pos_f<- data %>% filter(Metric=="Average_Tturn" & ASO_Tg=="Positive" & Sex =="Female")  
-
-wilcox.test(Time ~ ASO_Tg, average_tturn)
-wilcox.test(Time ~ ASO_Tg, average_ttotal)
-
-mut <- average_tturn_neg %>% filter(SLC_Genotype!="HET")
-wilcox.test(Time ~ SLC_Genotype, mut)
-
-mut <- average_tturn_pos %>% filter(SLC_Genotype!="HET")
-wilcox.test(Time ~ SLC_Genotype, mut)
-
-mut <- average_tturn_neg_f %>% filter(SLC_Genotype!="HET")
-wilcox.test(Time ~ SLC_Genotype, mut)
-
-mut <- average_tturn_pos_f %>% filter(SLC_Genotype!="HET")
-wilcox.test(Time ~ SLC_Genotype, mut)
-
+kruskal.test(Average_Tturn ~ SLC_Genotype, data=subset(data, ASO_Tg=="Negative"))
+kruskal.test(Average_Ttotal ~ SLC_Genotype, data=subset(data, ASO_Tg=="Negative"))
+kruskal.test(Fastest_Tturn ~ SLC_Genotype, data=subset(data, ASO_Tg=="Negative"))
+kruskal.test(Fastest_Ttotal ~ SLC_Genotype, data=subset(data, ASO_Tg=="Negative"))
 
 
