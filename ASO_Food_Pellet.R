@@ -61,9 +61,11 @@ summary(lm2)
 lm3 <- lm(Total_Time ~ Weight + Sex + SLC_Genotype, data =  subset(data, ASO_Tg == "Negative"))
 summary(lm3)
 
-lm4 <- lm(Total_Time ~ Weight + SLC_Genotype, data =  subset(data, ASO_Tg == "Negative" & Sex=="Female"))
+lm4 <- lm(Total_Time ~ Weight + SLC_Genotype, 
+          data =  subset(data, ASO_Tg == "Negative" & Sex=="Female"))
 summary(lm4) 
-lm5 <- lm(Total_Time ~ Weight + SLC_Genotype, data =  subset(data, ASO_Tg == "Positive" & Sex=="Female"))
+lm5 <- lm(Total_Time ~ Weight + SLC_Genotype, 
+          data =  subset(data, ASO_Tg == "Positive" & Sex=="Female"))
 summary(lm5) 
 
 # Save outputs -
@@ -74,4 +76,8 @@ cat("\n\nSummary for all days, Tg Neg:\n")
 print(summary(lm3))
 cat("\n\nSummary for Day 1, Tg Pos:\n")
 print(summary(lm2))
+cat("\n\nSummary for all days, Females Tg Neg:\n")
+print(summary(lm4))
+cat("\n\nSummary for Day 1, Females Tg Pos:\n")
+print(summary(lm5))
 sink()

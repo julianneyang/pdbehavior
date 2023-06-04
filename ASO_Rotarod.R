@@ -153,7 +153,7 @@ summary(lm_day3_p)
 lm_day3_n <- lm(Average_Latency ~ Weight + SLC_Genotype + Sex , data = subset(data, Day == "Three" & ASO_Tg == "Negative"))
 summary(lm_day3_n)
 # Save outputs -
-sink("Rotarod_Cross_Sectional_Results.md")
+sink("Rotarod_Stats.md")
 cat("\n\nSummary for all days, Tg Pos:\n")
 print(summary(all_p))
 cat("\n\nSummary for all days, Tg Neg:\n")
@@ -190,7 +190,7 @@ lme_model_n <- lme(Average_Latency ~ SLC_Genotype*Day + Weight + SLC_Genotype + 
 summary(lme_model_n)
 
 # Save outputs -
-sink("Rotarod_Cross_Sectional_Results.md")
+sink("Rotarod_Stats.md")
 cat("\n\nLMEM on Full Dataset, Tg + vs Tg -:\n")
 print(summary(lme_model))
 cat("\n\nLMEM on Tg Pos:\n")

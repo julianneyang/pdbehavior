@@ -28,7 +28,7 @@ data <- data %>%
     any(Trial_1_Mode == "S" | Trial_2_Mode == "S" | Trial_3_Mode == "S" | Trial_4_Mode == "S" | Trial_5_Mode == "S") ~ "S",
     TRUE ~ "S"
   ))
-
+data$SLC_Genotype <- factor(data$SLC_Genotype, levels =c("WT","HET","MUT"))
 # Compare the distribution between Positive and Negative mice
 summary_table <- data %>%
   group_by(ASO_Tg, Best_Performance) %>%
@@ -132,6 +132,11 @@ plot_grid(posvneg_slc_avg_turn, posvneg_slc_avg_total, posvneg_slc_fast_turn, po
 
 ## Statistics --
 # Linear models and mixed effects linear models -
+lm1 <- lm(Average_Tturn ~ Weight + Sex + ASO_Tg +SLC_Genotype, data = data)
+summary(lm1)
+
+interact <- lm(Average_Tturn~ Weight + Sex + ASO_Tg*SLC_Genotype, data = data)
+summary(interact)
 
 data_long<- data %>%
   pivot_longer(cols = c(Trial_1_Tturn, Trial_2_Tturn, Trial_3_Tturn, Trial_4_Tturn, Trial_5_Tturn), names_to = "Tturn", values_to = "Tturn_Time") %>%
@@ -141,12 +146,18 @@ data_long$SLC_Genotype <- factor(data_long$SLC_Genotype,levels=c("WT","HET","MUT
 data_long_neg <- data_long %>% filter(ASO_Tg=="Negative")
 data_long_pos <- data_long %>% filter(ASO_Tg=="Positive")
 
+data_long_neg_f <- data_long %>% filter(ASO_Tg=="Negative" & Sex=="Female")
+data_long_pos_f <- data_long %>% filter(ASO_Tg=="Positive" & Sex == "Female")
+
+data_long_neg_m <- data_long %>% filter(ASO_Tg=="Negative" & Sex=="Male")
+data_long_pos_m <- data_long %>% filter(ASO_Tg=="Positive" & Sex == "Male")
+
 cs_variables <- c("Average_Tturn", "Average_Ttotal",
                "Fastest_Tturn", "Fastest_Ttotal")
 long_variables <- c("Tturn_Time", "Ttotal_Time")
 
 # Create a markdown file
-output_file <- "Pole_Test_output.md"
+output_file <- "Pole_Test_Stats.md"
 knitr::knit_meta(output_file)
 
 # Loop over the variables and perform analyses
@@ -168,6 +179,30 @@ for (variable in cs_variables) {
   formula_lm_neg <- reformulate(c("Sex", "SLC_Genotype", "Weight"), response = variable)
   output <- lm(formula_lm_neg, data = data_long_neg)
   cat("##", variable, " (Negative ASO_Tg)\n\n", file = output_file, append = TRUE)
+  cat(kable(summary(output)$coefficients), "\n\n", file = output_file, append = TRUE)
+  
+  # Fit linear model on positive ASO_Tg data females
+  formula_lm_pos <- reformulate(c("SLC_Genotype", "Weight"), response = variable)
+  output <- lm(formula_lm_pos, data = data_long_pos_f)
+  cat("##", variable, "Females (Positive ASO_Tg)\n\n", file = output_file, append = TRUE)
+  cat(kable(summary(output)$coefficients), "\n\n", file = output_file, append = TRUE)
+  
+  # Fit linear model on negative ASO_Tg data females
+  formula_lm_neg <- reformulate(c("SLC_Genotype", "Weight"), response = variable)
+  output <- lm(formula_lm_neg, data = data_long_neg_f)
+  cat("##", variable, "Females (Negative ASO_Tg)\n\n", file = output_file, append = TRUE)
+  cat(kable(summary(output)$coefficients), "\n\n", file = output_file, append = TRUE)
+  
+  # Fit linear model on positive ASO_Tg data Males
+  formula_lm_pos <- reformulate(c("SLC_Genotype", "Weight"), response = variable)
+  output <- lm(formula_lm_pos, data = data_long_pos_m)
+  cat("##", variable, "Males (Positive ASO_Tg)\n\n", file = output_file, append = TRUE)
+  cat(kable(summary(output)$coefficients), "\n\n", file = output_file, append = TRUE)
+  
+  # Fit linear model on negative ASO_Tg data Males
+  formula_lm_neg <- reformulate(c("SLC_Genotype", "Weight"), response = variable)
+  output <- lm(formula_lm_neg, data = data_long_neg_m)
+  cat("##", variable, "Males (Negative ASO_Tg)\n\n", file = output_file, append = TRUE)
   cat(kable(summary(output)$coefficients), "\n\n", file = output_file, append = TRUE)
   
 }

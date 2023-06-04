@@ -50,11 +50,11 @@ Mouse ID,Time_min,Time_sec,Time_csec,Total_Time,Cohort,SLC_Genotype,ASO_Tg,Sex,W
 664,1,23,1,83.01,Two,WT,Positive,Female,30.9
 844,,52,22,52.22,Two,WT,Negative,Female,27.7
 666,6,30,31,390.31,Two,WT,Positive,Male,35.3
-665_857,2,37,66,157.66,Two,WT,Negative,Female,32.6
+665_857,2,37,66,157.66,Two,WT,Negative,Male,32.6
 606,1,49,69,109.69,Two,HET,Positive,Female,26.1
 607,,40,81,40.81,Two,HET,Negative,Female,29.2
 605,2,42,78,162.78,Two,HET,Negative,Female,27
-667_845,4,13,94,253.94,Two,MUT,Negative,Female,37.8
+667_845,4,13,94,253.94,Two,MUT,Negative,Male,37.8
 669_843,,40,44,40.44,Two,HET,Negative,Female,32.8
 670_842,1,14,65,74.65,Two,HET,Positive,Female,28.2
 839,2,8,65,128.65,Two,HET,Negative,Female,28.7

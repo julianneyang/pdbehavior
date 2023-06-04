@@ -8,22 +8,22 @@ lm(formula = Total_Time ~ Weight + Sex + ASO_Tg + SLC_Genotype,
 
 Residuals:
     Min      1Q  Median      3Q     Max 
--409.53 -157.79  -41.26  133.55  449.06 
+-410.31 -157.17  -40.69  134.91  448.56 
 
 Coefficients:
                 Estimate Std. Error t value Pr(>|t|)  
-(Intercept)      -84.688    139.825  -0.606   0.5467  
-Weight             7.383      4.143   1.782   0.0791 .
-SexMale           24.477     64.106   0.382   0.7038  
-ASO_TgPositive    62.508     50.433   1.239   0.2194  
-SLC_GenotypeHET  165.861     63.765   2.601   0.0114 *
-SLC_GenotypeMUT   52.061     73.241   0.711   0.4796  
+(Intercept)      -87.170    138.325  -0.630   0.5307  
+Weight             7.405      4.186   1.769   0.0813 .
+SexMale           23.421     64.476   0.363   0.7175  
+ASO_TgPositive    63.933     50.953   1.255   0.2138  
+SLC_GenotypeHET  167.652     63.823   2.627   0.0106 *
+SLC_GenotypeMUT   52.074     73.306   0.710   0.4799  
 ---
 Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
 
 Residual standard error: 212.9 on 69 degrees of freedom
-Multiple R-squared:  0.1996,	Adjusted R-squared:  0.1416 
-F-statistic: 3.441 on 5 and 69 DF,  p-value: 0.007799
+Multiple R-squared:  0.1994,	Adjusted R-squared:  0.1414 
+F-statistic: 3.438 on 5 and 69 DF,  p-value: 0.007844
 
 
 
@@ -35,21 +35,21 @@ lm(formula = Total_Time ~ Weight + Sex + SLC_Genotype, data = subset(data,
 
 Residuals:
     Min      1Q  Median      3Q     Max 
--315.81 -128.19  -24.49  123.52  416.06 
+-319.85 -132.73  -18.77  115.84  418.72 
 
 Coefficients:
                 Estimate Std. Error t value Pr(>|t|)  
-(Intercept)     -207.077    187.200  -1.106   0.2762  
-Weight            13.712      5.207   2.633   0.0125 *
-SexMale          -69.421     77.766  -0.893   0.3781  
-SLC_GenotypeHET  113.570     86.056   1.320   0.1955  
-SLC_GenotypeMUT  -27.315    106.746  -0.256   0.7995  
+(Intercept)     -205.314    184.576  -1.112    0.274  
+Weight            14.099      5.251   2.685    0.011 *
+SexMale          -77.814     78.034  -0.997    0.326  
+SLC_GenotypeHET  103.156     85.821   1.202    0.237  
+SLC_GenotypeMUT  -29.421    106.560  -0.276    0.784  
 ---
 Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
 
-Residual standard error: 200.5 on 35 degrees of freedom
-Multiple R-squared:  0.2565,	Adjusted R-squared:  0.1715 
-F-statistic: 3.019 on 4 and 35 DF,  p-value: 0.03067
+Residual standard error: 199.9 on 35 degrees of freedom
+Multiple R-squared:  0.2606,	Adjusted R-squared:  0.1761 
+F-statistic: 3.084 on 4 and 35 DF,  p-value: 0.02822
 
 
 
@@ -87,20 +87,20 @@ lm(formula = Total_Time ~ Weight + SLC_Genotype, data = subset(data,
 
 Residuals:
     Min      1Q  Median      3Q     Max 
--280.56  -91.36  -64.38   80.10  356.31 
+-287.92  -98.15  -45.04   65.85  382.09 
 
 Coefficients:
                 Estimate Std. Error t value Pr(>|t|)  
-(Intercept)     -303.225    312.766  -0.969   0.3477  
-Weight            16.179      8.824   1.833   0.0866 .
-SLC_GenotypeHET   93.540    121.787   0.768   0.4544  
-SLC_GenotypeMUT   72.251    137.911   0.524   0.6080  
+(Intercept)      -425.32     387.65  -1.097   0.2925  
+Weight             20.78      10.78   1.929   0.0759 .
+SLC_GenotypeHET    72.00     149.56   0.481   0.6382  
+SLC_GenotypeMUT   100.35     179.82   0.558   0.5863  
 ---
 Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
 
-Residual standard error: 182.7 on 15 degrees of freedom
-Multiple R-squared:  0.2129,	Adjusted R-squared:  0.05554 
-F-statistic: 1.353 on 3 and 15 DF,  p-value: 0.295
+Residual standard error: 189.8 on 13 degrees of freedom
+Multiple R-squared:  0.2501,	Adjusted R-squared:  0.07707 
+F-statistic: 1.445 on 3 and 13 DF,  p-value: 0.2749
 
 
 
