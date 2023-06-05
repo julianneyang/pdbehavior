@@ -120,7 +120,7 @@ lm7 <- lm(Time ~ Weight + SLC_Genotype,
 summary(lm7) 
 
 # Save outputs -
-sink("ASO_Wire_Hang.md")
+sink("Wire_Hang_Stats.md")
 cat("\n\nSummary for all data:\n")
 print(summary(lm1))
 cat("\n\nSummary for all days, Tg Neg:\n")

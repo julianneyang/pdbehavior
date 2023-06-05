@@ -13,7 +13,30 @@ data_long <- pivot_longer(data,
 data_long$timepoint <- as.integer(stringr::str_extract(data_long$timepoint, "\\d+"))
 data_long$SLC_Genotype <- factor(data_long$SLC_Genotype, levels=c("WT", "HET", "MUT"))
 data_long$timepoint <- factor(data_long$timepoint)
-## All together -- 
+
+pos <- data_long %>% filter(ASO_Tg=="Positive")
+neg <- data_long %>% filter(ASO_Tg=="Negative")
+
+## Plots --
+generate_boxplots(data_long,ASO_Tg,FP_output,0, 30) + 
+  facet_wrap(~timepoint)
+
+generate_boxplots(pos,SLC_Genotype,FP_output,0, 30) + 
+  facet_wrap(~timepoint)+
+  ggtitle("Tg Positive")
+
+generate_boxplots(pos,SLC_Genotype,FP_output,0, 30) + 
+  facet_wrap(Sex~timepoint,nrow=2)+
+  ggtitle("Tg Positive by Sex")
+
+generate_boxplots(neg,SLC_Genotype,FP_output,0, 30) + 
+  facet_wrap(~timepoint)+
+  ggtitle("Tg Negative")
+
+generate_boxplots(neg,SLC_Genotype,FP_output,0, 30) + 
+  facet_wrap(Sex~timepoint)+
+  ggtitle("Tg Negative by Sex")
+
 # Calculate the mean and standard error for each group
 df_summary <- data_long %>%
   group_by(ASO_Tg, timepoint) %>%
