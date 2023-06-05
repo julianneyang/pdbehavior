@@ -55,6 +55,9 @@ e
 lm1 <- lm(Total_Time ~ Weight + Sex + ASO_Tg +SLC_Genotype, data = data)
 summary(lm1)
 
+interact <- lm(Total_Time ~ Weight + Sex + ASO_Tg*SLC_Genotype, data = data)
+summary(interact)
+
 lm2 <- lm(Total_Time ~ Weight + Sex + SLC_Genotype, data =  subset(data, ASO_Tg == "Positive"))
 summary(lm2)
 
@@ -68,16 +71,29 @@ lm5 <- lm(Total_Time ~ Weight + SLC_Genotype,
           data =  subset(data, ASO_Tg == "Positive" & Sex=="Female"))
 summary(lm5) 
 
+lm6 <- lm(Total_Time ~ Weight + SLC_Genotype, 
+          data =  subset(data, ASO_Tg == "Negative" & Sex=="Male"))
+summary(lm6) 
+lm7 <- lm(Total_Time ~ Weight + SLC_Genotype, 
+          data =  subset(data, ASO_Tg == "Positive" & Sex=="Male"))
+summary(lm7) 
+
 # Save outputs -
-sink("Buried_Food_Pellet_Stats_Results.md")
+sink("Buried_Food_Pellet_Stats.md")
 cat("\n\nSummary for all data:\n")
 print(summary(lm1))
-cat("\n\nSummary for all days, Tg Neg:\n")
+cat("\n\nSummary for interaction:\n")
+print(summary(interact))
+cat("\n\nSummary for Tg Neg:\n")
 print(summary(lm3))
-cat("\n\nSummary for Day 1, Tg Pos:\n")
+cat("\n\nSummary for Tg Pos:\n")
 print(summary(lm2))
-cat("\n\nSummary for all days, Females Tg Neg:\n")
+cat("\n\nSummary for Females Tg Neg:\n")
 print(summary(lm4))
-cat("\n\nSummary for Day 1, Females Tg Pos:\n")
+cat("\n\nSummary for Females Tg Pos:\n")
 print(summary(lm5))
+cat("\n\nSummary for Males Tg Neg:\n")
+print(summary(lm6))
+cat("\n\nSummary for Males Tg Pos:\n")
+print(summary(lm7))
 sink()

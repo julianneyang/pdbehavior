@@ -26,10 +26,10 @@ posvneg <- ggplot(df_summary, aes(x = timepoint, y = mean, group = ASO_Tg, color
   geom_line(size=2) +
   geom_errorbar(aes(ymin = mean - se, ymax = mean + se), width = 0.2) +
   labs(x = "Time (minutes)", y = "FP_output") +
-  scale_color_manual(values = c("Positive" = "red", "Negative" = "blue")) +
+  scale_color_viridis_d()  +
   theme_cowplot(16) + 
   ggtitle("ASO FP output over time") + 
-  theme(legend.position = "top",legend.title = element_text(hjust = 0.5))+
+  theme(legend.position = "top",legend.justification = "center",legend.title = element_text(hjust = 0.5))+
   theme(plot.title = element_text(hjust = 0.5))
 
 
@@ -46,10 +46,10 @@ slc_genotype <- ggplot(df_summary, aes(x = timepoint, y = mean, group = SLC_Geno
   geom_line(size=2) +
   geom_errorbar(aes(ymin = mean - se, ymax = mean + se), width = 0.2) +
   labs(x = "Time (minutes)", y = "FP_output") +
-  #scale_color_manual(values = c("Positive" = "red", "Negative" = "blue")) +
+  scale_color_viridis_d()  +
   theme_cowplot(16) + 
   ggtitle("SLC Genotype: ASO FP output over time") + 
-  theme(legend.position = "top",legend.title = element_text(hjust = 0.5))+
+  theme(legend.position = "top", legend.justification="center",legend.title = element_text(hjust = 0.5))+
   theme(plot.title = element_text(hjust = 0.5)) +
   facet_wrap(~ASO_Tg)
 
@@ -67,7 +67,7 @@ femaleplot <- ggplot(female_df_summary, aes(x = timepoint, y = mean, group = SLC
   geom_line(size=2) +
   geom_errorbar(aes(ymin = mean - se, ymax = mean + se), width = 0.2) +
   labs(x = "Time (minutes)", y = "FP_output") +
-  #scale_color_manual(values = c("Positive" = "red", "Negative" = "blue")) +
+  scale_color_viridis_d()  +
   theme_cowplot(16) + 
   ggtitle("Females: ASO FP output over time") + 
   facet_wrap(~ASO_Tg) +
@@ -88,7 +88,7 @@ male_plot <- ggplot(male_df_summary, aes(x = timepoint, y = mean, group = SLC_Ge
   geom_line(size=2) +
   geom_errorbar(aes(ymin = mean - se, ymax = mean + se), width = 0.2) +
   labs(x = "Time (minutes)", y = "FP_output") +
-  #scale_color_manual(values = c("Positive" = "red", "Negative" = "blue")) +
+  scale_color_viridis_d()  +
   theme_cowplot(16) + 
   ggtitle("Males: ASO FP output over time") + 
   facet_wrap(~ASO_Tg) +
@@ -99,11 +99,17 @@ male_plot <- ggplot(male_df_summary, aes(x = timepoint, y = mean, group = SLC_Ge
 plot_grid(femaleplot, male_plot)
 
 ### Longitudinal Stats ---
-lm1<- lme(fixed= FP_output ~ Sex + SLC_Genotype + ASO_Tg, random = ~1|MouseID, data=data_long)
+nonpara_output <- kruskal.test(FP_output~ASO_Tg, data=data_long)
+print(nonpara_output)
+
+lm1<- lme(fixed= FP_output ~ timepoint + ASO_Tg +Sex + SLC_Genotype, random = ~1|MouseID, data=data_long)
 summary(lm1)
 
-lm1<- lme(fixed= FP_output ~ timepoint*ASO_Tg +Sex + SLC_Genotype, random = ~1|MouseID, data=data_long)
-summary(output1)
+lm1_time_ASO<- lme(fixed= FP_output ~ timepoint*ASO_Tg +Sex + SLC_Genotype, random = ~1|MouseID, data=data_long)
+summary(lm1_time_ASO)
+
+lm1_SLC_ASO<- lme(fixed= FP_output ~ timepoint + ASO_Tg*SLC_Genotype +Sex , random = ~1|MouseID, data=data_long)
+summary(lm1_SLC_ASO)
 
 pos <- data_long %>% filter(ASO_Tg=="Positive")
 neg <- data_long %>% filter(ASO_Tg=="Negative")
@@ -130,9 +136,15 @@ lm7 <- lme(fixed= FP_output ~ timepoint*SLC_Genotype, random = ~1|MouseID, data=
 summary(lm7)
 
 # Save outputs -
-sink("FP_output.md")
+sink("FP_output_Stats.md")
 cat("\n\nSummary for all data:\n")
 print(summary(lm1))
+cat("\n\nSummary for all data, non parametric:\n")
+print((nonpara_output))
+cat("\n\nSummary for all data, time*ASO:\n")
+print(summary(lm1_time_ASO))
+cat("\n\nSummary for all data, SLC*ASO:\n")
+print(summary(lm1_SLC_ASO))
 cat("\n\nSummary for Tg Pos:\n")
 print(summary(lm2))
 cat("\n\nSummary for Tg Neg:\n")

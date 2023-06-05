@@ -138,19 +138,16 @@ summary(lm1)
 interact <- lm(Average_Tturn~ Weight + Sex + ASO_Tg*SLC_Genotype, data = data)
 summary(interact)
 
-data_long<- data %>%
-  pivot_longer(cols = c(Trial_1_Tturn, Trial_2_Tturn, Trial_3_Tturn, Trial_4_Tturn, Trial_5_Tturn), names_to = "Tturn", values_to = "Tturn_Time") %>%
-  pivot_longer(cols = c(Trial_1_Ttotal, Trial_2_Ttotal, Trial_3_Ttotal, Trial_4_Ttotal, Trial_5_Ttotal), names_to = "Ttotal", values_to = "Ttotal_Time") 
-data_long$SLC_Genotype <- factor(data_long$SLC_Genotype,levels=c("WT","HET","MUT"))
+data$SLC_Genotype <- factor(data$SLC_Genotype,levels=c("WT","HET","MUT"))
 
-data_long_neg <- data_long %>% filter(ASO_Tg=="Negative")
-data_long_pos <- data_long %>% filter(ASO_Tg=="Positive")
+data_neg <- data %>% filter(ASO_Tg=="Negative")
+data_pos <- data %>% filter(ASO_Tg=="Positive")
 
-data_long_neg_f <- data_long %>% filter(ASO_Tg=="Negative" & Sex=="Female")
-data_long_pos_f <- data_long %>% filter(ASO_Tg=="Positive" & Sex == "Female")
+data_neg_f <- data %>% filter(ASO_Tg=="Negative" & Sex=="Female")
+data_pos_f <- data %>% filter(ASO_Tg=="Positive" & Sex == "Female")
 
-data_long_neg_m <- data_long %>% filter(ASO_Tg=="Negative" & Sex=="Male")
-data_long_pos_m <- data_long %>% filter(ASO_Tg=="Positive" & Sex == "Male")
+data_neg_m <- data %>% filter(ASO_Tg=="Negative" & Sex=="Male")
+data_pos_m <- data %>% filter(ASO_Tg=="Positive" & Sex == "Male")
 
 cs_variables <- c("Average_Tturn", "Average_Ttotal",
                "Fastest_Tturn", "Fastest_Ttotal")
@@ -165,43 +162,43 @@ for (variable in cs_variables) {
    
   # Fit linear model on full data
   formula_lm_full <- reformulate(c("Sex", "SLC_Genotype", "Weight", "ASO_Tg"), response = variable)
-  output <- lm(formula_lm_full, data = data_long)
+  output <- lm(formula_lm_full, data = data)
   cat("##", variable, "\n\n", file = output_file, append = TRUE)
   cat(kable(summary(output)$coefficients), "\n\n", file = output_file, append = TRUE)
   
   # Fit linear model on positive ASO_Tg data
   formula_lm_pos <- reformulate(c("Sex", "SLC_Genotype", "Weight"), response = variable)
-  output <- lm(formula_lm_pos, data = data_long_pos)
+  output <- lm(formula_lm_pos, data = data_pos)
   cat("##", variable, " (Positive ASO_Tg)\n\n", file = output_file, append = TRUE)
   cat(kable(summary(output)$coefficients), "\n\n", file = output_file, append = TRUE)
   
   # Fit linear model on negative ASO_Tg data
   formula_lm_neg <- reformulate(c("Sex", "SLC_Genotype", "Weight"), response = variable)
-  output <- lm(formula_lm_neg, data = data_long_neg)
+  output <- lm(formula_lm_neg, data = data_neg)
   cat("##", variable, " (Negative ASO_Tg)\n\n", file = output_file, append = TRUE)
   cat(kable(summary(output)$coefficients), "\n\n", file = output_file, append = TRUE)
   
   # Fit linear model on positive ASO_Tg data females
   formula_lm_pos <- reformulate(c("SLC_Genotype", "Weight"), response = variable)
-  output <- lm(formula_lm_pos, data = data_long_pos_f)
+  output <- lm(formula_lm_pos, data = data_pos_f)
   cat("##", variable, "Females (Positive ASO_Tg)\n\n", file = output_file, append = TRUE)
   cat(kable(summary(output)$coefficients), "\n\n", file = output_file, append = TRUE)
   
   # Fit linear model on negative ASO_Tg data females
   formula_lm_neg <- reformulate(c("SLC_Genotype", "Weight"), response = variable)
-  output <- lm(formula_lm_neg, data = data_long_neg_f)
+  output <- lm(formula_lm_neg, data = data_neg_f)
   cat("##", variable, "Females (Negative ASO_Tg)\n\n", file = output_file, append = TRUE)
   cat(kable(summary(output)$coefficients), "\n\n", file = output_file, append = TRUE)
   
   # Fit linear model on positive ASO_Tg data Males
   formula_lm_pos <- reformulate(c("SLC_Genotype", "Weight"), response = variable)
-  output <- lm(formula_lm_pos, data = data_long_pos_m)
+  output <- lm(formula_lm_pos, data = data_pos_m)
   cat("##", variable, "Males (Positive ASO_Tg)\n\n", file = output_file, append = TRUE)
   cat(kable(summary(output)$coefficients), "\n\n", file = output_file, append = TRUE)
   
   # Fit linear model on negative ASO_Tg data Males
   formula_lm_neg <- reformulate(c("SLC_Genotype", "Weight"), response = variable)
-  output <- lm(formula_lm_neg, data = data_long_neg_m)
+  output <- lm(formula_lm_neg, data = data_neg_m)
   cat("##", variable, "Males (Negative ASO_Tg)\n\n", file = output_file, append = TRUE)
   cat(kable(summary(output)$coefficients), "\n\n", file = output_file, append = TRUE)
   
