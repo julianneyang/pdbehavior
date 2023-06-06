@@ -1,0 +1,147 @@
+Batch,MouseID,Day,No_Move_Object ,Move_Object ,Genotype,Sex,Treatment,Percent_Investigation_Time,Discrimination_Index,Day_Treatment
+One,"1,364.00",Training,14.5,36.7,HET,Male ,MPTP,71.6796875,43.359375,TrainingMPTP
+One,"1,351.00",Training,18,11.5,HET,Male ,MPTP,38.98305085,-22.03389831,TrainingMPTP
+One,"1,351.00",Testing,83.6,11.3,HET,Male ,MPTP,11.90727081,-76.18545838,TestingMPTP
+One,"1,364.00",Testing,14.8,15.3,HET,Male ,MPTP,50.83056478,1.661129568,TestingMPTP
+One,"1,350.00",Training,37.2,23.8,HET,Male ,Saline,39.01639344,-21.96721311,TrainingSaline
+One,"1,353.00",Training,52.5,22.4,HET,Male ,Saline,29.90654206,-40.18691589,TrainingSaline
+One,"1,370.00",Training,43.7,53.9,HET,Male ,Saline,55.22540984,10.45081967,TrainingSaline
+One,"1,350.00",Testing,24.8,16.8,HET,Male ,Saline,40.38461538,-19.23076923,TestingSaline
+One,"1,353.00",Testing,10.4,23.8,HET,Male ,Saline,69.59064327,39.18128655,TestingSaline
+One,"1,370.00",Testing,35.3,23.7,HET,Male ,Saline,40.16949153,-19.66101695,TestingSaline
+One,"1,367.00",Training,34.4,40,MUT,Female,MPTP,53.76344086,7.52688172,TrainingMPTP
+One,"1,369.00",Training,35.8,20.6,MUT,Female,MPTP,36.5248227,-26.95035461,TrainingMPTP
+One,"1,367.00",Testing,16.3,18.7,MUT,Female,MPTP,53.42857143,6.857142857,TestingMPTP
+One,"1,369.00",Testing,24.7,21,MUT,Female,MPTP,45.95185996,-8.096280088,TestingMPTP
+One,"1,358.00",Training,7.3,9.8,MUT,Male ,MPTP,57.30994152,14.61988304,TrainingMPTP
+One,"1,358.00",Testing,11.7,7.5,MUT,Male ,MPTP,39.0625,-21.875,TestingMPTP
+One,"1,359.00",Training,30.8,26.4,MUT,Male ,Saline,46.15384615,-7.692307692,TrainingSaline
+One,"1,359.00",Testing,15.8,12.6,MUT,Male ,Saline,44.36619718,-11.26760563,TestingSaline
+One,"1,357.00",Training,18.2,15.5,WT,Male ,MPTP,45.99406528,-8.011869436,TrainingMPTP
+One,"1,357.00",Testing,8.6,6.4,WT,Male ,MPTP,42.66666667,-14.66666667,TestingMPTP
+One,"1,349.00",Training,23.1,18.2,WT,Male ,Saline,44.06779661,-11.86440678,TrainingSaline
+One,"1,352.00",Training,24.1,24.5,WT,Male ,Saline,50.41152263,0.8230452675,TrainingSaline
+One,"1,349.00",Testing,37.2,3.2,WT,Male ,Saline,7.920792079,-84.15841584,TestingSaline
+One,"1,352.00",Testing,16.8,17.7,WT,Male ,Saline,51.30434783,2.608695652,TestingSaline
+Two,"1,394.00",Training,21.8,29.8,HET,Female,MPTP,57.75193798,15.50387597,TrainingMPTP
+Two,"1,385.00",Training,34.5,37.9,HET,Female,MPTP,52.3480663,4.696132597,TrainingMPTP
+Two,"1,378.00",Training,8.7,32.3,HET,Female,MPTP,78.7804878,57.56097561,TrainingMPTP
+Two,"1,383.00",Training,16,28.9,HET,Female,MPTP,64.36525612,28.73051225,TrainingMPTP
+Two,"1,394.00",Testing,27.2,15.9,HET,Female,MPTP,36.89095128,-26.21809745,TestingMPTP
+Two,"1,385.00",Testing,12,21.4,HET,Female,MPTP,64.07185629,28.14371257,TestingMPTP
+Two,"1,378.00",Testing,16.5,19.7,HET,Female,MPTP,54.4198895,8.839779006,TestingMPTP
+Two,"1,383.00",Testing,117.6,13.2,HET,Female,MPTP,10.09174312,-79.81651376,TestingMPTP
+Two,"1,398.00",Training,35.3,39.5,HET,Female,Saline,52.80748663,5.614973262,TrainingSaline
+Two,"1,400.00",Training,26.1,29.7,HET,Female,Saline,53.22580645,6.451612903,TrainingSaline
+Two,"1,399.00",Training,24,17.9,HET,Female,Saline,42.72076372,-14.55847255,TrainingSaline
+Two,"1,398.00",Testing,13.3,13.9,HET,Female,Saline,51.10294118,2.205882353,TestingSaline
+Two,"1,400.00",Testing,16.6,46.9,HET,Female,Saline,73.85826772,47.71653543,TestingSaline
+Two,"1,399.00",Testing,47.2,13,HET,Female,Saline,21.59468439,-56.81063123,TestingSaline
+Two,"1,386.00",Training,30.8,26.2,HET,Male ,MPTP,45.96491228,-8.070175439,TrainingMPTP
+Two,"1,386.00",Testing,7.3,33.5,HET,Male ,MPTP,82.10784314,64.21568627,TestingMPTP
+Two,"1,390.00",Training,7.3,16.3,HET,Male ,Saline,69.06779661,38.13559322,TrainingSaline
+Two,"1,390.00",Testing,11.5,3.9,HET,Male ,Saline,25.32467532,-49.35064935,TestingSaline
+Two,596.00,Training,19.9,8.2,HET,Male ,Saline,29.18149466,-41.63701068,TrainingSaline
+Two,597.00,Training,4.4,5.6,HET,Male ,Saline,56,12,TrainingSaline
+Two,"1,381.00",Training,19.5,35,MUT,Female,MPTP,64.22018349,28.44036697,TrainingMPTP
+Two,"1,393.00",Training,22.4,23.5,MUT,Female,MPTP,51.19825708,2.396514161,TrainingMPTP
+Two,"1,381.00",Testing,9.9,13.1,MUT,Female,MPTP,56.95652174,13.91304348,TestingMPTP
+Two,"1,393.00",Testing,2.3,13.2,MUT,Female,MPTP,85.16129032,70.32258065,TestingMPTP
+Two,"1,384.00",Training,15.7,16.7,MUT,Female,Saline,51.54320988,3.086419753,TrainingSaline
+Two,"1,397.00",Training,37.1,23.7,MUT,Female,Saline,38.98026316,-22.03947368,TrainingSaline
+Two,"1,384.00",Testing,2.8,123.2,MUT,Female,Saline,97.77777778,95.55555556,TestingSaline
+Two,"1,397.00",Testing,27,19.5,MUT,Female,Saline,41.93548387,-16.12903226,TestingSaline
+Two,"1,387.00",Training,22.6,6.9,MUT,Male ,MPTP,23.38983051,-53.22033898,TrainingMPTP
+Two,"1,387.00",Testing,25.2,25.5,MUT,Male ,MPTP,50.29585799,0.5917159763,TestingMPTP
+Two,611.00,Training,13.2,9.4,MUT,Male ,MPTP,41.59292035,-16.81415929,TrainingMPTP
+Two,590.00,Training,10.8,11.3,MUT,Male ,MPTP,51.13122172,2.262443439,TrainingMPTP
+Two,583.00,Training,11.5,46.1,MUT,Male ,Saline,80.03472222,60.06944444,TrainingSaline
+Two,585.00,Training,15.2,38.2,MUT,Male ,Saline,71.53558052,43.07116105,TrainingSaline
+Two,606.00,Training,11.1,37.7,WT,Female,Saline,77.25409836,54.50819672,TrainingSaline
+Two,608.00,Training,22.6,9.6,WT,Female,Saline,29.8136646,-40.37267081,TrainingSaline
+Two,"1,392.00",Training,7.7,17.7,WT,Male ,MPTP,69.68503937,39.37007874,TrainingMPTP
+Two,"1,392.00",Testing,0,10,WT,Male ,MPTP,100,100,TestingMPTP
+Three,171.00,Training,64.5,19.1,HET,Female,MPTP,22.84688995,-54.3062201,TrainingMPTP
+Three,172.00,Training,21.1,49.1,HET,Female,MPTP,69.94301994,39.88603989,TrainingMPTP
+Three,179.00,Training,27.4,20.6,HET,Female,MPTP,42.91666667,-14.16666667,TrainingMPTP
+Three,179.00,Testing,12.4,14.8,HET,Female,MPTP,54.41176471,8.823529412,TestingMPTP
+Three,171.00,Testing,18.8,30.8,HET,Female,MPTP,62.09677419,24.19354839,TestingMPTP
+Three,172.00,Testing,18.5,13.5,HET,Female,MPTP,42.1875,-15.625,TestingMPTP
+Three,165.00,Training,139.1,6.1,HET,Male ,MPTP,4.201101928,-91.59779614,TrainingMPTP
+Three,175.00,Training,8.1,32,HET,Male ,MPTP,79.80049875,59.60099751,TrainingMPTP
+Three,169.00,Training,27,13.9,HET,Male ,MPTP,33.98533007,-32.02933985,TrainingMPTP
+Three,168.00,Training,56.8,9,HET,Male ,MPTP,13.67781155,-72.6443769,TrainingMPTP
+Three,169.00,Testing,15.8,16.7,HET,Male ,MPTP,51.38461538,2.769230769,TestingMPTP
+Three,168.00,Testing,23,34.7,HET,Male ,MPTP,60.13864818,20.27729636,TestingMPTP
+Three,165.00,Testing,15.2,14.2,HET,Male ,MPTP,48.29931973,-3.401360544,TestingMPTP
+Three,175.00,Testing,11.7,30.8,HET,Male ,MPTP,72.47058824,44.94117647,TestingMPTP
+Three,115.00,Training,32.4,42,HET,Male ,Saline,56.4516129,12.90322581,TrainingSaline
+Three,118.00,Training,21.8,26.5,HET,Male ,Saline,54.86542443,9.730848861,TrainingSaline
+Three,116.00,Training,7.5,29.8,HET,Male ,Saline,79.89276139,59.78552279,TrainingSaline
+Three,115.00,Testing,20.3,24,HET,Male ,Saline,54.17607223,8.35214447,TestingSaline
+Three,118.00,Testing,17.2,27.6,HET,Male ,Saline,61.60714286,23.21428571,TestingSaline
+Three,116.00,Testing,4.4,15.1,HET,Male ,Saline,77.43589744,54.87179487,TestingSaline
+Three,177.00,Training,32.4,19.9,MUT,Female,MPTP,38.04971319,-23.90057361,TrainingMPTP
+Three,177.00,Testing,25.6,25.9,MUT,Female,MPTP,50.29126214,0.5825242718,TestingMPTP
+Three,167.00,Training,29.9,13,MUT,Male ,MPTP,30.3030303,-39.39393939,TrainingMPTP
+Three,174.00,Training,17.4,25.8,MUT,Male ,MPTP,59.72222222,19.44444444,TrainingMPTP
+Three,117.00,Training,60.4,14.4,MUT,Male ,MPTP,19.2513369,-61.4973262,TrainingMPTP
+Three,167.00,Testing,20.6,13.6,MUT,Male ,MPTP,39.76608187,-20.46783626,TestingMPTP
+Three,174.00,Testing,12.3,18.8,MUT,Male ,MPTP,60.45016077,20.90032154,TestingMPTP
+Three,117.00,Testing,22,25,MUT,Male ,MPTP,53.19148936,6.382978723,TestingMPTP
+Three,119.00,Training,15.3,25.9,WT,Female,MPTP,62.86407767,25.72815534,TrainingMPTP
+Three,178.00,Training,15.3,23,WT,Female,MPTP,60.05221932,20.10443864,TrainingMPTP
+Three,119.00,Testing,26.3,26.9,WT,Female,MPTP,50.56390977,1.127819549,TestingMPTP
+Three,178.00,Testing,11.5,26.3,WT,Female,MPTP,69.57671958,39.15343915,TestingMPTP
+Three,121.00,Training,18.7,5.8,WT,Male ,MPTP,23.67346939,-52.65306122,TrainingMPTP
+Three,173.00,Training,19.5,15.6,WT,Male ,MPTP,44.44444444,-11.11111111,TrainingMPTP
+Three,121.00,Testing,20.5,15.8,WT,Male ,MPTP,43.5261708,-12.9476584,TestingMPTP
+Three,173.00,Testing,12.7,19.7,WT,Male ,MPTP,60.80246914,21.60493827,TestingMPTP
+Five,504.00,Training,8.3,18.3,MUT,Female,MPTP,68.79699248,37.59398496,TrainingMPTP
+Five,531.00,Training,9.2,8.1,MUT,Female,MPTP,46.82080925,-6.358381503,TrainingMPTP
+Five,491.00,Training,18,24,MUT,Female,MPTP,57.14285714,14.28571429,TrainingMPTP
+Five,504.00,Testing,12.8,17.5,MUT,Female,MPTP,57.75577558,15.51155116,TestingMPTP
+Five,531.00,Testing,23.4,12.8,MUT,Female,MPTP,35.35911602,-29.28176796,TestingMPTP
+Five,491.00,Testing,9.4,16.2,MUT,Female,MPTP,63.28125,26.5625,TestingMPTP
+Five,511.00,Training,21,15.4,MUT,Male ,Saline,42.30769231,-15.38461538,TrainingSaline
+Five,513.00,Training,23,13.9,MUT,Male ,Saline,37.66937669,-24.66124661,TrainingSaline
+Five,511.00,Testing,9.1,27.3,MUT,Male ,Saline,75,50,TestingSaline
+Five,513.00,Testing,16.5,6.1,MUT,Male ,Saline,26.99115044,-46.01769912,TestingSaline
+Five,505.00,Training,31.7,49.5,WT,Female,Saline,60.96059113,21.92118227,TrainingSaline
+Five,494.00,Training,28.9,14.2,WT,Female,Saline,32.94663573,-34.10672854,TrainingSaline
+Five,505.00,Testing,79.8,14.4,WT,Female,Saline,15.2866242,-69.42675159,TestingSaline
+Five,494.00,Testing,22.4,19.7,WT,Female,Saline,46.79334917,-6.413301663,TestingSaline
+Five,514.00,Training,14,31.9,WT,Male ,MPTP,69.49891068,38.99782135,TrainingMPTP
+Five,507.00,Training,18,20.9,WT,Male ,MPTP,53.72750643,7.455012853,TrainingMPTP
+Five,508.00,Training,24.6,18.2,WT,Male ,MPTP,42.52336449,-14.95327103,TrainingMPTP
+Five,514.00,Testing,18.9,13.1,WT,Male ,MPTP,40.9375,-18.125,TestingMPTP
+Five,507.00,Testing,15.8,17.3,WT,Male ,MPTP,52.26586103,4.531722054,TestingMPTP
+Five,508.00,Testing,16.2,18.4,WT,Male ,MPTP,53.17919075,6.358381503,TestingMPTP
+Six,612.00,Training,58.3,13.4,HET,Male ,MPTP,18.68898187,-62.62203626,TrainingMPTP
+Six,613.00,Training,10.7,19.3,HET,Male ,MPTP,64.33333333,28.66666667,TrainingMPTP
+Six,612.00,Testing,47.4,12,HET,Male ,MPTP,20.2020202,-59.5959596,TestingMPTP
+Six,613.00,Testing,11.3,21.5,HET,Male ,MPTP,65.54878049,31.09756098,TestingMPTP
+Six,596.00,Testing,58.5,8.5,HET,Male ,Saline,12.68656716,-74.62686567,TestingSaline
+Six,597.00,Testing,2.6,2.2,HET,Male ,Saline,45.83333333,-8.333333333,TestingSaline
+Six,595.00,Training,27.2,39.5,MUT,Female,MPTP,59.22038981,18.44077961,TrainingMPTP
+Six,609.00,Training,46.7,13.1,MUT,Female,MPTP,21.90635452,-56.18729097,TrainingMPTP
+Six,595.00,Testing,25.1,34.8,MUT,Female,MPTP,58.09682805,16.19365609,TestingMPTP
+Six,609.00,Testing,18.7,32.2,MUT,Female,MPTP,63.26129666,26.52259332,TestingMPTP
+Six,611.00,Testing,38.9,11.8,MUT,Male ,MPTP,23.27416174,-53.45167653,TestingMPTP
+Six,590.00,Testing,12.9,6.9,MUT,Male ,MPTP,34.84848485,-30.3030303,TestingMPTP
+Six,586.00,Training,6.2,4.5,MUT,Male ,Saline,42.05607477,-15.88785047,TrainingSaline
+Six,587.00,Training,14.7,4.8,MUT,Male ,Saline,24.61538462,-50.76923077,TrainingSaline
+Six,583.00,Testing,14.1,26.4,MUT,Male ,Saline,65.18518519,30.37037037,TestingSaline
+Six,585.00,Testing,24,30.6,MUT,Male ,Saline,56.04395604,12.08791209,TestingSaline
+Six,586.00,Testing,7,27.7,MUT,Male ,Saline,79.82708934,59.65417867,TestingSaline
+Six,587.00,Testing,34.3,9.2,MUT,Male ,Saline,21.14942529,-57.70114943,TestingSaline
+Six,593.00,Training,23.9,9,WT,Female,MPTP,27.3556231,-45.2887538,TrainingMPTP
+Six,599.00,Training,23.1,18.6,WT,Female,MPTP,44.60431655,-10.79136691,TrainingMPTP
+Six,593.00,Testing,56.9,10.7,WT,Female,MPTP,15.82840237,-68.34319527,TestingMPTP
+Six,599.00,Testing,25.1,29.3,WT,Female,MPTP,53.86029412,7.720588235,TestingMPTP
+Six,606.00,Testing,27.4,8.9,WT,Female,Saline,24.51790634,-50.96418733,TestingSaline
+Six,608.00,Testing,26.2,10.3,WT,Female,Saline,28.21917808,-43.56164384,TestingSaline
+Six,550.00,Training,27.3,126.5,WT,Male ,Saline,82.2496749,64.4993498,TrainingSaline
+Six,584.00,Training,0.9,3.5,WT,Male ,Saline,79.54545455,59.09090909,TrainingSaline
+Six,550.00,Testing,41.7,6.2,WT,Male ,Saline,12.94363257,-74.11273486,TestingSaline
+Six,584.00,Testing,8.9,5.3,WT,Male ,Saline,37.32394366,-25.35211268,TestingSaline
