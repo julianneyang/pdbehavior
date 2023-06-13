@@ -11,7 +11,7 @@ library(knitr)
 library(dplyr)
 
 
-data <- readr::read_csv(here("Analysis_Files", "ASO","ASO Rotarod - Rotarod.csv"))
+data <- readr::read_csv(here("Analysis_Files/PFF/PFF Rotarod - PFF_Rotarod_Analysis.csv"))
 data$SLC_Genotype <- factor(data$SLC_Genotype, levels=c("WT", "HET", "MUT"))
 
 generate_boxplots <- function(input_data, X, Y, min,max){
@@ -32,9 +32,8 @@ generate_boxplots <- function(input_data, X, Y, min,max){
   
 }
 
-aso_data_positive <- data %>% filter(ASO_Tg=="Positive")
-aso_data_positive_plot <- generate_boxplots(aso_data_positive, SLC_Genotype, Average_Latency,0,250) +
-  ggtitle("ASO Tg +")+
+pff_data_positive_plot <- generate_boxplots(data, SLC_Genotype, Average_Latency,0,250) +
+  ggtitle("PFF-injected")+
   ylab("")+
   xlab("")+
   theme(plot.title = element_text(hjust = 0.5))
@@ -118,7 +117,7 @@ plot_grid(traj_posvneg, traj_slc_posvneg)
 ### Statistics ---
 
 ## LM on Full Dataset --
-all <- lm(Average_Latency ~ Day+ ASO_Tg + Weight + SLC_Genotype + Sex, data = data)
+all <- lm(Average_Latency ~ Day+ Weights + SLC_Genotype + Sex, data = data)
 summary(all)
 interact <- lm(Average_Latency ~ Day+ ASO_Tg*SLC_Genotype + Weight + Sex, data = data)
 summary(interact)
@@ -215,8 +214,8 @@ summary(lme_model)
 
 # SLC Genotype given Tg Status
 lme_model_p <- lme(Average_Latency ~ SLC_Genotype*Day + Weight + SLC_Genotype + Sex, 
-                 random = ~ 1 | MouseID, 
-                 data = subset(data,ASO_Tg =="Positive"))
+                   random = ~ 1 | MouseID, 
+                   data = subset(data,ASO_Tg =="Positive"))
 summary(lme_model_p)
 lme_model_n <- lme(Average_Latency ~ SLC_Genotype*Day + Weight + SLC_Genotype + Sex, 
                    random = ~ 1 | MouseID, 

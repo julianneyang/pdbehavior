@@ -127,6 +127,25 @@ male_plot <- ggplot(male_df_summary, aes(x = timepoint, y = mean, group = SLC_Ge
 ## Final Figure --
 plot_grid(femaleplot, male_plot)
 
+female_pos <- data_long %>% filter(Sex=="Female" & Treatment=="MPTP")
+female_df_summary <- female_pos %>%
+  group_by(SLC_Genotype, timepoint) %>%
+  summarise(mean = mean(FP_output), 
+            sd = sd(FP_output),
+            se = sd / sqrt(n()))
+
+# Plot the graph with error bars
+femaleplot <- ggplot(female_df_summary, aes(x = timepoint, y = mean, group = SLC_Genotype, color = SLC_Genotype)) +
+  geom_line(size=2) +
+  geom_errorbar(aes(ymin = mean - se, ymax = mean + se), width = 0.2) +
+  labs(x = "Time (minutes)", y = "FP_output") +
+  scale_color_viridis_d()  +
+  theme_cowplot(16) + 
+  ggtitle("MPTP Females") + 
+  theme(legend.position = "none")+
+  theme(plot.title = element_text(hjust = 0.5))
+MPTP_gi <- femaleplot
+
 ### Longitudinal Stats ---
 nonpara_output <- kruskal.test(FP_output~Treatment, data=data_long)
 print(nonpara_output)

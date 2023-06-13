@@ -2,8 +2,9 @@ library(ggplot2)
 library(dplyr)
 library(cowplot)
 library(nlme)
+library(tidyr)
 
-data <- read.csv("Analysis_Files/ASO/ASO GI Motility - ASO_FP_Output.csv",header=TRUE)
+data <- read.csv("Analysis_Files/PFF/PFF Gastrointestinal Motility - FP_output.csv",header=TRUE)
 
 data_long <- pivot_longer(data, 
                           cols = starts_with("X"), 
@@ -14,15 +15,10 @@ data_long$timepoint <- as.integer(stringr::str_extract(data_long$timepoint, "\\d
 data_long$SLC_Genotype <- factor(data_long$SLC_Genotype, levels=c("WT", "HET", "MUT"))
 data_long$timepoint <- factor(data_long$timepoint)
 
-pos <- data_long %>% filter(ASO_Tg=="Positive")
-neg <- data_long %>% filter(ASO_Tg=="Negative")
-
 ## Plots --
-generate_boxplots(data_long,ASO_Tg,FP_output,0, 30) + 
-  facet_wrap(~timepoint)
-
-generate_boxplots(pos,SLC_Genotype,FP_output,0, 30) + 
-  facet_wrap(~timepoint)+
+one_hour <- data_long %>% filter(timepoint==60)
+generate_boxplots(one_hour,SLC_Genotype,FP_output,0, 20) + 
+  facet_wrap(~Sex)+
   ggtitle("Tg Positive")
 
 generate_boxplots(pos,SLC_Genotype,FP_output,0, 30) + 
@@ -37,29 +33,11 @@ generate_boxplots(neg,SLC_Genotype,FP_output,0, 30) +
   facet_wrap(Sex~timepoint)+
   ggtitle("Tg Negative by Sex")
 
-# Calculate the mean and standard error for each group
-df_summary <- data_long %>%
-  group_by(ASO_Tg, timepoint) %>%
-  summarise(mean = mean(FP_output), 
-            sd = sd(FP_output),
-            se = sd / sqrt(n()))
-
-# Plot the graph with error bars
-posvneg <- ggplot(df_summary, aes(x = timepoint, y = mean, group = ASO_Tg, color = ASO_Tg)) +
-  geom_line(size=2) +
-  geom_errorbar(aes(ymin = mean - se, ymax = mean + se), width = 0.2) +
-  labs(x = "Time (minutes)", y = "FP_output") +
-  scale_color_viridis_d()  +
-  theme_cowplot(16) + 
-  ggtitle("ASO FP output over time") + 
-  theme(legend.position = "top",legend.justification = "center",legend.title = element_text(hjust = 0.5))+
-  theme(plot.title = element_text(hjust = 0.5))
-
 
 # Calculate the mean and standard error for each group
 
 df_summary <- data_long %>%
-  group_by(ASO_Tg, SLC_Genotype, timepoint) %>%
+  group_by(SLC_Genotype, timepoint) %>%
   summarise(mean = mean(FP_output), 
             sd = sd(FP_output),
             se = sd / sqrt(n()))
@@ -71,16 +49,15 @@ slc_genotype <- ggplot(df_summary, aes(x = timepoint, y = mean, group = SLC_Geno
   labs(x = "Time (minutes)", y = "FP_output") +
   scale_color_viridis_d()  +
   theme_cowplot(16) + 
-  ggtitle("SLC Genotype: ASO FP output over time") + 
+  ggtitle("SLC Genotype: PFF FP output over time") + 
   theme(legend.position = "top", legend.justification="center",legend.title = element_text(hjust = 0.5))+
-  theme(plot.title = element_text(hjust = 0.5)) +
-  facet_wrap(~ASO_Tg)
+  theme(plot.title = element_text(hjust = 0.5)) 
 
 
 # Calculate the mean and standard error for each group -- Females
 female <- data_long %>% filter(Sex=="Female")
 female_df_summary <- female %>%
-  group_by(ASO_Tg, SLC_Genotype, timepoint) %>%
+  group_by(SLC_Genotype, timepoint) %>%
   summarise(mean = mean(FP_output), 
             sd = sd(FP_output),
             se = sd / sqrt(n()))
@@ -92,16 +69,15 @@ femaleplot <- ggplot(female_df_summary, aes(x = timepoint, y = mean, group = SLC
   labs(x = "Time (minutes)", y = "FP_output") +
   scale_color_viridis_d()  +
   theme_cowplot(16) + 
-  ggtitle("Females: ASO FP output over time") + 
-  facet_wrap(~ASO_Tg) +
-  theme(legend.position = "top",legend.title = element_text(hjust = 0.5))+
+  ggtitle("PFF Females")+
+  theme(legend.position = "none")+
   theme(plot.title = element_text(hjust = 0.5))
 
 
 # Calculate the mean and standard error for each group -- Males
 male <- data_long %>% filter(Sex=="Male")
 male_df_summary <- male %>%
-  group_by(ASO_Tg, SLC_Genotype, timepoint) %>%
+  group_by(SLC_Genotype, timepoint) %>%
   summarise(mean = mean(FP_output), 
             sd = sd(FP_output),
             se = sd / sqrt(n()))
@@ -113,58 +89,29 @@ male_plot <- ggplot(male_df_summary, aes(x = timepoint, y = mean, group = SLC_Ge
   labs(x = "Time (minutes)", y = "FP_output") +
   scale_color_viridis_d()  +
   theme_cowplot(16) + 
-  ggtitle("Males: ASO FP output over time") + 
-  facet_wrap(~ASO_Tg) +
-  theme(legend.position = "top",legend.title = element_text(hjust = 0.5))+
+  ggtitle("PFF Males") +
+  theme(legend.position = "none")+
   theme(plot.title = element_text(hjust = 0.5))
 
 ## Final Figure --
-plot_grid(femaleplot, male_plot)
-
-pos_female <- data_long %>% filter(Sex=="Female" & ASO_Tg=="Positive")
-female_df_summary <- pos_female %>%
-  group_by(SLC_Genotype, timepoint) %>%
-  summarise(mean = mean(FP_output), 
-            sd = sd(FP_output),
-            se = sd / sqrt(n()))
-aso_gi <- ggplot(female_df_summary, aes(x = timepoint, y = mean, group = SLC_Genotype, color = SLC_Genotype)) +
-  geom_line(size=2) +
-  geom_errorbar(aes(ymin = mean - se, ymax = mean + se), width = 0.2) +
-  labs(x = "Time (minutes)", y = "FP_output") +
-  scale_color_viridis_d()  +
-  theme_cowplot(16) + 
-  ggtitle("ASO Females")+
-  theme(legend.position = "top",legend.title = element_text(hjust = 0.5))+
-  theme(plot.title = element_text(hjust = 0.5))
-
+pff_gi <-  femaleplot
 
 ### Longitudinal Stats ---
-nonpara_output <- kruskal.test(FP_output~ASO_Tg, data=data_long)
+nonpara_output <- kruskal.test(FP_output~SLC_Genotype, data=data_long)
 print(nonpara_output)
 
-lm1<- lme(fixed= FP_output ~ timepoint + ASO_Tg +Sex + SLC_Genotype, random = ~1|MouseID, data=data_long)
+lm1<- lme(fixed= FP_output ~ timepoint +Sex + SLC_Genotype, random = ~1|MouseID, data=data_long)
 summary(lm1)
 
-lm1_time_ASO<- lme(fixed= FP_output ~ timepoint*ASO_Tg +Sex + SLC_Genotype, random = ~1|MouseID, data=data_long)
+lm1_time_ASO<- lme(fixed= FP_output ~ timepoint*SLC_Genotype + Sex, random = ~1|MouseID, data=data_long)
 summary(lm1_time_ASO)
 
-lm1_SLC_ASO<- lme(fixed= FP_output ~ timepoint + ASO_Tg*SLC_Genotype +Sex , random = ~1|MouseID, data=data_long)
-summary(lm1_SLC_ASO)
+males <- data_long %>% filter(Sex=="Male")
+females <- data_long %>% filter(Sex=="Female")
 
-pos <- data_long %>% filter(ASO_Tg=="Positive")
-neg <- data_long %>% filter(ASO_Tg=="Negative")
-
-lm2 <- lme(fixed= FP_output ~ Sex+ timepoint*SLC_Genotype, random = ~1|MouseID, data=pos)
-summary(output)
-lm3 <- lme(fixed= FP_output ~ Sex + timepoint*SLC_Genotype, random = ~1|MouseID, data=neg)
-summary(output)
-
-pos_males <- data_long %>% filter(ASO_Tg=="Positive"& Sex=="Male")
-neg_males <- data_long %>% filter(ASO_Tg=="Negative"& Sex=="Male")
-
-lm4 <- lme(fixed= FP_output ~ timepoint*SLC_Genotype, random = ~1|MouseID, data=pos_males)
+lm4 <- lme(fixed= FP_output ~ timepoint*SLC_Genotype, random = ~1|MouseID, data=males)
 summary(lm4)
-lm5 <- lme(fixed= FP_output ~ timepoint*SLC_Genotype, random = ~1|MouseID, data=neg_males)
+lm5 <- lme(fixed= FP_output ~ timepoint*SLC_Genotype, random = ~1|MouseID, data=females)
 summary(lm5)
 
 pos_females <- data_long %>% filter(ASO_Tg=="Positive"& Sex=="Female")

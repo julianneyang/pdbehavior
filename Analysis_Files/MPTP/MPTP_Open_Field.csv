@@ -1,4 +1,4 @@
-MouseID,Genotype-Treatment,Apparatus,Distance,Center_Entries,Center_Time,Periphery_Time,Genotype,Treatment,Sex,Batch
+MouseID,Genotype-Treatment,Apparatus,Distance,Center_Entries,Center_Time,Periphery_Time,SLC_Genotype,Treatment,Sex,Batch
 1394,HET-MPTP,1394,26.928,78,110.6,489.4,HET,MPTP,Female,two
 1378,HET-MPTP,1378,59.313,34,23.5,576.5,HET,MPTP,Female,two
 1385,HET-MPTP,1385,12.588,78,164.6,435.4,HET,MPTP,Female,two
