@@ -1,0 +1,62 @@
+Round,Mouse ID,Time,Notes,min,sec,csec,Total_Time,SLC_Genotype,Sex
+1,47,2.24.25 ,,2,24,25,144.25,WT,Male
+1,86,2.10.76,,2,10,76,130.76,WT,Male
+1,95,4.18.64,,4,18,64,258.64,WT,Female
+1,190,2.54.50,,2,54,50,174.5,WT,Female
+1,134,2.57.84,,2,57,84,177.84,MUT,Male
+1,136,1.39.17,,1,39,17,99.17,MUT,Male
+1,129,2.07.40,,2,7,40,127.4,MUT,Female
+1,175,1.49.12,,1,49,12,109.12,MUT,Female
+1,87,6.02.36,"""grooming""",6,2,36,362.36,WT,Male
+1,48,2.00.46,,2,0,46,120.46,WT,Male
+1,97,2.35.65,,2,35,65,155.65,WT,Female
+1,135,1.01.74,,1,1,74,61.74,MUT,Male
+1,111,2.01.81,,2,1,81,121.81,MUT,Male
+1,163,2.20.75,,2,20,75,140.75,MUT,Female
+1,162,1.10.22,,1,10,22,70.22,MUT,Female
+2,21,2.40.62,bedding replaced but boxes not cleaned,2,40,62,160.62,WT,Male
+2,131,4.16.75,bedding replaced but boxes not cleaned,4,16,75,256.75,WT,Male
+2,94,3.48.90,bedding replaced but boxes not cleaned,3,48,90,228.9,WT,Female
+2,93,2.11.54,bedding replaced but boxes not cleaned,2,11,54,131.54,WT,Female
+2,19,4.26.43,bedding replaced but boxes not cleaned,4,26,43,266.43,MUT,Male
+2,22,5.37.19,bedding replaced but boxes not cleaned,5,37,19,337.19,MUT,Male
+2,150,3.39.16,bedding replaced but boxes not cleaned,3,39,16,219.16,MUT,Female
+2,108,3.06.18,bedding replaced but boxes not cleaned,3,6,18,186.18,MUT,Female
+2,133,1.24.46,bedding replaced but boxes not cleaned,1,24,46,84.46,WT,Male
+2,132,1.04.88,bedding replaced but boxes not cleaned,1,4,88,64.88,WT,Male
+2,108,1.22.41,bedding replaced but boxes not cleaned,1,22,41,82.41,MUT,Female
+2,184,1.13.68,bedding replaced but boxes not cleaned,1,13,68,73.68,WT,Female
+2,20,2.26.82,bedding replaced but boxes not cleaned,2,26,82,146.82,MUT,Male
+2,23,0.55.47,bedding replaced but boxes not cleaned,0,55,47,55.47,MUT,Male
+2,147,2.28.58,bedding replaced but boxes not cleaned,2,28,58,148.58,MUT,Female
+2,112,2.02.10,bedding replaced but boxes not cleaned,2,2,10,122.1,MUT,Female
+3,197,4.26.18,Cleaned cages + replaced bedding ,4,26,18,266.18,WT,Male
+3,152,5.37.67,Cleaned cages + replaced bedding ,5,37,67,337.67,WT,Male
+3,89,2.21.87,Cleaned cages + replaced bedding ,2,21,87,141.87,WT,Female
+3,90,3.32.49,Cleaned cages + replaced bedding ,3,32,49,212.49,WT,Female
+3,75,2.46.91,Cleaned cages + replaced bedding ,2,46,91,166.91,MUT,Male
+3,16,3.57.08,Cleaned cages + replaced bedding ,3,57,8,237.08,MUT,Male
+3,143,1.15.45,Cleaned cages + replaced bedding ,1,15,45,75.45,MUT,Female
+3,141,2.15.53,Cleaned cages + replaced bedding ,2,15,53,135.53,MUT,Female
+3,194,exclude,Cleaned cages + replaced bedding ,exclude,,,NA,WT,Male
+3,160,2.08.84,Cleaned cages + replaced bedding ,2,8,84,128.84,WT,Male
+3,144,2.21.38,Cleaned cages + replaced bedding ,2,21,38,141.38,WT,Female
+3,91,3.35.93,Cleaned cages + replaced bedding ,3,35,93,215.93,WT,Female
+3,18,2.43.31,Cleaned cages + replaced bedding ,2,43,31,163.31,MUT,Male
+3,15,2.24.36,Cleaned cages + replaced bedding ,2,24,36,144.36,MUT,Male
+3,142,3.40.52,Cleaned cages + replaced bedding ,3,40,52,220.52,MUT,Female
+4,17,4.42.12,Dirty cages + dirty bedding ,4,42,12,282.12,WT,Male
+4,153,3.55.06,Dirty cages + dirty bedding ,3,55,6,235.06,WT,Male
+4,110,1.43.42,Dirty cages + dirty bedding ,1,43,42,103.42,WT,Female
+4,101,11.12.77,Dirty cages + dirty bedding ,11,12,77,672.77,WT,Female
+4,159,4.20.07,Dirty cages + dirty bedding ,4,20,7,260.07,MUT,Male
+4,156,4.48.20,Dirty cages + dirty bedding ,4,48,20,288.2,MUT,Male
+4,191,4.38.89,Dirty cages + dirty bedding ,4,38,89,278.89,MUT,Female
+4,109,4.36.00,Dirty cages + dirty bedding ,4,36,0,276,MUT,Female
+4,88,2.19.19,Dirty cages + dirty bedding ,2,19,19,139.19,WT,Male
+4,155,6.22.47,Dirty cages + dirty bedding ,6,22,47,382.47,WT,Male
+4,103,4.22.84,Dirty cages + dirty bedding ,4,22,84,262.84,WT,Female
+4,137,1.59.80,Dirty cages + dirty bedding ,1,59,80,119.8,MUT,Male
+4,158,0.56.96,Dirty cages + dirty bedding ,0,56,96,56.96,MUT,Male
+4,193,1.46.57,Dirty cages + dirty bedding ,1,46,57,106.57,MUT,Female
+4,192,2.26.81,Dirty cages + dirty bedding ,2,26,81,146.81,MUT,Female
