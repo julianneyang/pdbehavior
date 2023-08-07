@@ -134,7 +134,7 @@ aso_gi <- ggplot(female_df_summary, aes(x = timepoint, y = mean, group = SLC_Gen
   scale_color_viridis_d()  +
   theme_cowplot(16) + 
   ggtitle("ASO Females")+
-  theme(legend.position = "top",legend.title = element_text(hjust = 0.5))+
+  theme(legend.position = "none")+
   theme(plot.title = element_text(hjust = 0.5))
 
 
