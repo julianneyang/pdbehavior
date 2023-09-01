@@ -2,6 +2,7 @@ library(ggplot2)
 library(dplyr)
 library(cowplot)
 library(nlme)
+library(tidyr)
 
 data <- read.csv("Analysis_Files/Spontaneous/SLC Spontaneous Gastrointestinal Motility - Analysis_Wide.csv",header=TRUE)
 
@@ -48,8 +49,8 @@ slc_genotype <- ggplot(df_summary, aes(x = timepoint, y = mean, group = SLC_Geno
   labs(x = "Time (minutes)", y = "FP_output") +
   scale_color_viridis_d()  +
   theme_cowplot(16) + 
-  ggtitle("SLC Genotype: PFF FP output over time") + 
-  theme(legend.position = "top", legend.justification="center",legend.title = element_text(hjust = 0.5))+
+  ggtitle("Spontaneous") + 
+  theme(legend.position = "none", legend.justification="center",legend.title = element_text(hjust = 0.5))+
   theme(plot.title = element_text(hjust = 0.5)) 
 
 
@@ -69,7 +70,7 @@ femaleplot <- ggplot(female_df_summary, aes(x = timepoint, y = mean, group = SLC
   scale_color_viridis_d()  +
   theme_cowplot(16) + 
   ggtitle("Spontaneous Females")+
-  theme(legend.position = "top",legend.title = element_text(hjust = 0.5))+
+  theme(legend.position = "none",legend.title = element_text(hjust = 0.5))+
   theme(plot.title = element_text(hjust = 0.5))
 
 
@@ -93,7 +94,8 @@ male_plot <- ggplot(male_df_summary, aes(x = timepoint, y = mean, group = SLC_Ge
   theme(plot.title = element_text(hjust = 0.5))
 
 ## Final Figure --
-spontaneous_gi <-  femaleplot
+spontaneous_gi <-  femaleplot 
+plot_grid(slc_genotype,femaleplot,male_plot, nrow=1)
 
 ### Longitudinal Stats ---
 nonpara_output <- kruskal.test(FP_output~SLC_Genotype, data=data_long)
@@ -110,16 +112,51 @@ summary(lm1_time_ASO)
 males <- data_long %>% filter(Sex=="Male")
 females <- data_long %>% filter(Sex=="Female")
 
-lm4 <- lme(fixed= FP_output ~ timepoint*SLC_Genotype, random = ~1|MouseID, data=males)
+lm4 <- lme(fixed= FP_output ~ timepoint+SLC_Genotype, random = ~1|MouseID, data=males)
 summary(lm4)
-lm5 <- lme(fixed= FP_output ~ timepoint*SLC_Genotype, random = ~1|MouseID, data=females)
+lm5 <- lme(fixed= FP_output ~ timepoint+SLC_Genotype, random = ~1|MouseID, data=females)
 summary(lm5)
 
 t60_females <- data_long %>% filter(timepoint==60 & Sex=="Female")
-t60_males <- data_long %>% filter(timepoint==60 & Sex=="Male")
+t45_females <- data_long %>% filter(timepoint==45 & Sex=="Female")
+t30_females <- data_long %>% filter(timepoint==30 & Sex=="Female")
+t15_females <- data_long %>% filter(timepoint==15 & Sex=="Female")
+t10_females <- data_long %>% filter(timepoint==10 & Sex=="Female")
+t5_females <- data_long %>% filter(timepoint==10 & Sex=="Female")
+
 
 lm6 <- lm(FP_output ~ SLC_Genotype,  data=t60_females)
 summary(lm6)
-lm7 <- lm(FP_output ~ SLC_Genotype, data=t60_males)
+lm7 <- lm(FP_output ~ SLC_Genotype,  data=t45_females)
 summary(lm7)
+lm8 <- lm(FP_output ~ SLC_Genotype,  data=t30_females)
+summary(lm8)
+lm9 <- lm(FP_output ~ SLC_Genotype,  data=t15_females)
+summary(lm9)
+lm10 <- lm(FP_output ~ SLC_Genotype,  data=t10_females)
+summary(lm10)
+lm11 <- lm(FP_output ~ SLC_Genotype,  data=t5_females)
+summary(lm11)
+
+
+t60 <- data_long %>% filter(timepoint==60 )
+t45 <- data_long %>% filter(timepoint==45 )
+t30 <- data_long %>% filter(timepoint==30 )
+t15 <- data_long %>% filter(timepoint==15 )
+t10 <- data_long %>% filter(timepoint==10 )
+t5 <- data_long %>% filter(timepoint==5 )
+
+
+lm6 <- lm(FP_output ~ SLC_Genotype,  data=t60)
+summary(lm6)
+lm7 <- lm(FP_output ~ SLC_Genotype,  data=t45)
+summary(lm7)
+lm8 <- lm(FP_output ~ SLC_Genotype,  data=t30)
+summary(lm8)
+lm9 <- lm(FP_output ~ SLC_Genotype,  data=t15)
+summary(lm9)
+lm10 <- lm(FP_output ~ SLC_Genotype,  data=t10)
+summary(lm10)
+lm11 <- lm(FP_output ~ SLC_Genotype,  data=t5)
+summary(lm11)
 
