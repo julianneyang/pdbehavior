@@ -196,6 +196,11 @@ summary(lm4)
 lm5 <- lme(fixed= FP_output ~ timepoint*SLC_Genotype, random = ~1|Mouse, data=females)
 summary(lm5)
 
+lm4 <- lme(fixed= FP_output ~ timepoint+SLC_Genotype, random = ~1|Mouse, data=males)
+summary(lm4)
+lm5 <- lme(fixed= FP_output ~ timepoint+SLC_Genotype, random = ~1|Mouse, data=females)
+summary(lm5)
+
 
 
 # Save outputs -
@@ -241,3 +246,25 @@ summary(lm1)
 
 lm1 <- lm(FP_output ~ Sex +SLC_Genotype,  subset(data_long, timepoint == 60 & ASO_Tg=="Negative" ))
 summary(lm1)
+
+### Cross-Sectional Stats ---
+t60_females <- data_long %>% filter(timepoint==60 & Sex=="Female")
+t45_females <- data_long %>% filter(timepoint==45 & Sex=="Female")
+t30_females <- data_long %>% filter(timepoint==30 & Sex=="Female")
+t15_females <- data_long %>% filter(timepoint==15 & Sex=="Female")
+t10_females <- data_long %>% filter(timepoint==10 & Sex=="Female")
+t5_females <- data_long %>% filter(timepoint==5 & Sex=="Female")
+
+
+lm6 <- lm(FP_output ~ SLC_Genotype,  data=t60_females)
+summary(lm6)
+lm7 <- lm(FP_output ~ SLC_Genotype,  data=t45_females)
+summary(lm7)
+lm8 <- lm(FP_output ~ SLC_Genotype,  data=t30_females)
+summary(lm8)
+lm9 <- lm(FP_output ~ SLC_Genotype,  data=t15_females)
+summary(lm9)
+lm10 <- lm(FP_output ~ SLC_Genotype,  data=t10_females)
+summary(lm10)
+lm11 <- lm(FP_output ~ SLC_Genotype,  data=t5_females)
+summary(lm11)
