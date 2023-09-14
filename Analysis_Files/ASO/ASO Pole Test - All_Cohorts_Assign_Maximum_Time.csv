@@ -2,7 +2,7 @@ Cohort ,MouseID,SLC_Genotype,ASO_Tg,Sex,Cohort,Trial_1_Tturn,Trial_1_Ttotal,Tria
 One,332_666,MUT,Negative,Female,One,2.32,4.42,C,T,3.59,5.18,C,T,4.52,5.28,C,T,1.94,4.55,C,T,2.33,5.39,C,T,31.3
 One,667,MUT,Positive,Female,One,10,15,S,S,1.78,7.19,C,T,10,15,S,S,10,15,S,S,2.31,5.37,C,T,25.3
 One,328,HET,Negative,Female,One,10,15,S,S,12.6,12.6,C,T,10,15,S,S,10,15,S,S,7.73,10.38,C,T,24.6
-One,604,HET,Positive,Female,One,10,15,S,S,10,15,S,S,10,15,S,S,5.39,6.14,C,T,3.39,4.39,C,T,28.5
+One,577,HET,Positive,Female,One,10,15,S,S,10,15,S,S,10,15,S,S,5.39,6.14,C,T,3.39,4.39,C,T,28.5
 One,351,HET,Positive,Female,One,2.55,3.15,C,T,10,15,S,S,3.55,3.9,C,T,10,15,S,S,10,15,F,S,27.4
 One,539,HET,Negative,Female,One,10,15,F,S,1.88,6.06,C,T,10,15,S,S,3.85,6.67,C,T,10,15,F,S,35.4
 One,537,WT,Negative,Male,One,10,15,F,U,10,15,S,S,10,15,S,S,10,15,S,S,10,15,F,S,45.5
@@ -37,8 +37,8 @@ One,669,HET,Negative,Female,One,10,15,F,U,10,15,F,U,10,15,F,U,10,15,F,U,10,15,S,
 One,719,HET,Positive,Female,One,10,15,S,S,10,15,S,S,10,15,S,S,10,15,S,U,10,15,S,U,38.4
 Three,889,MUT,Negative,Female,Three,3.2,6.24,C,T,5.81,5.81,C,S,2.1,5.19,C,T,2.38,4.74,C,T,3.82,3.82,C,S,20.3
 Three,962,WT,Positive,Female,Three,10,15,F,U,10,15,S,S,10,15,S,S,10,15,S,S,10,15,F,U,23.3
-Three,923,WT,Positive,Female,Three,1.03,5.28,C,T,1.16,4.72,C,T,1.29,4.38,C,T,5.4,5.4,C,S,3.65,6.19,C,T,26.5
-Three,893,MUT,Negative,Female,Three,3.84,6.76,C,T,4.15,7.62,C,T,6.28,7.79,C,T,2.7,5.81,C,T,4.19,6.77,C,T,26.7
+Three,35,WT,Positive,Female,Three,1.03,5.28,C,T,1.16,4.72,C,T,1.29,4.38,C,T,5.4,5.4,C,S,3.65,6.19,C,T,26.5
+Three,45,MUT,Negative,Female,Three,3.84,6.76,C,T,4.15,7.62,C,T,6.28,7.79,C,T,2.7,5.81,C,T,4.19,6.77,C,T,26.7
 Three,36,HET,Negative,Male,Three,10,15,S,S,10,15,S,S,10,15,S,S,10,15,S,S,10,15,F,U,28.5
 Three,894,HET,Negative,Male,Three,3.58,5.6,C,T,10,15,F,U,2.84,8.64,C,T,1.63,5.88,C,T,2.71,5.17,C,T,29.5
 Three,37,HET,Negative,Male,Three,10,15,S,S,10,15,S,S,10,15,S,S,10,15,S,S,10,15,S,S,32.4
@@ -51,7 +51,7 @@ Three,963,HET,Negative,Male,Three,10,15,S,S,10,15,S,S,10,15,F,U,10,15,S,S,10,15,
 Three,43,MUT,Positive,Male,Three,10,15,S,S,10,15,S,S,10,15,F,U,10,15,F,U,10,15,F,U,45.5
 Three,40,WT,Negative,Male,Three,10,15,F,U,10,15,S,U,10,15,S,U,10,15,S,S,10,15,F,U,46.7
 Three,964,MUT,Negative,Male,Three,10,15,F,U,10,15,F,U,10,15,F,U,10,15,F,U,10,15,F,U,49.6
-Two,847,WT,Positive,Female,Two,2.42,4.05,C,T,10,15,S,S,10,15,S,S,10,15,S,S,10,15,S,S,23.9
+Two,668,WT,Positive,Female,Two,2.42,4.05,C,T,10,15,S,S,10,15,S,S,10,15,S,S,10,15,S,S,23.9
 Two,663_835,MUT,Positive,Female,Two,2.31,5.82,C,T,10,15,S,S,8,8.36,C,T,2,5.89,C,T,10,15,S,S,24.6
 Two,661_837,MUT,Negative,Female,Two,10,15,S,S,10,15,S,S,3.76,5.24,C,T,4.49,7.65,C,T,1.23,4.27,C,T,25.3
 Two,662,MUT,Positive,Female,Two,7.34,7.34,C,S,10,15,S,S,10.55,10.55,C,S,9.95,9.95,C,S,10,15,S,S,25.3
@@ -68,7 +68,7 @@ Two,673,WT,Negative,Male,Two,3.11,5.64,C,T,10,15,S,S,10,15,S,S,10,15,S,S,10,15,S
 Two,664,WT,Positive,Female,Two,5.99,5.99,C,S,10,15,S,S,5.14,5.14,C,S,10,15,S,S,10,15,S,S,31.4
 Two,669_843,HET,Negative,Female,Two,10,15,S,S,10,15,S,S,2.7,6.19,C,T,10,15,S,S,10,15,S,S,32.5
 Two,665_857,WT,Negative,Male,Two,10,15,S,S,10,15,S,S,10,15,S,S,10,15,S,S,10,15,S,S,33.2
-Two,854,HET,Negative,Male,Two,10,15,S,S,10,15,S,S,7.66,7.66,C,S,10,15,S,S,3.05,4.65,C,T,34.8
+Two,609,HET,Negative,Male,Two,10,15,S,S,10,15,S,S,7.66,7.66,C,S,10,15,S,S,3.05,4.65,C,T,34.8
 Two,610,MUT,Positive,Female,Two,10,15,S,S,10,15,S,S,10,15,S,S,10,15,S,S,10,15,S,S,35.1
 Two,853,MUT,Positive,Male,Two,7.04,7.04,C,S,5.04,5.04,C,S,10,15,S,S,6.78,6.78,C,S,6.71,6.71,C,S,35.4
 Two,666,WT,Positive,Male,Two,2.03,5.94,C,T,10,15,S,S,10,15,S,S,10,15,S,S,10,15,S,S,35.5

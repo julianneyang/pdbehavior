@@ -13,6 +13,7 @@ library(dplyr)
 
 data <- readr::read_csv(here("Analysis_Files", "ASO","ASO Rotarod - Rotarod.csv"))
 data$SLC_Genotype <- factor(data$SLC_Genotype, levels=c("WT", "HET", "MUT"))
+data$Day <- factor(data$Day, levels=c("One", "Two", "Three"))
 
 generate_boxplots <- function(input_data, X, Y, min,max){
   data<-as.data.frame(input_data)
@@ -38,11 +39,18 @@ aso_data_positive_plot <- generate_boxplots(aso_data_positive, SLC_Genotype, Ave
   ylab("")+
   xlab("")+
   theme(plot.title = element_text(hjust = 0.5))
+aso_data_positive_plot_by_Day <- generate_boxplots(aso_data_positive, SLC_Genotype, Average_Latency,0,250) +
+  ggtitle("ASO Tg +")+
+  ylab("")+
+  xlab("")+
+  facet_wrap(~Day)+
+  theme(plot.title = element_text(hjust = 0.5))
 
 cs_rota_all_slc_posvneg <- generate_boxplots(data, ASO_Tg, Average_Latency,0,550) + 
   ggtitle("Rotarod")+
   theme(plot.title = element_text(hjust = 0.5))
-cs_rota_slc_posvneg <- generate_boxplots(data, SLC_Genotype, Average_Latency,0,550) + facet_wrap(~ASO_Tg)+
+cs_rota_slc_posvneg <- generate_boxplots(data, SLC_Genotype, Average_Latency,0,550) +
+  facet_wrap(~ASO_Tg)+
   ggtitle("Rotarod by SLC Genotype")+
   theme(plot.title = element_text(hjust = 0.5))
 cs_rota_slc_posvneg_sex <- generate_boxplots(data, SLC_Genotype, Average_Latency,0,550) + 
@@ -93,6 +101,19 @@ traj_slc_posvneg <- ggplot(summary_data, aes(x = Day, y = mean_latency, color = 
   ggtitle("Rotarod SLC within Tg status")+
   theme(plot.title = element_text(hjust = 0.5))
 
+###  Calculate mean and standard errors by ASO_Tg ---
+## ASO Pos vs Neg --
+summary_data <- data %>%
+  group_by(MouseID) %>%
+  summarise(mean_latency = mean(Average_Latency),
+            se_latency = sd(Average_Latency) / sqrt(n()))
+subset <- data%>% select(c("MouseID","SLC_Genotype", "ASO_Tg"))
+summary_data_merged <- merge(summary_data, subset, by="MouseID")
+summary_data_merged <- unique(summary_data_merged)
+average_MouseID <- generate_boxplots(summary_data_merged, SLC_Genotype, mean_latency,0,550) + 
+  ggtitle("Rotarod")+
+  theme(plot.title = element_text(hjust = 0.5))+
+  facet_wrap(~ASO_Tg)
 
 ## SLC Genotype within ASO Pos or Neg and Sex- Stratified --
 summary_data <- data %>%
