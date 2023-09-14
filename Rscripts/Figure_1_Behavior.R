@@ -1,11 +1,13 @@
-## ASO dimensionality reduction 
-
+library(ggplot2)
+library(dplyr)
 library(cowplot)
+library(here)
 
 generate_boxplots <- function(input_data, X, Y, min,max){
   data<-as.data.frame(input_data)
   #Ensure correct ordering of levels 
-  data$SLC_Genotype <- factor(data$SLC_Genotype, levels = c("WT", "HET", "MUT"))
+  #data$Genotype <- data$SLC_Genotype
+  #data$SLC_Genotype <- factor(data$SLC_Genotype, levels = c("WT", "HET", "MUT"))
   
   ggplot(data=data,aes(x={{X}},y={{Y}}, fill={{X}})) + 
     #geom_violin(alpha=0.25,position=position_dodge(width=.75),size=1,color="black",draw_quantiles=c(0.5))+
@@ -28,7 +30,7 @@ data$Day <- factor(data$Day, levels=c("One", "Two", "Three"))
 aso_data_positive <- data %>% filter(ASO_Tg=="Positive")
 aso_data_positive_plot_by_Day <- generate_boxplots(aso_data_positive, SLC_Genotype, Average_Latency,0,250) +
   ggtitle("ASO Rotarod")+
-  ylab("")+
+  ylab("Average Latency to Fall (s)")+
   xlab("")+
   facet_wrap(~Day)+
   theme(plot.title = element_text(hjust = 0.5))
@@ -37,8 +39,7 @@ aso_data_positive_plot_by_Day <- generate_boxplots(aso_data_positive, SLC_Genoty
 data <- readr::read_csv(here("Analysis_Files/PFF/PFF Rotarod - PFF_Rotarod_Analysis.csv"))
 data$SLC_Genotype <- factor(data$SLC_Genotype, levels=c("WT", "HET", "MUT"))
 data$Day <- plyr::revalue(data$Day, c("one"="One","two"="Two","three"="Three")) 
-
-?plyr::revalue()
+data$Day <- factor(data$Day, levels =c("One", "Two", "Three"))
 pff_data_positive_plot_by_Day <- generate_boxplots(data, SLC_Genotype, Average_Latency,0,250) +
   ggtitle("PFF Rotarod")+
   ylab("")+
@@ -46,8 +47,52 @@ pff_data_positive_plot_by_Day <- generate_boxplots(data, SLC_Genotype, Average_L
   facet_wrap(~Day)+
   theme(plot.title = element_text(hjust = 0.5))
 
+## MPTP Rotarod
+data <- readr::read_csv(here("Analysis_Files", "MPTP","MPTP_Rotarod.csv"))
+data$SLC_Genotype <- factor(data$SLC_Genotype, levels=c("WT", "HET", "MUT"))
+mptp_data <- data %>% filter(Treatment=="MPTP")
+mptp_rotarod_plot <- generate_boxplots(mptp_data, SLC_Genotype, Average_Latency,0,250) + 
+  ggtitle("MPTP Rotarod")+
+  ylab("")+
+  xlab("")+
+  theme(plot.title = element_text(hjust = 0.5))
+
+## ASO Olfaction --
+data <- readr::read_csv(here("Analysis_Files", "ASO","ASO Food Pellet - Buried_Food_Pellet.csv"))
+data$SLC_Genotype <- factor(data$SLC_Genotype, levels=c("WT", "HET", "MUT"))
+data <- data %>% filter(ASO_Tg=="Positive")
+buried_food_pellet <-generate_boxplots(data, SLC_Genotype, Total_Time,0,900) +
+  ggtitle("ASO Buried Food")+
+  ylab("Time to find (s)")+
+  xlab("")+
+  theme(plot.title = element_text(hjust = 0.5))
+buried_food_pellet
+
+## Wire Hang --
+wire_hang <- readr::read_csv(here("Analysis_Files", "PFF", "PFF_Wire_Hang - Wire_Hang.csv"))
+wire_hang <- wire_hang %>% filter(DPI!=90)
+wire_hang$Genotype <- factor(wire_hang$Genotype,levels=c("WT","HET","MUT"))
+wire_hang$DPI <- as.character(wire_hang$DPI)
+wire_hang$DPI <- plyr::revalue(wire_hang$DPI, c("150"="150_DPI", "120" = "120_DPI", "180"="180_DPI"))
+
+pff_wire_hang<-generate_boxplots(wire_hang, Genotype, Total_Hang_Time,0,1000)+
+  facet_wrap(~DPI)+ 
+  ggtitle("PFF Wire Hang")+
+  ylab("Hang Time (s)")+
+  xlab("")+
+  theme(plot.title = element_text(hjust = 0.5))
+
+pff_wire_hang
+
+
 ## Final Figure --
-plot_grid(aso_data_positive_plot_by_Day,
-          pff_data_positive_plot_by_Day,
-          nrow=2,
-          labels=c("A","B"))
+top_row <- plot_grid(aso_data_positive_plot_by_Day, pff_data_positive_plot_by_Day, mptp_rotarod_plot,
+                     labels = c("A","B","C"),
+                     nrow=1, 
+                     rel_widths = c(2,2,1))
+middle_row <- plot_grid(buried_food_pellet, pff_wire_hang, labels =c("D","E"))
+bottom_row <- plot_grid(aso_behavior_pca, pff_behavior_pca, labels=c("F","G"))
+plot_grid(top_row,
+          middle_row,
+          bottom_row,
+          nrow=3)

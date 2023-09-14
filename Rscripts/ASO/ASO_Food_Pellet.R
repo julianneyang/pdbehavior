@@ -6,13 +6,13 @@ library(tidyr)
 library(dplyr)
 
 setwd("~/Documents/pdbehavior/")
-data<-read.csv("ASO Food Pellet - Buried_Food_Pellet.csv", header=TRUE)
+data <- readr::read_csv(here("Analysis_Files", "ASO","ASO Food Pellet - Buried_Food_Pellet.csv"))
 data$SLC_Genotype <- factor(data$SLC_Genotype, levels=c("WT", "HET", "MUT"))
 
 generate_boxplots <- function(input_data, X, Y, min,max){
   data<-as.data.frame(input_data)
   #Ensure correct ordering of levels 
-  data$Genotype <- factor(data$ASO_Tg, levels = c("Negative", "Positive"))
+  #data$Genotype <- factor(data$ASO_Tg, levels = c("Negative", "Positive"))
   
   ggplot(data=data,aes(x={{X}},y={{Y}}, fill={{X}})) + 
     #geom_violin(alpha=0.25,position=position_dodge(width=.75),size=1,color="black",draw_quantiles=c(0.5))+
