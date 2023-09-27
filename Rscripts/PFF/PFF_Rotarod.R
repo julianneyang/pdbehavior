@@ -119,14 +119,15 @@ plot_grid(traj_posvneg, traj_slc_posvneg)
 ## LM on Full Dataset --
 all <- lm(Average_Latency ~ Day+ Weights + SLC_Genotype + Sex, data = data)
 summary(all)
-interact <- lm(Average_Latency ~ Day+ ASO_Tg*SLC_Genotype + Weight + Sex, data = data)
-summary(interact)
-lm_day1 <- lm(Average_Latency ~ ASO_Tg + Weight + SLC_Genotype + Sex, data = subset(data, Day == "One"))
+
+lm_day1 <- lm(Average_Latency ~  Weights + SLC_Genotype + Sex, data = subset(data, Day == "one"))
 summary(lm_day1)
-lm_day2 <- lm(Average_Latency ~ ASO_Tg + Weight + SLC_Genotype + Sex , data = subset(data, Day == "Two"))
+
+lm_day2 <- lm(Average_Latency ~ Weights + SLC_Genotype + Sex , data = subset(data, Day == "two"))
 summary(lm_day2)
-lm_day3 <- lm(Average_Latency ~ ASO_Tg + Weight + SLC_Genotype + Sex , data = subset(data, Day == "Three"))
+lm_day3 <- lm(Average_Latency ~ Weights + SLC_Genotype + Sex , data = subset(data, Day == "three"))
 summary(lm_day3)
+
 # Save outputs -
 # Open a connection to a text file
 sink("Rotarod_Stats.md")
