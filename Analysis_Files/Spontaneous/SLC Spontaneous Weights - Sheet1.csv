@@ -1,4 +1,4 @@
-MouseID,Weight (g),Sex ,Slc4939,Genotype
+MouseID,Weight,Sex ,Slc4939,SLC_Genotype
 809,27.8,Male,-- ,WT
 756,32.1,Male,-- ,WT
 777,29.7,Male,-- ,WT

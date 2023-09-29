@@ -1,4 +1,4 @@
-Date Tested,DOB,Mouse ID,Sex,Genotype,Batch,Trial 1 ,Trial 2,Trial 3,Trial 4,Trial 5,Average
+Date Tested,DOB,MouseID,Sex,SLC_Genotype,Batch,Trial 1 ,Trial 2,Trial 3,Trial 4,Trial 5,Average
 10.25.21,2.28.21,1920,F,WT,1,1.41,1.1,0.93,1,1.03,1.094
 10.25.21,2.16.21,1908,F,HET,2,0.86,0.62,0.68,0.79,0.96,0.782
 10.25.21,2.16.21,1910,F,MUT,1,1.37,0.75,1.03,0.72,0.72,0.918

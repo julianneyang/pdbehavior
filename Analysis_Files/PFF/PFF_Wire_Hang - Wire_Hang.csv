@@ -1,4 +1,4 @@
-MouseID ,Genotype,Sex,Batch,Total_Hang_Time,DPI
+MouseID ,SLC_Genotype,Sex,Batch,Total_Hang_Time,DPI
 32,HET,Female,five,357,90
 35,MUT,Female,five,420.2,90
 25,WT,Female,five,267.08,90

@@ -96,3 +96,8 @@ plot_grid(top_row,
           middle_row,
           bottom_row,
           nrow=3)
+
+## Accompanying Statistics --
+
+# PFF Wire Hang 
+

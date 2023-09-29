@@ -1,4 +1,4 @@
-MouseID,Trial 1 (s),Trial 2 (s),Trial 3 (s),Average_Latency,SLC_Genotype,Sex ,Batch,Day ,Weights
+MouseID,Trial 1 (s),Trial 2 (s),Trial 3 (s),Average_Latency,SLC_Genotype,Sex ,Batch,Day ,Weight
 1907,12,46.2,51.9,36.7,HET,F,1,one,22.6
 1908,11.1,45.3,80,45.46666667,HET,F,2,one,21.4
 1942,52.7,96.7,96.2,81.86666667,HET,F,3,one,23.2

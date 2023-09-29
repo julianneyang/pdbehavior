@@ -7,9 +7,10 @@ library(cowplot)
 library(ggbeeswarm)
 library(ggpubr)
 library(ggsignif)
----------------------------------------
+
 #ROTAROD
-rotarod_data<-read.csv("Data_Rotarod_Analysis.csv", header=TRUE)
+here()
+rotarod_data<-readr::read_csv(here("Analysis_Files", "Spontaneous", "Data_Rotarod_Analysis.csv"))
 
 generate_boxplots <- function(input_data, X, Y, min,max){
   data<-as.data.frame(input_data)
@@ -198,7 +199,7 @@ b4<-generate_boxplots(fulltesting, Genotype, Percent_Time_Investigated,10,80)+st
 
 #aggregate
 plot_grid(a4,b4)
----------------------------------------
+
 #GASTROINTESTINAL MOTILITY
 
 

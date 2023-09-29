@@ -1,4 +1,4 @@
-Batch,MouseID,Day,Old_Object,New_Object,Total_Time,Discrimination_Index,Percent_Investigation_Time,Day_Treatment ,Treatment,Genotype,Sex
+Batch,MouseID,Day,Old_Object,New_Object,Total_Time,Discrimination_Index,Percent_Investigation_Time,Day_Treatment ,Treatment,SLC_Genotype,Sex
 three,115,Testing,30,12.7,42.7,-0.4051522248,29.74238876,Testing_SALINE,SALINE,HET,Male 
 three,115,Training,32.4,19.5,51.9,-0.2485549133,37.57225434,Training_SALINE,SALINE,HET,Male 
 three,117,Testing,73.6,17.5,91.1,-0.6158068057,19.20965971,Testing_MPTP,MPTP,MUT,Male 

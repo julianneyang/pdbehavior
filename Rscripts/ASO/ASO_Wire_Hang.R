@@ -1,6 +1,6 @@
 library(dplyr)
 
-df <- read.csv("ASO Wire Hang - Wire_Hang.csv",header=TRUE)
+df <- read.csv("Analysis_Files/ASO/ASO Wire Hang - Wire_Hang.csv",header=TRUE)
 df$SLC_Genotype <- factor(df$SLC_Genotype, levels= c("WT","HET", "MUT"))
 
 ### Data Wrangling ---
@@ -38,6 +38,7 @@ df_one_trial<- df_filtered %>%
 # Combine with mice having only one Sincere trial
 final_df <- rbind(df_filtered_2, df_filtered_greater) 
 final_df <- rbind(final_df,df_one_trial)
+write.csv(final_df, "Analysis_Files/ASO/Final_ASO_Wire_Hang.csv")
 
 # Double check that each mouse is represented at least once in the dataframe
 v2<- unique(final_df$MouseID)

@@ -1,4 +1,4 @@
-Cohort,MouseID,Day,Object 1 that stayed (s),Object 2 that will move (s),Percent_Time_Investigated,Discrimination_Index,Sex ,Genotype Code,Genotype
+Cohort,MouseID,Day,Object 1 that stayed (s),Object 2 that will move (s),Percent_Time_Investigated,Discrimination_Index,Sex ,Genotype Code,SLC_Genotype
 1,754,1,16.7,16.7,50,0,Male,'--,WT
 1,755,1,12.3,13.9,53.05343511,0.06106870229,Male,'+-,HET
 1,756,1,2.6,1.5,36.58536585,-0.2682926829,Male,'--,WT
