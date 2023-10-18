@@ -110,7 +110,8 @@ wilcox.test(Corrected_Mean~Genotype, data=striatum_wt_mut)
 df_meta_wt_mut <- df_meta %>% filter(Genotype!="HET")
 wilcox.test(Average_Mean~Genotype, data=df_meta_wt_mut)
 t.test(Average_Mean~Genotype, data=df_meta_wt_mut)
-
+lm <- lm(Average_Mean ~ Sex + Genotype, data = df_meta_wt_mut)
+summary(lm)
 
 df_meta_wt_mut <- df_meta %>% filter(Genotype!="HET")
 wilcox.test(Average_IntDen~Genotype, data=df_meta_wt_mut)
@@ -259,18 +260,26 @@ summary(lme_model)
 wt_het <- df_meta %>% filter(Genotype!="MUT" & Category=="Ipsilateral") 
 wilcox.test(Average_Mean~Genotype, data=wt_het)
 t.test(Average_Mean~Genotype, data=wt_het)
+lm <- lm(Average_Mean ~ Sex + Genotype, data = wt_het)
+summary(lm)
 
 wt_het <- df_meta %>% filter(Genotype!="MUT" & Category=="Contralateral") 
 wilcox.test(Average_Mean~Genotype, data=wt_het)
 t.test(Average_Mean~Genotype, data=wt_het)
+lm <- lm(Average_Mean ~ Sex + Genotype, data = wt_het)
+summary(lm)
 
 wt_mut <- df_meta %>% filter(Genotype!="HET" & Category=="Ipsilateral") 
-wilcox.test(Average_Mean~Genotype, data=wt_het)
-t.test(Average_Mean~Genotype, data=wt_het)
+wilcox.test(Average_Mean~Genotype, data=wt_mut)
+t.test(Average_Mean~Genotype, data=wt_mut)
+lm <- lm(Average_Mean ~ Sex + Genotype, data = wt_mut)
+summary(lm)
 
 wt_mut <- df_meta %>% filter(Genotype!="HET" & Category=="Contralateral") 
 wilcox.test(Average_Mean~Genotype, data=wt_mut)
 t.test(Average_Mean~Genotype, data=wt_mut)
+lm <- lm(Average_Mean ~ Sex + Genotype, data = wt_mut)
+summary(lm)
 
 ## Final Figure --
 

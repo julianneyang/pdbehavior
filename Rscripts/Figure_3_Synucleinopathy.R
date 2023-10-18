@@ -114,8 +114,13 @@ summary(lme_model)
 wt_mut <- df_meta %>% filter(Genotype!="HET" & Category=="Ipsilateral") 
 wilcox.test(Average_Count~Genotype, data=wt_mut)
 t.test(Average_Count~Genotype, data=wt_mut)
+lm <- lm(Average_Count~  Sex + Genotype, data = wt_mut)
+summary(lm)
 
 wt_mut<- df_meta %>% filter(Genotype!="HET" & Category=="Contralateral") 
 wilcox.test(Average_Count~Genotype, data=wt_mut)
 t.test(Average_Count~Genotype, data=wt_mut)
+lm <- lm(Average_Count~  Sex + Genotype, data = wt_mut)
+summary(lm)
+
 

@@ -1,0 +1,144 @@
+Num samples: 129
+Num observations: 637
+Total count: 1,708,261
+Table density (fraction of non-zero values): 0.260
+
+Counts/sample summary:
+ Min: 6,667.000
+ Max: 33,153.000
+ Median: 12,158.000
+ Mean: 13,242.333
+ Std. dev.: 4,289.491
+ Sample Metadata Categories: None provided
+ Observation Metadata Categories: None provided
+
+Counts/sample detail:
+PFF_Colon_30: 6,667.000
+PFF_Cecum_32: 6,880.000
+PFF_Colon_1921: 7,021.000
+PFF_Colon_1937: 7,459.000
+PFF_Jejunum_1946: 7,927.000
+PFF_Cecum_1910: 8,374.000
+PFF_Cecum_1941: 8,446.000
+PFF_Cecum_1938: 8,477.000
+PFF_Baseline_37: 8,552.000
+PFF_Cecum_1917: 8,844.000
+PFF_Baseline_25: 8,882.000
+PFF_Cecum_1943: 9,016.000
+PFF_Baseline_13: 9,100.000
+PFF_Cecum_16: 9,192.000
+PFF_Colon_17: 9,197.000
+PFF_Cecum_1914: 9,264.000
+PFF_Colon_1908: 9,338.000
+PFF_Cecum_1904: 9,360.000
+PFF_Baseline_12: 9,383.000
+PFF_Colon_1920: 9,392.000
+PFF_Cecum_12: 9,493.000
+PFF_Cecum_13: 9,500.000
+PFF_Colon_1913: 9,508.000
+PFF_Cecum_1908: 9,535.000
+PFF_Colon_32: 9,689.000
+PFF_Colon_15: 9,753.000
+PFF_Cecum_35: 9,832.000
+PFF_Cecum_1944: 9,880.000
+PFF_Cecum_30: 9,882.000
+PFF_Baseline_16: 9,946.000
+PFF_Baseline_17: 9,963.000
+PFF_Cecum_36: 9,998.000
+PFF_Cecum_1937: 10,082.000
+PFF_Colon_1906: 10,099.000
+PFF_Colon_1945: 10,100.000
+PFF_Colon_1917: 10,129.000
+PFF_Baseline_30: 10,153.000
+PFF_Colon_1946: 10,414.000
+PFF_Colon_1914: 10,437.000
+PFF_Cecum_28: 10,501.000
+PFF_Cecum_1920: 10,518.000
+PFF_Baseline_28: 10,528.000
+PFF_Cecum_1913: 10,713.000
+PFF_Colon_1907: 10,744.000
+PFF_Cecum_15: 10,812.000
+PFF_Baseline_1943: 10,819.000
+PFF_Colon_13: 10,856.000
+PFF_Baseline_1921: 11,008.000
+PFF_Cecum_1942: 11,060.000
+PFF_Cecum_1921: 11,129.000
+PFF_Colon_1938: 11,131.000
+PFF_Cecum_1907: 11,157.000
+PFF_Jejunum_1917: 11,277.000
+PFF_Baseline_14: 11,346.000
+PFF_Colon_35: 11,485.000
+PFF_Cecum_1945: 11,562.000
+PFF_Baseline_19: 11,592.000
+PFF_Colon_21: 11,631.000
+PFF_Cecum_11: 11,780.000
+PFF_Baseline_35: 11,812.000
+PFF_Baseline_18: 11,865.000
+PFF_Baseline_1942: 11,934.000
+PFF_Baseline_26: 11,960.000
+PFF_Baseline_15: 12,012.000
+PFF_Colon_1944: 12,158.000
+PFF_Colon_18: 12,561.000
+PFF_Jejunum_35: 12,636.000
+PFF_Baseline_27: 12,776.000
+PFF_Colon_28: 12,929.000
+PFF_Colon_1942: 12,965.000
+PFF_Jejunum_1910: 13,089.000
+PFF_Colon_36: 13,106.000
+PFF_Colon_12: 13,170.000
+PFF_Baseline_1944: 13,170.000
+PFF_Jejunum_11: 13,175.000
+PFF_Jejunum_21: 13,192.000
+PFF_Cecum_1906: 13,226.000
+PFF_Colon_19: 13,262.000
+PFF_Cecum_37: 13,265.000
+PFF_Baseline_36: 13,395.000
+PFF_Colon_1910: 13,421.000
+PFF_Jejunum_32: 13,501.000
+PFF_Colon_27: 13,777.000
+PFF_Cecum_14: 13,814.000
+PFF_Jejunum_14: 14,053.000
+PFF_Jejunum_1913: 14,158.000
+PFF_Colon_1941: 14,182.000
+PFF_Colon_1943: 14,199.000
+PFF_Baseline_1946: 14,331.000
+PFF_Jejunum_17: 14,408.000
+PFF_Baseline_11: 14,569.000
+PFF_Baseline_32: 14,630.000
+PFF_Cecum_25: 14,672.000
+PFF_Colon_37: 14,763.000
+PFF_Cecum_21: 15,011.000
+PFF_Jejunum_28: 15,141.000
+PFF_Jejunum_1943: 15,146.000
+PFF_Jejunum_36: 15,674.000
+PFF_Jejunum_1938: 16,018.000
+PFF_Jejunum_1921: 16,224.000
+PFF_Jejunum_19: 16,344.000
+PFF_Colon_25: 16,387.000
+PFF_Colon_11: 16,502.000
+PFF_Cecum_19: 16,528.000
+PFF_Colon_16: 16,558.000
+PFF_Cecum_27: 16,773.000
+PFF_Colon_1904: 16,840.000
+PFF_Colon_14: 17,008.000
+PFF_Jejunum_30: 17,030.000
+PFF_Jejunum_1942: 17,206.000
+PFF_Jejunum_1908: 17,471.000
+PFF_Jejunum_1945: 17,578.000
+PFF_Jejunum_1914: 17,754.000
+PFF_Jejunum_1920: 18,137.000
+PFF_Jejunum_13: 18,295.000
+PFF_Jejunum_37: 18,333.000
+PFF_Jejunum_1944: 19,295.000
+PFF_Baseline_1937: 19,586.000
+PFF_Jejunum_25: 19,866.000
+PFF_Cecum_17: 19,974.000
+PFF_Jejunum_12: 20,484.000
+PFF_Jejunum_1904: 20,568.000
+PFF_Jejunum_18: 21,611.000
+PFF_Jejunum_27: 23,091.000
+PFF_Jejunum_1906: 23,257.000
+PFF_Jejunum_1937: 23,573.000
+PFF_Jejunum_15: 23,604.000
+PFF_Jejunum_16: 25,292.000
+PFF_Cecum_18: 33,153.000

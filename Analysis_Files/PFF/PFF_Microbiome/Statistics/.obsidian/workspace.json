@@ -1,0 +1,177 @@
+{
+  "main": {
+    "id": "333114085cee482e",
+    "type": "split",
+    "children": [
+      {
+        "id": "2abe14628879450f",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "6127addae290ba70",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Beta Diversity - RPCA.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "4a0ca1c2f7476786",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Beta Diversity - Bray Curtis.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "28f17fedbc772fd3",
+            "type": "leaf",
+            "state": {
+              "type": "release-notes",
+              "state": {
+                "currentVersion": "1.1.16"
+              }
+            }
+          }
+        ],
+        "currentTab": 2
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "9d6303344225b9a8",
+    "type": "split",
+    "children": [
+      {
+        "id": "0ef2ae96e29cc7d9",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "cff5cde9a0f25070",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical"
+              }
+            }
+          },
+          {
+            "id": "df5a99b695d48138",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              }
+            }
+          },
+          {
+            "id": "399eb1974190f0a4",
+            "type": "leaf",
+            "state": {
+              "type": "starred",
+              "state": {}
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "right": {
+    "id": "d776d9cd507a3c50",
+    "type": "split",
+    "children": [
+      {
+        "id": "1915b01e6b7f7905",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "ddb8450eedb98545",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "Beta Diversity - Bray Curtis.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              }
+            }
+          },
+          {
+            "id": "b1c1f3abfa5ddf6a",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "file": "Beta Diversity - Bray Curtis.md",
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              }
+            }
+          },
+          {
+            "id": "34d0a6c521c333e2",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true
+              }
+            }
+          },
+          {
+            "id": "5415974d7d70b7fe",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "Beta Diversity - Bray Curtis.md"
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "switcher:Open quick switcher": false,
+      "graph:Open graph view": false,
+      "canvas:Create new canvas": false,
+      "daily-notes:Open today's daily note": false,
+      "templates:Insert template": false,
+      "command-palette:Open command palette": false
+    }
+  },
+  "active": "28f17fedbc772fd3",
+  "lastOpenFiles": [
+    "Beta Diversity - RPCA.md",
+    "Beta Diversity - Bray Curtis.md"
+  ]
+}

@@ -1,0 +1,39 @@
+Num samples: 24
+Num observations: 330
+Total count: 282,999
+Table density (fraction of non-zero values): 0.531
+
+Counts/sample summary:
+ Min: 8,542.000
+ Max: 19,565.000
+ Median: 11,695.500
+ Mean: 11,791.625
+ Std. dev.: 2,353.000
+ Sample Metadata Categories: None provided
+ Observation Metadata Categories: None provided
+
+Counts/sample detail:
+PFF_Baseline_37: 8,542.000
+PFF_Baseline_25: 8,874.000
+PFF_Baseline_13: 9,085.000
+PFF_Baseline_12: 9,378.000
+PFF_Baseline_16: 9,942.000
+PFF_Baseline_17: 9,963.000
+PFF_Baseline_30: 10,148.000
+PFF_Baseline_28: 10,521.000
+PFF_Baseline_1943: 10,781.000
+PFF_Baseline_1921: 10,995.000
+PFF_Baseline_14: 11,339.000
+PFF_Baseline_19: 11,584.000
+PFF_Baseline_35: 11,807.000
+PFF_Baseline_18: 11,859.000
+PFF_Baseline_1942: 11,922.000
+PFF_Baseline_26: 11,958.000
+PFF_Baseline_15: 12,000.000
+PFF_Baseline_27: 12,733.000
+PFF_Baseline_1944: 13,160.000
+PFF_Baseline_36: 13,374.000
+PFF_Baseline_1946: 14,315.000
+PFF_Baseline_11: 14,528.000
+PFF_Baseline_32: 14,626.000
+PFF_Baseline_1937: 19,565.000

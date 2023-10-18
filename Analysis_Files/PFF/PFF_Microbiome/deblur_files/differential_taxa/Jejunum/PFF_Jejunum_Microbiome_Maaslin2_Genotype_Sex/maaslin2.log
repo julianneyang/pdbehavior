@@ -1,0 +1,186 @@
+2023-01-27 16:44:29 INFO::Writing function arguments to log file
+2023-01-27 16:44:29 DEBUG::Function arguments
+2023-01-27 16:44:29 DEBUG::Output folder: PFF_Jejunum_Microbiome_Maaslin2_Genotype_Sex
+2023-01-27 16:44:29 DEBUG::Min Abundance: 0.000000
+2023-01-27 16:44:29 DEBUG::Min Prevalence: 0.100000
+2023-01-27 16:44:29 DEBUG::Normalization: TSS
+2023-01-27 16:44:29 DEBUG::Transform: LOG
+2023-01-27 16:44:29 DEBUG::Analysis method: LM
+2023-01-27 16:44:29 DEBUG::Max significance: 0.250000
+2023-01-27 16:44:29 DEBUG::Random effects:
+2023-01-27 16:44:29 DEBUG::Fixed effects: Genotype,Sex
+2023-01-27 16:44:29 DEBUG::Correction method: BH
+2023-01-27 16:44:29 DEBUG::Standardize: TRUE
+2023-01-27 16:44:29 DEBUG::Cores: 1
+2023-01-27 16:44:29 INFO::Verifying options selected are valid
+2023-01-27 16:44:29 INFO::Determining format of input files
+2023-01-27 16:44:29 INFO::Input format is data samples as columns and metadata samples as rows
+2023-01-27 16:44:29 DEBUG::Transformed data so samples are rows
+2023-01-27 16:44:29 DEBUG::A total of 34 samples were found in both the data and metadata
+2023-01-27 16:44:29 DEBUG::Reordering data/metadata to use same sample ordering
+2023-01-27 16:44:29 INFO::Formula for fixed effects: expr ~  Genotype + Sex
+2023-01-27 16:44:29 INFO::Filter data based on min abundance and min prevalence
+2023-01-27 16:44:29 INFO::Total samples in data: 34
+2023-01-27 16:44:29 INFO::Min samples required with min abundance for a feature not to be filtered: 3.400000
+2023-01-27 16:44:29 INFO::Total filtered features: 48
+2023-01-27 16:44:29 INFO::Filtered feature names from abundance and prevalence filtering: X9a4be075dcdac626212498d92c46cf3d, X7b37a7938bc78e72c35bcc3d5c4abc4e, X915c2bf93fd4cd02f824103c7a8e1819, X6d47b1c64c4202b8ef2f99ac002db05e, X4e94f47ec9b2752e85447dcf27cf9068, X4e0e102bf9b282ea11755a91b96624b4, X98a36549bac10a20d1dbe610f29e6486, e8aad1586f72e889e15ad43cde327ce3, X736ce27670617d33f544bc6d94365bf3, X57452c2127a9b51820f28993e39f755a, X40e4f3e6ec38f04964b2c63017f394be, f1cb28014f2e86fb0a332d15c79d455d, X686b850453613b8198bf118b1432b6ff, X4822c98c033c2575a5c1d27d35995cb0, a41217c1cb1256af684a4be06eeb56a5, X0e5fe4d9eb3f97bf1ed1b6b79c867668, X1907745fe046cb11e23384a2b9f44f3e, f351373696aac6f83058d93804811ce0, a30d36b895d5cc7dbf353dfa5b46002c, b4bf78b3429b30672788fbb3e74ea5d9, X047372e16d2e0a51ae90ff02f5e657d2, X2ef8bc569ecbb79877894098cd78b9d2, X7b3ebb7821f3dd3f1433483bc4b209bf, X44c0c26a0ad3d288518c7922f20ea43e, X91896ca94141cb2caeb39e6c7cb4a5e5, X0168b9fe72490f0981a8b04bfa9587b2, a4e5ee1256207eea038d478b45c0a8da, f917bae053bd48087d0b907902fd21cd, e80c3e0f8b43ac9802e9ecb403413004, X0f14a5f69a7aa339704f35a84fa51cdd, X1dffcbaa1c899cf968f0570bef1374de, X19fefc290b3df5c1205d5a45ec861d15, X7fc164ed7ba39f81643fde634e7a5206, X0ce1f666fe3a8e609094409565c0c20a, X654d2e2fe755da1d6330c3bf5a4c9478, X0b9cf02d004b3c2c5d5b43301d7dc16a, b4aa28ecb75ec246fbe2ee4ee3fa4817, X2ee0fbebe49c8051417656d6ff93b421, X9da0cc27e47d9a02089ba16f2e45b957, X8beba938c77f34816c2701d6c39b9419, X59506e65fcfba7b3bf99eaf6ca023c8d, X3ffbc215a8e03a70f17a721c687c10df, f68e26be4cf5272fb3092a1e43a9daa5, X22f6f7ad425fc68469ad797d7f40e83d, X43dbea69a440e995d2037e207909accf, X414c7f6ff29c0707283cc317ed8983cc, X183e2ca485c6dbf54e6996df0a3e45b3, X93d08ee3d989ee1fd3b3da7bbe44d388
+2023-01-27 16:44:29 INFO::Total filtered features with variance filtering: 0
+2023-01-27 16:44:29 INFO::Filtered feature names from variance filtering:
+2023-01-27 16:44:29 INFO::Running selected normalization method: TSS
+2023-01-27 16:44:29 INFO::Applying z-score to standardize continuous metadata
+2023-01-27 16:44:29 INFO::Running selected transform method: LOG
+2023-01-27 16:44:29 INFO::Running selected analysis method: LM
+2023-01-27 16:44:29 INFO::Fitting model to feature number 1, X5f2c3a1008eb58b94637e695d76c31b6
+2023-01-27 16:44:29 INFO::Fitting model to feature number 2, X29f4488f73396a6d546aeb0e3caa6e4c
+2023-01-27 16:44:29 INFO::Fitting model to feature number 3, X5e64a9ff57614afca249dbb59ddb6808
+2023-01-27 16:44:29 INFO::Fitting model to feature number 4, X3acc88b0dabf67b3994a9f8447c7e18c
+2023-01-27 16:44:29 INFO::Fitting model to feature number 5, ac26aa89cf6ac1100fcbf261b6e3578b
+2023-01-27 16:44:29 INFO::Fitting model to feature number 6, X7a5410f51ce0e7013ec453ed9dfbbc53
+2023-01-27 16:44:29 INFO::Fitting model to feature number 7, c1ebc4a0786814ccbfd9065623ffb619
+2023-01-27 16:44:29 INFO::Fitting model to feature number 8, d940b7110a4a4a094786ff66332c79a1
+2023-01-27 16:44:29 INFO::Fitting model to feature number 9, X365349b4c763aebf5965a03a02d936f7
+2023-01-27 16:44:29 INFO::Fitting model to feature number 10, X743feb5d7d9f922cf856d4aceba58743
+2023-01-27 16:44:29 INFO::Fitting model to feature number 11, cb6d8acd960be318f2de783c965ea3c4
+2023-01-27 16:44:29 INFO::Fitting model to feature number 12, X85d4f8746f5335ad3fb033f63217b4f5
+2023-01-27 16:44:29 INFO::Fitting model to feature number 13, ad2a7f89901c8a9dd23179a0765f6adc
+2023-01-27 16:44:29 INFO::Fitting model to feature number 14, X47ab7ca2b86bf7ddc91de48d643ef557
+2023-01-27 16:44:29 INFO::Fitting model to feature number 15, X87d5eb5c39dc813733d0447e55dc3f4b
+2023-01-27 16:44:29 INFO::Fitting model to feature number 16, X81706d16987c4a13081a92b2fce19bd1
+2023-01-27 16:44:29 INFO::Fitting model to feature number 17, X67c745c9bd82fa98f18887ceca0155e7
+2023-01-27 16:44:29 INFO::Fitting model to feature number 18, ebe76aac3344cde5e4c1f24d3866bd13
+2023-01-27 16:44:29 INFO::Fitting model to feature number 19, X7dcb432f7e6403dc277dc5c4abf771d1
+2023-01-27 16:44:29 INFO::Fitting model to feature number 20, X149539885082c9fa343b06652170cbb7
+2023-01-27 16:44:29 INFO::Fitting model to feature number 21, X827d0656daa1fab7f1544a2fc7c19403
+2023-01-27 16:44:29 INFO::Fitting model to feature number 22, X9d3815bc57cc81b50cbb8e0fe4f1a8a5
+2023-01-27 16:44:29 INFO::Fitting model to feature number 23, X4bd2415b45a42185bd77efe20e253f91
+2023-01-27 16:44:29 INFO::Fitting model to feature number 24, X835f64cdb7b5b19af79e8c9e4fab15ef
+2023-01-27 16:44:29 INFO::Fitting model to feature number 25, X8e60022a5388f9113d779a42ff7816c4
+2023-01-27 16:44:29 INFO::Fitting model to feature number 26, X371096a66354c6c569e66c417b3d2b9a
+2023-01-27 16:44:29 INFO::Fitting model to feature number 27, X3db0aa6540ca14f3fe340b712effc212
+2023-01-27 16:44:29 INFO::Fitting model to feature number 28, c43ba23e0c4bf42ec8386f7e9db30b92
+2023-01-27 16:44:29 INFO::Fitting model to feature number 29, X33f6cdf7429286085735c5f5caf1b69b
+2023-01-27 16:44:29 INFO::Fitting model to feature number 30, X137b7799cb3f522a10d3c2e0988d03b4
+2023-01-27 16:44:29 INFO::Fitting model to feature number 31, X09223937fb140366ecadef634c27fd89
+2023-01-27 16:44:29 INFO::Fitting model to feature number 32, eeb3b04ad4313fea7fc56fd692f87ce8
+2023-01-27 16:44:29 INFO::Fitting model to feature number 33, b2a698677045dafd3ee0931f336c17d9
+2023-01-27 16:44:29 INFO::Fitting model to feature number 34, e9bdb9e30908be17e52d4485129a0589
+2023-01-27 16:44:29 INFO::Fitting model to feature number 35, X5d92565b6d1bf38c202e594d4f304b99
+2023-01-27 16:44:29 INFO::Fitting model to feature number 36, edb2da18e1e0f5ab1c60d3aa6301ef78
+2023-01-27 16:44:29 INFO::Fitting model to feature number 37, X6fd69b61603b845f47740d2cf56c897a
+2023-01-27 16:44:29 INFO::Fitting model to feature number 38, X1e32735a3678c24f4157d3a458ecd117
+2023-01-27 16:44:29 INFO::Fitting model to feature number 39, X83c904e647328a02806e4b199429da81
+2023-01-27 16:44:29 INFO::Fitting model to feature number 40, X8d72c9b9b6cb5a29bd0247e918ccea78
+2023-01-27 16:44:29 INFO::Fitting model to feature number 41, fa1bd564baae3e28dda038918337f1a8
+2023-01-27 16:44:29 INFO::Fitting model to feature number 42, X12aa2fe789bd3aba68bd34f74b348d10
+2023-01-27 16:44:29 INFO::Fitting model to feature number 43, X7768b9084eae400dfb0ae68bed4e23ca
+2023-01-27 16:44:29 INFO::Fitting model to feature number 44, X7d34f0b9081712a97b066deec1a2319d
+2023-01-27 16:44:29 INFO::Fitting model to feature number 45, X3f0f980bc042f4e08e85c0c9bd1bddb7
+2023-01-27 16:44:29 INFO::Fitting model to feature number 46, c27b76272bdfd2577f21d6f649094e95
+2023-01-27 16:44:29 INFO::Fitting model to feature number 47, X1f14839dce70014f2a06434742d00b2d
+2023-01-27 16:44:29 INFO::Fitting model to feature number 48, X6d62c240349f70c1e38d968fb307a14f
+2023-01-27 16:44:29 INFO::Fitting model to feature number 49, c975907a3459a8c448d897263682a334
+2023-01-27 16:44:29 INFO::Fitting model to feature number 50, X70c4be5639af9d063ca1cfef6ab26f46
+2023-01-27 16:44:29 INFO::Fitting model to feature number 51, X261473ea3497d3baf5d36f2f7223b643
+2023-01-27 16:44:29 INFO::Fitting model to feature number 52, X718a1a03d176ff821709f68d8caa7727
+2023-01-27 16:44:29 INFO::Fitting model to feature number 53, a7669ddd5dfbafabf8dd0be562817cdd
+2023-01-27 16:44:29 INFO::Fitting model to feature number 54, X4a920dbebd4048d310d676c8948b88f9
+2023-01-27 16:44:29 INFO::Fitting model to feature number 55, b23a457254d3f740c02a8278d300a993
+2023-01-27 16:44:29 INFO::Fitting model to feature number 56, X3e117cd7bc036a8a24ab180e8a7798c8
+2023-01-27 16:44:29 INFO::Fitting model to feature number 57, a33a334733dea8eb658faae78a7a1cbd
+2023-01-27 16:44:29 INFO::Fitting model to feature number 58, b08b52b0ace10d403f4cfaef61375802
+2023-01-27 16:44:29 INFO::Fitting model to feature number 59, f11a03037b2a856b13980c9943f85416
+2023-01-27 16:44:30 INFO::Fitting model to feature number 60, X8376eec558878f854aaa346a265b53b7
+2023-01-27 16:44:30 INFO::Fitting model to feature number 61, b090703fb1ba5d42d1f1e6cabba1c5f8
+2023-01-27 16:44:30 INFO::Fitting model to feature number 62, X7d13600595d909143311ccf4b2638243
+2023-01-27 16:44:30 INFO::Fitting model to feature number 63, X517b1ee7138aad78143857f53283906a
+2023-01-27 16:44:30 INFO::Fitting model to feature number 64, X9e7f130de8792c7bd069c7ded16db3e3
+2023-01-27 16:44:30 INFO::Fitting model to feature number 65, X49da32361442ce16b3e87c26831de23a
+2023-01-27 16:44:30 INFO::Fitting model to feature number 66, X5be15ac779a0c3e8290ee9a351f55a33
+2023-01-27 16:44:30 INFO::Fitting model to feature number 67, X374764e234bd7403e4b0337ba7251bb5
+2023-01-27 16:44:30 INFO::Fitting model to feature number 68, X7245760c77308783c978482684b844a6
+2023-01-27 16:44:30 INFO::Fitting model to feature number 69, f88150f529b667ab3ae8b7563dba6fbc
+2023-01-27 16:44:30 INFO::Fitting model to feature number 70, X9d356eb7c0f0916dfe817c608734402c
+2023-01-27 16:44:30 INFO::Fitting model to feature number 71, X6ebadbe6f0780b333d3e1026cf1655cb
+2023-01-27 16:44:30 INFO::Fitting model to feature number 72, X54805fd669688517662259398487aac4
+2023-01-27 16:44:30 INFO::Fitting model to feature number 73, X6f170f352b8188156a60e2674634d2b0
+2023-01-27 16:44:30 INFO::Fitting model to feature number 74, d8c92f98aea4d8ca97ea80e20ca514d6
+2023-01-27 16:44:30 INFO::Fitting model to feature number 75, ea7fe09bb76cfd63fc66292b1e7a98d3
+2023-01-27 16:44:30 INFO::Fitting model to feature number 76, bcad6ae63d31caf8ea59ba94516ec2ac
+2023-01-27 16:44:30 INFO::Fitting model to feature number 77, X519816f16ed7e67440ce2b7718eaad85
+2023-01-27 16:44:30 INFO::Fitting model to feature number 78, X7b3eb8d3996b049e9358c6d6902de2c6
+2023-01-27 16:44:30 INFO::Fitting model to feature number 79, X7d710d47e5d675ea5355f2ff2576dac7
+2023-01-27 16:44:30 INFO::Fitting model to feature number 80, X30b8e3e3cf0c46673a3ebccb52f32828
+2023-01-27 16:44:30 INFO::Fitting model to feature number 81, X27bcb76dd6a6c02b72985bce164fe3e6
+2023-01-27 16:44:30 INFO::Fitting model to feature number 82, e4dd2de8724b201bea7659daf44fef8a
+2023-01-27 16:44:30 INFO::Fitting model to feature number 83, b356be189c25f3c0463656c2165236f9
+2023-01-27 16:44:30 INFO::Fitting model to feature number 84, b3764c324fd7a40390926358d6342e39
+2023-01-27 16:44:30 INFO::Fitting model to feature number 85, X32650a5fdf1a0992348d49fa960c8631
+2023-01-27 16:44:30 INFO::Fitting model to feature number 86, a21d9726702334cd2fad5a2f7d7a7c5d
+2023-01-27 16:44:30 INFO::Fitting model to feature number 87, X6e47def147409ab425591e3dedf37c64
+2023-01-27 16:44:30 INFO::Fitting model to feature number 88, fc4071be1b2d8d7899e4ffa3cbc2b363
+2023-01-27 16:44:30 INFO::Fitting model to feature number 89, cc7d2b52a6f2f9628720e755681880d7
+2023-01-27 16:44:30 INFO::Fitting model to feature number 90, b77234cb97c196c0d2a8c3b35ca7109d
+2023-01-27 16:44:30 INFO::Fitting model to feature number 91, X610091e7a757ce9796031dc25840e843
+2023-01-27 16:44:30 INFO::Fitting model to feature number 92, X3c53950dae4ad166985012a3570c45ba
+2023-01-27 16:44:30 INFO::Fitting model to feature number 93, X0344d3bc480746915da32233236a2be7
+2023-01-27 16:44:30 INFO::Fitting model to feature number 94, X91ccd1344c9587a528745a2f8034e572
+2023-01-27 16:44:30 INFO::Fitting model to feature number 95, X210cdc6102315d5450e54558ec1eb77d
+2023-01-27 16:44:30 INFO::Fitting model to feature number 96, X65890da42d39b9bcfd42fd180923b471
+2023-01-27 16:44:30 INFO::Fitting model to feature number 97, bccb1ec5d87c1704df11c6d1885dbc13
+2023-01-27 16:44:30 INFO::Fitting model to feature number 98, X66b6d68b2af1b113a7ac3e7768a59bbc
+2023-01-27 16:44:30 INFO::Fitting model to feature number 99, a4b505e2c0d0e2c340ad6ff67fbcec23
+2023-01-27 16:44:30 INFO::Fitting model to feature number 100, X6c1e9ba2ade833960ed3f71ccb7111a1
+2023-01-27 16:44:30 INFO::Fitting model to feature number 101, X5d1010828679c759dac21cbbd279cb1d
+2023-01-27 16:44:30 INFO::Fitting model to feature number 102, X4ff5c1ff6cdf389dfc63a8197ffe3189
+2023-01-27 16:44:30 INFO::Fitting model to feature number 103, b8b1b69f22f34e75575a94d0024f2d01
+2023-01-27 16:44:30 INFO::Fitting model to feature number 104, X2b12e6a00105bd361ba049a13b567f51
+2023-01-27 16:44:30 INFO::Fitting model to feature number 105, c52edff871d438f2e14bdd0730255c6c
+2023-01-27 16:44:30 INFO::Fitting model to feature number 106, X175bba213b88af6eaf04c232534db38b
+2023-01-27 16:44:30 INFO::Fitting model to feature number 107, ea0192ef105425cb2ff19255b6bce132
+2023-01-27 16:44:30 INFO::Fitting model to feature number 108, X0d05dc0174c28075c7bb8b0b8604908e
+2023-01-27 16:44:30 INFO::Fitting model to feature number 109, X8f6e947838b48b958bbbe534059b245a
+2023-01-27 16:44:30 INFO::Fitting model to feature number 110, b2a3532082cab449638f99abb1a71a98
+2023-01-27 16:44:30 INFO::Fitting model to feature number 111, da4c923c4cb5997ba04f867f81bbee36
+2023-01-27 16:44:30 INFO::Fitting model to feature number 112, X06dfe24f2c882d5e7004e0ac1bb73835
+2023-01-27 16:44:30 INFO::Fitting model to feature number 113, X90830d3601554f63ac83dee026bd3444
+2023-01-27 16:44:30 INFO::Fitting model to feature number 114, X3904cc34c56b1e750152fdb5cf45ac40
+2023-01-27 16:44:30 INFO::Fitting model to feature number 115, X9f891d752e7090b0b38f7b3719d4e989
+2023-01-27 16:44:30 INFO::Fitting model to feature number 116, X028424776d8325decca7f93ad7f3c0c7
+2023-01-27 16:44:30 INFO::Fitting model to feature number 117, X27e522fe43e868a4877620fec40ede33
+2023-01-27 16:44:30 INFO::Fitting model to feature number 118, X6d350ff06b4be888621865ff7ac49b24
+2023-01-27 16:44:30 INFO::Fitting model to feature number 119, X232e3f0673bc9a963a0e9d1d0a13551a
+2023-01-27 16:44:30 INFO::Fitting model to feature number 120, X17bfa5099ea216f8c2093cd6d4e96381
+2023-01-27 16:44:30 INFO::Fitting model to feature number 121, e7a9bdc134005a94f20a679febee89b4
+2023-01-27 16:44:30 INFO::Fitting model to feature number 122, fe40df1abda46259cc742df09fd2518b
+2023-01-27 16:44:30 INFO::Fitting model to feature number 123, X0e8b98ebeedc57a9572b61783ce94c7c
+2023-01-27 16:44:30 INFO::Fitting model to feature number 124, cc7263b53b918c9bcc5f1f0c6c7cd41f
+2023-01-27 16:44:30 INFO::Fitting model to feature number 125, X5c5260d9adba355e9b2eeed9885c945d
+2023-01-27 16:44:30 INFO::Fitting model to feature number 126, X8ce4a4a3b1f47c295b3ef7b843e3325b
+2023-01-27 16:44:30 INFO::Fitting model to feature number 127, X2750c604c82ba1c302af18f0f3597ada
+2023-01-27 16:44:30 INFO::Fitting model to feature number 128, X9af32d54787c8bf5d1969afcf1e9153f
+2023-01-27 16:44:30 INFO::Fitting model to feature number 129, fad1b0ba66b63f41f4eef3d22b5a1096
+2023-01-27 16:44:30 INFO::Fitting model to feature number 130, ad40eb452269bb5e3b8c408a7a874a72
+2023-01-27 16:44:30 INFO::Fitting model to feature number 131, X359120fd7bfa664495879dc71725fcd8
+2023-01-27 16:44:30 INFO::Fitting model to feature number 132, X31b01596560469aa36a3031918ed8135
+2023-01-27 16:44:30 INFO::Fitting model to feature number 133, X700049dea8fa718b92bef128b349bb0d
+2023-01-27 16:44:30 INFO::Fitting model to feature number 134, X37caf8d458244d125f39cd1bed484f41
+2023-01-27 16:44:30 INFO::Fitting model to feature number 135, X8ffec3d64037d7f8c753bd877d9a2950
+2023-01-27 16:44:30 INFO::Fitting model to feature number 136, X13d5e39792dae972f57f2274fcfb9ebb
+2023-01-27 16:44:30 INFO::Fitting model to feature number 137, X916e2e6b24db3a047db005d765622bd5
+2023-01-27 16:44:30 INFO::Fitting model to feature number 138, X8613b70e91a137639752b788783119bc
+2023-01-27 16:44:30 INFO::Fitting model to feature number 139, X03bd974cbe96d5100aa984922ea932e4
+2023-01-27 16:44:30 INFO::Fitting model to feature number 140, f698a8e49777d59c99467f8dc6808442
+2023-01-27 16:44:30 INFO::Fitting model to feature number 141, a5224859bbe099be9aab4091a11b848f
+2023-01-27 16:44:30 INFO::Fitting model to feature number 142, X0c1aa28df41dae5ecf381d2c49dd04d5
+2023-01-27 16:44:30 INFO::Fitting model to feature number 143, X8b4ae28f3fdda0e708f4751c0fad63af
+2023-01-27 16:44:30 INFO::Fitting model to feature number 144, be61c308fc221b4b2a01fd09a46b0dcd
+2023-01-27 16:44:30 INFO::Fitting model to feature number 145, X8aa0be9d06db646922990feedcf342c5
+2023-01-27 16:44:30 INFO::Fitting model to feature number 146, X6b23686a4fea43cccce5ecf2323decac
+2023-01-27 16:44:30 INFO::Fitting model to feature number 147, fcebc20544d309f7e92fcf9c838fe489
+2023-01-27 16:44:30 INFO::Counting total values for each feature
+2023-01-27 16:44:30 WARNING::Deleting existing residuals file: PFF_Jejunum_Microbiome_Maaslin2_Genotype_Sex/residuals.rds
+2023-01-27 16:44:30 INFO::Writing residuals to file PFF_Jejunum_Microbiome_Maaslin2_Genotype_Sex/residuals.rds
+2023-01-27 16:44:30 WARNING::Deleting existing fitted file: PFF_Jejunum_Microbiome_Maaslin2_Genotype_Sex/fitted.rds
+2023-01-27 16:44:30 INFO::Writing fitted values to file PFF_Jejunum_Microbiome_Maaslin2_Genotype_Sex/fitted.rds
+2023-01-27 16:44:30 INFO::Writing all results to file (ordered by increasing q-values): PFF_Jejunum_Microbiome_Maaslin2_Genotype_Sex/all_results.tsv
+2023-01-27 16:44:30 INFO::Writing the significant results (those which are less than or equal to the threshold of 0.250000 ) to file (ordered by increasing q-values): PFF_Jejunum_Microbiome_Maaslin2_Genotype_Sex/significant_results.tsv

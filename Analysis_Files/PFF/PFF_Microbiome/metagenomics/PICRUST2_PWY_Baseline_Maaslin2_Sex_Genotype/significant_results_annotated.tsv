@@ -1,0 +1,4 @@
+"","feature","metadata","value","coef","stderr","N","N.not.0","pval","qval","description"
+"1","PWY.4984","Genotype","MUT",-0.2836250401653,0.0681986006872419,24,0,0.000485275505661894,0.102244820590527,"urea cycle"
+"2","PWY.5677","Genotype","HET",0.342818811904598,0.102259443193262,24,0,0.00317033088714319,0.184785000279203,"succinate fermentation to butanoate"
+"3","PWY.5913","Genotype","MUT",-0.218419079790951,0.0583302751312736,24,0,0.00127757126268303,0.139316572210494,"TCA cycle VI (obligate autotrophs)"

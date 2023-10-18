@@ -68,36 +68,48 @@ buried_food_pellet <-generate_boxplots(data, SLC_Genotype, Total_Time,0,900) +
   theme(plot.title = element_text(hjust = 0.5))
 buried_food_pellet
 
-## Wire Hang --
-wire_hang <- readr::read_csv(here("Analysis_Files", "PFF", "PFF_Wire_Hang - Wire_Hang.csv"))
-wire_hang <- wire_hang %>% filter(DPI!=90)
-wire_hang$Genotype <- factor(wire_hang$Genotype,levels=c("WT","HET","MUT"))
-wire_hang$DPI <- as.character(wire_hang$DPI)
-wire_hang$DPI <- plyr::revalue(wire_hang$DPI, c("150"="150_DPI", "120" = "120_DPI", "180"="180_DPI"))
+## grip strength --
+grip <- readr::read_csv(here("Analysis_Files", "PFF", "PFF_Forelimb_Grip_Strength.csv"))
 
-pff_wire_hang<-generate_boxplots(wire_hang, Genotype, Total_Hang_Time,0,1000)+
-  facet_wrap(~DPI)+ 
-  ggtitle("PFF Wire Hang")+
-  ylab("Hang Time (s)")+
+pff_grip <-generate_boxplots(grip, SLC_Genotype, Average,0,1.5)+
+  ggtitle("PFF Grip Strength")+
+  ylab("Force (N)")+
   xlab("")+
   theme(plot.title = element_text(hjust = 0.5))
 
-pff_wire_hang
+pff_grip
 
 
 ## Final Figure --
-top_row <- plot_grid(aso_data_positive_plot_by_Day, pff_data_positive_plot_by_Day, mptp_rotarod_plot,
-                     labels = c("A","B","C"),
+top_row <- plot_grid(aso_data_positive_plot_by_Day, pff_data_positive_plot_by_Day, 
+                     labels = c("A","B"),
                      nrow=1, 
                      rel_widths = c(2,2,1))
-middle_row <- plot_grid(buried_food_pellet, pff_wire_hang, labels =c("D","E"))
-bottom_row <- plot_grid(aso_behavior_pca, pff_behavior_pca, labels=c("F","G"))
+middle_row <- plot_grid(mptp_rotarod_plot,buried_food_pellet, pff_grip, 
+                        labels =c("C","D","E"), nrow=1)
 plot_grid(top_row,
           middle_row,
-          bottom_row,
-          nrow=3)
+          nrow=2)
 
 ## Accompanying Statistics --
 
-# PFF Wire Hang 
+# PFF Wire Hang -
+wire_hang <- readr::read_csv(here("Analysis_Files", "PFF", "PFF_Wire_Hang - Wire_Hang.csv"))
+wire_hang <- wire_hang %>% filter(DPI==120)
+pff_bw <- readr::read_csv(here("Analysis_Files/PFF/PFF Rotarod - PFF_Rotarod_Analysis.csv"))
+pff_bw <- unique(pff_bw %>% select(c("MouseID","Weight")))
 
+hang_bw <- merge(pff_bw, wire_hang, by="MouseID")
+hang_bw$SLC_Genotype <- factor(hang_bw$SLC_Genotype, levels=c("WT","HET","MUT"))
+lm <- lm(Total_Hang_Time~  Weight + Sex + SLC_Genotype, data = hang_bw)
+summary(lm)
+
+wire_hang <- readr::read_csv(here("Analysis_Files", "PFF", "PFF_Wire_Hang - Wire_Hang.csv"))
+wire_hang <- wire_hang %>% filter(DPI==180)
+pff_bw <- readr::read_csv(here("Analysis_Files/PFF/PFF Rotarod - PFF_Rotarod_Analysis.csv"))
+pff_bw <- unique(pff_bw %>% select(c("MouseID","Weight")))
+
+hang_bw <- merge(pff_bw, wire_hang, by="MouseID")
+hang_bw$SLC_Genotype <- factor(hang_bw$SLC_Genotype, levels=c("WT","HET","MUT"))
+lm <- lm(Total_Hang_Time~  Weight + Sex + SLC_Genotype, data = hang_bw)
+summary(lm)

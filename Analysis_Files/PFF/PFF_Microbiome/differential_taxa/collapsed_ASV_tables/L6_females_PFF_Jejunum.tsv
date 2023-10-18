@@ -1,0 +1,135 @@
+"PFF_Jejunum_17"	"PFF_Jejunum_18"	"PFF_Jejunum_19"	"PFF_Jejunum_1908"	"PFF_Jejunum_1910"	"PFF_Jejunum_1917"	"PFF_Jejunum_1920"	"PFF_Jejunum_1921"	"PFF_Jejunum_1942"	"PFF_Jejunum_1946"	"PFF_Jejunum_25"	"PFF_Jejunum_27"	"PFF_Jejunum_32"	"PFF_Jejunum_35"	"PFF_Jejunum_36"	"PFF_Jejunum_37"
+"k__Bacteria;p__;c__;o__;f__;g__"	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"k__Bacteria;p__Actinobacteriota;c__Actinobacteria;o__Bifidobacteriales;f__Bifidobacteriaceae;g__Bifidobacterium"	0	0	8	0	0	0	0	0	0	0	0	0	0	0	0	0
+"k__Bacteria;p__Actinobacteriota;c__Actinobacteria;o__Corynebacteriales;f__Corynebacteriaceae;g__Corynebacterium"	5	0	0	0	0	0	0	5	0	12	0	0	8	16	0	0
+"k__Bacteria;p__Actinobacteriota;c__Actinobacteria;o__Corynebacteriales;f__Mycobacteriaceae;g__Mycobacterium"	0	0	0	0	0	0	0	0	0	7	0	0	0	0	0	0
+"k__Bacteria;p__Actinobacteriota;c__Actinobacteria;o__Micrococcales;f__Microbacteriaceae;g__Curtobacterium"	0	0	0	0	0	0	0	0	0	18	0	0	0	0	0	0
+"k__Bacteria;p__Actinobacteriota;c__Actinobacteria;o__Pseudonocardiales;f__Pseudonocardiaceae;g__Saccharopolyspora"	0	0	0	0	0	0	0	0	0	4	0	0	0	0	0	0
+"k__Bacteria;p__Actinobacteriota;c__Coriobacteriia;o__Coriobacteriales;f__Atopobiaceae;g__Coriobacteriaceae UCG-002"	20	0	76	118	0	0	0	0	3	95	52	6	339	0	31	0
+"k__Bacteria;p__Actinobacteriota;c__Coriobacteriia;o__Coriobacteriales;f__Coriobacteriales Incertae Sedis;g__"	0	0	0	14	3	16	0	0	9	0	0	0	15	13	8	0
+"k__Bacteria;p__Actinobacteriota;c__Coriobacteriia;o__Coriobacteriales;f__Eggerthellaceae;g__DNF00809"	11	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"k__Bacteria;p__Actinobacteriota;c__Coriobacteriia;o__Coriobacteriales;f__Eggerthellaceae;g__Enterorhabdus"	32	5	69	62	13	109	13	0	344	8	26	174	138	36	277	49
+"k__Bacteria;p__Actinobacteriota;c__Coriobacteriia;o__Coriobacteriales;f__Eggerthellaceae;g__Gordonibacter"	0	0	0	0	0	9	0	0	0	0	0	0	10	13	0	0
+"k__Bacteria;p__Bacteroidota;c__Bacteroidia;o__Bacteroidales;f__;g__"	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"k__Bacteria;p__Bacteroidota;c__Bacteroidia;o__Bacteroidales;f__Bacteroidaceae;g__Bacteroides"	79	0	265	97	0	0	0	0	0	451	0	0	0	0	0	0
+"k__Bacteria;p__Bacteroidota;c__Bacteroidia;o__Bacteroidales;f__Marinifilaceae;g__Odoribacter"	0	0	20	0	0	0	0	0	0	33	0	0	0	0	0	0
+"k__Bacteria;p__Bacteroidota;c__Bacteroidia;o__Bacteroidales;f__Muribaculaceae;g__"	4638	239	7243	2735	8388	11112	5233	2217	11747	7452	13397	6606	20040	3521	2246	9883
+"k__Bacteria;p__Bacteroidota;c__Bacteroidia;o__Bacteroidales;f__Muribaculaceae;g__Muribaculum"	100	0	179	86	707	205	77	48	63	270	310	29	536	516	0	268
+"k__Bacteria;p__Bacteroidota;c__Bacteroidia;o__Bacteroidales;f__Prevotellaceae;g__Alloprevotella"	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"k__Bacteria;p__Bacteroidota;c__Bacteroidia;o__Bacteroidales;f__Prevotellaceae;g__Prevotella_9"	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"k__Bacteria;p__Bacteroidota;c__Bacteroidia;o__Bacteroidales;f__Prevotellaceae;g__Prevotellaceae UCG-001"	0	0	0	0	0	0	0	0	0	29	0	0	0	0	0	0
+"k__Bacteria;p__Bacteroidota;c__Bacteroidia;o__Bacteroidales;f__Rikenellaceae;g__Alistipes"	22	0	78	14	0	0	0	0	0	67	0	4	10	0	14	0
+"k__Bacteria;p__Bacteroidota;c__Bacteroidia;o__Bacteroidales;f__Rikenellaceae;g__Rikenella"	7	0	18	3	0	0	0	4	0	22	0	0	0	0	9	0
+"k__Bacteria;p__Bacteroidota;c__Bacteroidia;o__Bacteroidales;f__Rikenellaceae;g__Rikenellaceae RC9 gut group"	0	0	7	0	0	0	0	2	3	18	0	0	0	0	6	0
+"k__Bacteria;p__Bacteroidota;c__Bacteroidia;o__Bacteroidales;f__Tannerellaceae;g__Parabacteroides"	8	0	16	10	0	0	0	0	0	72	0	0	0	0	0	0
+"k__Bacteria;p__Bacteroidota;c__Bacteroidia;o__Chitinophagales;f__Chitinophagaceae;g__Vibrionimonas"	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"k__Bacteria;p__Cyanobacteria;c__Cyanobacteriia;o__Chloroplast;f__;g__"	0	0	0	0	0	0	0	0	0	8	0	0	0	0	0	8
+"k__Bacteria;p__Cyanobacteria;c__Vampirivibrionia;o__Gastranaerophilales;f__;g__"	10	0	36	16	0	0	0	0	6	45	0	0	0	0	8	0
+"k__Bacteria;p__Desulfobacterota;c__Desulfovibrionia;o__Desulfovibrionales;f__Desulfovibrionaceae;g__Bilophila"	0	0	0	0	0	0	0	0	0	0	0	0	0	0	12	6
+"k__Bacteria;p__Desulfobacterota;c__Desulfovibrionia;o__Desulfovibrionales;f__Desulfovibrionaceae;g__Desulfovibrio"	373	360	1387	1620	596	2524	190	30	4388	488	931	4024	1568	771	4910	2038
+"k__Bacteria;p__Firmicutes;c__;o__;f__;g__"	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"k__Bacteria;p__Firmicutes;c__Bacilli;o__Acholeplasmatales;f__Acholeplasmataceae;g__Anaeroplasma"	0	0	0	0	0	0	0	0	0	0	0	0	0	0	2	0
+"k__Bacteria;p__Firmicutes;c__Bacilli;o__Bacillales;f__Bacillaceae;g__Bacillus"	0	0	0	0	0	0	0	0	0	64	0	0	0	0	0	0
+"k__Bacteria;p__Firmicutes;c__Bacilli;o__Bacillales;f__Bacillaceae;g__Terribacillus"	0	0	0	0	0	0	0	0	0	10	0	0	0	0	0	0
+"k__Bacteria;p__Firmicutes;c__Bacilli;o__Bacillales;f__Planococcaceae;g__Solibacillus"	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	9
+"k__Bacteria;p__Firmicutes;c__Bacilli;o__Erysipelotrichales;f__Erysipelatoclostridiaceae;g__"	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"k__Bacteria;p__Firmicutes;c__Bacilli;o__Erysipelotrichales;f__Erysipelatoclostridiaceae;g__Candidatus Stoquefichus"	2	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"k__Bacteria;p__Firmicutes;c__Bacilli;o__Erysipelotrichales;f__Erysipelatoclostridiaceae;g__Erysipelatoclostridium"	0	0	0	0	0	0	0	0	12	0	0	0	0	0	77	0
+"k__Bacteria;p__Firmicutes;c__Bacilli;o__Erysipelotrichales;f__Erysipelotrichaceae;g__"	0	0	0	0	0	15	0	0	0	0	0	0	0	0	0	0
+"k__Bacteria;p__Firmicutes;c__Bacilli;o__Erysipelotrichales;f__Erysipelotrichaceae;g__Dubosiella"	0	0	0	0	0	0	0	0	0	0	0	0	19	0	0	0
+"k__Bacteria;p__Firmicutes;c__Bacilli;o__Erysipelotrichales;f__Erysipelotrichaceae;g__Faecalibaculum"	189	14	349	274	23	98	446	0	56	592	70	0	526	13	24	0
+"k__Bacteria;p__Firmicutes;c__Bacilli;o__Erysipelotrichales;f__Erysipelotrichaceae;g__Turicibacter"	159	0	145	116	211	127	467	0	0	260	0	31	1906	0	12910	0
+"k__Bacteria;p__Firmicutes;c__Bacilli;o__Lactobacillales;f__Enterococcaceae;g__Enterococcus"	0	20	0	0	0	0	13	0	0	0	25	22	0	0	0	0
+"k__Bacteria;p__Firmicutes;c__Bacilli;o__Lactobacillales;f__Lactobacillaceae;g__"	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"k__Bacteria;p__Firmicutes;c__Bacilli;o__Lactobacillales;f__Lactobacillaceae;g__HT002"	7492	2312	303	2179	6995	2073	10795	20508	724	903	295	260	1124	1605	467	2744
+"k__Bacteria;p__Firmicutes;c__Bacilli;o__Lactobacillales;f__Lactobacillaceae;g__Lactobacillus"	16486	4313	851	3157	11863	5965	22541	16476	380	828	282	130	5173	22041	2933	2569
+"k__Bacteria;p__Firmicutes;c__Bacilli;o__Lactobacillales;f__Lactobacillaceae;g__Latilactobacillus"	0	0	0	0	0	0	0	0	0	0	0	0	0	46	0	0
+"k__Bacteria;p__Firmicutes;c__Bacilli;o__Lactobacillales;f__Lactobacillaceae;g__Ligilactobacillus"	6046	41319	29439	32810	6993	7266	4632	5992	29472	11587	34603	44460	8343	2326	2806	33186
+"k__Bacteria;p__Firmicutes;c__Bacilli;o__Lactobacillales;f__Lactobacillaceae;g__Weissella"	0	0	0	0	0	0	0	0	0	8	0	0	0	0	0	0
+"k__Bacteria;p__Firmicutes;c__Bacilli;o__Lactobacillales;f__Streptococcaceae;g__Streptococcus"	142	275	106	376	163	71	11	345	261	544	228	36	177	2807	82	153
+"k__Bacteria;p__Firmicutes;c__Bacilli;o__RF39;f__;g__"	0	0	0	0	0	0	0	0	0	0	0	0	0	0	5	0
+"k__Bacteria;p__Firmicutes;c__Bacilli;o__Staphylococcales;f__Staphylococcaceae;g__Staphylococcus"	34	12	59	50	0	0	0	80	115	239	17	68	38	129	0	36
+"k__Bacteria;p__Firmicutes;c__Bacilli;o__Thermoactinomycetales;f__Thermoactinomycetaceae;g__Kroppenstedtia"	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"k__Bacteria;p__Firmicutes;c__Bacilli;o__Thermoactinomycetales;f__Thermoactinomycetaceae;g__Thermoactinomyces"	0	0	0	0	0	0	0	0	0	23	0	0	0	0	0	0
+"k__Bacteria;p__Firmicutes;c__Clostridia;o__;f__;g__"	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"k__Bacteria;p__Firmicutes;c__Clostridia;o__Christensenellales;f__Christensenellaceae;g__"	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"k__Bacteria;p__Firmicutes;c__Clostridia;o__Christensenellales;f__Christensenellaceae;g__Christensenellaceae R-7 group"	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"k__Bacteria;p__Firmicutes;c__Clostridia;o__Clostridia UCG-014;f__;g__"	14	0	39	0	5	81	0	0	22	58	15	53	0	0	66	0
+"k__Bacteria;p__Firmicutes;c__Clostridia;o__Clostridia vadinBB60 group;f__;g__"	0	0	0	0	0	0	0	0	0	15	0	0	0	0	0	0
+"k__Bacteria;p__Firmicutes;c__Clostridia;o__Clostridiales;f__Clostridiaceae;g__"	0	0	12	0	0	0	0	18	0	0	0	0	0	0	0	0
+"k__Bacteria;p__Firmicutes;c__Clostridia;o__Clostridiales;f__Clostridiaceae;g__Candidatus Arthromitus"	17	0	0	0	0	4	0	141	132	62	0	0	10	0	36	0
+"k__Bacteria;p__Firmicutes;c__Clostridia;o__Clostridiales;f__Clostridiaceae;g__Clostridium sensu stricto 1"	0	0	0	0	17	18	35	0	0	0	0	0	148	1433	86	0
+"k__Bacteria;p__Firmicutes;c__Clostridia;o__Eubacteriales;f__Anaerofustaceae;g__Anaerofustis"	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"k__Bacteria;p__Firmicutes;c__Clostridia;o__Lachnospirales;f__Defluviitaleaceae;g__Defluviitaleaceae UCG-011"	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"k__Bacteria;p__Firmicutes;c__Clostridia;o__Lachnospirales;f__Lachnospiraceae;g__"	114	0	331	179	260	1316	59	0	45	615	59	164	67	25	1943	0
+"k__Bacteria;p__Firmicutes;c__Clostridia;o__Lachnospirales;f__Lachnospiraceae;g__A2"	0	0	0	19	0	0	0	0	0	24	0	0	0	0	76	0
+"k__Bacteria;p__Firmicutes;c__Clostridia;o__Lachnospirales;f__Lachnospiraceae;g__ASF356"	0	0	28	0	0	0	0	0	0	23	0	0	0	0	0	0
+"k__Bacteria;p__Firmicutes;c__Clostridia;o__Lachnospirales;f__Lachnospiraceae;g__Acetatifactor"	0	0	0	0	0	0	0	0	0	21	0	0	0	0	24	0
+"k__Bacteria;p__Firmicutes;c__Clostridia;o__Lachnospirales;f__Lachnospiraceae;g__Agathobacter"	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"k__Bacteria;p__Firmicutes;c__Clostridia;o__Lachnospirales;f__Lachnospiraceae;g__Anaerostipes"	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"k__Bacteria;p__Firmicutes;c__Clostridia;o__Lachnospirales;f__Lachnospiraceae;g__Blautia"	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"k__Bacteria;p__Firmicutes;c__Clostridia;o__Lachnospirales;f__Lachnospiraceae;g__GCA-900066575"	0	0	0	0	0	0	0	0	0	0	0	0	0	0	11	0
+"k__Bacteria;p__Firmicutes;c__Clostridia;o__Lachnospirales;f__Lachnospiraceae;g__Lachnoclostridium"	33	0	188	89	198	237	0	0	0	220	579	177	226	42	2122	0
+"k__Bacteria;p__Firmicutes;c__Clostridia;o__Lachnospirales;f__Lachnospiraceae;g__Lachnospiraceae AC2044 group"	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"k__Bacteria;p__Firmicutes;c__Clostridia;o__Lachnospirales;f__Lachnospiraceae;g__Lachnospiraceae FCS020 group"	10	0	24	21	0	0	0	0	0	50	0	0	0	0	0	0
+"k__Bacteria;p__Firmicutes;c__Clostridia;o__Lachnospirales;f__Lachnospiraceae;g__Lachnospiraceae NK4A136 group"	282	0	390	51	0	17	22	34	15	745	31	77	80	155	12958	163
+"k__Bacteria;p__Firmicutes;c__Clostridia;o__Lachnospirales;f__Lachnospiraceae;g__Lachnospiraceae NK4B4 group"	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"k__Bacteria;p__Firmicutes;c__Clostridia;o__Lachnospirales;f__Lachnospiraceae;g__Lachnospiraceae UCG-001"	31	0	72	0	0	20	0	0	0	119	0	8	64	136	61	0
+"k__Bacteria;p__Firmicutes;c__Clostridia;o__Lachnospirales;f__Lachnospiraceae;g__Lachnospiraceae UCG-002"	0	0	0	0	0	0	0	0	0	0	0	0	0	0	19	0
+"k__Bacteria;p__Firmicutes;c__Clostridia;o__Lachnospirales;f__Lachnospiraceae;g__Lachnospiraceae UCG-004"	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"k__Bacteria;p__Firmicutes;c__Clostridia;o__Lachnospirales;f__Lachnospiraceae;g__Lachnospiraceae UCG-006"	15	0	144	26	27	24	0	0	11	58	79	0	156	0	757	0
+"k__Bacteria;p__Firmicutes;c__Clostridia;o__Lachnospirales;f__Lachnospiraceae;g__Marvinbryantia"	57	0	137	48	0	0	0	0	0	183	0	0	0	0	0	30
+"k__Bacteria;p__Firmicutes;c__Clostridia;o__Lachnospirales;f__Lachnospiraceae;g__Roseburia"	72	0	12	0	0	16	0	0	0	70	0	0	0	0	222	0
+"k__Bacteria;p__Firmicutes;c__Clostridia;o__Lachnospirales;f__Lachnospiraceae;g__Tuzzerella"	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"k__Bacteria;p__Firmicutes;c__Clostridia;o__Lachnospirales;f__Lachnospiraceae;g__Tyzzerella"	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"k__Bacteria;p__Firmicutes;c__Clostridia;o__Lachnospirales;f__Lachnospiraceae;g__[Eubacterium] ruminantium group"	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"k__Bacteria;p__Firmicutes;c__Clostridia;o__Lachnospirales;f__Lachnospiraceae;g__[Eubacterium] ventriosum group"	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"k__Bacteria;p__Firmicutes;c__Clostridia;o__Lachnospirales;f__Lachnospiraceae;g__[Eubacterium] xylanophilum group"	0	0	16	0	0	29	0	0	0	15	0	0	23	11	57	0
+"k__Bacteria;p__Firmicutes;c__Clostridia;o__Lachnospirales;f__Lachnospiraceae;g__[Ruminococcus] gnavus group"	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"k__Bacteria;p__Firmicutes;c__Clostridia;o__Monoglobales;f__Monoglobaceae;g__Monoglobus"	0	0	0	0	0	7	0	0	0	0	0	0	13	0	0	0
+"k__Bacteria;p__Firmicutes;c__Clostridia;o__Oscillospirales;f__;g__"	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"k__Bacteria;p__Firmicutes;c__Clostridia;o__Oscillospirales;f__Butyricicoccaceae;g__Butyricicoccus"	4	0	7	0	0	0	0	0	0	24	0	0	0	0	0	0
+"k__Bacteria;p__Firmicutes;c__Clostridia;o__Oscillospirales;f__Butyricicoccaceae;g__UCG-009"	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"k__Bacteria;p__Firmicutes;c__Clostridia;o__Oscillospirales;f__Hungateiclostridiaceae;g__Pseudobacteroides"	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"k__Bacteria;p__Firmicutes;c__Clostridia;o__Oscillospirales;f__Oscillospiraceae;g__"	0	0	0	0	0	0	0	0	0	29	0	0	0	0	9	0
+"k__Bacteria;p__Firmicutes;c__Clostridia;o__Oscillospirales;f__Oscillospiraceae;g__Colidextribacter"	0	0	0	0	0	0	0	0	0	25	0	0	0	0	0	0
+"k__Bacteria;p__Firmicutes;c__Clostridia;o__Oscillospirales;f__Oscillospiraceae;g__Intestinimonas"	0	0	17	0	0	0	0	0	0	15	0	0	0	0	34	0
+"k__Bacteria;p__Firmicutes;c__Clostridia;o__Oscillospirales;f__Oscillospiraceae;g__NK4A214 group"	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"k__Bacteria;p__Firmicutes;c__Clostridia;o__Oscillospirales;f__Oscillospiraceae;g__Oscillibacter"	0	0	0	0	0	0	0	0	0	41	0	0	0	0	0	0
+"k__Bacteria;p__Firmicutes;c__Clostridia;o__Oscillospirales;f__Oscillospiraceae;g__Oscillospira"	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"k__Bacteria;p__Firmicutes;c__Clostridia;o__Oscillospirales;f__Oscillospiraceae;g__Pseudoflavonifractor"	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"k__Bacteria;p__Firmicutes;c__Clostridia;o__Oscillospirales;f__Oscillospiraceae;g__UCG-003"	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"k__Bacteria;p__Firmicutes;c__Clostridia;o__Oscillospirales;f__Oscillospiraceae;g__UCG-005"	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"k__Bacteria;p__Firmicutes;c__Clostridia;o__Oscillospirales;f__Ruminococcaceae;g__"	0	0	14	0	0	0	0	0	0	12	10	57	0	6	31	0
+"k__Bacteria;p__Firmicutes;c__Clostridia;o__Oscillospirales;f__Ruminococcaceae;g__Anaerotruncus"	0	0	0	0	0	0	0	0	0	0	0	0	0	12	14	0
+"k__Bacteria;p__Firmicutes;c__Clostridia;o__Oscillospirales;f__Ruminococcaceae;g__Caproiciproducens"	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"k__Bacteria;p__Firmicutes;c__Clostridia;o__Oscillospirales;f__Ruminococcaceae;g__Faecalibacterium"	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"k__Bacteria;p__Firmicutes;c__Clostridia;o__Oscillospirales;f__Ruminococcaceae;g__Incertae Sedis"	0	0	15	0	0	9	0	0	0	0	0	0	0	0	14	0
+"k__Bacteria;p__Firmicutes;c__Clostridia;o__Oscillospirales;f__Ruminococcaceae;g__Ruminococcus"	0	0	19	21	0	7	0	0	0	26	0	0	0	0	0	0
+"k__Bacteria;p__Firmicutes;c__Clostridia;o__Oscillospirales;f__Ruminococcaceae;g__UBA1819"	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"k__Bacteria;p__Firmicutes;c__Clostridia;o__Oscillospirales;f__Ruminococcaceae;g__[Eubacterium] siraeum group"	23	0	0	0	0	0	0	0	0	0	0	0	10	0	18	0
+"k__Bacteria;p__Firmicutes;c__Clostridia;o__Oscillospirales;f__UCG-010;g__"	6	0	0	0	0	0	0	0	0	12	0	0	0	0	0	0
+"k__Bacteria;p__Firmicutes;c__Clostridia;o__Oscillospirales;f__[Eubacterium] coprostanoligenes group;g__"	14	0	19	18	0	0	0	4	0	40	0	0	0	0	24	0
+"k__Bacteria;p__Firmicutes;c__Clostridia;o__Peptococcales;f__Peptococcaceae;g__"	0	0	0	0	0	0	0	0	0	0	0	0	0	0	10	0
+"k__Bacteria;p__Firmicutes;c__Clostridia;o__Peptococcales;f__Peptococcaceae;g__Peptococcus"	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"k__Bacteria;p__Firmicutes;c__Clostridia;o__Peptostreptococcales-Tissierellales;f__Anaerovoracaceae;g__Anaerovorax"	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"k__Bacteria;p__Firmicutes;c__Clostridia;o__Peptostreptococcales-Tissierellales;f__Anaerovoracaceae;g__Family XIII AD3011 group"	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"k__Bacteria;p__Firmicutes;c__Clostridia;o__Peptostreptococcales-Tissierellales;f__Anaerovoracaceae;g__Family XIII UCG-001"	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"k__Bacteria;p__Firmicutes;c__Clostridia;o__Peptostreptococcales-Tissierellales;f__Anaerovoracaceae;g__[Eubacterium] brachy group"	0	0	0	0	0	0	0	0	0	3	0	0	0	0	17	0
+"k__Bacteria;p__Firmicutes;c__Clostridia;o__Peptostreptococcales-Tissierellales;f__Anaerovoracaceae;g__[Eubacterium] nodatum group"	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"k__Bacteria;p__Firmicutes;c__Clostridia;o__Peptostreptococcales-Tissierellales;f__Peptostreptococcaceae;g__Peptostreptococcus"	0	0	0	4	0	0	0	0	0	0	0	0	0	0	0	0
+"k__Bacteria;p__Firmicutes;c__Clostridia;o__Peptostreptococcales-Tissierellales;f__Peptostreptococcaceae;g__Romboutsia"	0	0	0	0	0	0	0	7	0	0	0	0	0	0	0	0
+"k__Bacteria;p__Patescibacteria;c__Saccharimonadia;o__Saccharimonadales;f__Saccharimonadaceae;g__Candidatus Saccharimonas"	0	0	0	0	0	0	0	0	0	0	0	0	0	0	5	0
+"k__Bacteria;p__Proteobacteria;c__;o__;f__;g__"	0	0	0	0	0	0	0	0	0	0	0	0	0	27	0	0
+"k__Bacteria;p__Proteobacteria;c__Alphaproteobacteria;o__Rhizobiales;f__Xanthobacteraceae;g__Bradyrhizobium"	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"k__Bacteria;p__Proteobacteria;c__Alphaproteobacteria;o__Rhodospirillales;f__;g__"	5	0	10	0	0	0	0	0	0	22	0	0	0	0	0	0
+"k__Bacteria;p__Proteobacteria;c__Alphaproteobacteria;o__Rickettsiales;f__Mitochondria;g__"	0	0	0	0	0	0	0	4	59	0	0	0	0	0	0	7
+"k__Bacteria;p__Proteobacteria;c__Alphaproteobacteria;o__Sphingomonadales;f__Sphingomonadaceae;g__Sphingopyxis"	0	0	5	0	0	0	0	0	0	0	0	0	0	0	0	0
+"k__Bacteria;p__Proteobacteria;c__Gammaproteobacteria;o__Burkholderiales;f__Sutterellaceae;g__Parasutterella"	28	0	130	21	53	56	0	0	41	135	18	0	164	149	0	25
+"k__Bacteria;p__Proteobacteria;c__Gammaproteobacteria;o__Enterobacterales;f__Enterobacteriaceae;g__"	0	0	0	0	0	0	0	0	0	0	0	0	0	0	12	0
+"k__Bacteria;p__Proteobacteria;c__Gammaproteobacteria;o__Enterobacterales;f__Enterobacteriaceae;g__Escherichia-Shigella"	0	76	6	0	0	0	0	89	53	100	18	0	0	4	0	0
+"k__Bacteria;p__Proteobacteria;c__Gammaproteobacteria;o__Enterobacterales;f__Erwiniaceae;g__Pantoea"	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"k__Bacteria;p__Proteobacteria;c__Gammaproteobacteria;o__Enterobacterales;f__Pasteurellaceae;g__Muribacter"	0	6	0	0	0	0	0	0	0	0	0	0	0	24	0	0
+"k__Bacteria;p__Proteobacteria;c__Gammaproteobacteria;o__Pseudomonadales;f__Pseudomonadaceae;g__Pseudomonas"	0	14	0	0	0	0	0	0	0	0	2	0	0	0	0	0
+"k__Bacteria;p__Proteobacteria;c__Gammaproteobacteria;o__Xanthomonadales;f__Xanthomonadaceae;g__Stenotrophomonas"	0	8	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"k__Bacteria;p__Verrucomicrobiota;c__Verrucomicrobiae;o__Verrucomicrobiales;f__Akkermansiaceae;g__Akkermansia"	51	18	108	47	0	62	109	36	43	148	15	0	0	4	3	7

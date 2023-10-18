@@ -1,0 +1,49 @@
+Num samples: 34
+Num observations: 195
+Total count: 583,348
+Table density (fraction of non-zero values): 0.352
+
+Counts/sample summary:
+ Min: 7,847.000
+ Max: 25,272.000
+ Median: 17,115.000
+ Mean: 17,157.294
+ Std. dev.: 3,928.099
+ Sample Metadata Categories: None provided
+ Observation Metadata Categories: None provided
+
+Counts/sample detail:
+PFF_Jejunum_1946: 7,847.000
+PFF_Jejunum_1917: 11,244.000
+PFF_Jejunum_35: 12,623.000
+PFF_Jejunum_1910: 13,087.000
+PFF_Jejunum_11: 13,168.000
+PFF_Jejunum_21: 13,183.000
+PFF_Jejunum_32: 13,477.000
+PFF_Jejunum_14: 14,046.000
+PFF_Jejunum_1913: 14,120.000
+PFF_Jejunum_17: 14,367.000
+PFF_Jejunum_28: 14,992.000
+PFF_Jejunum_1943: 15,123.000
+PFF_Jejunum_36: 15,281.000
+PFF_Jejunum_1938: 16,008.000
+PFF_Jejunum_1921: 16,224.000
+PFF_Jejunum_19: 16,296.000
+PFF_Jejunum_30: 17,024.000
+PFF_Jejunum_1942: 17,206.000
+PFF_Jejunum_1908: 17,463.000
+PFF_Jejunum_1945: 17,548.000
+PFF_Jejunum_1914: 17,746.000
+PFF_Jejunum_1920: 18,133.000
+PFF_Jejunum_13: 18,290.000
+PFF_Jejunum_37: 18,333.000
+PFF_Jejunum_1944: 19,280.000
+PFF_Jejunum_25: 19,864.000
+PFF_Jejunum_12: 20,482.000
+PFF_Jejunum_1904: 20,559.000
+PFF_Jejunum_18: 21,611.000
+PFF_Jejunum_27: 23,037.000
+PFF_Jejunum_1906: 23,252.000
+PFF_Jejunum_1937: 23,558.000
+PFF_Jejunum_15: 23,604.000
+PFF_Jejunum_16: 25,272.000

@@ -1,0 +1,75 @@
+Num samples: 60
+Num observations: 248
+Total count: 1939327
+Table density (fraction of non-zero values): 0.498
+
+Counts/sample summary:
+ Min: 18391.000
+ Max: 55331.000
+ Median: 31988.000
+ Mean: 32322.117
+ Std. dev.: 6655.445
+ Sample Metadata Categories: None provided
+ Observation Metadata Categories: None provided
+
+Counts/sample detail:
+PFF_Colon_30: 18391.000
+PFF_Colon_1937: 20150.000
+PFF_Baseline_25: 20374.000
+PFF_Colon_1913: 23377.000
+PFF_Colon_1920: 23806.000
+PFF_Colon_17: 24002.000
+PFF_Colon_1921: 24363.000
+PFF_Colon_1945: 24619.000
+PFF_Baseline_17: 24865.000
+PFF_Colon_1908: 25539.000
+PFF_Baseline_13: 26074.000
+PFF_Colon_32: 26345.000
+PFF_Baseline_37: 26417.000
+PFF_Colon_1917: 27392.000
+PFF_Colon_15: 27642.000
+PFF_Baseline_12: 27723.000
+PFF_Colon_1914: 28256.000
+PFF_Colon_1907: 28989.000
+PFF_Colon_21: 29527.000
+PFF_Colon_1946: 29550.000
+PFF_Baseline_16: 29976.000
+PFF_Baseline_1943: 30005.000
+PFF_Baseline_28: 30473.000
+PFF_Baseline_1921: 30576.000
+PFF_Colon_18: 30724.000
+PFF_Colon_12: 30841.000
+PFF_Colon_1938: 30911.000
+PFF_Colon_1906: 31418.000
+PFF_Baseline_19: 31594.000
+PFF_Colon_13: 31923.000
+PFF_Colon_1942: 32053.000
+PFF_Baseline_30: 32248.000
+PFF_Baseline_14: 32924.000
+PFF_Baseline_15: 32933.000
+PFF_Colon_1941: 33108.000
+PFF_Baseline_1942: 33294.000
+PFF_Baseline_18: 33387.000
+PFF_Colon_1944: 33969.000
+PFF_Baseline_35: 34003.000
+PFF_Baseline_27: 34254.000
+PFF_Colon_1910: 34851.000
+PFF_Baseline_26: 35156.000
+PFF_Colon_35: 35256.000
+PFF_Colon_27: 35346.000
+PFF_Colon_28: 36228.000
+PFF_Baseline_1946: 36405.000
+PFF_Colon_19: 36510.000
+PFF_Colon_1943: 37013.000
+PFF_Baseline_1944: 38348.000
+PFF_Colon_36: 38389.000
+PFF_Colon_37: 38798.000
+PFF_Baseline_36: 38905.000
+PFF_Colon_16: 40998.000
+PFF_Colon_25: 41313.000
+PFF_Colon_14: 41461.000
+PFF_Colon_1904: 41890.000
+PFF_Baseline_11: 42212.000
+PFF_Baseline_32: 43419.000
+PFF_Colon_11: 43483.000
+PFF_Baseline_1937: 55331.000

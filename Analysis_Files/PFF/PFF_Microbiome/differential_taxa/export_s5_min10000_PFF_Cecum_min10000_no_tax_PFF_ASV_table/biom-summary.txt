@@ -1,0 +1,50 @@
+Num samples: 35
+Num observations: 319
+Total count: 1211579
+Table density (fraction of non-zero values): 0.489
+
+Counts/sample summary:
+ Min: 22686.000
+ Max: 91757.000
+ Median: 31578.000
+ Mean: 34616.543
+ Std. dev.: 11978.816
+ Sample Metadata Categories: None provided
+ Observation Metadata Categories: None provided
+
+Counts/sample detail:
+PFF_Cecum_32: 22686.000
+PFF_Cecum_1941: 22893.000
+PFF_Cecum_1943: 26163.000
+PFF_Cecum_1910: 26188.000
+PFF_Cecum_1938: 26586.000
+PFF_Cecum_1917: 26818.000
+PFF_Cecum_1904: 27006.000
+PFF_Cecum_30: 27255.000
+PFF_Cecum_1908: 28174.000
+PFF_Cecum_1937: 28495.000
+PFF_Cecum_16: 28850.000
+PFF_Cecum_12: 28935.000
+PFF_Cecum_13: 28954.000
+PFF_Cecum_1914: 29320.000
+PFF_Cecum_1942: 30050.000
+PFF_Cecum_36: 30423.000
+PFF_Cecum_1944: 30963.000
+PFF_Cecum_35: 31578.000
+PFF_Cecum_1920: 32015.000
+PFF_Cecum_1913: 32720.000
+PFF_Cecum_1945: 33145.000
+PFF_Cecum_1907: 34095.000
+PFF_Cecum_1921: 34329.000
+PFF_Cecum_15: 35009.000
+PFF_Cecum_11: 35065.000
+PFF_Cecum_28: 35561.000
+PFF_Cecum_1906: 39037.000
+PFF_Cecum_25: 39703.000
+PFF_Cecum_14: 39864.000
+PFF_Cecum_37: 40732.000
+PFF_Cecum_21: 41114.000
+PFF_Cecum_19: 43947.000
+PFF_Cecum_27: 46811.000
+PFF_Cecum_17: 55338.000
+PFF_Cecum_18: 91757.000

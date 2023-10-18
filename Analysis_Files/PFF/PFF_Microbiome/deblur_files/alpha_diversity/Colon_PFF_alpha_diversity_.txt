@@ -1,0 +1,166 @@
+Linear mixed-effects model fit by REML
+  Data: data_meta 
+      AIC      BIC   logLik
+  97.2172 104.6997 -43.6086
+
+Random effects:
+ Formula: ~1 | MouseID
+        (Intercept)  Residual
+StdDev:   0.7586579 0.2844967
+
+Fixed effects:  shannon_entropy ~ Genotype 
+                Value Std.Error DF   t-value p-value
+(Intercept)  4.125256 0.2338982 33 17.636975  0.0000
+GenotypeHET -0.310715 0.3307820 33 -0.939335  0.3544
+GenotypeMUT  0.213426 0.3307820 33  0.645217  0.5232
+ Correlation: 
+            (Intr) GntHET
+GenotypeHET -0.707       
+GenotypeMUT -0.707  0.500
+
+Standardized Within-Group Residuals:
+         Min           Q1          Med           Q3          Max 
+-0.605265049 -0.269677186  0.001729045  0.272184586  0.707372244 
+
+Number of Observations: 36
+Number of Groups: 36 
+Linear mixed-effects model fit by REML
+  Data: data_meta 
+       AIC      BIC    logLik
+  343.8913 351.3738 -166.9456
+
+Random effects:
+ Formula: ~1 | MouseID
+        (Intercept) Residual
+StdDev:    31.85779 11.94667
+
+Fixed effects:  observed_features ~ Genotype 
+                Value Std.Error DF   t-value p-value
+(Intercept) 172.50000   9.82192 33 17.562757  0.0000
+GenotypeHET   2.08333  13.89029 33  0.149985  0.8817
+GenotypeMUT   1.75000  13.89029 33  0.125987  0.9005
+ Correlation: 
+            (Intr) GntHET
+GenotypeHET -0.707       
+GenotypeMUT -0.707  0.500
+
+Standardized Within-Group Residuals:
+        Min          Q1         Med          Q3         Max 
+-0.54953127 -0.21413660 -0.05933906  0.19091697  1.05004332 
+
+Number of Observations: 36
+Number of Groups: 36 
+
+	Wilcoxon rank sum exact test
+
+data:  shannon_entropy by Genotype
+W = 64, p-value = 0.6707
+alternative hypothesis: true location shift is not equal to 0
+
+
+	Wilcoxon rank sum exact test
+
+data:  observed_features by Genotype
+W = 70, p-value = 0.9323
+alternative hypothesis: true location shift is not equal to 0
+
+
+	Welch Two Sample t-test
+
+data:  shannon_entropy by Genotype
+t = -0.66145, df = 21.473, p-value = 0.5154
+alternative hypothesis: true difference in means between group WT and group MUT is not equal to 0
+95 percent confidence interval:
+ -0.8835402  0.4566882
+sample estimates:
+ mean in group WT mean in group MUT 
+         4.125256          4.338682 
+
+
+	Welch Two Sample t-test
+
+data:  observed_features by Genotype
+t = -0.1114, df = 20.707, p-value = 0.9124
+alternative hypothesis: true difference in means between group WT and group MUT is not equal to 0
+95 percent confidence interval:
+ -34.44842  30.94842
+sample estimates:
+ mean in group WT mean in group MUT 
+           172.50            174.25 
+
+
+	Wilcoxon rank sum exact test
+
+data:  shannon_entropy by Genotype
+W = 90, p-value = 0.3186
+alternative hypothesis: true location shift is not equal to 0
+
+
+	Wilcoxon rank sum test with continuity correction
+
+data:  observed_features by Genotype
+W = 66, p-value = 0.7507
+alternative hypothesis: true location shift is not equal to 0
+
+
+	Welch Two Sample t-test
+
+data:  shannon_entropy by Genotype
+t = 0.96387, df = 21.484, p-value = 0.3458
+alternative hypothesis: true difference in means between group WT and group HET is not equal to 0
+95 percent confidence interval:
+ -0.3587546  0.9801847
+sample estimates:
+ mean in group WT mean in group HET 
+         4.125256          3.814541 
+
+
+	Welch Two Sample t-test
+
+data:  observed_features by Genotype
+t = -0.17918, df = 19.357, p-value = 0.8597
+alternative hypothesis: true difference in means between group WT and group HET is not equal to 0
+95 percent confidence interval:
+ -26.38808  22.22141
+sample estimates:
+ mean in group WT mean in group HET 
+         172.5000          174.5833 
+
+
+	Wilcoxon rank sum exact test
+
+data:  shannon_entropy by Genotype
+W = 47, p-value = 0.16
+alternative hypothesis: true location shift is not equal to 0
+
+
+	Wilcoxon rank sum test with continuity correction
+
+data:  observed_features by Genotype
+W = 70.5, p-value = 0.9539
+alternative hypothesis: true location shift is not equal to 0
+
+
+	Welch Two Sample t-test
+
+data:  shannon_entropy by Genotype
+t = -1.5117, df = 22, p-value = 0.1449
+alternative hypothesis: true difference in means between group HET and group MUT is not equal to 0
+95 percent confidence interval:
+ -1.243216  0.194934
+sample estimates:
+mean in group HET mean in group MUT 
+         3.814541          4.338682 
+
+
+	Welch Two Sample t-test
+
+data:  observed_features by Genotype
+t = 0.023759, df = 16.647, p-value = 0.9813
+alternative hypothesis: true difference in means between group HET and group MUT is not equal to 0
+95 percent confidence interval:
+ -29.31531  29.98197
+sample estimates:
+mean in group HET mean in group MUT 
+         174.5833          174.2500 
+

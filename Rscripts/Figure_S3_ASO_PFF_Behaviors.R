@@ -177,16 +177,20 @@ pff_wire_hang<-generate_boxplots(wire_hang, SLC_Genotype, Total_Hang_Time,0,650)
 
 pff_wire_hang
 
-## PFF grip strength --
-grip <- readr::read_csv(here("Analysis_Files", "PFF", "PFF_Forelimb_Grip_Strength.csv"))
+## PFF wire hang --
+wire_hang <- readr::read_csv(here("Analysis_Files", "PFF", "PFF_Wire_Hang - Wire_Hang.csv"))
+wire_hang$DPI <- as.character(wire_hang$DPI)
+wire_hang$DPI <- factor(wire_hang$DPI, levels=c("90_DPI", "120_DPI","150_DPI","180_DPI"))
+wire_hang$DPI <- plyr::revalue(wire_hang$DPI, c("90"="90_DPI","150"="150_DPI", "120" = "120_DPI", "180"="180_DPI"))
 
-pff_grip <-generate_boxplots(grip, SLC_Genotype, Average,0,1.5)+
-  ggtitle("PFF Grip Strength")+
-  ylab("Force (N)")+
+pff_wire_hang<-generate_boxplots(wire_hang, SLC_Genotype, Total_Hang_Time,0,1000)+
+  facet_wrap(~DPI,nrow=1)+ 
+  ggtitle("PFF Wire Hang")+
+  ylab("Hang Time (s)")+
   xlab("")+
   theme(plot.title = element_text(hjust = 0.5))
 
-pff_grip
+pff_wire_hang
 
 ## PFF Weights --
 pff_bw <- readr::read_csv(here("Analysis_Files/PFF/PFF Rotarod - PFF_Rotarod_Analysis.csv"))
@@ -203,11 +207,14 @@ pff_weight
 
 top <- plot_grid(pos_slc_avg_turn, pos_slc_avg_total, wirehang, weight, 
                  labels=c("A","B","C","D"), nrow=1)
-figs3 <- plot_grid(clasp_score, pff_grip, pff_wire_hang,
-                 pff_clasp_score, pff_weight, pff_nest_score,
-          labels=c("E", "F","G","H","I","J"))
-figs3
 
+middle <- plot_grid(clasp_score,pff_wire_hang, 
+                    labels=c("E","F"))
+bottom <- plot_grid(pff_clasp_score, pff_weight, pff_nest_score,
+          labels=c("G","H","I"), nrow=1)
+top
+middle
+bottom
 
 ### Accompanying statistics ---
 
