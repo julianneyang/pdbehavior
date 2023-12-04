@@ -85,12 +85,12 @@ food$SLC_Genotype <- factor(food$SLC_Genotype, levels=c("WT", "HET", "MUT"))
 food$MouseID <- food$`Mouse ID`
 
 ## Fecal Pellet --
-poop <- read.csv("Analysis_Files/ASO/ASO GI Motility - ASO_FP_Output.csv",header=TRUE)
+poop <- readr::read_csv(here("Analysis_Files","ASO","ASO GI Motility - ASO_FP_Output.csv"))
 
-poop <- poop %>% select(c("MouseID","X60_min", "ASO_Tg"))
+poop <- poop %>% select(c("MouseID","60_min", "ASO_Tg"))
 
 ## Hindlimb Clasp -- 
-clasp <-readr::read_csv(here("Analysis_Files", "ASO", "ASO_Hindlimb_Clasping - Sheet1.csv"))
+clasp <-readr::read_csv(here("Analysis_Files", "ASO", "ASO_Hindlimb_Clasping .csv"))
 clasp$MouseID <- clasp$`Mouse ID`
 clasp <- clasp %>% select(c("MouseID", "Score","ASO_Tg"))
 
@@ -123,10 +123,10 @@ df_2 <- merge(df_1, summary_rotarod, by="MouseID")
 df_3 <- merge(df_2, food, by= "MouseID")
 df_4 <- merge(df_3, poop, by= "MouseID")
 df_5 <- merge(df_4, clasp, by= "MouseID")
-df_motor <- df_5 %>% select(c("MouseID","Time", "Average_Tturn", "Average_Ttotal", "mean_latency", "Best_Performance", "Total_Time", "X60_min", "Score"))
+df_motor <- df_5 %>% select(c("MouseID","Time", "Average_Tturn", "Average_Ttotal", "mean_latency", "Best_Performance", "Total_Time", "60_min", "Score"))
 
 # Define the columns to normalize
-cols_to_normalize <- c("Time", "Average_Tturn", "Average_Ttotal", "mean_latency", "Score", "Total_Time", "X60_min")
+cols_to_normalize <- c("Time", "Average_Tturn", "Average_Ttotal", "mean_latency", "Score", "Total_Time", "60_min")
 
 # Apply min-max normalization to the selected columns
 df_normalized <- df_motor %>%
@@ -134,7 +134,7 @@ df_normalized <- df_motor %>%
 
 # Select the columns for PCA
 pca_data <- df_normalized %>%
-  select(norm_Time, norm_Average_Tturn, norm_Average_Ttotal, norm_mean_latency, norm_Score,norm_Total_Time, norm_X60_min)
+  select(norm_Time, norm_Average_Tturn, norm_Average_Ttotal, norm_mean_latency, norm_Score,norm_Total_Time, norm_60_min)
 pca_data <- df_normalized %>%
   select(norm_Time, norm_Average_Tturn, norm_Average_Ttotal, norm_mean_latency, norm_Score,norm_Total_Time)
 pca_data <- df_normalized %>%
@@ -172,7 +172,7 @@ tsne_data <- df_normalized %>%
   select(norm_Time, norm_Average_Tturn, norm_Average_Ttotal, norm_mean_latency, norm_Score)
 
 # Perform t-SNE
-tsne_result <- Rtsne(tsne_data, dims = 2, perplexity =6, verbose = TRUE)  # You can adjust perplexity as needed
+tsne_result <- Rtsne(tsne_data, dims = 2, perplexity =3, verbose = TRUE)  # You can adjust perplexity as needed
 
 # Extract the t-SNE coordinates
 tsne_coordinates <- tsne_result$Y
@@ -181,5 +181,9 @@ merged_df <- merge(subset,tsne_df,by="MouseID")
 
 ggplot(merged_df, aes(x = X1, y = X2, color=SLC_Genotype)) +
   geom_point() +
-  labs(title = "t-SNE Visualization", x = "t-SNE Dimension 1", y = "t-SNE Dimension 2")
+  labs(title = "t-SNE Visualization", x = "t-SNE Dimension 1", y = "t-SNE Dimension 2")+
+  theme_cowplot(12) +
+  theme(plot.title = element_text(hjust = 0.5)) +
+  theme(legend.position = "top", legend.justification = "center" )
+
 

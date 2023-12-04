@@ -94,11 +94,13 @@ write.csv(df_meta_ipsi, "Analysis_Files/PFF/PFF_Puncta_average_ipsi.csv")
 write.csv(df_meta_cont, "Analysis_Files/PFF/PFF_Puncta_average_contra.csv")
 
 ## PCoA plot --
-contra <- ggplot(contra_microbiome, aes(x, y, colour=Average_Count)) + 
+cols=c("WT"="black", "HET"="blue","MUT"="red")
+contra <- ggplot(contra_microbiome, aes(x, y, colour=Genotype)) + 
   geom_point(size=3) + 
   labs(x = paste("PC1(", mds_var_per[1], "%)",sep=""),
        y = paste("PC2(", mds_var_per[2], "%)",sep="")) +
-  scale_colour_viridis_c(option = "B") +
+  scale_color_manual(values=cols)+
+  #scale_colour_viridis_c(option = "B") +
   theme_cowplot(16)+
   facet_wrap(~Category)+
   #labs(title= paste0(("PFF Contralateral TH"))) +
@@ -106,17 +108,18 @@ contra <- ggplot(contra_microbiome, aes(x, y, colour=Average_Count)) +
   theme(legend.background = element_rect(fill="lightblue", size=0.5, linetype="solid")) +
   theme(legend.position = "none",legend.title = element_text(hjust = 0.5), legend.justification = "center")
 
-ipsi <- ggplot(ipsi_microbiome, aes(x, y, colour=Average_Count)) + 
+ipsi <- ggplot(ipsi_microbiome, aes(x, y, colour=Genotype)) + 
   geom_point(size=3) + 
   labs(x = paste("PC1(", mds_var_per[1], "%)",sep=""),
        y = paste("PC2(", mds_var_per[2], "%)",sep="")) +
-  scale_colour_viridis_c(option = "B") +
+  scale_color_manual(values=cols)+
+  #scale_colour_viridis_c(option = "B") +
   theme_cowplot(16)+
   facet_wrap(~Category)+
   #labs(title= paste0(("PFF Contralateral TH"))) +
   #theme(plot.title = element_text(hjust = 0.5)) +
   theme(legend.background = element_rect(fill="lightblue", size=0.5, linetype="solid")) +
-  theme(legend.position = "top",legend.title = element_text(hjust = 0.5), legend.justification = "center")
+  theme(legend.position = "none",legend.title = element_text(hjust = 0.5), legend.justification = "center")
 
 plot_grid(ipsi, contra)
 
@@ -131,10 +134,10 @@ target == row.names(metadata)
 data.dist <- as.dist(as(data.dist, "matrix"))
 
 set.seed(11)
-data.adonis=adonis(data.dist ~Ipsilateral_Puncta, data=metadata, permutations=10000)
+data.adonis=adonis(data.dist ~Ipsilateral_Puncta*Genotype, data=metadata, permutations=10000)
 data.adonis$aov.tab
 set.seed(11)
-data.adonis=adonis(data.dist ~ Contralateral_Puncta , data=metadata, permutations=10000)
+data.adonis=adonis(data.dist ~ Contralateral_Puncta*Genotype , data=metadata, permutations=10000)
 data.adonis$aov.tab
 
 ## Correlation analysis --
