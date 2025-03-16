@@ -68,9 +68,10 @@ track
 readr::write_rds(seqtab.nochim, "/home/julianne/Documents/pdbehavior/Analysis_Files/ASO/Microbiome/seqtab.nochim.rds")
 readr::write_rds(track, "/home/julianne/Documents/pdbehavior/Analysis_Files/ASO/Microbiome/16S_Filtering.rds")
 
+seqtab.nochim <- readRDS(here("Analysis_Files/ASO/Microbiome/seqtab.nochim.rds"))
 # Assign taxonomy to ASVs using Silva database
 taxa <- assignTaxonomy(seqtab.nochim, "/home/julianne/Documents/16S_Taxonomy_Classifiers/silva_nr99_v138.2_toSpecies_trainset.fa.gz", multithread=TRUE)
-taxa <- addSpecies(taxa, "C:/Users/Jacobs Laboratory/Desktop/16S_Taxonomy_Classifiers/silva_species_assignment_v138.1.fa.gz")
+taxa <- addSpecies(taxa, "/home/julianne/Documents/16S_Taxonomy_Classifiers/silva_v138.2_assignSpecies.fa.gz")
 taxa.print <- taxa # Removing sequence rownames for display only
 rownames(taxa.print) <- NULL
 head(taxa.print)
@@ -79,8 +80,9 @@ head(taxa.print)
 taxa[is.na(taxa)] <- ""
 taxonomy<-paste("k__",taxa[,1],"; ","p__",taxa[,2],"; ","c__",taxa[,3],"; ","o__",taxa[,4],"; ","f__",taxa[,5],"; ","g__",taxa[,6],"; ","s__",taxa[,7],sep="")
 output<-cbind(t(seqtab.nochim), taxonomy)
-uniquesToFasta(seqtab.nochim, fout='C:/Users/Jacobs Laboratory/Documents/JCYang/slcproject/ASO/Microbiome/ASO_rep_seqs.fna', ids=colnames(seqtab.nochim))
-write.table(output, "C:/Users/Jacobs Laboratory/Documents/JCYang/slcproject/ASO/Microbiome/ASO_ASV_table.tsv", sep="\t", col.names=NA)
+uniquesToFasta(seqtab.nochim, fout='/home/julianne/Documents/pdbehavior/Analysis_Files/ASO/Microbiome/ASO_rep_seqs.fna', 
+               ids=colnames(seqtab.nochim))
+write.table(output, "/home/julianne/Documents/pdbehavior/Analysis_Files/ASO/Microbiome/ASO_ASV_table.tsv", sep="\t", col.names=NA)
 
 # Need to modify .txt file by typing "#OTU" in the upper left box, can then import into QIIME
 
