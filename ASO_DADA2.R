@@ -1,6 +1,7 @@
 
 library(dada2)
 library(here)
+library(tidyverse)
 
 getwd()
 here::i_am("../pdbehavior/ASO_DADA2.R")
@@ -82,7 +83,11 @@ taxonomy<-paste("k__",taxa[,1],"; ","p__",taxa[,2],"; ","c__",taxa[,3],"; ","o__
 output<-cbind(t(seqtab.nochim), taxonomy)
 uniquesToFasta(seqtab.nochim, fout='/home/julianne/Documents/pdbehavior/Analysis_Files/ASO/Microbiome/ASO_rep_seqs.fna', 
                ids=colnames(seqtab.nochim))
-write.table(output, "/home/julianne/Documents/pdbehavior/Analysis_Files/ASO/Microbiome/ASO_ASV_table.tsv", sep="\t", col.names=NA)
+#output <- read.table("Analysis_Files/ASO/Microbiome/ASO_ASV_table.tsv",header=TRUE)
+#names(output) <- gsub("\\.","-",names(output))
+#names(output)
+output <- output %>% rownames_to_column("#OTU.ID")
+readr::write_delim(output, "/home/julianne/Documents/pdbehavior/Analysis_Files/ASO/Microbiome/ASO_ASV_table.tsv",delim = "\t",)
 
 # Need to modify .txt file by typing "#OTU" in the upper left box, can then import into QIIME
 
