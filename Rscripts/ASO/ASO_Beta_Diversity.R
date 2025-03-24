@@ -17,7 +17,10 @@ here::i_am("Rscripts/ASO/ASO_Beta_Diversity.R")
 
 ### Load metadata and count table 
 metadata <- read.csv(here("Analysis_Files/ASO/Microbiome/ASO_Metadata_2025.csv"), header=TRUE)
+#write.table(metadata, here("Analysis_Files/ASO/Microbiome/ASO_Metadata_2025.tsv"),sep="\t",quote = FALSE,row.names = FALSE)
+
 metadata$SampleID <- gsub("-",".",metadata$SampleID)
+
 
 counts <- read.delim(here("Analysis_Files/ASO/Microbiome/ASO_ASV_table.tsv"), header = TRUE, row.names=1)
 
@@ -25,7 +28,7 @@ counts <- read.delim(here("Analysis_Files/ASO/Microbiome/ASO_ASV_table.tsv"), he
 ## Store taxonomy in an annotation file --
 annotation <- tibble::rownames_to_column(counts, "Feature ID") %>% select(c("Feature ID", "taxonomy"))
 annotation <- dplyr::rename(annotation, Taxon = taxonomy)
-write_delim(annotation, here("Analysis_Files/ASO/Microbiome/taxonomy.tsv"))
+#write.table(annotation, here("Analysis_Files/ASO/Microbiome/taxonomy.tsv"),sep="\t",quote = FALSE,row.names = FALSE)
 
 counts <- counts %>% select(-c("taxonomy"))
 
