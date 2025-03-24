@@ -8,6 +8,7 @@ library(rlang)
 library(wakefield)
 library(vegan)
 library(here)
+library(tidyverse)
 
 
 ### Declare path to current script 
@@ -17,7 +18,6 @@ here::i_am("Rscripts/ASO/ASO_Beta_Diversity.R")
 ### Load metadata and count table 
 metadata <- read.csv(here("Analysis_Files/ASO/Microbiome/ASO_Metadata_2025.csv"), header=TRUE)
 metadata$SampleID <- gsub("-",".",metadata$SampleID)
-metadata$Genotype <- metadata$SLC_Genotype
 
 counts <- read.delim(here("Analysis_Files/ASO/Microbiome/ASO_ASV_table.tsv"), header = TRUE, row.names=1)
 
@@ -49,8 +49,8 @@ names(col_counts)==col_meta$SampleID
 # Luminal Colon
 lumcol_meta <- metadata %>% filter(Site=="COL" | Site=="CEC", SampleID %in% names(counts))
 samples_lumcol_meta <- lumcol_meta$SampleID
-lumcol_counts <- counts %>% select(all_of(samples_col_meta))
-names(col_counts)==col_meta$SampleID
+lumcol_counts <- counts %>% select(all_of(samples_lumcol_meta))
+names(lumcol_counts)==samples_lumcol_meta
 
 
 # Prevalence Filtering -
@@ -59,6 +59,8 @@ jej_counts <- prevalence_filter(jej_counts,5)
 34*0.15
 cec_counts <- prevalence_filter(cec_counts,5)
 col_counts <- prevalence_filter(col_counts,5)
+67*0.15
+lumcol_counts <- prevalence_filter(lumcol_counts,10)
 
 # Luminal Colon M
 53*0.15
@@ -76,6 +78,8 @@ f_trios_muccol_counts <- prevalence_filter(f_muccol_counts,8)
 jej.dist <- calculate_rsjensen(jej_counts)
 cec.dist <- calculate_rsjensen(cec_counts)
 col.dist <- calculate_rsjensen(col_counts)
+lumcol.dist <- calculate_rsjensen(lumcol_counts)
+
 m_trios_muccol.dist <- calculate_rsjensen(m_trios_muccol_counts)
 f_trios_lumcol.dist <- calculate_rsjensen(f_trios_lumcol_counts)
 m_trios_lumcol.dist <- calculate_rsjensen(m_trios_lumcol_counts)
@@ -105,6 +109,9 @@ cec_pcoa <- generate_pcoA_plots(distance_matrix=cec.dist,
                                colorvector = cols,
                                wa_scores_filepath = here("Analysis_Files/ASO/Microbiome/Cecum_RSJ_Top_Taxa_PcoA.csv"))
 
+
+wa_scores <- read.csv(here("Analysis_Files/ASO/Microbiome/Cecum_RSJ_Top_Taxa_PcoA.csv"))
+
 col_pcoa <- generate_pcoA_plots(distance_matrix=col.dist,
                                 counts = col_counts,
                                 metadata = col_meta,
@@ -113,13 +120,13 @@ col_pcoa <- generate_pcoA_plots(distance_matrix=col.dist,
                                 colorvector = cols,
                                 wa_scores_filepath = here("Analysis_Files/ASO/Microbiome/Colon_RSJ_Top_Taxa_PcoA.csv"))
 
-m_trios_mc_pcoa <- generate_pcoA_plots(distance_matrix=m_trios_muccol.dist,
-                                       counts = m_trios_muccol_counts,
-                                       metadata = m_trios_muccol_meta,
-                                       title="2- Month Males: Colon Mucosa",
-                                       colorvariable = Genotype,
-                                       colorvector = cols,
-                                       wa_scores_filepath = here("Trios/beta_diversity/m_MucCol_Top_Taxa_PcoA.csv"))
+lumcol_pcoa <- generate_pcoA_plots(distance_matrix=lumcol.dist,
+                                 counts = lumcol_counts,
+                                 metadata = lumcol_meta,
+                                 title="ASO Colon and Cecum",
+                                 colorvariable = Genotype,
+                                 colorvector = cols,
+                                 wa_scores_filepath = here("Analysis_Files/ASO/Microbiome/LuminalColon_RSJ_Top_Taxa_PcoA.csv"))
 
 f_jax_baseline_pcoa <- generate_pcoA_plots(distance_matrix=f_JAX.dist,
                                            counts = f_JAX_counts_prev,
@@ -145,10 +152,10 @@ plot_grid(f_trios_mc_pcoa, m_trios_mc_pcoa,
 
 ### Statistics ---
 
-## Trios --
-# Luminal Colon Females
-data.dist<-f_trios_lumcol.dist
-metadata <- f_trios_lumcol_meta
+# Luminal Colon 
+data.dist<-lumcol.dist
+metadata <- lumcol_meta %>% 
+  column_to_rownames("SampleID")
 
 target <- row.names(data.dist)
 metadata = metadata[match(target, row.names(metadata)),]
@@ -156,8 +163,8 @@ target == row.names(metadata)
 data.dist <- as.dist(as(data.dist, "matrix"))
 
 set.seed(11)
-data.adonis=adonis(data.dist ~ Litter +  Site + Genotype, data=metadata, permutations=10000)
-data.adonis$aov.tab
+data.adonis=adonis2(data.dist ~ Sex + Site + Genotype, data=metadata, by="terms",permutations=10000)
+data.adonis
 
 # Luminal Colon Males
 data.dist<-m_trios_lumcol.dist
