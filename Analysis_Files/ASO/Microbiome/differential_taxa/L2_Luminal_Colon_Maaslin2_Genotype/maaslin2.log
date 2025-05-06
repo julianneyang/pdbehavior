@@ -1,0 +1,50 @@
+2025-05-06 08:02:14.442835 INFO::Writing function arguments to log file
+2025-05-06 08:02:14.443875 DEBUG::Function arguments
+2025-05-06 08:02:14.444189 DEBUG::Output folder: /home/julianne/Documents/pdbehavior/Analysis_Files/ASO/Microbiome/differential_taxa/L2_Luminal_Colon_Maaslin2_Genotype
+2025-05-06 08:02:14.444449 DEBUG::Min Abundance: 0.000000
+2025-05-06 08:02:14.444687 DEBUG::Min Prevalence: 0.150000
+2025-05-06 08:02:14.44493 DEBUG::Normalization: TSS
+2025-05-06 08:02:14.445151 DEBUG::Transform: LOG
+2025-05-06 08:02:14.445368 DEBUG::Analysis method: LM
+2025-05-06 08:02:14.445797 DEBUG::Max significance: 0.250000
+2025-05-06 08:02:14.446163 DEBUG::Random effects:
+2025-05-06 08:02:14.446445 DEBUG::Fixed effects: Genotype
+2025-05-06 08:02:14.446684 DEBUG::Correction method: BH
+2025-05-06 08:02:14.446904 DEBUG::Standardize: TRUE
+2025-05-06 08:02:14.44712 DEBUG::Cores: 1
+2025-05-06 08:02:14.447344 INFO::Verifying options selected are valid
+2025-05-06 08:02:14.448845 INFO::Determining format of input files
+2025-05-06 08:02:14.450494 INFO::Input format is data samples as columns and metadata samples as rows
+2025-05-06 08:02:14.451899 DEBUG::Transformed data so samples are rows
+2025-05-06 08:02:14.452396 DEBUG::A total of 67 samples were found in both the data and metadata
+2025-05-06 08:02:14.452732 DEBUG::Reordering data/metadata to use same sample ordering
+2025-05-06 08:02:14.453346 INFO::Formula for fixed effects: expr ~  Genotype
+2025-05-06 08:02:14.45427 INFO::Factor detected for categorial metadata 'Genotype'. Provide a reference argument or manually set factor ordering to change reference level.
+2025-05-06 08:02:14.455053 INFO::Filter data based on min abundance and min prevalence
+2025-05-06 08:02:14.455945 INFO::Total samples in data: 67
+2025-05-06 08:02:14.456792 INFO::Min samples required with min abundance for a feature not to be filtered: 10.050000
+2025-05-06 08:02:14.45795 INFO::Total filtered features: 3
+2025-05-06 08:02:14.458975 INFO::Filtered feature names from abundance and prevalence filtering: k__.p__, k__Bacteria.p__, k__Bacteria.p__Patescibacteria
+2025-05-06 08:02:14.460251 INFO::Total filtered features with variance filtering: 0
+2025-05-06 08:02:14.461147 INFO::Filtered feature names from variance filtering:
+2025-05-06 08:02:14.71327 INFO::Running selected normalization method: TSS
+2025-05-06 08:02:14.715936 INFO::Applying z-score to standardize continuous metadata
+2025-05-06 08:02:14.720549 INFO::Running selected transform method: LOG
+2025-05-06 08:02:14.72218 INFO::Running selected analysis method: LM
+2025-05-06 08:02:14.723481 INFO::Fitting model to feature number 1, k__Bacteria.p__Bacillota
+2025-05-06 08:02:14.727805 INFO::Fitting model to feature number 2, k__Bacteria.p__Bacteroidota
+2025-05-06 08:02:14.732741 INFO::Fitting model to feature number 3, k__Bacteria.p__Thermodesulfobacteriota
+2025-05-06 08:02:14.738359 INFO::Fitting model to feature number 4, k__Bacteria.p__Verrucomicrobiota
+2025-05-06 08:02:14.743497 INFO::Fitting model to feature number 5, k__Bacteria.p__Pseudomonadota
+2025-05-06 08:02:14.74908 INFO::Fitting model to feature number 6, k__Bacteria.p__Actinomycetota
+2025-05-06 08:02:14.7543 INFO::Fitting model to feature number 7, k__Bacteria.p__Cyanobacteriota
+2025-05-06 08:02:14.787863 INFO::Counting total values for each feature
+2025-05-06 08:02:14.791109 INFO::Writing filtered data to file /home/julianne/Documents/pdbehavior/Analysis_Files/ASO/Microbiome/differential_taxa/L2_Luminal_Colon_Maaslin2_Genotype/features/filtered_data.tsv
+2025-05-06 08:02:14.79317 INFO::Writing filtered, normalized data to file /home/julianne/Documents/pdbehavior/Analysis_Files/ASO/Microbiome/differential_taxa/L2_Luminal_Colon_Maaslin2_Genotype/features/filtered_data_norm.tsv
+2025-05-06 08:02:14.795498 INFO::Writing filtered, normalized, transformed data to file /home/julianne/Documents/pdbehavior/Analysis_Files/ASO/Microbiome/differential_taxa/L2_Luminal_Colon_Maaslin2_Genotype/features/filtered_data_norm_transformed.tsv
+2025-05-06 08:02:14.79883 WARNING::Deleting existing residuals file: /home/julianne/Documents/pdbehavior/Analysis_Files/ASO/Microbiome/differential_taxa/L2_Luminal_Colon_Maaslin2_Genotype/fits/residuals.rds
+2025-05-06 08:02:14.802492 INFO::Writing residuals to file /home/julianne/Documents/pdbehavior/Analysis_Files/ASO/Microbiome/differential_taxa/L2_Luminal_Colon_Maaslin2_Genotype/fits/residuals.rds
+2025-05-06 08:02:14.804925 WARNING::Deleting existing fitted file: /home/julianne/Documents/pdbehavior/Analysis_Files/ASO/Microbiome/differential_taxa/L2_Luminal_Colon_Maaslin2_Genotype/fits/fitted.rds
+2025-05-06 08:02:14.807124 INFO::Writing fitted values to file /home/julianne/Documents/pdbehavior/Analysis_Files/ASO/Microbiome/differential_taxa/L2_Luminal_Colon_Maaslin2_Genotype/fits/fitted.rds
+2025-05-06 08:02:14.808898 INFO::Writing all results to file (ordered by increasing q-values): /home/julianne/Documents/pdbehavior/Analysis_Files/ASO/Microbiome/differential_taxa/L2_Luminal_Colon_Maaslin2_Genotype/all_results.tsv
+2025-05-06 08:02:14.810803 INFO::Writing the significant results (those which are less than or equal to the threshold of 0.250000 ) to file (ordered by increasing q-values): /home/julianne/Documents/pdbehavior/Analysis_Files/ASO/Microbiome/differential_taxa/L2_Luminal_Colon_Maaslin2_Genotype/significant_results.tsv

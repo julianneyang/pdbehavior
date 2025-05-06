@@ -1,0 +1,12 @@
+feature	metadata	value	coef	stderr	N	N.not.0	pval	qval
+k__Bacteria.p__Bacillota.c__Clostridia.o__Lachnospirales.f__Lachnospiraceae.g__ASF356	Sex	Male	2.20574439822774	0.628374239438069	34	23	0.00143718078339174	0.167626618414239
+k__Bacteria.p__Bacillota.c__Clostridia.o__Oscillospirales.f__Ruminococcaceae.g__Ruminococcus	Sex	Male	1.43656745383815	0.415905777869744	34	20	0.00166792655138546	0.167626618414239
+k__Bacteria.p__Bacillota.c__Bacilli.o__Lactobacillales.f__Lactobacillaceae.g__HT002	Genotype	HET	1.86467254416443	0.616548795990067	34	32	0.00506896532856235	0.168688161541347
+k__Bacteria.p__Bacillota.c__Bacilli.o__Lactobacillales.f__Lactobacillaceae.g__Lactobacillus	Genotype	HET	2.00202454497249	0.653525597581087	34	30	0.00459216697233545	0.168688161541347
+k__Bacteria.p__Bacillota.c__Bacilli.o__Erysipelotrichales.f__Erysipelotrichaceae.g__Turicibacter	Genotype	MUT	3.95806254600577	1.2371815169074	34	26	0.00324480261396524	0.168688161541347
+k__Bacteria.p__Bacteroidota.c__Bacteroidia.o__Bacteroidales.f__Rikenellaceae.g__Rikenellaceae.RC9.gut.group	Sex	Male	1.70122539181661	0.560229330582554	34	30	0.00491408720363979	0.168688161541347
+k__Bacteria.p__Bacillota.c__Clostridia.o__Peptostreptococcales.Tissierellales.f__Anaerovoracaceae.g__Family.XIII.UCG.001	Sex	Male	1.30396570534625	0.439684266973536	34	17	0.00587471209347974	0.168688161541347
+k__Bacteria.p__Bacteroidota.c__Bacteroidia.o__Bacteroidales.f__Bacteroidaceae.g__Bacteroides	Genotype	HET	-1.2296901639131	0.432294591021407	34	34	0.00793608950170669	0.17842313755562
+k__Bacteria.p__Bacillota.c__Clostridia.o__Lachnospirales.f__Lachnospiraceae.g__Butyribacter	Genotype	MUT	2.74386007204429	0.965515367455573	34	27	0.00798909571144566	0.17842313755562
+k__Bacteria.p__Bacillota.c__Clostridia.o__Lachnospirales.f__Lachnospiraceae.g__Lachnospiraceae.NK4A136.group	Genotype	HET	1.79473682477922	0.64137277572956	34	33	0.00889054935228068	0.178700041980842
+k__Bacteria.p__Bacillota.c__Bacilli.o__Lactobacillales.f__Lactobacillaceae.g__Lactobacillus	Genotype	MUT	1.95508266606648	0.714549853391338	34	30	0.0103424711173319	0.188985154053065

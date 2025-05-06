@@ -1,0 +1,50 @@
+2025-05-06 08:02:10.96823 INFO::Writing function arguments to log file
+2025-05-06 08:02:10.969219 DEBUG::Function arguments
+2025-05-06 08:02:10.969661 DEBUG::Output folder: /home/julianne/Documents/pdbehavior/Analysis_Files/ASO/Microbiome/differential_taxa/L2_Cecum_Maaslin2_Genotype
+2025-05-06 08:02:10.96998 DEBUG::Min Abundance: 0.000000
+2025-05-06 08:02:10.970256 DEBUG::Min Prevalence: 0.150000
+2025-05-06 08:02:10.990899 DEBUG::Normalization: TSS
+2025-05-06 08:02:10.991332 DEBUG::Transform: LOG
+2025-05-06 08:02:10.991615 DEBUG::Analysis method: LM
+2025-05-06 08:02:10.991868 DEBUG::Max significance: 0.250000
+2025-05-06 08:02:10.992121 DEBUG::Random effects:
+2025-05-06 08:02:10.992366 DEBUG::Fixed effects: Genotype
+2025-05-06 08:02:10.992609 DEBUG::Correction method: BH
+2025-05-06 08:02:10.992857 DEBUG::Standardize: TRUE
+2025-05-06 08:02:10.993085 DEBUG::Cores: 1
+2025-05-06 08:02:10.993312 INFO::Verifying options selected are valid
+2025-05-06 08:02:10.994329 INFO::Determining format of input files
+2025-05-06 08:02:10.995384 INFO::Input format is data samples as columns and metadata samples as rows
+2025-05-06 08:02:10.996637 DEBUG::Transformed data so samples are rows
+2025-05-06 08:02:10.997115 DEBUG::A total of 34 samples were found in both the data and metadata
+2025-05-06 08:02:10.997368 DEBUG::Reordering data/metadata to use same sample ordering
+2025-05-06 08:02:10.997986 INFO::Formula for fixed effects: expr ~  Genotype
+2025-05-06 08:02:10.999202 INFO::Factor detected for categorial metadata 'Genotype'. Provide a reference argument or manually set factor ordering to change reference level.
+2025-05-06 08:02:11.000152 INFO::Filter data based on min abundance and min prevalence
+2025-05-06 08:02:11.000905 INFO::Total samples in data: 34
+2025-05-06 08:02:11.001621 INFO::Min samples required with min abundance for a feature not to be filtered: 5.100000
+2025-05-06 08:02:11.002744 INFO::Total filtered features: 3
+2025-05-06 08:02:11.003706 INFO::Filtered feature names from abundance and prevalence filtering: k__.p__, k__Bacteria.p__, k__Bacteria.p__Patescibacteria
+2025-05-06 08:02:11.004823 INFO::Total filtered features with variance filtering: 0
+2025-05-06 08:02:11.005601 INFO::Filtered feature names from variance filtering:
+2025-05-06 08:02:11.006362 INFO::Running selected normalization method: TSS
+2025-05-06 08:02:11.007565 INFO::Applying z-score to standardize continuous metadata
+2025-05-06 08:02:11.011345 INFO::Running selected transform method: LOG
+2025-05-06 08:02:11.012698 INFO::Running selected analysis method: LM
+2025-05-06 08:02:11.014068 INFO::Fitting model to feature number 1, k__Bacteria.p__Bacillota
+2025-05-06 08:02:11.017735 INFO::Fitting model to feature number 2, k__Bacteria.p__Bacteroidota
+2025-05-06 08:02:11.021031 INFO::Fitting model to feature number 3, k__Bacteria.p__Thermodesulfobacteriota
+2025-05-06 08:02:11.024488 INFO::Fitting model to feature number 4, k__Bacteria.p__Verrucomicrobiota
+2025-05-06 08:02:11.030031 INFO::Fitting model to feature number 5, k__Bacteria.p__Pseudomonadota
+2025-05-06 08:02:11.034564 INFO::Fitting model to feature number 6, k__Bacteria.p__Actinomycetota
+2025-05-06 08:02:11.037813 INFO::Fitting model to feature number 7, k__Bacteria.p__Cyanobacteriota
+2025-05-06 08:02:11.045258 INFO::Counting total values for each feature
+2025-05-06 08:02:11.04769 INFO::Writing filtered data to file /home/julianne/Documents/pdbehavior/Analysis_Files/ASO/Microbiome/differential_taxa/L2_Cecum_Maaslin2_Genotype/features/filtered_data.tsv
+2025-05-06 08:02:11.049902 INFO::Writing filtered, normalized data to file /home/julianne/Documents/pdbehavior/Analysis_Files/ASO/Microbiome/differential_taxa/L2_Cecum_Maaslin2_Genotype/features/filtered_data_norm.tsv
+2025-05-06 08:02:11.051717 INFO::Writing filtered, normalized, transformed data to file /home/julianne/Documents/pdbehavior/Analysis_Files/ASO/Microbiome/differential_taxa/L2_Cecum_Maaslin2_Genotype/features/filtered_data_norm_transformed.tsv
+2025-05-06 08:02:11.053717 WARNING::Deleting existing residuals file: /home/julianne/Documents/pdbehavior/Analysis_Files/ASO/Microbiome/differential_taxa/L2_Cecum_Maaslin2_Genotype/fits/residuals.rds
+2025-05-06 08:02:11.066446 INFO::Writing residuals to file /home/julianne/Documents/pdbehavior/Analysis_Files/ASO/Microbiome/differential_taxa/L2_Cecum_Maaslin2_Genotype/fits/residuals.rds
+2025-05-06 08:02:11.06818 WARNING::Deleting existing fitted file: /home/julianne/Documents/pdbehavior/Analysis_Files/ASO/Microbiome/differential_taxa/L2_Cecum_Maaslin2_Genotype/fits/fitted.rds
+2025-05-06 08:02:11.069708 INFO::Writing fitted values to file /home/julianne/Documents/pdbehavior/Analysis_Files/ASO/Microbiome/differential_taxa/L2_Cecum_Maaslin2_Genotype/fits/fitted.rds
+2025-05-06 08:02:11.070961 INFO::Writing all results to file (ordered by increasing q-values): /home/julianne/Documents/pdbehavior/Analysis_Files/ASO/Microbiome/differential_taxa/L2_Cecum_Maaslin2_Genotype/all_results.tsv
+2025-05-06 08:02:11.07265 INFO::Writing the significant results (those which are less than or equal to the threshold of 0.250000 ) to file (ordered by increasing q-values): /home/julianne/Documents/pdbehavior/Analysis_Files/ASO/Microbiome/differential_taxa/L2_Cecum_Maaslin2_Genotype/significant_results.tsv
