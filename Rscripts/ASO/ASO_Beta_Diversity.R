@@ -17,6 +17,7 @@ here::i_am("Rscripts/ASO/ASO_Beta_Diversity.R")
 
 ### Load metadata and count table 
 metadata <- read.csv(here("Analysis_Files/ASO/Microbiome/ASO_Metadata_2025.csv"), header=TRUE)
+#metadata$SampleID <- gsub("\\.","-",metadata$SampleID)
 #write.table(metadata, here("Analysis_Files/ASO/Microbiome/ASO_Metadata_2025.tsv"),sep="\t",quote = FALSE,row.names = FALSE)
 
 metadata$SampleID <- gsub("-",".",metadata$SampleID)
@@ -107,6 +108,7 @@ jej_pcoa <- generate_pcoA_plots(distance_matrix=jej.dist,
                                        colorvariable = Genotype,
                                        colorvector = cols,
                                        wa_scores_filepath = here("Analysis_Files/ASO/Microbiome/Jejunum_RSJ_Top_Taxa_PcoA.csv"))
+jej_pcoa + aes(label=MouseID) + geom_label()
 
 cec_pcoa <- generate_pcoA_plots(distance_matrix=cec.dist,
                                counts = cec_counts,
@@ -116,7 +118,7 @@ cec_pcoa <- generate_pcoA_plots(distance_matrix=cec.dist,
                                colorvector = cols,
                                wa_scores_filepath = here("Analysis_Files/ASO/Microbiome/Cecum_RSJ_Top_Taxa_PcoA.csv"))
 
-
+cec_pcoa + aes(label=MouseID) + geom_label()
 wa_scores <- read.csv(here("Analysis_Files/ASO/Microbiome/Cecum_RSJ_Top_Taxa_PcoA.csv"))
 
 col_pcoa <- generate_pcoA_plots(distance_matrix=col.dist,
@@ -126,7 +128,7 @@ col_pcoa <- generate_pcoA_plots(distance_matrix=col.dist,
                                 colorvariable = Genotype,
                                 colorvector = cols,
                                 wa_scores_filepath = here("Analysis_Files/ASO/Microbiome/Colon_RSJ_Top_Taxa_PcoA.csv"))
-
+col_pcoa + aes(label=MouseID) + geom_label()
 lumcol_pcoa <- generate_pcoA_plots(distance_matrix=lumcol.dist,
                                  counts = lumcol_counts,
                                  metadata = lumcol_meta,
@@ -134,22 +136,7 @@ lumcol_pcoa <- generate_pcoA_plots(distance_matrix=lumcol.dist,
                                  colorvariable = Genotype,
                                  colorvector = cols,
                                  wa_scores_filepath = here("Analysis_Files/ASO/Microbiome/LuminalColon_RSJ_Top_Taxa_PcoA.csv"))
-
-f_jax_baseline_pcoa <- generate_pcoA_plots(distance_matrix=f_JAX.dist,
-                                           counts = f_JAX_counts_prev,
-                                           metadata = f_JAX_meta,
-                                           title="3-4 month Females: Fecal Pellet",
-                                           colorvariable = Genotype,
-                                           colorvector = cols,
-                                           wa_scores_filepath = here("Baseline/beta_diversity/f_JAX_Top_Taxa_PcoA.csv"))
-
-m_jax_baseline_pcoa <- generate_pcoA_plots(distance_matrix=m_JAX.dist,
-                                           counts = m_JAX_counts_prev,
-                                           metadata = m_JAX_meta,
-                                           title="3-4 month Males: Fecal Pellet",
-                                           colorvariable = Genotype,
-                                           colorvector = cols,
-                                           wa_scores_filepath = here("Baseline/beta_diversity/m_JAX_Top_Taxa_PcoA.csv"))
+lumcol_pcoa + aes(label=MouseID) + geom_label()
 
 dev.new(width=10,height=10)
 plot_grid(f_trios_mc_pcoa, m_trios_mc_pcoa,
@@ -173,9 +160,10 @@ set.seed(11)
 data.adonis=adonis2(data.dist ~ Sex + Site + Genotype, data=metadata, by="terms",permutations=10000)
 data.adonis
 
-# Luminal Colon Males
-data.dist<-m_trios_lumcol.dist
-metadata <- m_trios_lumcol_meta
+# Colon 
+data.dist<-col.dist
+metadata <- col_meta %>% 
+  column_to_rownames("SampleID")
 
 target <- row.names(data.dist)
 metadata = metadata[match(target, row.names(metadata)),]
@@ -183,25 +171,13 @@ target == row.names(metadata)
 data.dist <- as.dist(as(data.dist, "matrix"))
 
 set.seed(11)
-data.adonis=adonis(data.dist ~ Sequencing_Run + Litter +  Site + Genotype, data=metadata, permutations=10000)
-data.adonis$aov.tab
+data.adonis=adonis2(data.dist ~ Sex+ Genotype, data=metadata, by="terms",permutations=10000)
+data.adonis
 
-# Mucosal Colon Females
-data.dist<-f_trios_muccol.dist
-metadata <- f_trios_muccol_meta
-
-target <- row.names(data.dist)
-metadata = metadata[match(target, row.names(metadata)),]
-target == row.names(metadata)
-data.dist <- as.dist(as(data.dist, "matrix"))
-
-set.seed(11)
-data.adonis=adonis(data.dist ~ Litter + Site + Genotype, data=metadata, permutations=10000)
-data.adonis$aov.tab
-
-# Mucosal Colon Males
-data.dist<-m_trios_muccol.dist
-metadata <- m_trios_muccol_meta
+# Cecum
+data.dist<-cec.dist
+metadata <- cec_meta %>% 
+  column_to_rownames("SampleID")
 
 target <- row.names(data.dist)
 metadata = metadata[match(target, row.names(metadata)),]
@@ -209,28 +185,13 @@ target == row.names(metadata)
 data.dist <- as.dist(as(data.dist, "matrix"))
 
 set.seed(11)
-data.adonis=adonis(data.dist ~ Sequencing_Run + Litter + Site + Genotype, data=metadata, permutations=10000)
-data.adonis$aov.tab
+data.adonis=adonis2(data.dist ~ Sex+ Genotype, data=metadata, by="terms",permutations=10000)
+data.adonis
 
-## Baseline --
-# Females
-data.dist<-f_JAX.dist
-metadata <- f_JAX_meta
-row.names(metadata) <- f_JAX_meta$SampleID
-
-target <- row.names(data.dist)
-metadata = metadata[match(target, row.names(metadata)),]
-target == row.names(metadata)
-data.dist <- as.dist(as(data.dist, "matrix"))
-
-set.seed(11)
-data.adonis=adonis(data.dist ~ Genotype, data=metadata, permutations=10000)
-data.adonis$aov.tab
-
-# Males
-data.dist<-m_JAX.dist
-metadata <- m_JAX_meta
-row.names(metadata) <- m_JAX_meta$SampleID
+# Jejunum
+data.dist<-jej.dist
+metadata <- jej_meta %>% 
+  column_to_rownames("SampleID")
 
 target <- row.names(data.dist)
 metadata = metadata[match(target, row.names(metadata)),]
@@ -238,5 +199,5 @@ target == row.names(metadata)
 data.dist <- as.dist(as(data.dist, "matrix"))
 
 set.seed(11)
-data.adonis=adonis(data.dist ~ Genotype, data=metadata, permutations=10000)
-data.adonis$aov.tab
+data.adonis=adonis2(data.dist ~ Sex+ Genotype, data=metadata, by="terms",permutations=10000)
+data.adonis
