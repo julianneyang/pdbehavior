@@ -225,7 +225,7 @@ generate_pcoA_plots <- function(distance_matrix, counts, metadata, title, colorv
   mds <- cmdscale(lumcol.dist, eig = TRUE, x.ret = TRUE)
   
   mds_values <- mds$points
-  wa_scores <- wascores(mds_values, t(lumcol_counts))
+  wa_scores <- vegan::wascores(mds_values, t(lumcol_counts))
   wa_scores <- data.frame(sample = rownames(wa_scores),
                           x = wa_scores[,1],
                           y = wa_scores[,2])
@@ -255,7 +255,7 @@ generate_pcoA_plots <- function(distance_matrix, counts, metadata, title, colorv
     labs(x = paste("PC1(", mds_var_per[1], "%)",sep=""),
          y = paste("PC2(", mds_var_per[2], "%)",sep="")) +
     scale_colour_manual(name="",values={{colorvector}}) +
-    theme_cowplot(16)+
+    cowplot::theme_cowplot(16)+
     theme(legend.position="top",legend.justification = "center") +
     theme(plot.title = element_text(hjust = 0.5))+
     labs(title= paste0({{title}})) 
@@ -278,9 +278,11 @@ assign_letter <- function(x) {
 ## Make a taxonomy dotplot for genus level --
 
 make_genus_level_taxa_dotplot <- function(ASV_significant_results_dataset,
-                                          Relative_Abundance_filepath_rds,titlestring, phyla_colors){
+                                          Relative_Abundance_filepath_rds,
+                                          titlestring, phyla_colors, qvalue=0.05){
   data <- as.data.frame(ASV_significant_results_dataset)
-  data <- data %>% filter(qval <0.25)
+  print(names(data))
+  data <- data %>% filter(qval < qvalue)
   data <- data %>% filter(metadata=="Genotype")
   data$Taxon <- data$feature
   data$Phylum <- gsub(".*p__","",data$Taxon)
@@ -331,7 +333,7 @@ make_genus_level_taxa_dotplot <- function(ASV_significant_results_dataset,
     geom_vline(xintercept = 0) + 
     xlab(label="Log2 Fold Change")+
     ylab(label=NULL)+
-    theme_cowplot(16) +
+    cowplot::theme_cowplot(16) +
     ggtitle(titlestring) +
     theme(plot.title = element_text(hjust = 0.5)) +
     theme(legend.position = "right") 

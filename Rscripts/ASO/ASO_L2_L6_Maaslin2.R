@@ -5,6 +5,7 @@ library(ggplot2)
 library(cowplot)
 library(here)
 library(glue)
+library(tidyverse)
 
 here::i_am("Rscripts/ASO/ASO_L2_L6_Maaslin2.R")
 
@@ -57,7 +58,7 @@ run_Maaslin2_genotype <- function(counts_filepath, metadata_filepath, subset_str
   # Convert to relative abundance
   transposed_input_data <- t(df_input_data)
   transposed_input_data <- as.matrix(transposed_input_data)
-  df_relative_ASV <- make_relative(transposed_input_data)
+  df_relative_ASV <- funrar::make_relative(transposed_input_data)
   df_relative_ASV <- as.data.frame(df_relative_ASV)
   
   Relative_Abundance <- summarize_all(df_relative_ASV, mean)
@@ -103,6 +104,11 @@ run_Maaslin2_genotype <- function(counts_filepath, metadata_filepath, subset_str
 }
 
 
+run_Maaslin2_genotype(counts_filepath =   here("Analysis_Files/ASO/Microbiome/differential_taxa/ASO_L6_Subset_Luminal_Colon.tsv"),
+                      metadata_filepath = here("Analysis_Files/ASO/Microbiome/ASO_Metadata_2025.csv"),
+                      subset_string = "L6_Luminal_Colon",
+                      fixed_effects = c("Sex","Site","Genotype"))
+
 counts_filepaths <- c(
   here("Analysis_Files/ASO/Microbiome/differential_taxa/ASO_L2_Site_JEJ.tsv"),
   here("Analysis_Files/ASO/Microbiome/differential_taxa/ASO_L2_Site_CEC.tsv"),
@@ -140,21 +146,73 @@ purrr::pwalk(
 )
 
 ## Visualization ---
-# Jejunum
-data<-read.table(here("Analysis_Files/ASO/Microbiome/differential_taxa/L6_Luminal_Colon_Maaslin2_Sex_Genotype/significant_results.tsv"), header=TRUE)
-data <- data %>% filter(qval <0.05)
-data <- data %>% filter(metadata=="Genotype")
+genus_colors <- viridis::plasma(n=8)
 
-data<-read.table("L2_female_Jejunum_Maaslin2_Genotype/significant_results.tsv", header=TRUE)
-data <- data %>% filter(qval <0.05)
-data <- data %>% filter(metadata=="Genotype")
+# Jejunum : 0 significant taxa at q  < 0.25
 
-data<-read.table("L6_female_Jejunum_Maaslin2_Genotype/significant_results.tsv", header=TRUE)
-data <- data %>% filter(qval <0.05)
-data <- data %>% filter(metadata=="Genotype")
+# Colon : 
+colon_dat <-read.table(here("Analysis_Files/ASO/Microbiome/differential_taxa/L6_Colon_Maaslin2_Sex_Genotype/significant_results.tsv"), header=TRUE)
+colon_dat_het <- colon_dat %>% filter(value=="HET")
+colon_dat_mut <- colon_dat %>% filter(value=="MUT")
+colon_diff_taxa_het <- make_genus_level_taxa_dotplot(ASV_significant_results_dataset = colon_dat_het,
+                                               Relative_Abundance_filepath_rds = "Analysis_Files/ASO/Microbiome/differential_taxa/Relative_Abundance_L6_Colon_ASV.RDS",
+                                               titlestring = "ASO Colon (HET vs WT) (Genus ~ Sex + Genotype)",
+                                               genus_colors, qvalue = 0.25)
+colon_diff_taxa_het
 
-## Visualization ---
-# Jejunum
-data<-read.table("differential_taxa/L6_Jejunum_Maaslin2_Sex_Genotype/significant_results.tsv", header=TRUE)
-data <- data %>% filter(qval <0.05)
-data <- data %>% filter(metadata=="Genotype")
+colon_diff_taxa_mut <- make_genus_level_taxa_dotplot(ASV_significant_results_dataset = colon_dat_mut,
+                                                     Relative_Abundance_filepath_rds = "Analysis_Files/ASO/Microbiome/differential_taxa/Relative_Abundance_L6_Colon_ASV.RDS",
+                                                     titlestring = "ASO Colon (MUT vs WT) (Genus ~ Sex + Genotype)",
+                                                     genus_colors, qvalue = 0.25)
+
+colon_diff_taxa_mut
+
+
+# Cecum : 
+cecum_dat <-read.table(here("Analysis_Files/ASO/Microbiome/differential_taxa/L6_Cecum_Maaslin2_Sex_Genotype/significant_results.tsv"), header=TRUE)
+cecum_dat_het <- cecum_dat %>% filter(value=="HET")
+cecum_dat_mut <- cecum_dat %>% filter(value=="MUT")
+cecum_diff_taxa_het <- make_genus_level_taxa_dotplot(ASV_significant_results_dataset = cecum_dat_het,
+                                                 Relative_Abundance_filepath_rds = "Analysis_Files/ASO/Microbiome/differential_taxa/Relative_Abundance_L6_Cecum_ASV.RDS",
+                                                 titlestring = "ASO Cecum (HET vs WT) (Genus ~ Sex + Genotype)",
+                                                 genus_colors, qvalue = 0.25)
+cecum_diff_taxa_het
+
+cecum_diff_taxa_mut <- make_genus_level_taxa_dotplot(ASV_significant_results_dataset = cecum_dat_mut,
+                                                 Relative_Abundance_filepath_rds = "Analysis_Files/ASO/Microbiome/differential_taxa/Relative_Abundance_L6_Cecum_ASV.RDS",
+                                                 titlestring = "ASO Cecum (MUT vs WT) (Genus ~ Sex + Genotype)",
+                                                 genus_colors, qvalue = 0.25)
+cecum_diff_taxa_mut
+
+# Colonic Lumen 
+
+lc_dat <-read.table(here("Analysis_Files/ASO/Microbiome/differential_taxa/L6_Luminal_Colon_Maaslin2_Sex_Genotype/significant_results.tsv"), header=TRUE)
+lc_dat_het <- lc_dat %>% filter(value=="HET")
+lc_dat_mut <- lc_dat %>% filter(value=="MUT")
+lc_diff_taxa_het <- make_genus_level_taxa_dotplot(ASV_significant_results_dataset = lc_dat_het,
+                                                     Relative_Abundance_filepath_rds = "Analysis_Files/ASO/Microbiome/differential_taxa/Relative_Abundance_L6_Luminal_Colon_ASV.RDS",
+                                                     titlestring = "ASO Colonic Lumen (HET vs WT) (Genus ~ Sex + Genotype)",
+                                                     genus_colors, qvalue = 0.25)
+lc_diff_taxa_het
+
+lc_diff_taxa_mut <- make_genus_level_taxa_dotplot(ASV_significant_results_dataset = lc_dat_mut,
+                                                     Relative_Abundance_filepath_rds = "Analysis_Files/ASO/Microbiome/differential_taxa/Relative_Abundance_L6_Luminal_Colon_ASV.RDS",
+                                                     titlestring = "ASO Colonic Lumen (MUT vs WT) (Genus ~ Sex + Genotype)",
+                                                     genus_colors, qvalue = 0.25)
+lc_diff_taxa_mut
+
+
+lc_dat <-read.table(here("Analysis_Files/ASO/Microbiome/differential_taxa/L6_Luminal_Colon_Maaslin2_Sex_Site_Genotype/significant_results.tsv"), header=TRUE)
+lc_dat_het <- lc_dat %>% filter(value=="HET")
+lc_dat_mut <- lc_dat %>% filter(value=="MUT")
+lc_diff_taxa_het <- make_genus_level_taxa_dotplot(ASV_significant_results_dataset = lc_dat_het,
+                                                  Relative_Abundance_filepath_rds = "Analysis_Files/ASO/Microbiome/differential_taxa/Relative_Abundance_L6_Luminal_Colon_ASV.RDS",
+                                                  titlestring = "ASO Colonic Lumen (HET vs WT) (Genus ~ Sex + Site + Genotype)",
+                                                  genus_colors, qvalue = 0.25)
+lc_diff_taxa_het
+
+lc_diff_taxa_mut <- make_genus_level_taxa_dotplot(ASV_significant_results_dataset = lc_dat_mut,
+                                                  Relative_Abundance_filepath_rds = "Analysis_Files/ASO/Microbiome/differential_taxa/Relative_Abundance_L6_Luminal_Colon_ASV.RDS",
+                                                  titlestring = "ASO Colonic Lumen (MUT vs WT) (Genus ~ Sex + Site + Genotype)",
+                                                  genus_colors, qvalue = 0.25)
+lc_diff_taxa_mut

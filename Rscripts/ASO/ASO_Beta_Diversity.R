@@ -88,15 +88,15 @@ cec.dist <- calculate_rsjensen(cec_counts)
 col.dist <- calculate_rsjensen(col_counts)
 lumcol.dist <- calculate_rsjensen(lumcol_counts)
 
-m_trios_muccol.dist <- calculate_rsjensen(m_trios_muccol_counts)
-f_trios_lumcol.dist <- calculate_rsjensen(f_trios_lumcol_counts)
-m_trios_lumcol.dist <- calculate_rsjensen(m_trios_lumcol_counts)
-
-## Calculate RS Jensen Shannon distance matrix -- 
-
-m_trios_muccol.dist <- calculate_rsjensen(m_trios_muccol_counts)
-f_trios_lumcol.dist <- calculate_rsjensen(f_trios_lumcol_counts)
-m_trios_lumcol.dist <- calculate_rsjensen(m_trios_lumcol_counts)
+# m_trios_muccol.dist <- calculate_rsjensen(m_trios_muccol_counts)
+# f_trios_lumcol.dist <- calculate_rsjensen(f_trios_lumcol_counts)
+# m_trios_lumcol.dist <- calculate_rsjensen(m_trios_lumcol_counts)
+# 
+# ## Calculate RS Jensen Shannon distance matrix -- 
+# 
+# m_trios_muccol.dist <- calculate_rsjensen(m_trios_muccol_counts)
+# f_trios_lumcol.dist <- calculate_rsjensen(f_trios_lumcol_counts)
+# m_trios_lumcol.dist <- calculate_rsjensen(m_trios_lumcol_counts)
 
 
 ### Figure S4 ---
@@ -128,6 +128,7 @@ col_pcoa <- generate_pcoA_plots(distance_matrix=col.dist,
                                 colorvariable = Genotype,
                                 colorvector = cols,
                                 wa_scores_filepath = here("Analysis_Files/ASO/Microbiome/Colon_RSJ_Top_Taxa_PcoA.csv"))
+
 col_pcoa + aes(label=MouseID) + geom_label()
 lumcol_pcoa <- generate_pcoA_plots(distance_matrix=lumcol.dist,
                                  counts = lumcol_counts,
@@ -139,10 +140,9 @@ lumcol_pcoa <- generate_pcoA_plots(distance_matrix=lumcol.dist,
 lumcol_pcoa + aes(label=MouseID) + geom_label()
 
 dev.new(width=10,height=10)
-plot_grid(f_trios_mc_pcoa, m_trios_mc_pcoa,
-          f_trios_lc_pcoa, m_trios_lc_pcoa,
-          f_jax_baseline_pcoa,m_jax_baseline_pcoa,
-          labels=c("A","B","C","D","E","F"),nrow=3)
+cowplot::plot_grid(jej_pcoa, cec_pcoa,
+          col_pcoa, lumcol_pcoa,
+          labels=c("A","B","C","D"),nrow=2)
 
 ### Statistics ---
 
