@@ -333,7 +333,7 @@ make_genus_level_taxa_dotplot <- function(ASV_significant_results_dataset,
     geom_vline(xintercept = 0) + 
     xlab(label="Log2 Fold Change")+
     ylab(label=NULL)+
-    cowplot::theme_cowplot(16) +
+    cowplot::theme_cowplot(12) +
     ggtitle(titlestring) +
     theme(plot.title = element_text(hjust = 0.5)) +
     theme(legend.position = "right") 

@@ -1,0 +1,12 @@
+feature	metadata	value	coef	stderr	N	N.not.0	pval	qval
+k__Bacteria.p__Firmicutes.c__Bacilli.o__RF39.f__.g__	Genotype	HET	1.43437632315183	0.457948602409342	71	50	0.00255899901392804	0.147129970962322
+k__Bacteria.p__Firmicutes.c__Clostridia.o__Lachnospirales.f__Lachnospiraceae.g__ASF356	Genotype	MUT	2.2054717969092	0.719548659838804	71	42	0.00311962836064733	0.147129970962322
+k__Bacteria.p__Firmicutes.c__Clostridia.o__Lachnospirales.f__Lachnospiraceae.g__Tuzzerella	Genotype	MUT	-1.19644160668083	0.390806208233802	71	22	0.00315278509204977	0.147129970962322
+k__Bacteria.p__Firmicutes.c__Clostridia.o__Lachnospirales.f__Lachnospiraceae.g__Lachnospiraceae.UCG.001	Genotype	HET	-2.40205851708164	0.829388801109969	71	51	0.00507614752108523	0.177665163237983
+k__Bacteria.p__Firmicutes.c__Bacilli.o__Erysipelotrichales.f__Erysipelotrichaceae.g__Faecalibaculum	Genotype	HET	1.7538186644427	0.633411707764096	71	46	0.00724358284024024	0.198769955635362
+k__Bacteria.p__Firmicutes.c__Clostridia.o__Lachnospirales.f__Lachnospiraceae.g__Tuzzerella	Genotype	HET	-1.04757895817552	0.386626342514478	71	22	0.00851871238437264	0.198769955635362
+k__Bacteria.p__Firmicutes.c__Clostridia.o__Clostridia.vadinBB60.group.f__.g__	Genotype	HET	-1.1361097641654	0.441777461349212	71	68	0.0123112252744093	0.225710300627883
+k__Bacteria.p__Firmicutes.c__Clostridia.o__Oscillospirales.f__Ruminococcaceae.g__.Eubacterium..siraeum.group	Genotype	MUT	-1.36768001290715	0.535521682391664	71	56	0.0128977314644505	0.225710300627883
+k__Bacteria.p__Firmicutes.c__Clostridia.o__Lachnospirales.f__Lachnospiraceae.g__Lachnospiraceae.UCG.001	Genotype	MUT	-2.01874703189144	0.838355427116889	71	51	0.0187583679257979	0.238742864510155
+k__Bacteria.p__Firmicutes.c__Clostridia.o__Lachnospirales.f__Lachnospiraceae.g__Lachnospiraceae.UCG.006	Genotype	HET	1.12913713042836	0.464258610691186	71	69	0.0176483596234229	0.238742864510155
+k__Bacteria.p__Firmicutes.c__Clostridia.o__Oscillospirales.f__UCG.010.g__	Genotype	HET	1.09483312120692	0.441722493968662	71	39	0.0156781292636052	0.238742864510155
