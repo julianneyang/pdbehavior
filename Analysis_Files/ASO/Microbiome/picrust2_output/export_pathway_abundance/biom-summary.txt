@@ -1,0 +1,115 @@
+Num samples: 100
+Num observations: 360
+Total count: 122,623,559
+Table density (fraction of non-zero values): 0.704
+
+Counts/sample summary:
+ Min: 551,822.504
+ Max: 2,808,754.974
+ Median: 1,162,424.681
+ Mean: 1,226,235.598
+ Std. dev.: 445,744.967
+ Sample Metadata Categories: None provided
+ Observation Metadata Categories: None provided
+
+Counts/sample detail:
+Julianne-604-CEC_S235_L001_R1_001_F_filt-fastq-gz: 551,822.504
+Rep1-Julianne-667-COL_S173_L001_R1_001_F_filt-fastq-gz: 583,373.060
+Rep1-Julianne-579-COL_S159_L001_R1_001_F_filt-fastq-gz: 587,460.206
+Rep1-Julianne-835-CEC_S158_L001_R1_001_F_filt-fastq-gz: 601,613.745
+Julianne-719-JEJ_S218_L001_R1_001_F_filt-fastq-gz: 636,470.479
+Rep1-Julianne-540-CEC_S119_L001_R1_001_F_filt-fastq-gz: 651,177.867
+Rep1-Julianne-835-COL_S151_L001_R1_001_F_filt-fastq-gz: 667,337.094
+Rep1-Julianne-856-CEC_S172_L001_R1_001_F_filt-fastq-gz: 668,790.036
+Rep1-Julianne-840-CEC_S109_L001_R1_001_F_filt-fastq-gz: 691,954.126
+Julianne-351-COL_S271_L001_R1_001_F_filt-fastq-gz: 724,702.924
+Julianne-838-JEJ_S277_L001_R1_001_F_filt-fastq-gz: 725,184.027
+Rep1-Julianne-661-CEC_S111_L001_R1_001_F_filt-fastq-gz: 725,866.204
+Rep1-Julianne-540-JEJ_S118_L001_R1_001_F_filt-fastq-gz: 746,725.578
+Julianne-891-COL_S247_L001_R1_001_F_filt-fastq-gz: 767,482.262
+Rep1-Julianne-604-COL_S166_L001_R1_001_F_filt-fastq-gz: 768,050.361
+Rep1-Julianne-858-COL_S149_L001_R1_001_F_filt-fastq-gz: 774,776.161
+Julianne-542-COL_S259_L001_R1_001_F_filt-fastq-gz: 781,325.657
+Rep1-Julianne-842-COL_S133_L001_R1_001_F_filt-fastq-gz: 802,817.691
+Julianne-719-COL_S272_L001_R1_001_F_filt-fastq-gz: 815,936.436
+Rep1-Julianne-838-COL_S128_L001_R1_001_F_filt-fastq-gz: 861,699.604
+Julianne-667-CEC_S236_L001_R1_001_F_filt-fastq-gz: 869,998.401
+Julianne-540-COL_S267_L001_R1_001_F_filt-fastq-gz: 872,904.505
+Julianne-899-COL_S248_L001_R1_001_F_filt-fastq-gz: 881,993.752
+Rep1-Julianne-872-COL_S157_L001_R1_001_F_filt-fastq-gz: 901,628.956
+Rep1-Julianne-924-COL_S143_L001_R1_001_F_filt-fastq-gz: 909,414.587
+Julianne-923-JEJ_S196_L001_R1_001_F_filt-fastq-gz: 909,620.670
+Rep1-Julianne-544-JEJ_S178_L001_R1_001_F_filt-fastq-gz: 914,550.685
+Julianne-835-JEJ_S198_L001_R1_001_F_filt-fastq-gz: 914,848.798
+Rep1-Julianne-840-COL_S141_L001_R1_001_F_filt-fastq-gz: 915,806.049
+Rep1-Julianne-923-COL_S135_L001_R1_001_F_filt-fastq-gz: 927,531.059
+Rep1-Julianne-842-CEC_S117_L001_R1_001_F_filt-fastq-gz: 964,110.875
+Julianne-891-CEC_S220_L001_R1_001_F_filt-fastq-gz: 964,874.775
+Julianne-716-COL_S258_L001_R1_001_F_filt-fastq-gz: 986,458.850
+Julianne-661-COL_S266_L001_R1_001_F_filt-fastq-gz: 993,640.744
+Rep1-Julianne-716-JEJ_S110_L001_R1_001_F_filt-fastq-gz: 1,003,416.636
+Julianne-663-CEC_S241_L001_R1_001_F_filt-fastq-gz: 1,010,414.845
+Julianne-717-CEC_S230_L001_R1_001_F_filt-fastq-gz: 1,013,325.182
+Julianne-717-COL_S257_L001_R1_001_F_filt-fastq-gz: 1,017,657.662
+Julianne-791-CEC_S229_L001_R1_001_F_filt-fastq-gz: 1,033,265.352
+Julianne-841-CEC_S278_L001_R1_001_F_filt-fastq-gz: 1,036,105.001
+Rep1-Julianne-544-CEC_S179_L001_R1_001_F_filt-fastq-gz: 1,041,714.620
+Rep1-Julianne-858-CEC_S171_L001_R1_001_F_filt-fastq-gz: 1,046,056.363
+Julianne-853-COL_S284_L001_R1_001_F_filt-fastq-gz: 1,048,990.692
+Julianne-882-COL_S253_L001_R1_001_F_filt-fastq-gz: 1,066,051.563
+Rep1-Julianne-882-CEC_S165_L001_R1_001_F_filt-fastq-gz: 1,070,681.982
+Julianne-924-CEC_S224_L001_R1_001_F_filt-fastq-gz: 1,088,444.580
+Julianne-923-CEC_S223_L001_R1_001_F_filt-fastq-gz: 1,088,520.313
+Julianne-351-CEC_S244_L001_R1_001_F_filt-fastq-gz: 1,102,101.586
+Julianne-582-CEC_S243_L001_R1_001_F_filt-fastq-gz: 1,112,964.418
+Julianne-547-COL_S260_L001_R1_001_F_filt-fastq-gz: 1,154,622.163
+Julianne-544-COL_S255_L001_R1_001_F_filt-fastq-gz: 1,170,227.198
+Rep1-Julianne-841-JEJ_S104_L001_R1_001_F_filt-fastq-gz: 1,188,242.497
+Julianne-841-COL_S282_L001_R1_001_F_filt-fastq-gz: 1,192,867.319
+Julianne-542-CEC_S232_L001_R1_001_F_filt-fastq-gz: 1,204,256.243
+Julianne-547-JEJ_S206_L001_R1_001_F_filt-fastq-gz: 1,205,651.494
+Julianne-667-JEJ_S209_L001_R1_001_F_filt-fastq-gz: 1,206,316.147
+Rep1-Julianne-847-JEJ_S112_L001_R1_001_F_filt-fastq-gz: 1,224,381.173
+Rep1-Julianne-840-JEJ_S177_L001_R1_001_F_filt-fastq-gz: 1,249,036.312
+Julianne-337-CEC_S242_L001_R1_001_F_filt-fastq-gz: 1,264,212.194
+Rep1-Julianne-536-CEC_S103_L001_R1_001_F_filt-fastq-gz: 1,274,657.068
+Rep1-Julianne-853-JEJ_S120_L001_R1_001_F_filt-fastq-gz: 1,286,108.516
+Rep1-Julianne-717-JEJ_S102_L001_R1_001_F_filt-fastq-gz: 1,289,876.117
+Julianne-604-JEJ_S208_L001_R1_001_F_filt-fastq-gz: 1,302,249.932
+Julianne-579-JEJ_S207_L001_R1_001_F_filt-fastq-gz: 1,311,312.832
+Julianne-716-CEC_S231_L001_R1_001_F_filt-fastq-gz: 1,322,291.078
+Julianne-719-CEC_S245_L001_R1_001_F_filt-fastq-gz: 1,325,765.223
+Julianne-853-CEC_S280_L001_R1_001_F_filt-fastq-gz: 1,327,261.544
+Julianne-856-COL_S254_L001_R1_001_F_filt-fastq-gz: 1,330,562.012
+Julianne-838-CEC_S281_L001_R1_001_F_filt-fastq-gz: 1,345,361.621
+Julianne-663-COL_S268_L001_R1_001_F_filt-fastq-gz: 1,350,714.162
+Rep1-Julianne-351-JEJ_S150_L001_R1_001_F_filt-fastq-gz: 1,384,538.428
+Julianne-899-CEC_S221_L001_R1_001_F_filt-fastq-gz: 1,400,238.339
+Julianne-661-JEJ_S212_L001_R1_001_F_filt-fastq-gz: 1,407,811.043
+Rep1-Julianne-872-CEC_S125_L001_R1_001_F_filt-fastq-gz: 1,424,521.555
+Rep1-Julianne-872-JEJ_S101_L001_R1_001_F_filt-fastq-gz: 1,429,136.000
+Julianne-536-COL_S265_L001_R1_001_F_filt-fastq-gz: 1,437,753.075
+Julianne-337-COL_S269_L001_R1_001_F_filt-fastq-gz: 1,483,377.228
+Rep1-Julianne-337-JEJ_S134_L001_R1_001_F_filt-fastq-gz: 1,487,333.329
+Julianne-542-JEJ_S205_L001_R1_001_F_filt-fastq-gz: 1,489,109.566
+Julianne-791-COL_S256_L001_R1_001_F_filt-fastq-gz: 1,575,738.581
+Julianne-882-JEJ_S199_L001_R1_001_F_filt-fastq-gz: 1,612,600.280
+Julianne-331-JEJ_S219_L001_R1_001_F_filt-fastq-gz: 1,624,799.358
+Julianne-962-CEC_S222_L001_R1_001_F_filt-fastq-gz: 1,636,499.553
+Julianne-924-JEJ_S197_L001_R1_001_F_filt-fastq-gz: 1,651,276.272
+Julianne-547-CEC_S233_L001_R1_001_F_filt-fastq-gz: 1,677,582.353
+Julianne-891-JEJ_S193_L001_R1_001_F_filt-fastq-gz: 1,756,338.829
+Julianne-582-COL_S270_L001_R1_001_F_filt-fastq-gz: 1,789,028.831
+Rep1-Julianne-858-JEJ_S164_L001_R1_001_F_filt-fastq-gz: 1,800,544.743
+Julianne-536-JEJ_S211_L001_R1_001_F_filt-fastq-gz: 1,812,712.269
+Julianne-665-JEJ_S210_L001_R1_001_F_filt-fastq-gz: 1,844,060.853
+Julianne-856-JEJ_S200_L001_R1_001_F_filt-fastq-gz: 1,867,659.469
+Julianne-962-JEJ_S195_L001_R1_001_F_filt-fastq-gz: 1,918,292.490
+Rep1-Julianne-663-JEJ_S126_L001_R1_001_F_filt-fastq-gz: 1,925,100.186
+Julianne-847-COL_S283_L001_R1_001_F_filt-fastq-gz: 1,940,213.910
+Rep1-Julianne-582-JEJ_S142_L001_R1_001_F_filt-fastq-gz: 2,051,363.368
+Julianne-847-CEC_S279_L001_R1_001_F_filt-fastq-gz: 2,064,663.703
+Rep1-Julianne-665-COL_S180_L001_R1_001_F_filt-fastq-gz: 2,202,879.944
+Julianne-579-CEC_S234_L001_R1_001_F_filt-fastq-gz: 2,280,190.280
+Julianne-331-CEC_S246_L001_R1_001_F_filt-fastq-gz: 2,471,808.664
+Julianne-899-JEJ_S194_L001_R1_001_F_filt-fastq-gz: 2,808,754.974
