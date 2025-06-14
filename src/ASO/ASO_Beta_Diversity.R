@@ -108,7 +108,7 @@ jej_pcoa <- generate_pcoA_plots(distance_matrix=jej.dist,
                                        title="ASO Jejunum",
                                        colorvariable = Genotype,
                                        colorvector = cols,
-                                       wa_scores_filepath = here("results/ASO/Microbiome/Jejunum_RSJ_Top_Taxa_PcoA.csv"))
+                                       wa_scores_filepath = here("results/ASO/PCoA/Jejunum_RSJ_Top_Taxa_PcoA.csv"))
 jej_pcoa + aes(label=MouseID) + geom_label()
 
 cec_pcoa <- generate_pcoA_plots(distance_matrix=cec.dist,
@@ -117,10 +117,10 @@ cec_pcoa <- generate_pcoA_plots(distance_matrix=cec.dist,
                                title="ASO Cecum",
                                colorvariable = Genotype,
                                colorvector = cols,
-                               wa_scores_filepath = here("results/ASO/Microbiome/Cecum_RSJ_Top_Taxa_PcoA.csv"))
+                               wa_scores_filepath = here("results/ASO/PCoA/Cecum_RSJ_Top_Taxa_PcoA.csv"))
 
 cec_pcoa + aes(label=MouseID) + geom_label()
-wa_scores <- read.csv(here("results/ASO/Microbiome/Cecum_RSJ_Top_Taxa_PcoA.csv"))
+wa_scores <- read.csv(here("results/ASO/PCoA/Cecum_RSJ_Top_Taxa_PcoA.csv"))
 
 col_pcoa <- generate_pcoA_plots(distance_matrix=col.dist,
                                 counts = col_counts,
@@ -128,7 +128,7 @@ col_pcoa <- generate_pcoA_plots(distance_matrix=col.dist,
                                 title="ASO Colon",
                                 colorvariable = Genotype,
                                 colorvector = cols,
-                                wa_scores_filepath = here("results/ASO/Microbiome/Colon_RSJ_Top_Taxa_PcoA.csv"))
+                                wa_scores_filepath = here("results/ASO/PCoA/Colon_RSJ_Top_Taxa_PcoA.csv"))
 
 col_pcoa + aes(label=MouseID) + geom_label()
 lumcol_pcoa <- generate_pcoA_plots(distance_matrix=lumcol.dist,
@@ -137,7 +137,7 @@ lumcol_pcoa <- generate_pcoA_plots(distance_matrix=lumcol.dist,
                                  title="ASO Colon and Cecum",
                                  colorvariable = Genotype,
                                  colorvector = cols,
-                                 wa_scores_filepath = here("results/ASO/Microbiome/LuminalColon_RSJ_Top_Taxa_PcoA.csv"))
+                                 wa_scores_filepath = here("results/ASO/PCoA/LuminalColon_RSJ_Top_Taxa_PcoA.csv"))
 lumcol_pcoa + aes(label=Sex) + geom_label()
 
 dev.new(width=10,height=10)

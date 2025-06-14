@@ -1,6 +1,0 @@
-feature	metadata	value	coef	stderr	N	N.not.0	pval	qval
-k__Bacteria.p__Bacillota.c__Bacilli.o__Lactobacillales.f__Lactobacillaceae.g__HT002	Genotype	HET	2.28842172410054	0.686406639082306	33	31	0.00235142423544609	0.114631931477997
-k__Bacteria.p__Bacillota.c__Bacilli.o__Lactobacillales.f__Lactobacillaceae.g__Lactobacillus	Genotype	HET	1.96134203142855	0.572136664182412	33	29	0.00184050176373409	0.114631931477997
-k__Bacteria.p__Bacillota.c__Clostridia.o__Lachnospirales.f__Lachnospiraceae.g__ASF356	Sex	Male	1.96616077519777	0.519363838971523	33	23	0.000713528905685811	0.114631931477997
-k__Bacteria.p__Bacillota.c__Clostridia.o__Lachnospirales.f__Lachnospiraceae.g__.Eubacterium..xylanophilum.group	Sex	Male	2.06639691009146	0.602292361662906	33	21	0.00182715299306398	0.114631931477997
-k__Bacteria.p__Bacillota.c__Bacilli.o__Erysipelotrichales.f__Erysipelotrichaceae.g__Turicibacter	Genotype	MUT	3.38692141952982	1.0916849359241	33	25	0.00425155420876492	0.165810614141832

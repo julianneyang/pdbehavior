@@ -1,0 +1,4 @@
+feature	metadata	value	coef	stderr	N	N.not.0	pval	qval
+k__Bacteria.p__Bacillota.c__Clostridia.o__Lachnospirales.f__Lachnospiraceae.g__ASF356	Sex	Male	1.85824122694981	0.528186684247266	32	23	0.00150373208682008	0.239631232577889
+k__Bacteria.p__Bacillota.c__Clostridia.o__Lachnospirales.f__Lachnospiraceae.g__.Eubacterium..xylanophilum.group	Sex	Male	1.94010783940009	0.612299722330512	32	21	0.00368663434735213	0.239631232577889
+k__Bacteria.p__Bacillota.c__Clostridia.o__Oscillospirales.f__Oscillospiraceae.g__Colidextribacter	Genotype	HET	-1.46227334691976	0.451028385396264	32	20	0.0030604114930919	0.239631232577889

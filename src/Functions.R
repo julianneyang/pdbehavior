@@ -424,3 +424,71 @@ run_repeated_PERMANOVA <- function(path_to_distance_matrix_tsv,path_to_metadata_
                                            metadata_order = order_vector)
   print(data.adonis$aov.tab)
 }
+
+## Make a lollipop for genus level --
+
+make_combined_genus_level_taxa_dotplot <- function(ASV_significant_results_dataset,
+                                          Relative_Abundance_filepath_rds,
+                                          titlestring, phyla_colors, qvalue=0.05){
+  data <- as.data.frame(ASV_significant_results_dataset)
+  print(names(data))
+  data <- data %>% filter(qval < qvalue)
+  data <- data %>% filter(metadata=="Genotype")
+  data$Taxon <- data$feature
+  data$Phylum <- gsub(".*p__","",data$Taxon)
+  data$Phylum <- gsub("\\..*","",data$Phylum)
+  data$Class<- gsub(".*c__","",data$Taxon)
+  data$Class <-  gsub("\\..*","",data$Class)
+  data$Family<- gsub(".*f__","",data$Taxon)
+  data$Family <-  gsub("\\..*","",data$Family)
+  data$Order<- gsub(".*o__","",data$Taxon)
+  data$Order <-  gsub("\\..*","",data$Order)
+  data$Genus<- gsub(".*g__","",data$Taxon)
+  
+  data$annotation <- gsub("\\.E","E",data$Genus)
+  data$annotation <- gsub("\\.","_",data$annotation)
+  data$annotation <- gsub("__","_",data$annotation)
+  #data$Genus <- gsub("\\..*","",data$Genus)
+  data <- data %>% mutate(annotation = ifelse(data$Genus=="", paste0(data$Family," (f)"), data$annotation))
+  data <- data %>% mutate(annotation = ifelse(data$Family=="", paste(data$Order,"(o)"), data$annotation))
+  data <- data %>% mutate(annotation = ifelse(data$Order=="", paste(data$Class,"(c)"), data$annotation))
+  
+  #append relative abundance data 
+  #relA <- readRDS("Trios/differential_taxa/L6_Luminal_ColonRelative_Abundance-ASV.RDS")
+  relA <- readRDS(here(Relative_Abundance_filepath_rds))
+  relA$feature <- row.names(relA)
+  relA$feature <- gsub(";",".",relA$feature)
+  relA$feature <- gsub(" ",".",relA$feature)
+  relA$feature <- gsub("-",".",relA$feature)
+  relA$feature <- gsub("\\[",".",relA$feature)
+  relA$feature <- gsub("\\]",".",relA$feature)
+  relA$Relative_Abundance <- relA$V1
+  data<-merge(data,relA,by="feature")
+  print(data$feature)
+  print(summary(data$Relative_Abundance))
+  max(data$Relative_Abundance)
+  
+  #make graph
+  y = tapply(data$coef, data$annotation, function(y) max(y))  # orders the genera by the highest fold change of any ASV in the genus; can change max(y) to mean(y) if you want to order genera by the average log2 fold change
+  y = sort(y, FALSE)   #switch to TRUE to reverse direction
+  data$annotation= factor(as.character(data$annotation), levels = names(y))
+  baseline_DAT <- ggplot(data, aes(x = coef, y = annotation ,color=value)) + 
+    geom_point(aes(color=value,size = sqrt(Relative_Abundance)),
+               position = position_dodge(width = 0.4)) +
+    #geom_point(aes(size=sqrt(Relative_Abundance)),shape = 1,colour = "black")+
+    geom_linerange(aes(xmin=0, xmax=coef, y=annotation),position = position_dodge(width = 0.4)) +
+    scale_size_continuous(name="Relative Abundance",range = c(0.5,8),
+                          limits=c(sqrt(0.0000001),sqrt(0.6)),
+                          breaks=c(sqrt(0.0001),sqrt(0.001),sqrt(0.01),sqrt(0.1)),
+                          labels=c("0.0001","0.001","0.01","0.1")) + 
+    scale_color_manual(name="Genotype", values = phyla_colors)+
+    geom_vline(xintercept = 0) + 
+    xlab(label="Log2 Fold Change")+
+    ylab(label=NULL)+
+    cowplot::theme_cowplot(12) +
+    ggtitle(titlestring) +
+    theme(plot.title = element_text(hjust = 0.5)) +
+    theme(legend.position = "right") 
+  baseline_DAT 
+  
+}

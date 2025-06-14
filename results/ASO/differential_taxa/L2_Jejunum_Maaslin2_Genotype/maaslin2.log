@@ -1,0 +1,48 @@
+2025-06-14 16:18:32.121591 INFO::Writing function arguments to log file
+2025-06-14 16:18:32.123518 DEBUG::Function arguments
+2025-06-14 16:18:32.124099 DEBUG::Output folder: /home/julianne/Documents/pdbehavior/results/ASO/differential_taxa/L2_Jejunum_Maaslin2_Genotype
+2025-06-14 16:18:32.124724 DEBUG::Min Abundance: 0.000000
+2025-06-14 16:18:32.125343 DEBUG::Min Prevalence: 0.150000
+2025-06-14 16:18:32.125984 DEBUG::Normalization: TSS
+2025-06-14 16:18:32.126615 DEBUG::Transform: LOG
+2025-06-14 16:18:32.127327 DEBUG::Analysis method: LM
+2025-06-14 16:18:32.128004 DEBUG::Max significance: 0.250000
+2025-06-14 16:18:32.128812 DEBUG::Random effects:
+2025-06-14 16:18:32.129522 DEBUG::Fixed effects: Genotype
+2025-06-14 16:18:32.131203 DEBUG::Correction method: BH
+2025-06-14 16:18:32.1319 DEBUG::Standardize: TRUE
+2025-06-14 16:18:32.132615 DEBUG::Cores: 1
+2025-06-14 16:18:32.133234 INFO::Verifying options selected are valid
+2025-06-14 16:18:32.134581 INFO::Determining format of input files
+2025-06-14 16:18:32.13606 INFO::Input format is data samples as columns and metadata samples as rows
+2025-06-14 16:18:32.137642 DEBUG::Transformed data so samples are rows
+2025-06-14 16:18:32.138506 DEBUG::A total of 33 samples were found in both the data and metadata
+2025-06-14 16:18:32.139134 DEBUG::Reordering data/metadata to use same sample ordering
+2025-06-14 16:18:32.140249 INFO::Formula for fixed effects: expr ~  Genotype
+2025-06-14 16:18:32.141729 INFO::Factor detected for categorial metadata 'Genotype'. Provide a reference argument or manually set factor ordering to change reference level.
+2025-06-14 16:18:32.143138 INFO::Filter data based on min abundance and min prevalence
+2025-06-14 16:18:32.144557 INFO::Total samples in data: 33
+2025-06-14 16:18:32.145944 INFO::Min samples required with min abundance for a feature not to be filtered: 4.950000
+2025-06-14 16:18:32.147691 INFO::Total filtered features: 3
+2025-06-14 16:18:32.148731 INFO::Filtered feature names from abundance and prevalence filtering: k__.p__, k__Bacteria.p__, k__Bacteria.p__Patescibacteria
+2025-06-14 16:18:32.150564 INFO::Total filtered features with variance filtering: 0
+2025-06-14 16:18:32.151734 INFO::Filtered feature names from variance filtering:
+2025-06-14 16:18:32.153065 INFO::Running selected normalization method: TSS
+2025-06-14 16:18:32.154935 INFO::Applying z-score to standardize continuous metadata
+2025-06-14 16:18:32.158802 INFO::Running selected transform method: LOG
+2025-06-14 16:18:32.160231 INFO::Running selected analysis method: LM
+2025-06-14 16:18:32.162053 INFO::Fitting model to feature number 1, k__Bacteria.p__Bacillota
+2025-06-14 16:18:32.165603 INFO::Fitting model to feature number 2, k__Bacteria.p__Bacteroidota
+2025-06-14 16:18:32.169541 INFO::Fitting model to feature number 3, k__Bacteria.p__Thermodesulfobacteriota
+2025-06-14 16:18:32.17395 INFO::Fitting model to feature number 4, k__Bacteria.p__Verrucomicrobiota
+2025-06-14 16:18:32.177459 INFO::Fitting model to feature number 5, k__Bacteria.p__Pseudomonadota
+2025-06-14 16:18:32.181149 INFO::Fitting model to feature number 6, k__Bacteria.p__Actinomycetota
+2025-06-14 16:18:32.184562 INFO::Fitting model to feature number 7, k__Bacteria.p__Cyanobacteriota
+2025-06-14 16:18:32.192189 INFO::Counting total values for each feature
+2025-06-14 16:18:32.194729 INFO::Writing filtered data to file /home/julianne/Documents/pdbehavior/results/ASO/differential_taxa/L2_Jejunum_Maaslin2_Genotype/features/filtered_data.tsv
+2025-06-14 16:18:32.196759 INFO::Writing filtered, normalized data to file /home/julianne/Documents/pdbehavior/results/ASO/differential_taxa/L2_Jejunum_Maaslin2_Genotype/features/filtered_data_norm.tsv
+2025-06-14 16:18:32.199353 INFO::Writing filtered, normalized, transformed data to file /home/julianne/Documents/pdbehavior/results/ASO/differential_taxa/L2_Jejunum_Maaslin2_Genotype/features/filtered_data_norm_transformed.tsv
+2025-06-14 16:18:32.202214 INFO::Writing residuals to file /home/julianne/Documents/pdbehavior/results/ASO/differential_taxa/L2_Jejunum_Maaslin2_Genotype/fits/residuals.rds
+2025-06-14 16:18:32.204253 INFO::Writing fitted values to file /home/julianne/Documents/pdbehavior/results/ASO/differential_taxa/L2_Jejunum_Maaslin2_Genotype/fits/fitted.rds
+2025-06-14 16:18:32.206206 INFO::Writing all results to file (ordered by increasing q-values): /home/julianne/Documents/pdbehavior/results/ASO/differential_taxa/L2_Jejunum_Maaslin2_Genotype/all_results.tsv
+2025-06-14 16:18:32.209139 INFO::Writing the significant results (those which are less than or equal to the threshold of 0.250000 ) to file (ordered by increasing q-values): /home/julianne/Documents/pdbehavior/results/ASO/differential_taxa/L2_Jejunum_Maaslin2_Genotype/significant_results.tsv

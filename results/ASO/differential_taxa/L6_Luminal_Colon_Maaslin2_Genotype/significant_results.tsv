@@ -1,0 +1,17 @@
+feature	metadata	value	coef	stderr	N	N.not.0	pval	qval
+k__Bacteria.p__Bacillota.c__Bacilli.o__Lactobacillales.f__Lactobacillaceae.g__Lactobacillus	Genotype	HET	1.92267581802425	0.477428821739407	65	59	0.000156435458097971	0.0104811756925641
+k__Bacteria.p__Bacillota.c__Bacilli.o__Erysipelotrichales.f__Erysipelotrichaceae.g__Turicibacter	Genotype	MUT	3.56550889567871	0.878240225771204	65	51	0.000140108740546245	0.0104811756925641
+k__Bacteria.p__Bacillota.c__Bacilli.o__Lactobacillales.f__Lactobacillaceae.g__HT002	Genotype	HET	1.82476856211794	0.488525410061722	65	61	0.000410291124125876	0.0154067802459808
+k__Bacteria.p__Bacillota.c__Bacilli.o__Lactobacillales.f__Lactobacillaceae.g__Lactobacillus	Genotype	MUT	1.87765679656923	0.507484634083681	65	59	0.000459903887939725	0.0154067802459808
+k__Bacteria.p__Bacillota.c__Bacilli.o__Erysipelotrichales.f__Erysipelotrichaceae.g__	Genotype	HET	-1.91217637313843	0.532363689108639	65	30	0.000649742269877651	0.0174130928327211
+k__Bacteria.p__Bacillota.c__Bacilli.o__Erysipelotrichales.f__Erysipelotrichaceae.g__	Genotype	MUT	-1.76123076666798	0.565877843282364	65	30	0.0028061708706875	0.0626711494453541
+k__Bacteria.p__Bacillota.c__Clostridia.o__Clostridiales.f__Clostridiaceae.g__Candidatus.Arthromitus	Genotype	MUT	-1.41378142829444	0.469717152077658	65	29	0.00377625113571307	0.0722882360265073
+k__Bacteria.p__Bacillota.c__Bacilli.o__Lactobacillales.f__Lactobacillaceae.g__HT002	Genotype	MUT	1.32274561646854	0.519279791409563	65	61	0.0133519193937159	0.149096433229828
+k__Bacteria.p__Bacteroidota.c__Bacteroidia.o__Bacteroidales.f__Bacteroidaceae.g__Bacteroides	Genotype	HET	-0.670733655039453	0.256630849590323	65	65	0.0112296293359078	0.149096433229828
+k__Bacteria.p__Bacillota.c__Clostridia.o__Oscillospirales.f__.Eubacterium..coprostanoligenes.group.g__	Genotype	HET	-1.11714728697783	0.432773896320279	65	59	0.0122196390553601	0.149096433229828
+k__Bacteria.p__Actinomycetota.c__Coriobacteriia.o__Coriobacteriales.f__Eggerthellaceae.g__Adlercreutzia	Genotype	HET	-1.47019903775049	0.572591962161945	65	57	0.0126651522086866	0.149096433229828
+k__Bacteria.p__Bacillota.c__Clostridia.o__Oscillospirales.f__Oscillospiraceae.g__Colidextribacter	Genotype	HET	-0.965334706793923	0.376000383247048	65	49	0.0126731891852658	0.149096433229828
+k__Bacteria.p__Bacillota.c__Clostridia.o__Lachnospirales.f__Lachnospiraceae.g__Lachnospiraceae.NK4A136.group	Genotype	HET	1.09696768670296	0.456047711847872	65	64	0.0191530654385353	0.197423905289517
+k__Bacteria.p__Bacteroidota.c__Bacteroidia.o__Bacteroidales.f__Bacteroidaceae.g__Bacteroides	Genotype	MUT	-0.63614542972969	0.272786658175436	65	65	0.02296242240249	0.219783185852405
+k__Bacteria.p__Bacteroidota.c__Bacteroidia.o__Bacteroidales.f__Tannerellaceae.g__Parabacteroides	Genotype	MUT	-1.23279716654569	0.536599509699805	65	58	0.0249828477000093	0.223180106120083
+k__Bacteria.p__Bacillota.c__Clostridia.o__Lachnospirales.f__Lachnospiraceae.g__A2	Genotype	HET	-1.09377815750659	0.486051748099157	65	64	0.027985448887552	0.234378134433248

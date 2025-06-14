@@ -1,0 +1,49 @@
+2025-06-14 16:18:35.668201 INFO::Writing function arguments to log file
+2025-06-14 16:18:35.671362 DEBUG::Function arguments
+2025-06-14 16:18:35.671951 DEBUG::Output folder: /home/julianne/Documents/pdbehavior/results/ASO/differential_taxa/L2_Colon_Maaslin2_Sex_Genotype
+2025-06-14 16:18:35.672566 DEBUG::Min Abundance: 0.000000
+2025-06-14 16:18:35.67317 DEBUG::Min Prevalence: 0.150000
+2025-06-14 16:18:35.673739 DEBUG::Normalization: TSS
+2025-06-14 16:18:35.674268 DEBUG::Transform: LOG
+2025-06-14 16:18:35.674845 DEBUG::Analysis method: LM
+2025-06-14 16:18:35.675379 DEBUG::Max significance: 0.250000
+2025-06-14 16:18:35.675869 DEBUG::Random effects:
+2025-06-14 16:18:35.676312 DEBUG::Fixed effects: Sex,Genotype
+2025-06-14 16:18:35.676774 DEBUG::Correction method: BH
+2025-06-14 16:18:35.677291 DEBUG::Standardize: TRUE
+2025-06-14 16:18:35.677757 DEBUG::Cores: 1
+2025-06-14 16:18:35.678214 INFO::Verifying options selected are valid
+2025-06-14 16:18:35.679804 INFO::Determining format of input files
+2025-06-14 16:18:35.681429 INFO::Input format is data samples as columns and metadata samples as rows
+2025-06-14 16:18:35.683351 DEBUG::Transformed data so samples are rows
+2025-06-14 16:18:35.684071 DEBUG::A total of 32 samples were found in both the data and metadata
+2025-06-14 16:18:35.6847 DEBUG::Reordering data/metadata to use same sample ordering
+2025-06-14 16:18:35.685889 INFO::Formula for fixed effects: expr ~  Sex + Genotype
+2025-06-14 16:18:35.687248 INFO::Factor detected for categorial metadata 'Sex'. Provide a reference argument or manually set factor ordering to change reference level.
+2025-06-14 16:18:35.688816 INFO::Factor detected for categorial metadata 'Genotype'. Provide a reference argument or manually set factor ordering to change reference level.
+2025-06-14 16:18:35.690316 INFO::Filter data based on min abundance and min prevalence
+2025-06-14 16:18:35.691197 INFO::Total samples in data: 32
+2025-06-14 16:18:35.692445 INFO::Min samples required with min abundance for a feature not to be filtered: 4.800000
+2025-06-14 16:18:35.694492 INFO::Total filtered features: 3
+2025-06-14 16:18:35.69619 INFO::Filtered feature names from abundance and prevalence filtering: k__.p__, k__Bacteria.p__, k__Bacteria.p__Patescibacteria
+2025-06-14 16:18:35.698224 INFO::Total filtered features with variance filtering: 0
+2025-06-14 16:18:35.699698 INFO::Filtered feature names from variance filtering:
+2025-06-14 16:18:35.701155 INFO::Running selected normalization method: TSS
+2025-06-14 16:18:35.702873 INFO::Applying z-score to standardize continuous metadata
+2025-06-14 16:18:35.710266 INFO::Running selected transform method: LOG
+2025-06-14 16:18:35.712484 INFO::Running selected analysis method: LM
+2025-06-14 16:18:35.713998 INFO::Fitting model to feature number 1, k__Bacteria.p__Bacillota
+2025-06-14 16:18:35.718312 INFO::Fitting model to feature number 2, k__Bacteria.p__Bacteroidota
+2025-06-14 16:18:35.722328 INFO::Fitting model to feature number 3, k__Bacteria.p__Thermodesulfobacteriota
+2025-06-14 16:18:35.727867 INFO::Fitting model to feature number 4, k__Bacteria.p__Verrucomicrobiota
+2025-06-14 16:18:35.732444 INFO::Fitting model to feature number 5, k__Bacteria.p__Pseudomonadota
+2025-06-14 16:18:35.737423 INFO::Fitting model to feature number 6, k__Bacteria.p__Actinomycetota
+2025-06-14 16:18:35.742242 INFO::Fitting model to feature number 7, k__Bacteria.p__Cyanobacteriota
+2025-06-14 16:18:35.751719 INFO::Counting total values for each feature
+2025-06-14 16:18:35.754294 INFO::Writing filtered data to file /home/julianne/Documents/pdbehavior/results/ASO/differential_taxa/L2_Colon_Maaslin2_Sex_Genotype/features/filtered_data.tsv
+2025-06-14 16:18:35.756519 INFO::Writing filtered, normalized data to file /home/julianne/Documents/pdbehavior/results/ASO/differential_taxa/L2_Colon_Maaslin2_Sex_Genotype/features/filtered_data_norm.tsv
+2025-06-14 16:18:35.759012 INFO::Writing filtered, normalized, transformed data to file /home/julianne/Documents/pdbehavior/results/ASO/differential_taxa/L2_Colon_Maaslin2_Sex_Genotype/features/filtered_data_norm_transformed.tsv
+2025-06-14 16:18:35.761799 INFO::Writing residuals to file /home/julianne/Documents/pdbehavior/results/ASO/differential_taxa/L2_Colon_Maaslin2_Sex_Genotype/fits/residuals.rds
+2025-06-14 16:18:35.76331 INFO::Writing fitted values to file /home/julianne/Documents/pdbehavior/results/ASO/differential_taxa/L2_Colon_Maaslin2_Sex_Genotype/fits/fitted.rds
+2025-06-14 16:18:35.765023 INFO::Writing all results to file (ordered by increasing q-values): /home/julianne/Documents/pdbehavior/results/ASO/differential_taxa/L2_Colon_Maaslin2_Sex_Genotype/all_results.tsv
+2025-06-14 16:18:35.767941 INFO::Writing the significant results (those which are less than or equal to the threshold of 0.250000 ) to file (ordered by increasing q-values): /home/julianne/Documents/pdbehavior/results/ASO/differential_taxa/L2_Colon_Maaslin2_Sex_Genotype/significant_results.tsv

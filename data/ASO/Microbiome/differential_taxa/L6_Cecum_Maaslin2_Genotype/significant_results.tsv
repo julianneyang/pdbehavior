@@ -1,7 +1,0 @@
-feature	metadata	value	coef	stderr	N	N.not.0	pval	qval
-k__Bacteria.p__Bacillota.c__Bacilli.o__Lactobacillales.f__Lactobacillaceae.g__HT002	Genotype	HET	1.78355600960422	0.635863770027834	34	32	0.00861283056189624	0.192353215882349
-k__Bacteria.p__Bacillota.c__Bacilli.o__Lactobacillales.f__Lactobacillaceae.g__Lactobacillus	Genotype	HET	1.92304392578298	0.668971133011885	34	30	0.00724708801362615	0.192353215882349
-k__Bacteria.p__Bacillota.c__Bacilli.o__Lactobacillales.f__Lactobacillaceae.g__Lactobacillus	Genotype	MUT	2.08342617224942	0.728994391236178	34	30	0.00755413297410288	0.192353215882349
-k__Bacteria.p__Bacillota.c__Bacilli.o__Erysipelotrichales.f__Erysipelotrichaceae.g__Turicibacter	Genotype	MUT	3.82580424834623	1.22852900331855	34	26	0.00395160756365047	0.192353215882349
-k__Bacteria.p__Bacteroidota.c__Bacteroidia.o__Bacteroidales.f__Bacteroidaceae.g__Bacteroides	Genotype	HET	-1.21336676133344	0.425929389228883	34	34	0.00772853101666967	0.192353215882349
-k__Bacteria.p__Bacillota.c__Clostridia.o__Lachnospirales.f__Lachnospiraceae.g__Lachnospiraceae.NK4A136.group	Genotype	HET	1.85758961984271	0.647304113760545	34	33	0.00733596710641938	0.192353215882349
