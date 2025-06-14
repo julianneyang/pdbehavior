@@ -267,5 +267,6 @@ lc_diff_taxa<- make_combined_genus_level_taxa_dotplot(ASV_significant_results_da
                                                       genotype_colors, qvalue = 1)
 lc_diff_taxa + labs(subtitle = "Genus ~ Sex + Site + Genotype")
 
+write_rds(lc_dat_filtered, here("results/ASO/differential_taxa/ASO_Combined_Significant_Genera.RDS"))
 
 

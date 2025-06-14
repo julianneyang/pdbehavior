@@ -1,0 +1,7 @@
+feature	metadata	value	coef	stderr	N	N.not.0	pval	qval
+k__Bacteria.p__Firmicutes.c__Bacilli.o__Lactobacillales.f__Lactobacillaceae.g__Lactobacillus	Sex	M	-6.80660367104236	0.856813323073053	34	25	7.24338915375103e-09	8.47476530988871e-07
+k__Bacteria.p__Firmicutes.c__Bacilli.o__Lactobacillales.f__Lactobacillaceae.g__HT002	Sex	M	-5.03175955665855	0.841442480194573	34	31	1.47478856046818e-06	8.62751307873886e-05
+k__Bacteria.p__Firmicutes.c__Clostridia.o__Lachnospirales.f__Lachnospiraceae.g__Lachnospiraceae.UCG.001	Sex	M	-1.93143538220006	0.587775304755464	34	9	0.00259200725054899	0.101088282771411
+k__Bacteria.p__Actinobacteriota.c__Coriobacteriia.o__Coriobacteriales.f__Coriobacteriales.Incertae.Sedis.g__	Genotype	HET	1.39638928655733	0.501762537868818	34	17	0.00922913299024096	0.215961711971638
+k__Bacteria.p__Firmicutes.c__Clostridia.o__Oscillospirales.f__Ruminococcaceae.g__	Sex	M	-0.839309132150898	0.29850014585379	34	6	0.00860202684870676	0.215961711971638
+k__Bacteria.p__Bacteroidota.c__Bacteroidia.o__Bacteroidales.f__Rikenellaceae.g__Rikenella	Sex	M	-0.980398508705825	0.370076878695414	34	6	0.0127466567622198	0.248559806863287

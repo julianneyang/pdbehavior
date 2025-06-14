@@ -159,6 +159,7 @@
   },
   "active": "26a428cc455f53c7",
   "lastOpenFiles": [
+    "differential_taxa/ASO_Combined_Significant_Genera.RDS",
     "differential_taxa/L6_Luminal_Colon_Maaslin2_Sex_Genotype/significant_results.tsv",
     "differential_taxa/L6_Luminal_Colon_Maaslin2_Sex_Genotype/all_results.tsv",
     "differential_taxa/L6_Luminal_Colon_Maaslin2_Sex_Genotype/fits/fitted.rds",
@@ -169,7 +170,6 @@
     "differential_taxa/L6_Luminal_Colon_Maaslin2_Sex_Genotype/maaslin2.log",
     "differential_taxa/L6_Luminal_Colon_Maaslin2_Sex_Genotype/fits",
     "differential_taxa/L6_Luminal_Colon_Maaslin2_Sex_Genotype/features",
-    "differential_taxa/L6_Luminal_Colon_Maaslin2_Sex_Genotype",
     "ASO Beta Diversity.md"
   ]
 }

@@ -1,0 +1,112 @@
+2025-06-14 18:01:42.829302 INFO::Writing function arguments to log file
+2025-06-14 18:01:42.830138 DEBUG::Function arguments
+2025-06-14 18:01:42.830393 DEBUG::Output folder: /home/julianne/Documents/pdbehavior/results/PFF/differential_taxa/L6_Luminal_Colon_Maaslin2_Sex_Genotype_1-
+2025-06-14 18:01:42.830608 DEBUG::Min Abundance: 0.000000
+2025-06-14 18:01:42.830811 DEBUG::Min Prevalence: 0.150000
+2025-06-14 18:01:42.831012 DEBUG::Normalization: TSS
+2025-06-14 18:01:42.831204 DEBUG::Transform: LOG
+2025-06-14 18:01:42.831391 DEBUG::Analysis method: LM
+2025-06-14 18:01:42.831579 DEBUG::Max significance: 0.250000
+2025-06-14 18:01:42.831765 DEBUG::Random effects:
+2025-06-14 18:01:42.831958 DEBUG::Fixed effects: Sex,Genotype
+2025-06-14 18:01:42.832143 DEBUG::Correction method: BH
+2025-06-14 18:01:42.832332 DEBUG::Standardize: TRUE
+2025-06-14 18:01:42.832549 DEBUG::Cores: 1
+2025-06-14 18:01:42.832733 INFO::Verifying options selected are valid
+2025-06-14 18:01:42.833509 INFO::Determining format of input files
+2025-06-14 18:01:42.834222 INFO::Input format is data samples as columns and metadata samples as rows
+2025-06-14 18:01:42.835557 DEBUG::Transformed data so samples are rows
+2025-06-14 18:01:42.836404 DEBUG::A total of 71 samples were found in both the data and metadata
+2025-06-14 18:01:42.836691 DEBUG::Reordering data/metadata to use same sample ordering
+2025-06-14 18:01:42.838053 INFO::Formula for fixed effects: expr ~  Sex + Genotype
+2025-06-14 18:01:42.838983 INFO::Factor detected for categorial metadata 'Sex'. Provide a reference argument or manually set factor ordering to change reference level.
+2025-06-14 18:01:42.839862 INFO::Factor detected for categorial metadata 'Genotype'. Provide a reference argument or manually set factor ordering to change reference level.
+2025-06-14 18:01:42.840674 INFO::Filter data based on min abundance and min prevalence
+2025-06-14 18:01:42.841397 INFO::Total samples in data: 71
+2025-06-14 18:01:42.842012 INFO::Min samples required with min abundance for a feature not to be filtered: 10.650000
+2025-06-14 18:01:42.843815 INFO::Total filtered features: 64
+2025-06-14 18:01:42.844653 INFO::Filtered feature names from abundance and prevalence filtering: k__Bacteria.p__.c__.o__.f__.g__, k__Bacteria.p__Actinobacteriota.c__Actinobacteria.o__Bifidobacteriales.f__Bifidobacteriaceae.g__Bifidobacterium, k__Bacteria.p__Actinobacteriota.c__Actinobacteria.o__Corynebacteriales.f__Corynebacteriaceae.g__Corynebacterium, k__Bacteria.p__Actinobacteriota.c__Actinobacteria.o__Corynebacteriales.f__Mycobacteriaceae.g__Mycobacterium, k__Bacteria.p__Actinobacteriota.c__Actinobacteria.o__Micrococcales.f__Microbacteriaceae.g__Curtobacterium, k__Bacteria.p__Actinobacteriota.c__Actinobacteria.o__Pseudonocardiales.f__Pseudonocardiaceae.g__Saccharopolyspora, k__Bacteria.p__Actinobacteriota.c__Coriobacteriia.o__Coriobacteriales.f__Coriobacteriales.Incertae.Sedis.g__, k__Bacteria.p__Actinobacteriota.c__Coriobacteriia.o__Coriobacteriales.f__Eggerthellaceae.g__DNF00809, k__Bacteria.p__Actinobacteriota.c__Coriobacteriia.o__Coriobacteriales.f__Eggerthellaceae.g__Gordonibacter, k__Bacteria.p__Bacteroidota.c__Bacteroidia.o__Bacteroidales.f__.g__, k__Bacteria.p__Bacteroidota.c__Bacteroidia.o__Bacteroidales.f__Prevotellaceae.g__Alloprevotella, k__Bacteria.p__Bacteroidota.c__Bacteroidia.o__Bacteroidales.f__Prevotellaceae.g__Prevotella_9, k__Bacteria.p__Bacteroidota.c__Bacteroidia.o__Bacteroidales.f__Prevotellaceae.g__Prevotellaceae.UCG.001, k__Bacteria.p__Bacteroidota.c__Bacteroidia.o__Chitinophagales.f__Chitinophagaceae.g__Vibrionimonas, k__Bacteria.p__Cyanobacteria.c__Cyanobacteriia.o__Chloroplast.f__.g__, k__Bacteria.p__Firmicutes.c__.o__.f__.g__, k__Bacteria.p__Firmicutes.c__Bacilli.o__Bacillales.f__Bacillaceae.g__Bacillus, k__Bacteria.p__Firmicutes.c__Bacilli.o__Bacillales.f__Bacillaceae.g__Terribacillus, k__Bacteria.p__Firmicutes.c__Bacilli.o__Bacillales.f__Planococcaceae.g__Solibacillus, k__Bacteria.p__Firmicutes.c__Bacilli.o__Erysipelotrichales.f__Erysipelatoclostridiaceae.g__, k__Bacteria.p__Firmicutes.c__Bacilli.o__Erysipelotrichales.f__Erysipelatoclostridiaceae.g__Candidatus.Stoquefichus, k__Bacteria.p__Firmicutes.c__Bacilli.o__Erysipelotrichales.f__Erysipelotrichaceae.g__Dubosiella, k__Bacteria.p__Firmicutes.c__Bacilli.o__Lactobacillales.f__Enterococcaceae.g__Enterococcus, k__Bacteria.p__Firmicutes.c__Bacilli.o__Lactobacillales.f__Lactobacillaceae.g__, k__Bacteria.p__Firmicutes.c__Bacilli.o__Lactobacillales.f__Lactobacillaceae.g__Latilactobacillus, k__Bacteria.p__Firmicutes.c__Bacilli.o__Lactobacillales.f__Lactobacillaceae.g__Weissella, k__Bacteria.p__Firmicutes.c__Bacilli.o__Staphylococcales.f__Staphylococcaceae.g__Staphylococcus, k__Bacteria.p__Firmicutes.c__Bacilli.o__Thermoactinomycetales.f__Thermoactinomycetaceae.g__Kroppenstedtia, k__Bacteria.p__Firmicutes.c__Bacilli.o__Thermoactinomycetales.f__Thermoactinomycetaceae.g__Thermoactinomyces, k__Bacteria.p__Firmicutes.c__Clostridia.o__.f__.g__, k__Bacteria.p__Firmicutes.c__Clostridia.o__Christensenellales.f__Christensenellaceae.g__, k__Bacteria.p__Firmicutes.c__Clostridia.o__Christensenellales.f__Christensenellaceae.g__Christensenellaceae.R.7.group, k__Bacteria.p__Firmicutes.c__Clostridia.o__Clostridiales.f__Clostridiaceae.g__, k__Bacteria.p__Firmicutes.c__Clostridia.o__Eubacteriales.f__Anaerofustaceae.g__Anaerofustis, k__Bacteria.p__Firmicutes.c__Clostridia.o__Lachnospirales.f__Defluviitaleaceae.g__Defluviitaleaceae.UCG.011, k__Bacteria.p__Firmicutes.c__Clostridia.o__Lachnospirales.f__Lachnospiraceae.g__Agathobacter, k__Bacteria.p__Firmicutes.c__Clostridia.o__Lachnospirales.f__Lachnospiraceae.g__Anaerostipes, k__Bacteria.p__Firmicutes.c__Clostridia.o__Lachnospirales.f__Lachnospiraceae.g__Blautia, k__Bacteria.p__Firmicutes.c__Clostridia.o__Lachnospirales.f__Lachnospiraceae.g__Lachnospiraceae.AC2044.group, k__Bacteria.p__Firmicutes.c__Clostridia.o__Lachnospirales.f__Lachnospiraceae.g__Lachnospiraceae.NK4B4.group, k__Bacteria.p__Firmicutes.c__Clostridia.o__Lachnospirales.f__Lachnospiraceae.g__Tyzzerella, k__Bacteria.p__Firmicutes.c__Clostridia.o__Lachnospirales.f__Lachnospiraceae.g__.Eubacterium..ruminantium.group, k__Bacteria.p__Firmicutes.c__Clostridia.o__Lachnospirales.f__Lachnospiraceae.g__.Ruminococcus..gnavus.group, k__Bacteria.p__Firmicutes.c__Clostridia.o__Oscillospirales.f__.g__, k__Bacteria.p__Firmicutes.c__Clostridia.o__Oscillospirales.f__Hungateiclostridiaceae.g__Pseudobacteroides, k__Bacteria.p__Firmicutes.c__Clostridia.o__Oscillospirales.f__Oscillospiraceae.g__Oscillospira, k__Bacteria.p__Firmicutes.c__Clostridia.o__Oscillospirales.f__Oscillospiraceae.g__Pseudoflavonifractor, k__Bacteria.p__Firmicutes.c__Clostridia.o__Oscillospirales.f__Oscillospiraceae.g__UCG.005, k__Bacteria.p__Firmicutes.c__Clostridia.o__Oscillospirales.f__Ruminococcaceae.g__Caproiciproducens, k__Bacteria.p__Firmicutes.c__Clostridia.o__Oscillospirales.f__Ruminococcaceae.g__Faecalibacterium, k__Bacteria.p__Firmicutes.c__Clostridia.o__Peptostreptococcales.Tissierellales.f__Anaerovoracaceae.g__Anaerovorax, k__Bacteria.p__Firmicutes.c__Clostridia.o__Peptostreptococcales.Tissierellales.f__Anaerovoracaceae.g__Family.XIII.AD3011.group, k__Bacteria.p__Firmicutes.c__Clostridia.o__Peptostreptococcales.Tissierellales.f__Anaerovoracaceae.g__.Eubacterium..nodatum.group, k__Bacteria.p__Firmicutes.c__Clostridia.o__Peptostreptococcales.Tissierellales.f__Peptostreptococcaceae.g__Peptostreptococcus, k__Bacteria.p__Patescibacteria.c__Saccharimonadia.o__Saccharimonadales.f__Saccharimonadaceae.g__Candidatus.Saccharimonas, k__Bacteria.p__Proteobacteria.c__.o__.f__.g__, k__Bacteria.p__Proteobacteria.c__Alphaproteobacteria.o__Rhizobiales.f__Xanthobacteraceae.g__Bradyrhizobium, k__Bacteria.p__Proteobacteria.c__Alphaproteobacteria.o__Rickettsiales.f__Mitochondria.g__, k__Bacteria.p__Proteobacteria.c__Alphaproteobacteria.o__Sphingomonadales.f__Sphingomonadaceae.g__Sphingopyxis, k__Bacteria.p__Proteobacteria.c__Gammaproteobacteria.o__Enterobacterales.f__Enterobacteriaceae.g__, k__Bacteria.p__Proteobacteria.c__Gammaproteobacteria.o__Enterobacterales.f__Erwiniaceae.g__Pantoea, k__Bacteria.p__Proteobacteria.c__Gammaproteobacteria.o__Enterobacterales.f__Pasteurellaceae.g__Muribacter, k__Bacteria.p__Proteobacteria.c__Gammaproteobacteria.o__Pseudomonadales.f__Pseudomonadaceae.g__Pseudomonas, k__Bacteria.p__Proteobacteria.c__Gammaproteobacteria.o__Xanthomonadales.f__Xanthomonadaceae.g__Stenotrophomonas
+2025-06-14 18:01:42.846543 INFO::Total filtered features with variance filtering: 0
+2025-06-14 18:01:42.847347 INFO::Filtered feature names from variance filtering:
+2025-06-14 18:01:42.848013 INFO::Running selected normalization method: TSS
+2025-06-14 18:01:42.849722 INFO::Applying z-score to standardize continuous metadata
+2025-06-14 18:01:42.852952 INFO::Running selected transform method: LOG
+2025-06-14 18:01:42.855099 INFO::Running selected analysis method: LM
+2025-06-14 18:01:42.856354 INFO::Fitting model to feature number 1, k__Bacteria.p__Actinobacteriota.c__Coriobacteriia.o__Coriobacteriales.f__Atopobiaceae.g__Coriobacteriaceae.UCG.002
+2025-06-14 18:01:42.859215 INFO::Fitting model to feature number 2, k__Bacteria.p__Actinobacteriota.c__Coriobacteriia.o__Coriobacteriales.f__Eggerthellaceae.g__Enterorhabdus
+2025-06-14 18:01:42.862356 INFO::Fitting model to feature number 3, k__Bacteria.p__Bacteroidota.c__Bacteroidia.o__Bacteroidales.f__Bacteroidaceae.g__Bacteroides
+2025-06-14 18:01:42.866126 INFO::Fitting model to feature number 4, k__Bacteria.p__Bacteroidota.c__Bacteroidia.o__Bacteroidales.f__Marinifilaceae.g__Odoribacter
+2025-06-14 18:01:42.871316 INFO::Fitting model to feature number 5, k__Bacteria.p__Bacteroidota.c__Bacteroidia.o__Bacteroidales.f__Muribaculaceae.g__
+2025-06-14 18:01:42.876235 INFO::Fitting model to feature number 6, k__Bacteria.p__Bacteroidota.c__Bacteroidia.o__Bacteroidales.f__Muribaculaceae.g__Muribaculum
+2025-06-14 18:01:42.88068 INFO::Fitting model to feature number 7, k__Bacteria.p__Bacteroidota.c__Bacteroidia.o__Bacteroidales.f__Rikenellaceae.g__Alistipes
+2025-06-14 18:01:42.88587 INFO::Fitting model to feature number 8, k__Bacteria.p__Bacteroidota.c__Bacteroidia.o__Bacteroidales.f__Rikenellaceae.g__Rikenella
+2025-06-14 18:01:42.890947 INFO::Fitting model to feature number 9, k__Bacteria.p__Bacteroidota.c__Bacteroidia.o__Bacteroidales.f__Rikenellaceae.g__Rikenellaceae.RC9.gut.group
+2025-06-14 18:01:42.921962 INFO::Fitting model to feature number 10, k__Bacteria.p__Bacteroidota.c__Bacteroidia.o__Bacteroidales.f__Tannerellaceae.g__Parabacteroides
+2025-06-14 18:01:42.925817 INFO::Fitting model to feature number 11, k__Bacteria.p__Cyanobacteria.c__Vampirivibrionia.o__Gastranaerophilales.f__.g__
+2025-06-14 18:01:42.929205 INFO::Fitting model to feature number 12, k__Bacteria.p__Desulfobacterota.c__Desulfovibrionia.o__Desulfovibrionales.f__Desulfovibrionaceae.g__Bilophila
+2025-06-14 18:01:42.93229 INFO::Fitting model to feature number 13, k__Bacteria.p__Desulfobacterota.c__Desulfovibrionia.o__Desulfovibrionales.f__Desulfovibrionaceae.g__Desulfovibrio
+2025-06-14 18:01:42.935506 INFO::Fitting model to feature number 14, k__Bacteria.p__Firmicutes.c__Bacilli.o__Acholeplasmatales.f__Acholeplasmataceae.g__Anaeroplasma
+2025-06-14 18:01:42.938474 INFO::Fitting model to feature number 15, k__Bacteria.p__Firmicutes.c__Bacilli.o__Erysipelotrichales.f__Erysipelatoclostridiaceae.g__Erysipelatoclostridium
+2025-06-14 18:01:42.941539 INFO::Fitting model to feature number 16, k__Bacteria.p__Firmicutes.c__Bacilli.o__Erysipelotrichales.f__Erysipelotrichaceae.g__
+2025-06-14 18:01:42.944502 INFO::Fitting model to feature number 17, k__Bacteria.p__Firmicutes.c__Bacilli.o__Erysipelotrichales.f__Erysipelotrichaceae.g__Faecalibaculum
+2025-06-14 18:01:42.94745 INFO::Fitting model to feature number 18, k__Bacteria.p__Firmicutes.c__Bacilli.o__Erysipelotrichales.f__Erysipelotrichaceae.g__Turicibacter
+2025-06-14 18:01:42.95046 INFO::Fitting model to feature number 19, k__Bacteria.p__Firmicutes.c__Bacilli.o__Lactobacillales.f__Lactobacillaceae.g__HT002
+2025-06-14 18:01:42.953646 INFO::Fitting model to feature number 20, k__Bacteria.p__Firmicutes.c__Bacilli.o__Lactobacillales.f__Lactobacillaceae.g__Lactobacillus
+2025-06-14 18:01:42.956717 INFO::Fitting model to feature number 21, k__Bacteria.p__Firmicutes.c__Bacilli.o__Lactobacillales.f__Lactobacillaceae.g__Ligilactobacillus
+2025-06-14 18:01:42.959722 INFO::Fitting model to feature number 22, k__Bacteria.p__Firmicutes.c__Bacilli.o__Lactobacillales.f__Streptococcaceae.g__Streptococcus
+2025-06-14 18:01:42.962752 INFO::Fitting model to feature number 23, k__Bacteria.p__Firmicutes.c__Bacilli.o__RF39.f__.g__
+2025-06-14 18:01:42.965886 INFO::Fitting model to feature number 24, k__Bacteria.p__Firmicutes.c__Clostridia.o__Clostridia.UCG.014.f__.g__
+2025-06-14 18:01:42.969208 INFO::Fitting model to feature number 25, k__Bacteria.p__Firmicutes.c__Clostridia.o__Clostridia.vadinBB60.group.f__.g__
+2025-06-14 18:01:42.972233 INFO::Fitting model to feature number 26, k__Bacteria.p__Firmicutes.c__Clostridia.o__Clostridiales.f__Clostridiaceae.g__Candidatus.Arthromitus
+2025-06-14 18:01:42.975443 INFO::Fitting model to feature number 27, k__Bacteria.p__Firmicutes.c__Clostridia.o__Clostridiales.f__Clostridiaceae.g__Clostridium.sensu.stricto.1
+2025-06-14 18:01:42.978832 INFO::Fitting model to feature number 28, k__Bacteria.p__Firmicutes.c__Clostridia.o__Lachnospirales.f__Lachnospiraceae.g__
+2025-06-14 18:01:42.983876 INFO::Fitting model to feature number 29, k__Bacteria.p__Firmicutes.c__Clostridia.o__Lachnospirales.f__Lachnospiraceae.g__A2
+2025-06-14 18:01:42.987495 INFO::Fitting model to feature number 30, k__Bacteria.p__Firmicutes.c__Clostridia.o__Lachnospirales.f__Lachnospiraceae.g__ASF356
+2025-06-14 18:01:42.992228 INFO::Fitting model to feature number 31, k__Bacteria.p__Firmicutes.c__Clostridia.o__Lachnospirales.f__Lachnospiraceae.g__Acetatifactor
+2025-06-14 18:01:42.997436 INFO::Fitting model to feature number 32, k__Bacteria.p__Firmicutes.c__Clostridia.o__Lachnospirales.f__Lachnospiraceae.g__GCA.900066575
+2025-06-14 18:01:43.00188 INFO::Fitting model to feature number 33, k__Bacteria.p__Firmicutes.c__Clostridia.o__Lachnospirales.f__Lachnospiraceae.g__Lachnoclostridium
+2025-06-14 18:01:43.006339 INFO::Fitting model to feature number 34, k__Bacteria.p__Firmicutes.c__Clostridia.o__Lachnospirales.f__Lachnospiraceae.g__Lachnospiraceae.FCS020.group
+2025-06-14 18:01:43.011101 INFO::Fitting model to feature number 35, k__Bacteria.p__Firmicutes.c__Clostridia.o__Lachnospirales.f__Lachnospiraceae.g__Lachnospiraceae.NK4A136.group
+2025-06-14 18:01:43.015523 INFO::Fitting model to feature number 36, k__Bacteria.p__Firmicutes.c__Clostridia.o__Lachnospirales.f__Lachnospiraceae.g__Lachnospiraceae.UCG.001
+2025-06-14 18:01:43.020341 INFO::Fitting model to feature number 37, k__Bacteria.p__Firmicutes.c__Clostridia.o__Lachnospirales.f__Lachnospiraceae.g__Lachnospiraceae.UCG.002
+2025-06-14 18:01:43.024731 INFO::Fitting model to feature number 38, k__Bacteria.p__Firmicutes.c__Clostridia.o__Lachnospirales.f__Lachnospiraceae.g__Lachnospiraceae.UCG.004
+2025-06-14 18:01:43.028771 INFO::Fitting model to feature number 39, k__Bacteria.p__Firmicutes.c__Clostridia.o__Lachnospirales.f__Lachnospiraceae.g__Lachnospiraceae.UCG.006
+2025-06-14 18:01:43.032744 INFO::Fitting model to feature number 40, k__Bacteria.p__Firmicutes.c__Clostridia.o__Lachnospirales.f__Lachnospiraceae.g__Marvinbryantia
+2025-06-14 18:01:43.036741 INFO::Fitting model to feature number 41, k__Bacteria.p__Firmicutes.c__Clostridia.o__Lachnospirales.f__Lachnospiraceae.g__Roseburia
+2025-06-14 18:01:43.041121 INFO::Fitting model to feature number 42, k__Bacteria.p__Firmicutes.c__Clostridia.o__Lachnospirales.f__Lachnospiraceae.g__Tuzzerella
+2025-06-14 18:01:43.045399 INFO::Fitting model to feature number 43, k__Bacteria.p__Firmicutes.c__Clostridia.o__Lachnospirales.f__Lachnospiraceae.g__.Eubacterium..ventriosum.group
+2025-06-14 18:01:43.049729 INFO::Fitting model to feature number 44, k__Bacteria.p__Firmicutes.c__Clostridia.o__Lachnospirales.f__Lachnospiraceae.g__.Eubacterium..xylanophilum.group
+2025-06-14 18:01:43.054075 INFO::Fitting model to feature number 45, k__Bacteria.p__Firmicutes.c__Clostridia.o__Monoglobales.f__Monoglobaceae.g__Monoglobus
+2025-06-14 18:01:43.058347 INFO::Fitting model to feature number 46, k__Bacteria.p__Firmicutes.c__Clostridia.o__Oscillospirales.f__Butyricicoccaceae.g__Butyricicoccus
+2025-06-14 18:01:43.062932 INFO::Fitting model to feature number 47, k__Bacteria.p__Firmicutes.c__Clostridia.o__Oscillospirales.f__Butyricicoccaceae.g__UCG.009
+2025-06-14 18:01:43.067248 INFO::Fitting model to feature number 48, k__Bacteria.p__Firmicutes.c__Clostridia.o__Oscillospirales.f__Oscillospiraceae.g__
+2025-06-14 18:01:43.071722 INFO::Fitting model to feature number 49, k__Bacteria.p__Firmicutes.c__Clostridia.o__Oscillospirales.f__Oscillospiraceae.g__Colidextribacter
+2025-06-14 18:01:43.076236 INFO::Fitting model to feature number 50, k__Bacteria.p__Firmicutes.c__Clostridia.o__Oscillospirales.f__Oscillospiraceae.g__Intestinimonas
+2025-06-14 18:01:43.08042 INFO::Fitting model to feature number 51, k__Bacteria.p__Firmicutes.c__Clostridia.o__Oscillospirales.f__Oscillospiraceae.g__NK4A214.group
+2025-06-14 18:01:43.0847 INFO::Fitting model to feature number 52, k__Bacteria.p__Firmicutes.c__Clostridia.o__Oscillospirales.f__Oscillospiraceae.g__Oscillibacter
+2025-06-14 18:01:43.089336 INFO::Fitting model to feature number 53, k__Bacteria.p__Firmicutes.c__Clostridia.o__Oscillospirales.f__Oscillospiraceae.g__UCG.003
+2025-06-14 18:01:43.094575 INFO::Fitting model to feature number 54, k__Bacteria.p__Firmicutes.c__Clostridia.o__Oscillospirales.f__Ruminococcaceae.g__
+2025-06-14 18:01:43.099754 INFO::Fitting model to feature number 55, k__Bacteria.p__Firmicutes.c__Clostridia.o__Oscillospirales.f__Ruminococcaceae.g__Anaerotruncus
+2025-06-14 18:01:43.104371 INFO::Fitting model to feature number 56, k__Bacteria.p__Firmicutes.c__Clostridia.o__Oscillospirales.f__Ruminococcaceae.g__Incertae.Sedis
+2025-06-14 18:01:43.109914 INFO::Fitting model to feature number 57, k__Bacteria.p__Firmicutes.c__Clostridia.o__Oscillospirales.f__Ruminococcaceae.g__Ruminococcus
+2025-06-14 18:01:43.115359 INFO::Fitting model to feature number 58, k__Bacteria.p__Firmicutes.c__Clostridia.o__Oscillospirales.f__Ruminococcaceae.g__UBA1819
+2025-06-14 18:01:43.12075 INFO::Fitting model to feature number 59, k__Bacteria.p__Firmicutes.c__Clostridia.o__Oscillospirales.f__Ruminococcaceae.g__.Eubacterium..siraeum.group
+2025-06-14 18:01:43.12657 INFO::Fitting model to feature number 60, k__Bacteria.p__Firmicutes.c__Clostridia.o__Oscillospirales.f__UCG.010.g__
+2025-06-14 18:01:43.132172 INFO::Fitting model to feature number 61, k__Bacteria.p__Firmicutes.c__Clostridia.o__Oscillospirales.f__.Eubacterium..coprostanoligenes.group.g__
+2025-06-14 18:01:43.13752 INFO::Fitting model to feature number 62, k__Bacteria.p__Firmicutes.c__Clostridia.o__Peptococcales.f__Peptococcaceae.g__
+2025-06-14 18:01:43.142926 INFO::Fitting model to feature number 63, k__Bacteria.p__Firmicutes.c__Clostridia.o__Peptococcales.f__Peptococcaceae.g__Peptococcus
+2025-06-14 18:01:43.14825 INFO::Fitting model to feature number 64, k__Bacteria.p__Firmicutes.c__Clostridia.o__Peptostreptococcales.Tissierellales.f__Anaerovoracaceae.g__Family.XIII.UCG.001
+2025-06-14 18:01:43.153912 INFO::Fitting model to feature number 65, k__Bacteria.p__Firmicutes.c__Clostridia.o__Peptostreptococcales.Tissierellales.f__Anaerovoracaceae.g__.Eubacterium..brachy.group
+2025-06-14 18:01:43.161639 INFO::Fitting model to feature number 66, k__Bacteria.p__Firmicutes.c__Clostridia.o__Peptostreptococcales.Tissierellales.f__Peptostreptococcaceae.g__Romboutsia
+2025-06-14 18:01:43.166726 INFO::Fitting model to feature number 67, k__Bacteria.p__Proteobacteria.c__Alphaproteobacteria.o__Rhodospirillales.f__.g__
+2025-06-14 18:01:43.172132 INFO::Fitting model to feature number 68, k__Bacteria.p__Proteobacteria.c__Gammaproteobacteria.o__Burkholderiales.f__Sutterellaceae.g__Parasutterella
+2025-06-14 18:01:43.178633 INFO::Fitting model to feature number 69, k__Bacteria.p__Proteobacteria.c__Gammaproteobacteria.o__Enterobacterales.f__Enterobacteriaceae.g__Escherichia.Shigella
+2025-06-14 18:01:43.183031 INFO::Fitting model to feature number 70, k__Bacteria.p__Verrucomicrobiota.c__Verrucomicrobiae.o__Verrucomicrobiales.f__Akkermansiaceae.g__Akkermansia
+2025-06-14 18:01:43.205475 INFO::Counting total values for each feature
+2025-06-14 18:01:43.217143 INFO::Writing filtered data to file /home/julianne/Documents/pdbehavior/results/PFF/differential_taxa/L6_Luminal_Colon_Maaslin2_Sex_Genotype_1-/features/filtered_data.tsv
+2025-06-14 18:01:43.223389 INFO::Writing filtered, normalized data to file /home/julianne/Documents/pdbehavior/results/PFF/differential_taxa/L6_Luminal_Colon_Maaslin2_Sex_Genotype_1-/features/filtered_data_norm.tsv
+2025-06-14 18:01:43.234657 INFO::Writing filtered, normalized, transformed data to file /home/julianne/Documents/pdbehavior/results/PFF/differential_taxa/L6_Luminal_Colon_Maaslin2_Sex_Genotype_1-/features/filtered_data_norm_transformed.tsv
+2025-06-14 18:01:43.246812 INFO::Writing residuals to file /home/julianne/Documents/pdbehavior/results/PFF/differential_taxa/L6_Luminal_Colon_Maaslin2_Sex_Genotype_1-/fits/residuals.rds
+2025-06-14 18:01:43.250273 INFO::Writing fitted values to file /home/julianne/Documents/pdbehavior/results/PFF/differential_taxa/L6_Luminal_Colon_Maaslin2_Sex_Genotype_1-/fits/fitted.rds
+2025-06-14 18:01:43.252721 INFO::Writing all results to file (ordered by increasing q-values): /home/julianne/Documents/pdbehavior/results/PFF/differential_taxa/L6_Luminal_Colon_Maaslin2_Sex_Genotype_1-/all_results.tsv
+2025-06-14 18:01:43.257006 INFO::Writing the significant results (those which are less than or equal to the threshold of 0.250000 ) to file (ordered by increasing q-values): /home/julianne/Documents/pdbehavior/results/PFF/differential_taxa/L6_Luminal_Colon_Maaslin2_Sex_Genotype_1-/significant_results.tsv

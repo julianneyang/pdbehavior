@@ -138,7 +138,23 @@ lumcol_pcoa <- generate_pcoA_plots(distance_matrix=lumcol.dist,
                                  colorvariable = Genotype,
                                  colorvector = cols,
                                  wa_scores_filepath = here("results/ASO/PCoA/LuminalColon_RSJ_Top_Taxa_PcoA.csv"))
-lumcol_pcoa + aes(label=Sex) + geom_label()
+lumcol_pcoa + aes(label=MouseID)+ geom_label()
+
+lumcol_meta<- lumcol_meta %>%
+  mutate(Repeat = if_else(str_starts(SampleID, "Rep"), "Repeat", "Not Repeat"))
+
+# Some exploratory examination of patterns present in metadata - 
+
+cols <- viridis::inferno(3)
+generate_pcoA_plots(distance_matrix=lumcol.dist,
+                    counts = lumcol_counts,
+                    metadata = lumcol_meta,
+                    title="ASO Colon and Cecum",
+                    colorvariable = Cohort,
+                    colorvector = cols,
+                    wa_scores_filepath = here("results/ASO/PCoA/LuminalColon_RSJ_Top_Taxa_PcoA.csv"))
+
+
 
 dev.new(width=10,height=10)
 cowplot::plot_grid(jej_pcoa, cec_pcoa,
