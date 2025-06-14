@@ -12,18 +12,19 @@ library(tidyverse)
 
 
 ### Declare path to current script 
-here::i_am("Rscripts/ASO/ASO_Beta_Diversity.R")
+here::i_am("src/ASO/ASO_Beta_Diversity.R")
 
 
 ### Load metadata and count table 
-metadata <- read.csv(here("Analysis_Files/ASO/Microbiome/ASO_Metadata_2025.csv"), header=TRUE)
+metadata <- read.csv(here("data/ASO/Microbiome/ASO_Metadata_2025.csv"), header=TRUE)
+metadata <- metadata %>% filter(Omit=="No")
 #metadata$SampleID <- gsub("\\.","-",metadata$SampleID)
 #write.table(metadata, here("Analysis_Files/ASO/Microbiome/ASO_Metadata_2025.tsv"),sep="\t",quote = FALSE,row.names = FALSE)
 
 metadata$SampleID <- gsub("-",".",metadata$SampleID)
 
 
-counts <- read.delim(here("Analysis_Files/ASO/Microbiome/ASO_ASV_table.tsv"), header = TRUE, row.names=1)
+counts <- read.delim(here("data/ASO/Microbiome/ASO_ASV_table.tsv"), header = TRUE, row.names=1)
 
 
 ## Store taxonomy in an annotation file --
@@ -64,10 +65,10 @@ names(lumcol_counts)==samples_lumcol_meta
 # Prevalence Filtering -
 33*0.15
 jej_counts <- prevalence_filter(jej_counts,5)
-34*0.15
+33*0.15
 cec_counts <- prevalence_filter(cec_counts,5)
 col_counts <- prevalence_filter(col_counts,5)
-67*0.15
+65*0.15
 lumcol_counts <- prevalence_filter(lumcol_counts,10)
 
 # Luminal Colon M
@@ -107,7 +108,7 @@ jej_pcoa <- generate_pcoA_plots(distance_matrix=jej.dist,
                                        title="ASO Jejunum",
                                        colorvariable = Genotype,
                                        colorvector = cols,
-                                       wa_scores_filepath = here("Analysis_Files/ASO/Microbiome/Jejunum_RSJ_Top_Taxa_PcoA.csv"))
+                                       wa_scores_filepath = here("results/ASO/Microbiome/Jejunum_RSJ_Top_Taxa_PcoA.csv"))
 jej_pcoa + aes(label=MouseID) + geom_label()
 
 cec_pcoa <- generate_pcoA_plots(distance_matrix=cec.dist,
@@ -116,10 +117,10 @@ cec_pcoa <- generate_pcoA_plots(distance_matrix=cec.dist,
                                title="ASO Cecum",
                                colorvariable = Genotype,
                                colorvector = cols,
-                               wa_scores_filepath = here("Analysis_Files/ASO/Microbiome/Cecum_RSJ_Top_Taxa_PcoA.csv"))
+                               wa_scores_filepath = here("results/ASO/Microbiome/Cecum_RSJ_Top_Taxa_PcoA.csv"))
 
 cec_pcoa + aes(label=MouseID) + geom_label()
-wa_scores <- read.csv(here("Analysis_Files/ASO/Microbiome/Cecum_RSJ_Top_Taxa_PcoA.csv"))
+wa_scores <- read.csv(here("results/ASO/Microbiome/Cecum_RSJ_Top_Taxa_PcoA.csv"))
 
 col_pcoa <- generate_pcoA_plots(distance_matrix=col.dist,
                                 counts = col_counts,
@@ -127,7 +128,7 @@ col_pcoa <- generate_pcoA_plots(distance_matrix=col.dist,
                                 title="ASO Colon",
                                 colorvariable = Genotype,
                                 colorvector = cols,
-                                wa_scores_filepath = here("Analysis_Files/ASO/Microbiome/Colon_RSJ_Top_Taxa_PcoA.csv"))
+                                wa_scores_filepath = here("results/ASO/Microbiome/Colon_RSJ_Top_Taxa_PcoA.csv"))
 
 col_pcoa + aes(label=MouseID) + geom_label()
 lumcol_pcoa <- generate_pcoA_plots(distance_matrix=lumcol.dist,
@@ -136,8 +137,8 @@ lumcol_pcoa <- generate_pcoA_plots(distance_matrix=lumcol.dist,
                                  title="ASO Colon and Cecum",
                                  colorvariable = Genotype,
                                  colorvector = cols,
-                                 wa_scores_filepath = here("Analysis_Files/ASO/Microbiome/LuminalColon_RSJ_Top_Taxa_PcoA.csv"))
-lumcol_pcoa + aes(label=MouseID) + geom_label()
+                                 wa_scores_filepath = here("results/ASO/Microbiome/LuminalColon_RSJ_Top_Taxa_PcoA.csv"))
+lumcol_pcoa + aes(label=Sex) + geom_label()
 
 dev.new(width=10,height=10)
 cowplot::plot_grid(jej_pcoa, cec_pcoa,
