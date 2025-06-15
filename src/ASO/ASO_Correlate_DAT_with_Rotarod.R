@@ -5,40 +5,49 @@ library(ggplot2)
 
 ### Establish location ---
 
-here::i_am("src/PFF/PFF_Correlate_DAT_with _Rotarod.R")
+here::i_am("src/ASO/ASO_Correlate_DAT_with_Rotarod.R")
 
 ### Read in input files ---
 
-PFF_rotarod <- read.csv(here("data/PFF/PFF Rotarod - PFF_Rotarod_Analysis.csv"))
-PFF_rotarod <- PFF_rotarod %>% filter(Day=="three") %>%
+ASO_rotarod <- read.csv(here("data/ASO/ASO Rotarod - Rotarod.csv"))
+ASO_rotarod <- ASO_rotarod %>% filter(Day=="One") %>%
+  filter(ASO_Tg=="Positive") %>%
   dplyr::select(c("MouseID", "Average_Latency"))
-# PFF_rotarod <- PFF_rotarod %>%
+
+msid_conversion <- read.csv(here("data/ASO/ASO_From_Rotarod_To_Counts_MouseID.csv"))
+msid_conversion$MouseID <- msid_conversion$From
+ASO_rotarod <- ASO_rotarod %>%
+  left_join(msid_conversion,by="MouseID") %>%
+  mutate(MouseID=ifelse(is.na(From),MouseID,To)) %>% 
+  dplyr::select(c("MouseID", "Average_Latency")) %>%
+  unique()
+# ASO_rotarod <- ASO_rotarod %>%
 #   group_by(MouseID) %>%
 #   mutate(Average_Latency = mean(Average_Latency, na.rm = TRUE)) %>%
 #   ungroup() %>% 
 #   dplyr::select(c("MouseID","Average_Latency")) %>% 
 #   unique()
-  
-PFF_lum_col_counts <- read.delim(here("data/PFF/PFF_Microbiome/differential_taxa/collapsed_ASV_tables/PFF_L6_Subset_Luminal_Colon.tsv")) %>% 
+
+ASO_lum_col_counts <- read.delim(here("data/ASO/Microbiome/differential_taxa/ASO_L6_Subset_Luminal_Colon.tsv")) %>% 
   t() %>% as.data.frame()
-PFF_lum_col_counts <-PFF_lum_col_counts / rowSums(PFF_lum_col_counts )
-PFF_significant <- read_rds(here("results/PFF/differential_taxa/PFF_Combined_Significant_Genera.RDS"))
-significant_feature <- PFF_significant$feature
-metadata <- read.csv(here("data/PFF/PFF_Microbiome/starting_files/PFF_Mapping.csv"), header=TRUE)
+ASO_lum_col_counts <-ASO_lum_col_counts / rowSums(ASO_lum_col_counts )
+ASO_significant <- read_rds(here("results/ASO/differential_taxa/ASO_Combined_Significant_Genera.RDS"))
+significant_feature <- ASO_significant$feature
+metadata <- read.csv(here("data/ASO/Microbiome/ASO_Metadata_2025.csv"), header=TRUE)
 metadata$SampleID <- gsub("-", ".", metadata$SampleID)
 
 ### Wrangle count data, append metadata and Rotarod data ---
 
-PFF_lum_col_counts  <- PFF_lum_col_counts %>% rownames_to_column("SampleID")
-names(PFF_lum_col_counts) <- gsub(";",".",names(PFF_lum_col_counts ))
-names(PFF_lum_col_counts) <- gsub("\\ ",".",names(PFF_lum_col_counts ))
-names(PFF_lum_col_counts) <- gsub("-",".",names(PFF_lum_col_counts ))
-names(PFF_lum_col_counts) <- gsub("\\[",".",names(PFF_lum_col_counts ))
-names(PFF_lum_col_counts) <- gsub("\\]",".",names(PFF_lum_col_counts ))
-PFF_lum_col_counts  <- PFF_lum_col_counts %>% dplyr::select(c("SampleID",all_of(significant_feature)))
+ASO_lum_col_counts  <- ASO_lum_col_counts %>% rownames_to_column("SampleID")
+names(ASO_lum_col_counts) <- gsub(";",".",names(ASO_lum_col_counts ))
+names(ASO_lum_col_counts) <- gsub("\\ ",".",names(ASO_lum_col_counts ))
+names(ASO_lum_col_counts) <- gsub("-",".",names(ASO_lum_col_counts ))
+names(ASO_lum_col_counts) <- gsub("\\[",".",names(ASO_lum_col_counts ))
+names(ASO_lum_col_counts) <- gsub("\\]",".",names(ASO_lum_col_counts ))
+ASO_lum_col_counts  <- ASO_lum_col_counts %>% dplyr::select(c("SampleID",all_of(significant_feature)))
 
-PFF_lum_col_counts<- merge(PFF_lum_col_counts, metadata, by="SampleID")
-df_correlation <- merge(PFF_lum_col_counts, PFF_rotarod, by="MouseID")
+ASO_lum_col_counts<- merge(ASO_lum_col_counts, metadata, by="SampleID")
+df_correlation <- merge(ASO_lum_col_counts, ASO_rotarod, by="MouseID")
 
 ### Produce scatterplots ---
 
@@ -69,7 +78,7 @@ for (k_col in k_columns) {
     labs(
       title=plt_title,
       subtitle = paste("Spearman rho =", round(cor_test$estimate, 3), 
-                    "| p =", signif(cor_test$p.value, 3)),
+                       "| p =", signif(cor_test$p.value, 3)),
       x = gsub(".*o__","",k_col),
       y = "Average Latency Day One"
     ) +
