@@ -1,4 +1,0 @@
-feature	metadata	value	coef	stderr	N	N.not.0	pval	qval
-k__Bacteria.p__Firmicutes.c__Bacilli.o__Lactobacillales.f__Lactobacillaceae.g__Lactobacillus	Sex	M	-6.34931970906553	0.744860787110395	71	39	1.04912439989747e-09	2.20316123978469e-07
-k__Bacteria.p__Firmicutes.c__Bacilli.o__Lactobacillales.f__Lactobacillaceae.g__HT002	Sex	M	-4.24382715428333	0.663932358816882	71	50	3.54510165035359e-07	3.72235673287126e-05
-k__Bacteria.p__Bacteroidota.c__Bacteroidia.o__Bacteroidales.f__Rikenellaceae.g__Alistipes	Sex	M	-0.783783373588401	0.236087496415453	71	71	0.00225219017584323	0.157653312309026

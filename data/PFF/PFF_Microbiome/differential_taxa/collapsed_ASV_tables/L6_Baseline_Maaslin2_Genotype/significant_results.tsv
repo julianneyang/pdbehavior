@@ -1,5 +1,0 @@
-feature	metadata	value	coef	stderr	N	N.not.0	pval	qval
-k__Bacteria.p__Bacteroidota.c__Bacteroidia.o__Bacteroidales.f__Marinifilaceae.g__Odoribacter	Genotype	HET	0.959281156766037	0.250500216415191	24	24	0.000976025285539378	0.130638474922966
-k__Bacteria.p__Firmicutes.c__Clostridia.o__Lachnospirales.f__Lachnospiraceae.g__Lachnospiraceae.FCS020.group	Genotype	MUT	2.85899286062346	0.834483970915565	24	22	0.00253784459185903	0.130638474922966
-k__Bacteria.p__Firmicutes.c__Clostridia.o__Lachnospirales.f__Lachnospiraceae.g__Lachnospiraceae.NK4A136.group	Genotype	MUT	1.52210926556142	0.452254441964866	24	24	0.0029247419758873	0.130638474922966
-k__Bacteria.p__Firmicutes.c__Clostridia.o__Oscillospirales.f__Oscillospiraceae.g__Colidextribacter	Genotype	MUT	1.23425757931788	0.38815605450334	24	23	0.00450990672324705	0.151081875228776
