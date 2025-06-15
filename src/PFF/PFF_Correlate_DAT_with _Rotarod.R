@@ -6,7 +6,7 @@ here::i_am("src/PFF/PFF_Correlate_DAT_with _Rotarod.R")
 ### Read in input files ---
 
 PFF_rotarod <- read.csv(here("data/PFF/PFF Rotarod - PFF_Rotarod_Analysis.csv"))
-PFF_rotarod <- PFF_rotarod %>% filter(Day=="one") %>%
+PFF_rotarod <- PFF_rotarod %>% filter(Day=="three") %>%
   dplyr::select(c("MouseID", "Average_Latency"))
 # PFF_rotarod <- PFF_rotarod %>%
 #   group_by(MouseID) %>%
@@ -55,18 +55,26 @@ for (k_col in k_columns) {
   # Spearman correlation test
   cor_test <- cor.test(df_correlation[[k_col]], df_correlation$Average_Latency, method = "spearman")
   
+  # Create plot title 
+  plt_title <- gsub(".*g__","",k_col)
+  
   # Generate ggplot
-  p <- ggplot(df_correlation, aes_string(x = k_col, y = "Average_Latency",color="Genotype")) +
-    geom_point(alpha = 0.6) +
+  p <- ggplot(df_correlation, aes_string(x = k_col, y = "Average_Latency")) +
+    geom_point(aes(fill=Genotype),shape = 21, color = "black", stroke = 0.5, alpha = 0.6) +
     geom_smooth(method = "lm", se = TRUE, color = "blue") +
     labs(
+      title=plt_title,
       subtitle = paste("Spearman rho =", round(cor_test$estimate, 3), 
                     "| p =", signif(cor_test$p.value, 3)),
-      x = k_col,
-      y = "Average Latency"
+      x = gsub(".*o__","",k_col),
+      y = "Average Latency Day One"
     ) +
-    theme_cowplot(12) +
-    scale_color_manual(values=genotype_cols)
+    theme_cowplot(10) +
+    scale_fill_manual(values=genotype_cols) +
+    theme(
+      plot.title = element_text(hjust = 0.5),
+      plot.subtitle = element_text(hjust = 0.5)
+    )
   
   # Store plot in list with name
   plot_list[[k_col]] <- p
@@ -86,10 +94,20 @@ results <- results %>%
 # View correlation results
 print(results)
 
-# Plot significant results 
-eubacterium_siraeum <- plot_list[[6]]
-eubacterium_siraeum
-clostridium_sensu_stricto <- plot_list[[12]]
-clostridium_sensu_stricto
-bacteroides <- plot_list[[14]]
-bacteroides
+# Filter features with q-value < 0.25
+significant_features <- results %>%
+  filter(qval < 0.25) %>%
+  pull(feature)
+
+# Subset the plot list
+significant_plots <- plot_list[significant_features]
+
+# Convert list to a plot grid using cowplot
+if (length(significant_plots) > 0) {
+  grid_plot <- plot_grid(plotlist = significant_plots, ncol = 2, align = "hv")
+  print(grid_plot)
+} else {
+  message("No plots with qval < 0.25")
+}
+
+
