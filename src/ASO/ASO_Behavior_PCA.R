@@ -7,15 +7,18 @@ library(cowplot)
 ### Compiling ASO data into one single sheet
 
 ## Rotarod -- 
-data <- readr::read_csv(here("Analysis_Files", "ASO","ASO Rotarod - Rotarod.csv"))
+data <- readr::read_csv(here("data", "ASO","ASO Rotarod - Rotarod.csv"))
 subset <- data %>% select(c("MouseID","ASO_Tg"))
 summary_rotarod <- data %>%
   group_by(MouseID) %>%
-  summarise(mean_latency = mean(Average_Latency))
+  #summarise(mean_latency = mean(Average_Latency))
+  filter(Day=="One") %>%
+  mutate(mean_latency=Average_Latency) %>% 
+  dplyr::select(c("MouseID","mean_latency"))
 summary_rotarod <- unique(merge(summary_rotarod, subset, by="MouseID"))
 
 ## Wire Hang --
-df <- readr::read_csv(here("Analysis_Files", "ASO","ASO Wire Hang - Wire_Hang.csv"))
+df <- readr::read_csv(here("data", "ASO","ASO Wire Hang - Wire_Hang.csv"))
 df$SLC_Genotype <- factor(df$SLC_Genotype, levels= c("WT","HET", "MUT"))
 
 df <- df %>%
@@ -60,7 +63,7 @@ vfinal <- union(v2,v3)
 setdiff(v1, vfinal)
 
 ## Pole Test --
-data<- readr::read_csv(here("Analysis_Files", "ASO","ASO Pole Test - All_Cohorts_Assign_Maximum_Time.csv"))
+data<- readr::read_csv(here("data", "ASO","ASO Pole Test - All_Cohorts_Assign_Maximum_Time.csv"))
 data <- data %>%
   rowwise() %>%
   mutate(Average_Tturn = mean(c(Trial_1_Tturn, Trial_2_Tturn, Trial_3_Tturn, Trial_4_Tturn, Trial_5_Tturn), na.rm = TRUE)) %>%
@@ -80,17 +83,18 @@ pole_data <- data %>%
 
 ## Food Pellet --
 
-food<-readr::read_csv(here("Analysis_Files", "ASO","ASO Food Pellet - Buried_Food_Pellet.csv"))
+food<-readr::read_csv(here("data", "ASO","ASO Food Pellet - Buried_Food_Pellet.csv"))
 food$SLC_Genotype <- factor(food$SLC_Genotype, levels=c("WT", "HET", "MUT"))
 food$MouseID <- food$`Mouse ID`
 
 ## Fecal Pellet --
-poop <- readr::read_csv(here("Analysis_Files","ASO","ASO GI Motility - ASO_FP_Output.csv"))
+poop <- readr::read_csv(here("data","ASO","ASO GI Motility - ASO_FP_Output.csv"))
+
 
 poop <- poop %>% select(c("MouseID","60_min", "ASO_Tg"))
 
 ## Hindlimb Clasp -- 
-clasp <-readr::read_csv(here("Analysis_Files", "ASO", "ASO_Hindlimb_Clasping .csv"))
+clasp <-readr::read_csv(here("data", "ASO", "ASO_Hindlimb_Clasping .csv"))
 clasp$MouseID <- clasp$`Mouse ID`
 clasp <- clasp %>% select(c("MouseID", "Score","ASO_Tg"))
 
@@ -123,24 +127,28 @@ df_2 <- merge(df_1, summary_rotarod, by="MouseID")
 df_3 <- merge(df_2, food, by= "MouseID")
 df_4 <- merge(df_3, poop, by= "MouseID")
 df_5 <- merge(df_4, clasp, by= "MouseID")
-df_motor <- df_5 %>% select(c("MouseID","Time", "Average_Tturn", "Average_Ttotal", "mean_latency", "Best_Performance", "Total_Time", "60_min", "Score"))
+#df_motor <- df_5 %>% select(c("MouseID","Time", "Average_Tturn", "Average_Ttotal", "mean_latency", "Best_Performance", "Total_Time", "60_min", "Score"))
+df_motor <- df_5 %>% select(c("MouseID","Time", "Average_Tturn", "Average_Ttotal", "mean_latency", "Score"))
+
 
 # Define the columns to normalize
-cols_to_normalize <- c("Time", "Average_Tturn", "Average_Ttotal", "mean_latency", "Score", "Total_Time", "60_min")
+cols_to_normalize <- c("Time", "Average_Tturn", "Average_Ttotal", "mean_latency","Score")
 
 # Apply min-max normalization to the selected columns
 df_normalized <- df_motor %>%
   mutate(across(all_of(cols_to_normalize), ~ (.-min(.))/(max(.)-min(.)), .names = "norm_{.col}"))
 
 # Select the columns for PCA
-pca_data <- df_normalized %>%
-  select(norm_Time, norm_Average_Tturn, norm_Average_Ttotal, norm_mean_latency, norm_Score,norm_Total_Time, norm_60_min)
-pca_data <- df_normalized %>%
-  select(norm_Time, norm_Average_Tturn, norm_Average_Ttotal, norm_mean_latency, norm_Score,norm_Total_Time)
+# pca_data <- df_normalized %>%
+#   select(norm_Time, norm_Average_Tturn, norm_Average_Ttotal, norm_mean_latency, norm_Score,norm_Total_Time, norm_60_min)
+# pca_data <- df_normalized %>%
+#   select(norm_Time, norm_Average_Tturn, norm_Average_Ttotal, norm_mean_latency, norm_Score,norm_Total_Time)
+
+# Just the motor data 
 pca_data <- df_normalized %>%
   select(norm_Time, norm_Average_Tturn, norm_Average_Ttotal, norm_mean_latency, norm_Score)
-pca_data <- df_normalized %>%
-  select(norm_Time, norm_Average_Tturn, norm_Average_Ttotal, norm_mean_latency)
+# pca_data <- df_normalized %>%
+#   select(norm_Time, norm_Average_Tturn, norm_Average_Ttotal, norm_mean_latency)
 
 ## Perform PCA --
 pca_result <- prcomp(pca_data, scale. = FALSE)  # Set scale. to TRUE if you want to scale the variables
@@ -148,6 +156,8 @@ pca_result <- prcomp(pca_data, scale. = FALSE)  # Set scale. to TRUE if you want
 # Extract the results
 pca_summary <- summary(pca_result)
 pca_variance <- pca_summary$sdev^2  # Variance explained by each principal component
+pve <- pca_variance/sum(pca_variance) #compute the proportion of variance explained
+pve 
 pca_loadings <- pca_result$rotation  # Loadings (coefficients) of each variable on each PC
 
 # You can also access the scores of each observation on each PC
@@ -160,7 +170,9 @@ merged_df <- merge(subset,pca_scores_df,by="MouseID")
 # Visualize the PCA scores
 aso_behavior_pca <- ggplot(merged_df, aes(x = PC1, y = PC2, color = SLC_Genotype)) +
   geom_point(size=3) +
-  labs(title = "ASO Motor Phenotypes", x = "PC1", y = "PC2") +
+  labs(title = "ASO Motor Phenotypes", 
+       x = paste0("PC1 (", signif(pve[1]*100, digits=2),"%)"), 
+       y = paste0("PC2 (", signif(pve[2]*100,digits=2), "%)")) +
   theme_cowplot(16) +
   theme(plot.title = element_text(hjust = 0.5)) +
   theme(legend.position = "top", legend.justification = "center" )

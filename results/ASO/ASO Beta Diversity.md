@@ -1,5 +1,5 @@
 Luminal Colon
-```
+```R
 > set.seed(11)
 > data.adonis=adonis2(data.dist ~ Sex + Site + Genotype, data=metadata, by="terms",permutations=10000)
 > data.adonis
@@ -15,6 +15,23 @@ Site      1   0.2331 0.03728 2.6077     4e-04 ***
 Genotype  2   0.3864 0.06180 2.1612 9.999e-05 ***
 Residual 60   5.3642 0.85778                     
 Total    64   6.2536 1.00000                     
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+```
+
+```R
+> data.adonis=adonis2(data.dist ~ Average_Latency, data=metadata, by="terms",permutations=10000)
+> data.adonis
+Permutation test for adonis under reduced model
+Terms added sequentially (first to last)
+Permutation: free
+Number of permutations: 10000
+
+adonis2(formula = data.dist ~ Average_Latency, data = metadata, permutations = 10000, by = "terms")
+                Df SumOfSqs     R2      F    Pr(>F)    
+Average_Latency  1   0.2720 0.0435 2.8653 9.999e-05 ***
+Residual        63   5.9815 0.9565                     
+Total           64   6.2536 1.0000                     
 ---
 Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
 ```

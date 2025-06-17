@@ -71,17 +71,6 @@ col_counts <- prevalence_filter(col_counts,5)
 65*0.15
 lumcol_counts <- prevalence_filter(lumcol_counts,10)
 
-# Luminal Colon M
-53*0.15
-m_trios_lumcol_counts <- prevalence_filter(m_lumcol_counts,8)
-
-# Mucosal Colon M
-51*0.15
-m_trios_muccol_counts <- prevalence_filter(m_muccol_counts,8)
-
-# Mucosal Colon F
-53*0.15
-f_trios_muccol_counts <- prevalence_filter(f_muccol_counts,8)
 
 ## Calculate RS Jensen Shannon distance matrix -- 
 jej.dist <- calculate_rsjensen(jej_counts)
@@ -89,9 +78,12 @@ cec.dist <- calculate_rsjensen(cec_counts)
 col.dist <- calculate_rsjensen(col_counts)
 lumcol.dist <- calculate_rsjensen(lumcol_counts)
 
-# m_trios_muccol.dist <- calculate_rsjensen(m_trios_muccol_counts)
-# f_trios_lumcol.dist <- calculate_rsjensen(f_trios_lumcol_counts)
-# m_trios_lumcol.dist <- calculate_rsjensen(m_trios_lumcol_counts)
+## Calculate Jaccard distance matrix -- 
+jej.dist <- vegdist(jej_counts,method="jaccard")
+cec.dist <- vegdist(cec_counts,method="jaccard")
+col.dist <- vegdist(col_counts,method="jaccard")
+lumcol.dist <- vegdist(t(lumcol_counts),method="bray", diag=TRUE)
+
 # 
 # ## Calculate RS Jensen Shannon distance matrix -- 
 # 
@@ -137,7 +129,7 @@ lumcol_pcoa <- generate_pcoA_plots(distance_matrix=lumcol.dist,
                                  title="ASO Colon and Cecum",
                                  colorvariable = Genotype,
                                  colorvector = cols,
-                                 wa_scores_filepath = here("results/ASO/PCoA/LuminalColon_RSJ_Top_Taxa_PcoA.csv"))
+                                 wa_scores_filepath = here("results/ASO/PCoA/LuminalColon_Bray_Top_Taxa_PcoA.csv"))
 lumcol_pcoa + aes(label=MouseID)+ geom_label()
 
 lumcol_meta<- lumcol_meta %>%
@@ -163,6 +155,22 @@ cowplot::plot_grid(jej_pcoa, cec_pcoa,
 
 ### Statistics ---
 
+### Append Rotarod data ---
+ASO_rotarod <- read.csv(here("data/ASO/ASO Rotarod - Rotarod.csv"))
+ASO_rotarod <- ASO_rotarod %>% filter(Day=="One") %>%
+  filter(ASO_Tg=="Positive") %>%
+  dplyr::select(c("MouseID", "Average_Latency"))
+
+msid_conversion <- read.csv(here("data/ASO/ASO_From_Rotarod_To_Counts_MouseID.csv"))
+msid_conversion$MouseID <- msid_conversion$From
+ASO_rotarod <- ASO_rotarod %>%
+  left_join(msid_conversion,by="MouseID") %>%
+  mutate(MouseID=ifelse(is.na(From),MouseID,To)) %>% 
+  dplyr::select(c("MouseID", "Average_Latency")) %>%
+  unique()
+
+lumcol_meta <- merge(lumcol_meta, ASO_rotarod, by="MouseID")
+
 # Luminal Colon 
 data.dist<-lumcol.dist
 metadata <- lumcol_meta %>% 
@@ -176,6 +184,21 @@ data.dist <- as.dist(as(data.dist, "matrix"))
 set.seed(11)
 data.adonis=adonis2(data.dist ~ Sex + Site + Genotype, data=metadata, by="terms",permutations=10000)
 data.adonis
+
+set.seed(11)
+data.adonis=adonis2(data.dist ~ Average_Latency, data=metadata, by="terms",permutations=10000)
+data.adonis
+
+
+generate_pcoA_plots(distance_matrix=lumcol.dist,
+                    counts = lumcol_counts,
+                    metadata = lumcol_meta,
+                    title="ASO Colon and Cecum",
+                    colorvariable = Average_Latency,
+                    colorvector = cols,
+                    wa_scores_filepath = here("results/ASO/PCoA/LuminalColon_RSJ_Top_Taxa_PcoA.csv")) +
+  scale_color_viridis_c()
+
 
 # Colon 
 data.dist<-col.dist

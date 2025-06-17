@@ -254,7 +254,7 @@ generate_pcoA_plots <- function(distance_matrix, counts, metadata, title, colorv
     geom_point(size=3) + 
     labs(x = paste("PC1(", mds_var_per[1], "%)",sep=""),
          y = paste("PC2(", mds_var_per[2], "%)",sep="")) +
-    scale_colour_manual(name="",values={{colorvector}}) +
+    #scale_colour_manual(name="",values={{colorvector}}) +
     cowplot::theme_cowplot(12)+
     theme(legend.position="top",legend.justification = "center") +
     theme(plot.title = element_text(hjust = 0.5))+
