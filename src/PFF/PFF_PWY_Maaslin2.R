@@ -101,6 +101,38 @@ fit_data = Maaslin2(input_data=df_input_data,
                     min_prevalence = 0.15,
                     transform ="log",plot_heatmap = FALSE,plot_scatter = FALSE)
 
+
+## PFF Luminal Colon---
+
+input_data <- read.delim("data/PFF/PFF_Microbiome/starting_files/picrust2_output_min10000_no_tax_PFF_ASV_table.qza/export_pathway_abundance/feature-table.tsv", header=TRUE, row.names=1) # choose filtered non rarefied csv file
+df_input_data <- as.data.frame(input_data)
+df_input_data <- select(df_input_data, -c("taxonomy"))
+
+input_metadata <-read.delim("data/PFF/PFF_Microbiome/starting_files/PFF_Mapping.tsv",sep="\t",header=TRUE, row.names=1)
+input_metadata$SampleID <- row.names(input_metadata)
+
+samples <- input_metadata %>% filter(Subset =="Luminal_Colon", SampleID %in% names(df_input_data)) %>% pull(SampleID)
+
+df_input_data <- df_input_data[, samples]
+
+target <- colnames(df_input_data)
+input_metadata = input_metadata[match(target, row.names(input_metadata)),]
+target == row.names(input_metadata)
+
+
+df_input_metadata<-input_metadata
+df_input_metadata$MouseID <- factor(df_input_metadata$MouseID)
+df_input_metadata$Genotype <- factor(df_input_metadata$Genotype, levels=c("WT","HET", "MUT"))
+df_input_metadata$Sex <- factor(df_input_metadata$Sex)
+sapply(df_input_metadata,levels)
+
+fit_data = Maaslin2(input_data=df_input_data, 
+                    input_metadata=df_input_metadata, 
+                    output = paste0("PICRUST2_Pathway_Colon_Maaslin2_Sex_Genotype"), 
+                    fixed_effects = c("Sex", "Study", "Genotype"),normalization="TSS", 
+                    min_prevalence = 0.15,
+                    transform ="log",plot_heatmap = FALSE,plot_scatter = FALSE)
+
 ## PFF Baseline---
 
 input_data <- read.delim("starting_files/picrust2_output_min10000_no_tax_PFF_ASV_table.qza/export_pathway_abundance/feature-table.tsv", header=TRUE, row.names=1) # choose filtered non rarefied csv file
