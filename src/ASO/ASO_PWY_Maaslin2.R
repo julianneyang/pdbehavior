@@ -172,7 +172,7 @@ plot_pwy <- function(df, genotype_label,title) {
     labs(
       x = "Coefficient",
       y = "Description",
-      title = paste(title, genotype_label, "~ Sex + Genotype")
+      title = paste(title, genotype_label, "~Sex + Genotype")
     ) +
     theme_cowplot(12) +
     theme(axis.text.y = element_text(size = 10))
@@ -184,18 +184,79 @@ plot_pwy(cecum_pwy, "MUT", "ASO Cecum:")
 
 # Colonic Lumen 
 # Read in data
-lc_pwy <- read.table(here("Analysis_Files/ASO/Microbiome/differential_pathway/PWY_Luminal_Colon_Maaslin2_Sex_Site_Genotype/significant_results.tsv"), header = TRUE)
+lc_pwy <- read.delim(here("data/ASO/Microbiome/differential_pathway/PWY_Luminal_Colon_Maaslin2_Sex_Site_Genotype/all_results.tsv"), header = TRUE)
+lc_pwy_het <- lc_pwy %>% filter(value=="HET") %>% filter(qval<0.25) %>% pull(feature)
+lc_pwy_mut <- lc_pwy%>% filter(value=="MUT") %>% filter(qval<0.25) %>% pull(feature)
+combined_significant_features <- c(lc_pwy_het, lc_pwy_mut)
+lc_pwy <- lc_pwy %>% filter(feature %in% combined_significant_features) %>% 
+  filter(metadata =="Genotype")
 
+# Restrict visualization just to features agreeing in direction in both HET and MUT 
+lc_pwy_filtered <- lc_pwy %>%
+  group_by(feature) %>%
+  filter(all(c("HET", "MUT") %in% value)) %>%
+  filter({
+    het_coef <- coef[value == "HET"]
+    mut_coef <- coef[value == "MUT"]
+    length(het_coef) == 1 && length(mut_coef) == 1 &&
+      ((het_coef > 0 & mut_coef > 0) | (het_coef < 0 & mut_coef < 0))
+  }) %>%
+  ungroup() 
 
 # Read and clean annotation
-annotation <- read.delim(here("Analysis_Files/ASO/Microbiome/picrust2_output/export_pathway_abundance/annotated_pwy.tsv"), row.names = 1) %>%
+annotation <- read.delim(here("data/ASO/Microbiome/picrust2_output/export_pathway_abundance/annotated_pwy.tsv"), row.names = 1) %>%
   tibble::rownames_to_column("feature") %>%
   mutate(feature = gsub("-", ".", feature)) %>%
   select(feature, description)
 
 # Merge annotation into main table
-lc_pwy <- inner_join(lc_pwy, annotation, by = "feature")
+lc_pwy <- inner_join(lc_pwy_filtered, annotation, by = "feature")
 
-# Generate plots
-plot_pwy(lc_pwy, "HET", "ASO Colonic Lumen:")
-plot_pwy(lc_pwy, "MUT", "ASO Colonic Lumen:")
+# Add higher-order annotations
+higher_classification <- read.delim(here("data/Huttenhower_MetaCyc_Hierarchy.txt"),header=TRUE)
+df <- higher_classification
+df_split <- strsplit(df$annotation, "\\|")
+df_new <- data.frame(do.call(rbind, df_split))
+df_new$feature <- higher_classification$feature
+df_new$feature <- gsub("-",".",df_new$feature)
+
+data <- merge(lc_pwy,df_new, by="feature")
+# data <- data %>% mutate(coef_abs = abs(coef))
+
+plot <- data %>% 
+  filter(coef< -0.5) %>% 
+  select(c("description", "X2")) %>%
+  unique()
+
+plot$description <- str_wrap(plot$description, width=50)
+
+mat <- plot
+circos.clear()
+dev.new(width=10,height=10)
+chordDiagram(mat,annotationTrack = "grid",preAllocateTracks = list(track.height = max(strwidth(unlist(dimnames(mat))))))
+obj <- circos.track(track.index = 1, panel.fun = function(x, y) {
+  circos.text(CELL_META$xcenter, CELL_META$ylim[1], CELL_META$sector.index, 
+              facing = "clockwise", niceFacing = TRUE, adj = 0.4,
+              cex=1)
+}, bg.border = NA) 
+
+
+plot <- data %>% 
+  filter(coef> 0.5) %>% 
+  select(c("description", "X2")) %>%
+  unique()
+
+plot$description <- str_wrap(plot$description, width=50)
+
+mat <- plot
+circos.clear()
+dev.new(width=10,height=10)
+chordDiagram(mat,annotationTrack = "grid",preAllocateTracks = list(track.height = max(strwidth(unlist(dimnames(mat))))))
+obj <- circos.track(track.index = 1, panel.fun = function(x, y) {
+  circos.text(CELL_META$xcenter, CELL_META$ylim[1], CELL_META$sector.index, 
+              facing = "clockwise", niceFacing = TRUE, adj = 0.4,
+              cex=1)
+}, bg.border = NA) 
+
+
+

@@ -78,11 +78,11 @@ cec.dist <- calculate_rsjensen(cec_counts)
 col.dist <- calculate_rsjensen(col_counts)
 lumcol.dist <- calculate_rsjensen(lumcol_counts)
 
-## Calculate Jaccard distance matrix -- 
-jej.dist <- vegdist(jej_counts,method="jaccard")
-cec.dist <- vegdist(cec_counts,method="jaccard")
-col.dist <- vegdist(col_counts,method="jaccard")
-lumcol.dist <- vegdist(t(lumcol_counts),method="bray", diag=TRUE)
+## Calculate Bray distance matrix -- 
+# jej.dist <- vegdist(t(jej_counts),method="bray",diag=TRUE) %>% as.matrix()
+# cec.dist <- vegdist(t(cec_counts),method="bray", diag=TRUE) %>% as.matrix()
+# col.dist <- as.matrix(vegdist(t(col_counts),method="bray", diag=TRUE))
+# lumcol.dist <- as.matrix(vegdist(t(lumcol_counts),method="bray", diag=TRUE))
 
 # 
 # ## Calculate RS Jensen Shannon distance matrix -- 
@@ -93,7 +93,7 @@ lumcol.dist <- vegdist(t(lumcol_counts),method="bray", diag=TRUE)
 
 
 ### Figure S4 ---
-cols <- c("WT"="black", "HET"="blue", "MUT"="red")
+cols <- c("WT"="black", "HET"="navy", "MUT"="firebrick")
 jej_pcoa <- generate_pcoA_plots(distance_matrix=jej.dist,
                                        counts = jej_counts,
                                        metadata = jej_meta,
@@ -126,11 +126,13 @@ col_pcoa + aes(label=MouseID) + geom_label()
 lumcol_pcoa <- generate_pcoA_plots(distance_matrix=lumcol.dist,
                                  counts = lumcol_counts,
                                  metadata = lumcol_meta,
-                                 title="ASO Colon and Cecum",
+                                 title="ASO Colonic Lumen",
                                  colorvariable = Genotype,
                                  colorvector = cols,
                                  wa_scores_filepath = here("results/ASO/PCoA/LuminalColon_Bray_Top_Taxa_PcoA.csv"))
-lumcol_pcoa + aes(label=MouseID)+ geom_label()
+lumcol_pcoa <- lumcol_pcoa + scale_color_manual(values=cols)
+
+write_rds(lumcol_pcoa, here("results/ASO/figures/lumcol_beta_diversity.RDS"))
 
 lumcol_meta<- lumcol_meta %>%
   mutate(Repeat = if_else(str_starts(SampleID, "Rep"), "Repeat", "Not Repeat"))
@@ -186,11 +188,11 @@ data.adonis=adonis2(data.dist ~ Sex + Site + Genotype, data=metadata, by="terms"
 data.adonis
 
 set.seed(11)
-data.adonis=adonis2(data.dist ~ Average_Latency, data=metadata, by="terms",permutations=10000)
+data.adonis=adonis2(data.dist ~ Sex + Site + Genotype + Average_Latency, data=metadata, by="terms",permutations=10000)
 data.adonis
 
 
-generate_pcoA_plots(distance_matrix=lumcol.dist,
+rotarod_beta_diversity <- generate_pcoA_plots(distance_matrix=lumcol.dist,
                     counts = lumcol_counts,
                     metadata = lumcol_meta,
                     title="ASO Colon and Cecum",
@@ -199,6 +201,7 @@ generate_pcoA_plots(distance_matrix=lumcol.dist,
                     wa_scores_filepath = here("results/ASO/PCoA/LuminalColon_RSJ_Top_Taxa_PcoA.csv")) +
   scale_color_viridis_c()
 
+write_rds(rotarod_beta_diversity, here("results/ASO/figures/rotarod_beta_diversity.RDS"))
 
 # Colon 
 data.dist<-col.dist

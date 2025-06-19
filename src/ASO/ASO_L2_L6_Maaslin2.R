@@ -265,7 +265,9 @@ lc_diff_taxa<- make_combined_genus_level_taxa_dotplot(ASV_significant_results_da
                                                       Relative_Abundance_filepath_rds = "results/ASO/differential_taxa/Relative_Abundance_L6_Luminal_Colon_ASV.RDS",
                                                       titlestring = "ASO Colonic Lumen (HET or MUT vs WT) ",
                                                       genotype_colors, qvalue = 1)
-lc_diff_taxa + labs(subtitle = "Genus ~ Sex + Site + Genotype")
+lc_diff_taxa <- lc_diff_taxa + labs(subtitle = "Genus ~ Sex + Site + Genotype") 
+
+write_rds(lc_diff_taxa, here("results/ASO/figures/lumcol_diff_taxa.RDS"))
 
 write_rds(lc_dat_filtered, here("results/ASO/differential_taxa/ASO_Combined_Significant_Genera.RDS"))
 

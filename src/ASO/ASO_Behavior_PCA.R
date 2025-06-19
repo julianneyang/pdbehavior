@@ -168,15 +168,19 @@ subset <- pole_data %>% select(c("SLC_Genotype","MouseID","ASO_Tg","Sex"))
 merged_df <- merge(subset,pca_scores_df,by="MouseID")
 
 # Visualize the PCA scores
+cols <- c("WT"="black", "HET"="navy", "MUT"="firebrick")
 aso_behavior_pca <- ggplot(merged_df, aes(x = PC1, y = PC2, color = SLC_Genotype)) +
   geom_point(size=3) +
   labs(title = "ASO Motor Phenotypes", 
        x = paste0("PC1 (", signif(pve[1]*100, digits=2),"%)"), 
        y = paste0("PC2 (", signif(pve[2]*100,digits=2), "%)")) +
-  theme_cowplot(16) +
+  theme_cowplot(12) +
   theme(plot.title = element_text(hjust = 0.5)) +
-  theme(legend.position = "top", legend.justification = "center" )
+  theme(legend.position = "top", legend.justification = "center" ) +
+  scale_color_manual(values=cols, name="Genotype")
 aso_behavior_pca 
+
+write_rds(aso_behavior_pca, here("results/ASO/figures/motor_behavior_pca.RDS"))
 
 ## Perform tSNE
 # Select the columns for t-SNE

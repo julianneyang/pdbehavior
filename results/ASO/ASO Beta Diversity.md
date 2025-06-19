@@ -37,7 +37,7 @@ Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’
 ```
 
 Colon 
-```
+```R
 > data.adonis=adonis2(data.dist ~ Sex+ Genotype, data=metadata, by="terms",permutations=10000)
 > data.adonis
 Permutation test for adonis under reduced model
@@ -56,7 +56,7 @@ Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’
 ```
 
 Cecum
-```
+```R
 > data.adonis=adonis2(data.dist ~ Sex+ Genotype, data=metadata, by="terms",permutations=10000)
 > data.adonis
 Permutation test for adonis under reduced model
@@ -75,7 +75,7 @@ Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’
 ```
 
 Jejunum
-```
+```R
 > data.adonis=adonis2(data.dist ~ Sex+ Genotype, data=metadata, by="terms",permutations=10000)
 > data.adonis
 Permutation test for adonis under reduced model

@@ -10,7 +10,7 @@ here::i_am("src/PFF/PFF_Correlate_DAT_with _Rotarod.R")
 ### Read in input files ---
 
 PFF_rotarod <- read.csv(here("data/PFF/PFF Rotarod - PFF_Rotarod_Analysis.csv"))
-PFF_rotarod <- PFF_rotarod %>% filter(Day=="three") %>%
+PFF_rotarod <- PFF_rotarod %>% filter(Day=="one") %>%
   dplyr::select(c("MouseID", "Average_Latency"))
 # PFF_rotarod <- PFF_rotarod %>%
 #   group_by(MouseID) %>%
@@ -114,4 +114,5 @@ if (length(significant_plots) > 0) {
   message("No plots with qval < 0.25")
 }
 
+write_rds(significant_plots, here("results/PFF/figures/lumcol_DAT_correlations.rds"))
 

@@ -159,17 +159,17 @@
   },
   "active": "26a428cc455f53c7",
   "lastOpenFiles": [
+    "figures/motor_behavior_pca.RDS",
+    "figures/lumcol_DAT_correlations.RDS",
+    "figures/lumcol_diff_taxa.RDS",
+    "figures/lumcol_beta_diversity.RDS",
+    "figures/rotarod_beta_diversity.RDS",
+    "figures",
+    "PCoA/LuminalColon_Bray_Top_Taxa_PcoA.csv",
     "differential_taxa/ASO_Combined_Significant_Genera.RDS",
     "differential_taxa/L6_Luminal_Colon_Maaslin2_Sex_Genotype/significant_results.tsv",
     "differential_taxa/L6_Luminal_Colon_Maaslin2_Sex_Genotype/all_results.tsv",
     "differential_taxa/L6_Luminal_Colon_Maaslin2_Sex_Genotype/fits/fitted.rds",
-    "differential_taxa/L6_Luminal_Colon_Maaslin2_Sex_Genotype/fits/residuals.rds",
-    "differential_taxa/L6_Luminal_Colon_Maaslin2_Sex_Genotype/features/filtered_data_norm_transformed.tsv",
-    "differential_taxa/L6_Luminal_Colon_Maaslin2_Sex_Genotype/features/filtered_data_norm.tsv",
-    "differential_taxa/L6_Luminal_Colon_Maaslin2_Sex_Genotype/features/filtered_data.tsv",
-    "differential_taxa/L6_Luminal_Colon_Maaslin2_Sex_Genotype/maaslin2.log",
-    "differential_taxa/L6_Luminal_Colon_Maaslin2_Sex_Genotype/fits",
-    "differential_taxa/L6_Luminal_Colon_Maaslin2_Sex_Genotype/features",
     "ASO Beta Diversity.md"
   ]
 }
