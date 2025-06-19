@@ -198,13 +198,14 @@ cecum_dat_mut <- cecum_dat %>% filter(value=="MUT") # 0 significant taxa at q < 
 
 # Colonic Lumen 
 
-lc_dat <-read.table(here("data/PFF/PFF_Microbiome/differential_taxa/collapsed_ASV_tables/L6_Luminal_Colon_Maaslin2_Sex_Study_Genotype/all_results.tsv"), header=TRUE)
+lc_dat <-read.table(here("results/PFF/differential_taxa/L6_Luminal_Colon_Maaslin2_Sex_Study_Genotype_1-/all_results.tsv"), header=TRUE)
 lc_dat_het <- lc_dat %>% filter(value=="HET") %>% filter(qval<0.25) %>% pull(feature)
 lc_dat_mut <- lc_dat %>% filter(value=="MUT") %>% filter(qval<0.25) %>% pull(feature)
 
 combined_significant_features <- c(lc_dat_het, lc_dat_mut)
 lc_dat <- lc_dat %>% filter(feature %in% combined_significant_features) %>% 
   filter(metadata =="Genotype")
+
 
 lc_diff_taxa<- make_combined_genus_level_taxa_dotplot(ASV_significant_results_dataset = lc_dat,
                                                       Relative_Abundance_filepath_rds = "results/PFF/differential_taxa/Relative_Abundance_L6_Luminal_Colon.RDS",
@@ -231,8 +232,9 @@ lc_diff_taxa<- make_combined_genus_level_taxa_dotplot(ASV_significant_results_da
                                                       Relative_Abundance_filepath_rds = "results/PFF/differential_taxa/Relative_Abundance_L6_Luminal_Colon.RDS",
                                                       titlestring = "PFF Colonic Lumen (HET or MUT vs WT) ",
                                                       genotype_colors, qvalue = 1)
-lc_diff_taxa + labs(subtitle = "Genus ~ Sex + Site + Genotype")
+lc_diff_taxa <- lc_diff_taxa + labs(subtitle = "Genus ~ Sex + Site + Genotype")
 
+write_rds(lc_diff_taxa, here("results/PFF/figures/lumcol_diff_taxa.RDS"))
 write_rds(lc_dat_filtered, here("results/PFF/differential_taxa/PFF_Combined_Significant_Genera.RDS"))
 
 # Plot grid 

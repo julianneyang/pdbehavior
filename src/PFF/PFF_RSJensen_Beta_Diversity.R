@@ -155,6 +155,10 @@ set.seed(11)
 data.adonis=adonis2(data.dist ~ Sex + Study + Genotype, data=metadata, by="terms",permutations=10000)
 data.adonis
 
+set.seed(11)
+data.adonis=adonis2(data.dist ~ Sex + Study + Genotype, data=metadata, by="terms",permutations=10000)
+data.adonis
+
 # Feed in Rotarod data - 
 data <- readr::read_csv(here("data/PFF/PFF Rotarod - PFF_Rotarod_Analysis.csv"))
 data$Genotype <- factor(data$SLC_Genotype, levels=c("WT", "HET", "MUT"))
@@ -169,6 +173,10 @@ data.dist <- as.dist(as(data.dist, "matrix"))
 
 set.seed(11)
 data.adonis=adonis2(data.dist ~ Average_Latency,  data=metadata, by="terms",permutations=10000)
+data.adonis
+
+set.seed(11)
+data.adonis=adonis2(data.dist ~ Ipsilateral_Puncta,  data=metadata, by="terms",permutations=10000)
 data.adonis
 
 lumcol_meta <- merge(lumcol_meta,data , by="MouseID")
