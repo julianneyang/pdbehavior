@@ -6,8 +6,8 @@ library(cowplot)
 library(viridis)
 library(here)
 
-here::i_am("Analysis_Files/PFF/PFF_Microbiome/PFF_R_Project/PFF_RSJensen_Beta_Diversity.R")
-fp <- "Analysis_Files/PFF/PFF_Microbiome/"
+here::i_am("src/PFF/PFF_RSJensen_Beta_Diversity.R")
+fp <- "data/PFF/PFF_Microbiome/"
 metadata <- read.table(here(paste0(fp,"/starting_files/PFF_Mapping.tsv")),header=TRUE)
 counts <- read.table(here(paste0(fp,"starting_files/PFF_ASV_table_Silva_v138_1.tsv")), header = TRUE, row.names=1)
 
@@ -53,7 +53,8 @@ baseline_counts <- counts %>% select(all_of(baseline))
 
 ## Prevalence filter datasets -- 
 # Luminal Colon
-pff_lumcol_counts <- prevalence_filter(lumcol_counts,3)
+71*0.15
+pff_lumcol_counts <- prevalence_filter(lumcol_counts,11)
 
 # Cecum
 pff_cecum_counts <- prevalence_filter(cecum_counts,3)
@@ -85,15 +86,19 @@ pff_baseline.dist <- calculate_rsjensen(pff_baseline_counts)
 
 ## Principal Coordinates Analysis -- 
 
-cols <- c("WT"="black", "HET"= "blue", "MUT"="red")
-
+cols <- c("WT"="black", "HET"= "navy", "MUT"="firebrick")
+output_fp <- "results/PFF/"
 lc_pcoa <- generate_pcoA_plots(distance_matrix=pff_lumcol.dist,
                                      counts = pff_lumcol_counts,
                                      metadata = lumcol_meta,
                                      title="PFF - Luminal Colon RS Jensen",
                                      colorvariable = Genotype,
                                      colorvector = cols,
-                                     wa_scores_filepath = here(paste0(fp,"beta_diversity/LumCol_RSJ_Top_Taxa_PcoA.csv")))
+                                     wa_scores_filepath = here(paste0(output_fp,"beta_diversity/LumCol_RSJ_Top_Taxa_PcoA.csv")))
+
+lc_pcoa <- lc_pcoa + scale_color_manual(values=cols)
+write_rds(lc_pcoa, here("results/PFF/figures/lumcol_beta_diversity.RDS"))
+
 cecum_pcoa <- generate_pcoA_plots(distance_matrix=pff_cecum.dist,
                                counts = pff_cecum_counts,
                                metadata = cecum_meta,
@@ -147,8 +152,37 @@ target == row.names(metadata)
 data.dist <- as.dist(as(data.dist, "matrix"))
 
 set.seed(11)
-data.adonis=adonis(data.dist ~ Sex + Study + Genotype, data=metadata, permutations=10000)
-data.adonis$aov.tab
+data.adonis=adonis2(data.dist ~ Sex + Study + Genotype, data=metadata, by="terms",permutations=10000)
+data.adonis
+
+# Feed in Rotarod data - 
+data <- readr::read_csv(here("data/PFF/PFF Rotarod - PFF_Rotarod_Analysis.csv"))
+data$Genotype <- factor(data$SLC_Genotype, levels=c("WT", "HET", "MUT"))
+data <- data %>% filter(Day=="one") %>%
+  dplyr::select(c("MouseID","Average_Latency"))
+metadata <- merge(lumcol_meta,data , by="MouseID") %>% column_to_rownames("SampleID")
+
+target <- row.names(data.dist)
+metadata = metadata[match(target, row.names(metadata)),]
+target == row.names(metadata)
+data.dist <- as.dist(as(data.dist, "matrix"))
+
+set.seed(11)
+data.adonis=adonis2(data.dist ~ Average_Latency,  data=metadata, by="terms",permutations=10000)
+data.adonis
+
+lumcol_meta <- merge(lumcol_meta,data , by="MouseID")
+rotarod_pcoa <- generate_pcoA_plots(distance_matrix=pff_lumcol.dist,
+                               counts = pff_lumcol_counts,
+                               metadata = lumcol_meta,
+                               title="PFF - Luminal Colon RS Jensen",
+                               colorvariable = Average_Latency,
+                               colorvector = cols,
+                               wa_scores_filepath = here(paste0(output_fp,"beta_diversity/LumCol_RSJ_Top_Taxa_PcoA.csv")))
+
+rotarod_pcoa <- rotarod_pcoa + scale_color_viridis_c()
+
+write_rds(rotarod_pcoa, here("results/PFF/figures/rotarod_beta_diversity.RDS"))
 
 # Cecum
 data.dist<-pff_cecum.dist

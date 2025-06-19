@@ -28,9 +28,21 @@
                 "source": false
               }
             }
+          },
+          {
+            "id": "32d866c84d2e2c0b",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "PFF Beta Diversity.md",
+                "mode": "source",
+                "source": false
+              }
+            }
           }
         ],
-        "currentTab": 1
+        "currentTab": 2
       }
     ],
     "direction": "vertical"
@@ -96,7 +108,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "ASO Beta Diversity.md",
+                "file": "PFF Beta Diversity.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -113,7 +125,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "ASO Beta Diversity.md",
+                "file": "PFF Beta Diversity.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -136,7 +148,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "ASO Beta Diversity.md"
+                "file": "PFF Beta Diversity.md"
               }
             }
           }
@@ -157,8 +169,10 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "26a428cc455f53c7",
+  "active": "32d866c84d2e2c0b",
   "lastOpenFiles": [
+    "ASO Beta Diversity.md",
+    "PFF Beta Diversity.md",
     "figures/motor_behavior_pca.RDS",
     "figures/lumcol_DAT_correlations.RDS",
     "figures/lumcol_diff_taxa.RDS",
@@ -168,8 +182,6 @@
     "PCoA/LuminalColon_Bray_Top_Taxa_PcoA.csv",
     "differential_taxa/ASO_Combined_Significant_Genera.RDS",
     "differential_taxa/L6_Luminal_Colon_Maaslin2_Sex_Genotype/significant_results.tsv",
-    "differential_taxa/L6_Luminal_Colon_Maaslin2_Sex_Genotype/all_results.tsv",
-    "differential_taxa/L6_Luminal_Colon_Maaslin2_Sex_Genotype/fits/fitted.rds",
-    "ASO Beta Diversity.md"
+    "differential_taxa/L6_Luminal_Colon_Maaslin2_Sex_Genotype/all_results.tsv"
   ]
 }
