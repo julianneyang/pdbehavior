@@ -6,7 +6,7 @@ library(cowplot)
 library(tidyr)
 
 ## Environment --
-here::i_am("Rscripts/Figure_4_GFAP.R")
+here::i_am("src/Figure_4_GFAP.R")
 
 generate_violinplots <- function(input_data, X, Y, min,max){
   data<-as.data.frame(input_data)
@@ -23,10 +23,11 @@ generate_violinplots <- function(input_data, X, Y, min,max){
   
 }
 ## ASO GFAP Cell Count-- 
-data <- readr::read_csv(here("Analysis_Files/ASO/ASO_GFAP.csv"))
-data$Genotype<-factor(data$Genotype,levels=c("WT","HET","MUT"))
+data <- readr::read_csv(here("data/ASO/Analysis_GFAP.csv"))
+data$Genotype<-factor(data$Genotype,levels=c("WT","HET","MUT", "Tg_Neg"))
 names(data)
-striatum <- data %>% filter(Particle_Size=="3.5-10")
+striatum <- data %>% filter(Particle_Size=="3.5-10") %>%
+  drop_na(Count)
 summary(striatum$Count)
 # Plot results as an average of each mouse 
 df <- striatum %>%
@@ -34,15 +35,19 @@ df <- striatum %>%
   summarise(Average_Count = mean(Count)) %>%
   ungroup()
 
-subset <- unique(striatum %>% select("MouseID","Genotype","Sex"))
+subset <- unique(striatum %>% select("MouseID","Genotype"))
 df_meta <- merge(df, subset, by= "MouseID")
 
-generate_violinplots(df_meta, Genotype, Average_Count,0,300)+
-  #ggtitle("PFF Contralateral")+
+generate_violinplots(df_meta, Genotype, Average_Count,0,400)+
+  ggtitle("ASO GFAP Measurements")+
   ylab("GFAP + Cell Count")+
   xlab("")+
  # facet_wrap(~Category)+
   theme(plot.title = element_text(hjust = 0.5))
+
+wt_mut <- df_meta %>% filter(Genotype!="HET") %>% 
+  filter(Genotype!="Tg_Neg")
+wilcox.test(Average_Count~Genotype,wt_mut)
 
 ## PFF GFAP Cell Count-- 
 data <- readr::read_csv(here("Analysis_Files/PFF/PFF_GFAP.csv"))

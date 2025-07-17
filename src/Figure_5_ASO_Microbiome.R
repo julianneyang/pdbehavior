@@ -16,9 +16,9 @@ motor_pca <- read_rds(here("results/ASO/figures/motor_behavior_pca.RDS"))
 
 ### Assemble multi-panel figure ---
 
-top <- plot_grid(beta_diversity, rotarod_beta_diversity , motor_pca, labels=c("A","B","C"), nrow=1)
-middle <- plot_grid(corr_list[[1]], corr_list[[2]], labels=c("D","E"))
-bottom <- plot_grid(dat, labels="F")
+top <- plot_grid(beta_diversity, rotarod_beta_diversity , labels=c("A","B"), nrow=1)
+bottom <- plot_grid(corr_list[[1]], corr_list[[2]], labels=c("E","F"))
+middle <- plot_grid(dat, labels="D")
 
 dev.new(width=10,height=20)
-plot_grid(top,middle, bottom, nrow=3)
+plot_grid(top,middle, bottom, nrow=3,rel_heights = c(1,1.5,1))
