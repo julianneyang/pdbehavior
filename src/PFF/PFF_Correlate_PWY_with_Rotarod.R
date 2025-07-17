@@ -23,7 +23,7 @@ PFF_lum_col_counts <- read.delim(here("data/PFF/PFF_Microbiome/differential_path
   t() %>% as.data.frame()
 PFF_lum_col_counts <-PFF_lum_col_counts / rowSums(PFF_lum_col_counts )
 PFF_significant <- read_rds(here("results/PFF/differential_pathway/PFF_Combined_Significant_PWY.RDS"))
-significant_feature <- PFF_significant$feature
+significant_feature <- PFF_significant$feature %>% unique()
 metadata <- read.csv(here("data/PFF/PFF_Microbiome/starting_files/PFF_Mapping.csv"), header=TRUE)
 metadata$SampleID <- gsub("-", ".", metadata$SampleID)
 
@@ -40,7 +40,9 @@ df_correlation <- merge(PFF_lum_col_counts, PFF_rotarod, by="MouseID")
 ### Produce scatterplots ---
 
 # Get names of k_ columns
-k_columns <- df_correlation %>% select(starts_with("k_")) %>% names()
+k_columns <- df_correlation %>% select(-tail(names(.), 18)) %>%
+  select(-c("MouseID", "SampleID")) %>% 
+  names()
 
 # Initialize empty list to store plots
 plot_list <- list()
@@ -111,5 +113,5 @@ if (length(significant_plots) > 0) {
   message("No plots with qval < 0.25")
 }
 
-write_rds(significant_plots, here("results/PFF/figures/lumcol_DAT_correlations.rds"))
+#write_rds(significant_plots, here("results/PFF/figures/lumcol_DAT_correlations.rds"))
 

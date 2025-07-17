@@ -108,6 +108,8 @@ if (length(significant_plots) > 0) {
   message("No plots with qval < 0.25")
 }
 
+write_rds(significant_plots, here("results/PFF/figures/lumcol_DAT_correlations_with_Puncta.rds"))
+
 ### Contralateral puncta ---
 
 # Get names of k_ columns
