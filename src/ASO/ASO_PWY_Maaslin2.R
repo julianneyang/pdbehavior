@@ -184,7 +184,7 @@ plot_pwy(cecum_pwy, "MUT", "ASO Cecum:")
 
 # Colonic Lumen 
 # Read in data
-lc_pwy <- read.delim(here("data/ASO/Microbiome/differential_pathway/PWY_Luminal_Colon_Maaslin2_Sex_Site_Genotype/all_results.tsv"), header = TRUE)
+lc_pwy <- read.delim(here("results/ASO/differential_pathway/PWY_Luminal_Colon_Maaslin2_Sex_Site_Genotype/all_results.tsv"), header = TRUE)
 lc_pwy_het <- lc_pwy %>% filter(value=="HET") %>% filter(qval<0.25) %>% pull(feature)
 lc_pwy_mut <- lc_pwy%>% filter(value=="MUT") %>% filter(qval<0.25) %>% pull(feature)
 combined_significant_features <- c(lc_pwy_het, lc_pwy_mut)
@@ -202,6 +202,8 @@ lc_pwy_filtered <- lc_pwy %>%
       ((het_coef > 0 & mut_coef > 0) | (het_coef < 0 & mut_coef < 0))
   }) %>%
   ungroup() 
+
+write_rds(lc_pwy_filtered, here("results/ASO/differential_pathway/ASO_Combined_Significant_PWY.RDS"))
 
 # Read and clean annotation
 annotation <- read.delim(here("data/ASO/Microbiome/picrust2_output/export_pathway_abundance/annotated_pwy.tsv"), row.names = 1) %>%

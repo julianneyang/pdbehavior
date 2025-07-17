@@ -49,6 +49,10 @@ wt_mut <- df_meta %>% filter(Genotype!="HET") %>%
   filter(Genotype!="Tg_Neg")
 wilcox.test(Average_Count~Genotype,wt_mut)
 
+wt_mut <- df_meta %>% filter(Genotype!="MUT") %>% 
+  filter(Genotype!="Tg_Neg")
+wilcox.test(Average_Count~Genotype,wt_mut)
+
 ## PFF GFAP Cell Count-- 
 data <- readr::read_csv(here("Analysis_Files/PFF/PFF_GFAP.csv"))
 data$Genotype<-factor(data$Genotype,levels=c("WT","HET","MUT"))

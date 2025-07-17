@@ -119,7 +119,7 @@ target <- colnames(df_input_data)
 input_metadata = input_metadata[match(target, row.names(input_metadata)),]
 target == row.names(input_metadata)
 
-
+write.table(df_input_data, "data/PFF/PFF_Microbiome/differential_pathway/PWY_Subset_Luminal_Colon.tsv",sep="\t")
 df_input_metadata<-input_metadata
 df_input_metadata$MouseID <- factor(df_input_metadata$MouseID)
 df_input_metadata$Genotype <- factor(df_input_metadata$Genotype, levels=c("WT","HET", "MUT"))
@@ -258,6 +258,8 @@ lc_pwy_filtered <- lc_pwy %>%
       ((het_coef > 0 & mut_coef > 0) | (het_coef < 0 & mut_coef < 0))
   }) %>%
   ungroup() 
+
+write_rds(lc_pwy_filtered, here("results/PFF/differential_pathway/PFF_Combined_Significant_PWY.RDS"))
 
 # Read and clean annotation
 annotation <- read.delim(here("data/PFF/PFF_Microbiome/starting_files/picrust2_output_min10000_no_tax_PFF_ASV_table.qza/export_pathway_abundance/annotated_pwy.tsv"), row.names = 1) %>%
