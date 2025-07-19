@@ -25,6 +25,7 @@ generate_violinplots <- function(input_data, X, Y, min,max){
 ## ASO GFAP Cell Count-- 
 data <- readr::read_csv(here("data/ASO/Analysis_GFAP.csv"))
 data$Genotype<-factor(data$Genotype,levels=c("WT","HET","MUT", "Tg_Neg"))
+data <- data %>% filter(Genotype!="Tg_Neg")
 names(data)
 striatum <- data %>% filter(Particle_Size=="3.5-10") %>%
   drop_na(Count)
@@ -39,7 +40,7 @@ subset <- unique(striatum %>% select("MouseID","Genotype"))
 df_meta <- merge(df, subset, by= "MouseID")
 
 generate_violinplots(df_meta, Genotype, Average_Count,0,400)+
-  ggtitle("ASO GFAP Measurements")+
+  ggtitle("ASO GFAP")+
   ylab("GFAP + Cell Count")+
   xlab("")+
  # facet_wrap(~Category)+
@@ -48,6 +49,7 @@ generate_violinplots(df_meta, Genotype, Average_Count,0,400)+
 wt_mut <- df_meta %>% filter(Genotype!="HET") %>% 
   filter(Genotype!="Tg_Neg")
 wilcox.test(Average_Count~Genotype,wt_mut)
+
 
 wt_mut <- df_meta %>% filter(Genotype!="MUT") %>% 
   filter(Genotype!="Tg_Neg")

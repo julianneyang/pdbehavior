@@ -9,10 +9,30 @@ here::i_am("src/Figure_5_ASO_Microbiome.R")
 ### Read in files --- 
 
 beta_diversity <- read_rds(here("results/ASO/figures/lumcol_beta_diversity.RDS"))
+# beta_diversity <- ggdraw(add_sub(beta_diversity, 
+#                      bquote(paste(~italic(R)^2,"=0.062 ", 
+#                                   italic("P"),"<9.99 E-5"))))
+
+beta_diversity <- beta_diversity + labs(subtitle = bquote(paste(~italic(R)^2,"=0.062 ", 
+                                              italic("P"),"<9.99 E-5"))) + 
+  theme(
+    plot.subtitle = element_text(hjust = 0.5)
+  )
+
 rotarod_beta_diversity <- read_rds(here("results/ASO/figures/rotarod_beta_diversity.RDS"))
+# rotarod_beta_diversity <- ggdraw(add_sub(rotarod_beta_diversity, 
+#                                  bquote(paste(~italic(R)^2,"=0.044 ", 
+#                                               italic("P"),"<9.99 E-5"))))
+
+rotarod_beta_diversity <- rotarod_beta_diversity + labs(subtitle = bquote(paste(~italic(R)^2,"=0.044 ", 
+                                                                italic("P"),"<9.99 E-5"))) + 
+  theme(
+    plot.subtitle = element_text(hjust = 0.5)
+  )
 dat <- read_rds(here("results/ASO/figures/lumcol_diff_taxa.RDS"))
 
 corr_list <- read_rds(here("results/ASO/figures/lumcol_DAT_correlations.RDS"))
+
 motor_pca <- read_rds(here("results/ASO/figures/motor_behavior_pca.RDS"))
 
 ### Assemble multi-panel figure ---
