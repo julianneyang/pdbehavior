@@ -62,7 +62,16 @@ results <- tibble()
 
 # Declare color vector 
 genotype_cols <- c("WT"="black", "HET"="navy","MUT"="firebrick")
-# Loop over k_ columns
+
+# Loop over k_columns and fit a mixed effects model - 
+for (k_col in k_columns) {
+  
+  # Mixed Effects Model 
+  lmod <-lm(df_correlation[[k_col]] ~ Average_Latency + Sex + Site , data=df_correlation)
+  print(summary(lmod))
+}
+
+# Loop over k_ columns and perform Spearman Correlations
 for (k_col in k_columns) {
   
   # Spearman correlation test
