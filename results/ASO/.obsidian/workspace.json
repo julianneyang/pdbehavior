@@ -53,12 +53,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "ASO Beta Diversity.md",
+                "file": "PFF Beta Diversity.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "ASO Beta Diversity"
+              "title": "PFF Beta Diversity"
             }
           }
         ],
@@ -135,7 +135,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "ASO Beta Diversity.md",
+                "file": "PFF Beta Diversity.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -145,7 +145,7 @@
                 "unlinkedCollapsed": true
               },
               "icon": "links-coming-in",
-              "title": "Backlinks for ASO Beta Diversity"
+              "title": "Backlinks for PFF Beta Diversity"
             }
           },
           {
@@ -154,12 +154,12 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "ASO Beta Diversity.md",
+                "file": "PFF Beta Diversity.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               },
               "icon": "links-going-out",
-              "title": "Outgoing links from ASO Beta Diversity"
+              "title": "Outgoing links from PFF Beta Diversity"
             }
           },
           {
@@ -183,13 +183,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "ASO Beta Diversity.md",
+                "file": "PFF Beta Diversity.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Outline of ASO Beta Diversity"
+              "title": "Outline of PFF Beta Diversity"
             }
           }
         ]

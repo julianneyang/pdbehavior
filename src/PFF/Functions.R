@@ -244,7 +244,7 @@ generate_pcoA_plots <- function(distance_matrix, counts, metadata, title, colorv
   #merge phenotypic data 
   lumcol_meta$sample <- lumcol_meta$SampleID
   mds_meta <- merge(mds_data, lumcol_meta, by = "sample")
-  mds_meta$SLC_Genotype <- factor(mds_meta$SLC_Genotype, levels=c("WT","HET","MUT"))
+  mds_meta$Genotype <- factor(mds_meta$Genotype, levels=c("WT","HET","MUT"))
   
   p<- ggplot(mds_meta, aes(x, y, colour={{colorvariable}})) + 
     #geom_text()+
@@ -252,7 +252,7 @@ generate_pcoA_plots <- function(distance_matrix, counts, metadata, title, colorv
     labs(x = paste("PC1(", mds_var_per[1], "%)",sep=""),
          y = paste("PC2(", mds_var_per[2], "%)",sep="")) +
     scale_colour_manual(name="",values={{colorvector}}) +
-    theme_cowplot(16)+
+    theme_cowplot(12)+
     labs(title= paste0({{title}}))  +
     theme(plot.title = element_text(hjust = 0.5)) +
     theme(legend.background = element_rect(fill="lightblue", size=0.5, linetype="solid")) +

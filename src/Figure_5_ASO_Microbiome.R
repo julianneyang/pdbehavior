@@ -24,12 +24,15 @@ rotarod_beta_diversity <- read_rds(here("results/ASO/figures/rotarod_beta_divers
 #                                  bquote(paste(~italic(R)^2,"=0.044 ", 
 #                                               italic("P"),"<9.99 E-5"))))
 
-rotarod_beta_diversity <- rotarod_beta_diversity + labs(subtitle = bquote(paste(~italic(R)^2,"=0.044 ", 
+rotarod_beta_diversity <- rotarod_beta_diversity + labs(title = "ASO Colonic Lumen",
+                                                        subtitle = bquote(paste(~italic(R)^2,"=0.044 ", 
                                                                 italic("P"),"<9.99 E-5"))) + 
   theme(
     plot.subtitle = element_text(hjust = 0.5)
   )
 dat <- read_rds(here("results/ASO/figures/lumcol_diff_taxa.RDS"))
+
+dat <- dat + ggtitle("ASO Colonic Lumen")
 
 corr_list <- read_rds(here("results/ASO/figures/lumcol_DAT_correlations.RDS"))
 

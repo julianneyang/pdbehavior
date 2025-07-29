@@ -42,6 +42,9 @@ df_correlation <- merge(PFF_lum_col_counts, PFF_rotarod, by="MouseID")
 
 ### Produce scatterplots ---
 
+# Declare Genotype as factor 
+df_correlation$Genotype <- factor(df_correlation$Genotype, levels=c("WT", "HET", "MUT"))
+
 # Get names of k_ columns
 k_columns <- df_correlation %>% select(starts_with("k_")) %>% names()
 
@@ -74,6 +77,8 @@ for (k_col in k_columns) {
       y = "Average Latency Day One"
     ) +
     theme_cowplot(10) +
+    xlab("") + 
+    theme(legend.position="top",legend.title = element_text(hjust = 0.5), legend.justification = "center")+
     scale_fill_manual(values=genotype_cols) +
     theme(
       plot.title = element_text(hjust = 0.5),

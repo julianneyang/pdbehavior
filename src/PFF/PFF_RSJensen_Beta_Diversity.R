@@ -160,6 +160,7 @@ data.adonis=adonis2(data.dist ~ Sex + Study + Genotype, data=metadata, by="terms
 data.adonis
 
 # Feed in Rotarod data - 
+data.dist<-pff_lumcol.dist
 data <- readr::read_csv(here("data/PFF/PFF Rotarod - PFF_Rotarod_Analysis.csv"))
 data$Genotype <- factor(data$SLC_Genotype, levels=c("WT", "HET", "MUT"))
 data <- data %>% filter(Day=="one") %>%

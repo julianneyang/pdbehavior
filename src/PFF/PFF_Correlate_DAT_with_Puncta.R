@@ -66,6 +66,8 @@ for (k_col in k_columns) {
       y = "Ipsilateral Puncta"
     ) +
     theme_cowplot(10) +
+    xlab("")+
+    theme(legend.position="top",legend.title = element_text(hjust = 0.5), legend.justification = "center")+
     scale_fill_manual(values=genotype_cols) +
     theme(
       plot.title = element_text(hjust = 0.5),
@@ -146,6 +148,7 @@ for (k_col in k_columns) {
       y = "Contralateral Puncta"
     ) +
     theme_cowplot(10) +
+    xlab("")+
     scale_fill_manual(values=genotype_cols) +
     theme(
       plot.title = element_text(hjust = 0.5),
