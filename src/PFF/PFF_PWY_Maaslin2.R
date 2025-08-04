@@ -5,9 +5,10 @@ library(ggplot2)
 library(cowplot)
 library(plyr)
 library(circlize)
+library(here)
+library(stringr)
 
-setwd("C:/Users/Jacobs Laboratory/Documents/JCYang/SLC_GitHub/slcproject/PFF_Microbiome/")
-
+here::i_am("src/PFF/PFF_PWY_Maaslin2.R")
 ## PFF Jejunum ---
 
 input_data <- read.delim("data/PFF/PFF_Microbiome/starting_files/picrust2_output_min10000_no_tax_PFF_ASV_table.qza/export_pathway_abundance/feature-table.tsv", header=TRUE, row.names=1) # choose filtered non rarefied csv file
@@ -286,7 +287,7 @@ plot <- data %>%
   select(c("description", "X2")) %>%
   unique()
 
-
+plot$description
 plot$description <- str_wrap(plot$description, width=50)
 
 mat <- plot
