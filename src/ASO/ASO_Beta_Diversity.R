@@ -1,5 +1,5 @@
-library(here) #v 1.0.1
-library(dplyr) #v 1.0.7
+library(here) 
+library(dplyr) 
 library(funrar)
 library(ggplot2)
 library(cowplot)

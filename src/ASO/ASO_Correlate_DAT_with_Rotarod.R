@@ -28,9 +28,32 @@ ASO_rotarod <- ASO_rotarod %>%
 #   dplyr::select(c("MouseID","Average_Latency")) %>% 
 #   unique()
 
+### Read in microbiome counts and do relative abundance followed by log normalization
 ASO_lum_col_counts <- read.delim(here("data/ASO/Microbiome/differential_taxa/ASO_L6_Subset_Luminal_Colon.tsv")) %>% 
   t() %>% as.data.frame()
-ASO_lum_col_counts <-ASO_lum_col_counts / rowSums(ASO_lum_col_counts )
+df_tss <-ASO_lum_col_counts / rowSums(ASO_lum_col_counts )
+
+
+# Step 2: Compute feature-wise pseudocounts
+# Extract column-wise (feature-wise) minimum non-zero values and divide by 2
+pseudocounts <- df_tss %>%
+  summarise(across(everything(), ~ {
+    nz <- .x[.x > 0]
+    if (length(nz) == 0) 0 else min(nz) / 2
+  }))
+
+# Step 3: Replace zeros with pseudocounts using mutate + ifelse
+df_tss_pseudo <- df_tss %>%
+  mutate(across(everything(), ~ ifelse(.x == 0, pseudocounts[[cur_column()]], .x)))
+
+# Optional Step 4: Re-normalize so rows sum to 1 again
+df_tss_final <- df_tss_pseudo %>%
+  rowwise() %>%
+  mutate(across(everything(), ~ .x / sum(c_across(everything()), na.rm = TRUE))) %>%
+  ungroup()
+
+
+
 ASO_significant <- read_rds(here("results/ASO/differential_taxa/ASO_Combined_Significant_Genera.RDS"))
 significant_feature <- ASO_significant$feature
 metadata <- read.csv(here("data/ASO/Microbiome/ASO_Metadata_2025.csv"), header=TRUE)
@@ -66,13 +89,34 @@ results <- tibble()
 # Declare color vector 
 genotype_cols <- c("WT"="black", "HET"="navy","MUT"="firebrick")
 
-# Loop over k_columns and fit a mixed effects model - 
+# Initialize empty tibble to store correlation results
+lm_results <- tibble()
+
+# Loop over k_columns and fit a linear model
 for (k_col in k_columns) {
   
-  # Mixed Effects Model 
-  lmod <-lm(df_correlation[[k_col]] ~ Average_Latency + Sex + Site , data=df_correlation)
-  print(summary(lmod))
+  # Fit linear model
+  lmod <- lm(df_correlation[[k_col]] ~ Average_Latency + Sex + Site , data=df_correlation)
+  
+  # Extract model summary
+  lmod_summary <- summary(lmod)
+  
+  # Extract p-values for each coefficient
+  p_vals <- coef(lmod_summary)["Average_Latency", "Pr(>|t|)"]
+  
+  # Create a tibble with results for this k_col
+  temp_df <- tibble(
+    k_col = k_col,
+    p_value = p_vals
+  )
+  
+  # Bind to results
+  lm_results <- bind_rows(lm_results, temp_df)
 }
+
+# Apply BH correction across taxa (17 tests)
+lm_results <- lm_results %>%
+  mutate(p_adj = p.adjust(p_value, method = "BH"))
 
 # Loop over k_ columns and perform Spearman Correlations
 for (k_col in k_columns) {
