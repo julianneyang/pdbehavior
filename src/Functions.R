@@ -215,7 +215,8 @@ calculate_rsjensen <- function(data){
   return(y) 
 }
 
-generate_pcoA_plots <- function(distance_matrix, counts, metadata, title, colorvariable,colorvector, wa_scores_filepath){
+generate_pcoA_plots <- function(distance_matrix, counts, metadata, title, colorvariable,colorvector, wa_scores_filepath, 
+                                mds_meta_filepath=paste0(getwd(),"/mds_meta.csv")){
   # calculate mds
   lumcol.dist <- distance_matrix
   lumcol_counts <- counts 
@@ -248,7 +249,7 @@ generate_pcoA_plots <- function(distance_matrix, counts, metadata, title, colorv
   #merge phenotypic data 
   lumcol_meta$sample <- lumcol_meta$SampleID
   mds_meta <- merge(mds_data, lumcol_meta, by = "sample")
-  
+  write.csv(mds_meta, {{mds_meta_filepath}})
   
   p<- ggplot(mds_meta, aes(x, y, colour={{colorvariable}})) + 
     geom_point(size=3) + 

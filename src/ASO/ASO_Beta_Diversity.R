@@ -129,7 +129,8 @@ lumcol_pcoa <- generate_pcoA_plots(distance_matrix=lumcol.dist,
                                  title="ASO Colonic Lumen",
                                  colorvariable = Genotype,
                                  colorvector = cols,
-                                 wa_scores_filepath = here("results/ASO/PCoA/LuminalColon_Bray_Top_Taxa_PcoA.csv"))
+                                 wa_scores_filepath = here("results/ASO/PCoA/LuminalColon_Bray_Top_Taxa_PcoA.csv"),
+                                 mds_meta_filepath = here("results/ASO/PCoA/Fig_5A_PcoA.csv"))
 lumcol_pcoa <- lumcol_pcoa + scale_color_manual(values=cols)
 
 write_rds(lumcol_pcoa, here("results/ASO/figures/lumcol_beta_diversity.RDS"))
@@ -198,7 +199,8 @@ rotarod_beta_diversity <- generate_pcoA_plots(distance_matrix=lumcol.dist,
                     title="ASO Colon and Cecum",
                     colorvariable = Average_Latency,
                     colorvector = cols,
-                    wa_scores_filepath = here("results/ASO/PCoA/LuminalColon_RSJ_Top_Taxa_PcoA.csv")) +
+                    wa_scores_filepath = here("results/ASO/PCoA/LuminalColon_RSJ_Top_Taxa_PcoA.csv"),
+                    mds_meta_filepath = here("results/ASO/PCoA/Fig_5_C_PcoA.csv")) +
   scale_color_viridis_c()
 
 write_rds(rotarod_beta_diversity, here("results/ASO/figures/rotarod_beta_diversity.RDS"))
