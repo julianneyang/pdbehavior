@@ -6,7 +6,7 @@ library(cowplot)
 library(tidyr)
 
 ## Environment --
-here::i_am("src/Figure_3_Synucleinopathy.R")
+here::i_am("src/Figure_4_Synucleinopathy.R")
 
 generate_violinplots <- function(input_data, X, Y, min,max){
   data<-as.data.frame(input_data)
@@ -33,36 +33,6 @@ summary(striatum$Count)
 ipsilateral <- striatum %>% filter(Category=="Ipsilateral")
 contralateral <- striatum %>% filter(Category=="Contralateral")
 
-ipsi_puncta <- generate_violinplots(ipsilateral, Genotype, Count,0,1800)+
-  #ggtitle("PFF Puncta Analysis")+
-  ylab("pS129 a-Syn Puncta Count")+
-  xlab("")+
-  facet_wrap(~Category)+
-  theme(plot.title = element_text(hjust = 0.5))
-
-contra_puncta <- generate_violinplots(contralateral, Genotype, Count,0,250)+
-  #ggtitle("PFF Puncta Analysis")+
-  ylab("pS129 a-Syn Puncta Count")+
-  xlab("")+
-  facet_wrap(~Category)+
-  theme(plot.title = element_text(hjust = 0.5))
-
-plot_grid(ipsi_puncta, contra_puncta)
-
-# Plot results as a count of Contralateral to Ipsilateral 
-row_index_to_remove <- which(striatum$Merged_ID == "9.11.23_P1_F")
-df <- striatum[-row_index_to_remove, ]
-df <- df %>%
-  group_by(Merged_ID) %>%
-  mutate(Ratio_Count = Count[Category == "Ipsilateral"] / Count[Category == "Contralateral"]) %>%
-  ungroup()
-summary(df$Ratio_Count)
-generate_violinplots(df, Genotype, Ratio_Count,0,10)+
-  ggtitle("PFF Count Ratio")+
-  ylab("Ratio(Count_Ipsi/Count_Contra)")+
-  xlab("")+
-  theme(plot.title = element_text(hjust = 0.5))
-
 # Plot results as an average of each mouse - Corrected Mean 
 df <- striatum %>%
   group_by(MouseID, Category) %>%
@@ -73,6 +43,9 @@ subset <- unique(striatum %>% select("MouseID","Genotype","Sex"))
 df_meta <- merge(df, subset, by= "MouseID")
 df_meta_cont <- df_meta %>% filter(Category=="Contralateral")
 df_meta_ipsi <- df_meta %>% filter(Category=="Ipsilateral")
+
+# write.csv(df_meta_cont, here("data/PFF/Fig_4D.csv"))
+# write.csv(df_meta_ipsi, here("data/PFF/Fig_4C.csv"))
 
 contra_average <- generate_violinplots(df_meta_cont, Genotype, Average_Count,0,250)+
   #ggtitle("PFF Contralateral")+
@@ -99,30 +72,11 @@ bottom <- plot_grid(ipsi_average,contra_average,
 plot_grid(top,bottom, nrow=2, rel_heights = c(3,1))
 
 ## Statistics -- 
-names(striatum)
-ipsilateral <- striatum %>% filter(Category=="Ipsilateral")
-contralateral <- striatum %>% filter(Category=="Contralateral")
-
-lme_model <- lme(Count ~  Genotype, 
-                 random = ~ 1 | MouseID, 
-                 data = ipsilateral)
-summary(lme_model)
-
-lme_model <- lme(Count ~  Genotype, 
-                 random = ~ 1 | MouseID, 
-                 data = contralateral)
-summary(lme_model)
-
-
 wt_mut <- df_meta %>% filter(Genotype!="HET" & Category=="Ipsilateral") 
-wilcox.test(Average_Count~Genotype, data=wt_mut)
-t.test(Average_Count~Genotype, data=wt_mut)
 lm <- lm(Average_Count~  Sex + Genotype, data = wt_mut)
 summary(lm)
 
 wt_mut<- df_meta %>% filter(Genotype!="HET" & Category=="Contralateral") 
-wilcox.test(Average_Count~Genotype, data=wt_mut)
-t.test(Average_Count~Genotype, data=wt_mut)
 lm <- lm(Average_Count~  Sex + Genotype, data = wt_mut)
 summary(lm)
 
