@@ -123,3 +123,9 @@ summary(all_p)
 data <- olf_data
 lm2 <- lm(Total_Time ~ Sex + SLC_Genotype, data =  subset(data, ASO_Tg == "Positive"))
 summary(lm2)
+
+
+# Fig 2E
+data <- grip
+lm <- lm(Average ~ Sex + SLC_Genotype, data =  data)
+summary(lm)
