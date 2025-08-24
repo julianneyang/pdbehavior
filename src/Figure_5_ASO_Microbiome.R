@@ -32,9 +32,17 @@ rotarod_beta_diversity <- rotarod_beta_diversity + labs(title = "ASO Colonic Lum
   )
 dat <- read_rds(here("results/ASO/figures/lumcol_diff_taxa.RDS"))
 
-dat <- dat + ggtitle("ASO Colonic Lumen")
+dat <- dat + ggtitle("ASO Colonic Lumen") + 
+  theme(legend.justification = "center") +
+  labs(subtitle=NULL)
 
 corr_list <- read_rds(here("results/ASO/figures/lumcol_DAT_correlations.RDS"))
+corr_list[[1]] <-  corr_list[[1]] + 
+  theme(legend.justification = "center") + 
+  xlab("Relative Abundance")
+corr_list[[2]] <-  corr_list[[2]] + 
+  theme(legend.justification = "center") + 
+  xlab("Relative Abundance")
 
 motor_pca <- read_rds(here("results/ASO/figures/motor_behavior_pca.RDS"))
 
