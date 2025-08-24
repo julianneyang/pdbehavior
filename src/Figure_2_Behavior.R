@@ -2,7 +2,6 @@ library(ggplot2)
 library(dplyr)
 library(cowplot)
 library(here)
-library(ggpubr)
 
 generate_boxplots <- function(input_data, X, Y, min,max){
   data<-as.data.frame(input_data)
