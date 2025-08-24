@@ -94,6 +94,7 @@ lc_pcoa <- generate_pcoA_plots(distance_matrix=pff_lumcol.dist,
                                      title="PFF - Luminal Colon RS Jensen",
                                      colorvariable = Genotype,
                                      colorvector = cols,
+                                     mds_meta_filepath = here(paste0(output_fp,"beta_diversity/Fig_6A_PcoA.csv")),
                                      wa_scores_filepath = here(paste0(output_fp,"beta_diversity/LumCol_RSJ_Top_Taxa_PcoA.csv")))
 
 lc_pcoa <- lc_pcoa + scale_color_manual(values=cols)
@@ -187,6 +188,7 @@ rotarod_pcoa <- generate_pcoA_plots(distance_matrix=pff_lumcol.dist,
                                title="PFF - Luminal Colon RS Jensen",
                                colorvariable = Average_Latency,
                                colorvector = cols,
+                               mds_meta_filepath = here(paste0(output_fp,"beta_diversity/Fig_6C_PcoA.csv")),
                                wa_scores_filepath = here(paste0(output_fp,"beta_diversity/LumCol_RSJ_Top_Taxa_PcoA.csv")))
 
 rotarod_pcoa <- rotarod_pcoa + scale_color_viridis_c()

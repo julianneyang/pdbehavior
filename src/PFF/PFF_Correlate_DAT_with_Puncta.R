@@ -44,6 +44,22 @@ results <- tibble()
 # Declare color vector 
 genotype_cols <- c("WT"="black", "HET"="navy","MUT"="firebrick")
 
+# Save dataframes for SDV file required by JCI
+# fig6F <- df_correlation %>% 
+#   dplyr::select(MouseID,
+#                 SampleID,
+#                 Genotype,Sex,Study, 
+#                 k__Bacteria.p__Firmicutes.c__Clostridia.o__Lachnospirales.f__Lachnospiraceae.g__Lachnospiraceae.UCG.001,
+#                 Ipsilateral_Puncta)
+# fig6G <- df_correlation %>% 
+#   dplyr::select(MouseID,
+#                 SampleID,
+#                 Genotype,Sex,Study, 
+#                 k__Bacteria.p__Firmicutes.c__Bacilli.o__Erysipelotrichales.f__Erysipelatoclostridiaceae.g__Erysipelatoclostridium,
+#                 Ipsilateral_Puncta)
+# 
+# write.csv(fig6D, here("results/PFF/figures/fig_6F.csv"))
+# write.csv(fig6E, here("results/PFF/figures/fig_6G.csv"))
 
 # Loop over k_ columns
 for (k_col in k_columns) {

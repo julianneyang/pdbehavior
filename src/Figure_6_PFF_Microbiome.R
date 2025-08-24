@@ -15,7 +15,7 @@ pff_beta_diversity <- pff_beta_diversity + labs(subtitle = bquote(paste(~italic(
   )
 pff_rotarod_beta_diversity <- readRDS(here("results/PFF/figures/rotarod_beta_diversity.RDS"))
 pff_rotarod_beta_diversity <- pff_rotarod_beta_diversity + labs(subtitle = bquote(paste(~italic(R)^2,"=0.030 ", 
-                                                                                italic("P"),"<9.99 E-5"))) + 
+                                                                                italic("P"),"<0.008"))) + 
   theme(
     plot.subtitle = element_text(hjust = 0.5)
   )
@@ -30,6 +30,22 @@ pff_beta_diversity <- pff_beta_diversity + ggtitle("PFF Colonic Lumen")
 pff_dat <- pff_dat + ggtitle("PFF Colonic Lumen",
                              subtitle ="")
 pff_rotarod_beta_diversity <- pff_rotarod_beta_diversity + ggtitle("PFF Colonic Lumen")
+
+
+pff_corr_list[[1]] <-  pff_corr_list[[1]] + 
+  theme(legend.justification = "center") + 
+  xlab("Relative Abundance") +
+  ggtitle("Lachnospiraceae UCG-001")
+pff_corr_list[[6]] <-  pff_corr_list[[6]] + 
+  theme(legend.justification = "center") + 
+  xlab("Relative Abundance")
+pff_corr_puncta[[1]] <-  pff_corr_puncta[[1]] + 
+  theme(legend.justification = "center") + 
+  xlab("Relative Abundance")+
+  ggtitle("Lachnospiraceae UCG-001")
+pff_corr_puncta[[2]] <-  pff_corr_puncta[[2]] + 
+  theme(legend.justification = "center") + 
+  xlab("Relative Abundance")
 
 ### Assemble multi-panel figure ---
 

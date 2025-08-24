@@ -228,6 +228,7 @@ lc_dat_filtered <- lc_dat %>%
   }) %>%
   ungroup()
 
+write.csv(lc_dat_filtered, here("results/PFF/differential_taxa/Fig_6B.csv"))
 lc_diff_taxa<- make_combined_genus_level_taxa_dotplot(ASV_significant_results_dataset = lc_dat_filtered,
                                                       Relative_Abundance_filepath_rds = "results/PFF/differential_taxa/Relative_Abundance_L6_Luminal_Colon.RDS",
                                                       titlestring = "PFF Colonic Lumen (HET or MUT vs WT) ",

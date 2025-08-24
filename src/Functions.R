@@ -448,9 +448,20 @@ make_combined_genus_level_taxa_dotplot <- function(ASV_significant_results_datas
   
   data$annotation <- gsub("\\.E","E",data$Genus)
   data$annotation <- gsub("\\.","_",data$annotation)
+  data$annotation <- gsub("\\ ","_",data$annotation)
   data$annotation <- gsub("__","_",data$annotation)
   #data$Genus <- gsub("\\..*","",data$Genus)
-  data <- data %>% mutate(annotation = ifelse(data$Genus=="", paste0(data$Family," (f)"), data$annotation))
+  data <- data %>% mutate(
+    annotation = case_when(
+    Genus=="" ~ paste0(Family," (f)"),
+    startsWith(Genus, "UCG") ~ paste0(Family,"_", Genus),
+    startsWith(Genus, "Incertae") ~ paste0(Family," (f)"),
+    TRUE ~ annotation))
+  data <- data %>% mutate(
+    annotation = case_when(
+      Family =="" ~ paste(data$Order,"(o)"),
+      startsWith(Family, "UCG") ~ paste(data$Order,"(o)"), 
+      TRUE ~ annotation))
   data <- data %>% mutate(annotation = ifelse(data$Family=="", paste(data$Order,"(o)"), data$annotation))
   data <- data %>% mutate(annotation = ifelse(data$Order=="", paste(data$Class,"(c)"), data$annotation))
   

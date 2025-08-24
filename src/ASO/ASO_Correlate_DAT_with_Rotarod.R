@@ -32,25 +32,25 @@ ASO_rotarod <- ASO_rotarod %>%
 ASO_lum_col_counts <- read.delim(here("data/ASO/Microbiome/differential_taxa/ASO_L6_Subset_Luminal_Colon.tsv")) %>% 
   t() %>% as.data.frame()
 df_tss <-ASO_lum_col_counts / rowSums(ASO_lum_col_counts )
-df_tss <- df_tss %>%
-  select(where(~ any(. != 0)))
-
-normality_results <- df_tss %>%
-  summarise(across(everything(), ~ {
-    if (length(na.omit(.x)) < 3) {
-      return(NA)  # Shapiro-Wilk requires at least 3 values
-    } else {
-      shapiro.test(.x)$p.value
-    }
-  }))
-
-# Transpose to get results in long format
-normality_long <- normality_results %>%
-  pivot_longer(everything(), names_to = "Feature", values_to = "Shapiro_P")
-
-# Add a column to flag features that are normally distributed (e.g., p > 0.05)
-normality_long <- normality_long %>%
-  mutate(Normal = Shapiro_P > 0.05)
+# df_tss <- df_tss %>%
+#   select(where(~ any(. != 0)))
+# 
+# normality_results <- df_tss %>%
+#   summarise(across(everything(), ~ {
+#     if (length(na.omit(.x)) < 3) {
+#       return(NA)  # Shapiro-Wilk requires at least 3 values
+#     } else {
+#       shapiro.test(.x)$p.value
+#     }
+#   }))
+# 
+# # Transpose to get results in long format
+# normality_long <- normality_results %>%
+#   pivot_longer(everything(), names_to = "Feature", values_to = "Shapiro_P")
+# 
+# # Add a column to flag features that are normally distributed (e.g., p > 0.05)
+# normality_long <- normality_long %>%
+#   mutate(Normal = Shapiro_P > 0.05)
 
 # # Compute feature-wise pseudocounts
 # # Extract column-wise (feature-wise) minimum non-zero values and divide by 2
@@ -115,35 +115,52 @@ genotype_cols <- c("WT"="black", "HET"="navy","MUT"="firebrick")
 # Initialize empty tibble to store correlation results
 lm_results <- tibble()
 
-# Loop over k_columns and fit a linear model
-for (k_col in k_columns) {
-  
-  # Fit linear model
-  lmod <- lm(df_correlation[[k_col]] ~ Average_Latency + Sex + Site , data=df_correlation)
-  
-  # Shapiro Test
-  norm <- shapiro.test(df_correlation[[k_col]])$p.value
-  
-  # Extract model summary
-  lmod_summary <- summary(lmod)
-  
-  # Extract p-values for each coefficient
-  p_vals <- coef(lmod_summary)["Average_Latency", "Pr(>|t|)"]
-  
-  # Create a tibble with results for this k_col
-  temp_df <- tibble(
-    k_col = k_col,
-    p_value = p_vals,
-    shapiro_p = norm
-  )
-  
-  # Bind to results
-  lm_results <- bind_rows(lm_results, temp_df)
-}
+# # Loop over k_columns and fit a linear model
+# for (k_col in k_columns) {
+#   
+#   # Fit linear model
+#   lmod <- lm(df_correlation[[k_col]] ~ Average_Latency + Sex + Site , data=df_correlation)
+#   
+#   # Shapiro Test
+#   norm <- shapiro.test(df_correlation[[k_col]])$p.value
+#   
+#   # Extract model summary
+#   lmod_summary <- summary(lmod)
+#   
+#   # Extract p-values for each coefficient
+#   p_vals <- coef(lmod_summary)["Average_Latency", "Pr(>|t|)"]
+#   
+#   # Create a tibble with results for this k_col
+#   temp_df <- tibble(
+#     k_col = k_col,
+#     p_value = p_vals,
+#     shapiro_p = norm
+#   )
+#   
+#   # Bind to results
+#   lm_results <- bind_rows(lm_results, temp_df)
+# }
+# 
+# # Apply BH correction across taxa (17 tests)
+# lm_results <- lm_results %>%
+#   mutate(p_adj = p.adjust(p_value, method = "BH"))
 
-# Apply BH correction across taxa (17 tests)
-lm_results <- lm_results %>%
-  mutate(p_adj = p.adjust(p_value, method = "BH"))
+# # Save dataframes for SDV file required by JCI
+# fig5D <- df_correlation %>% 
+#   dplyr::select(MouseID,
+#                 SampleID,
+#                 Genotype,Sex,Site, 
+#                 k__Bacteria.p__Bacillota.c__Bacilli.o__Lactobacillales.f__Lactobacillaceae.g__Lactobacillus,
+#                 Average_Latency)
+# fig5E <- df_correlation %>% 
+#   dplyr::select(MouseID,
+#                 SampleID,
+#                 Genotype,Sex,Site, 
+#                 k__Bacteria.p__Bacillota.c__Bacilli.o__Lactobacillales.f__Lactobacillaceae.g__HT002,
+#                 Average_Latency)
+# 
+# write.csv(fig5D, here("results/ASO/figures/fig_5D.csv"))
+# write.csv(fig5D, here("results/ASO/figures/fig_5E.csv"))
 
 # Loop over k_ columns and perform Spearman Correlations
 for (k_col in k_columns) {

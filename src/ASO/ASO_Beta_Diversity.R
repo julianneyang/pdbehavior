@@ -199,8 +199,8 @@ rotarod_beta_diversity <- generate_pcoA_plots(distance_matrix=lumcol.dist,
                     title="ASO Colon and Cecum",
                     colorvariable = Average_Latency,
                     colorvector = cols,
-                    wa_scores_filepath = here("results/ASO/PCoA/LuminalColon_RSJ_Top_Taxa_PcoA.csv"),
-                    mds_meta_filepath = here("results/ASO/PCoA/Fig_5_C_PcoA.csv")) +
+                    # mds_meta_filepath = here("results/ASO/PCoA/Fig_5C_PcoA.csv"),
+                    wa_scores_filepath = here("results/ASO/PCoA/LuminalColon_RSJ_Top_Taxa_PcoA.csv")) +
   scale_color_viridis_c()
 
 write_rds(rotarod_beta_diversity, here("results/ASO/figures/rotarod_beta_diversity.RDS"))

@@ -261,6 +261,7 @@ lc_dat_filtered <- lc_dat %>%
   }) %>%
   ungroup()
 
+#write.csv(lc_dat_filtered,here("results/ASO/differential_taxa/Fig_5B.csv"))
 lc_diff_taxa<- make_combined_genus_level_taxa_dotplot(ASV_significant_results_dataset = lc_dat_filtered,
                                                       Relative_Abundance_filepath_rds = "results/ASO/differential_taxa/Relative_Abundance_L6_Luminal_Colon_ASV.RDS",
                                                       titlestring = "ASO Colonic Lumen (HET or MUT vs WT) ",
