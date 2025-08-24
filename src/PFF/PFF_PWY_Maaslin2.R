@@ -240,7 +240,7 @@ obj <- circos.track(track.index = 1, panel.fun = function(x, y) {
 }, bg.border = NA) 
 circos.clear()
 
-# Luminal Colon - 0 PWY
+# Luminal Colon 
 lc_pwy<-read.table("results/PFF/differential_pathway/PICRUST2_Pathway_Luminal_Colon_Maaslin2_Sex_Site_Genotype/all_results.tsv", header=TRUE)
 lc_pwy_het <- lc_pwy %>% filter(value=="HET") %>% filter(qval<0.25) %>% pull(feature)
 lc_pwy_mut <- lc_pwy%>% filter(value=="MUT") %>% filter(qval<0.25) %>% pull(feature)

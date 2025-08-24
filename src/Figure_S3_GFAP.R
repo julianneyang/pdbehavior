@@ -6,13 +6,13 @@ library(cowplot)
 library(tidyr)
 
 ## Environment --
-here::i_am("src/Figure_4_GFAP.R")
+here::i_am("src/Figure_S3_GFAP.R")
 
 generate_violinplots <- function(input_data, X, Y, min,max){
   data<-as.data.frame(input_data)
   ggplot(data=data,aes(x={{X}},y={{Y}}, fill={{X}})) + 
-    geom_violin(alpha=0.25,position=position_dodge(width=.75),size=1,color="black",draw_quantiles=c(0.5))+
-    #geom_boxplot(alpha=0.25)+ 
+    #geom_violin(alpha=0.25,position=position_dodge(width=.75),size=1,color="black",draw_quantiles=c(0.5))+
+    geom_boxplot(alpha=0.25)+ 
     #geom_quasirandom(alpha=0.1)+
     scale_fill_viridis_d()+
     geom_point(size=1,position=position_jitter(width=0.25),alpha=0.3)+
@@ -36,7 +36,7 @@ df <- striatum %>%
   summarise(Average_Count = mean(Count)) %>%
   ungroup()
 
-subset <- unique(striatum %>% select("MouseID","Genotype"))
+subset <- unique(striatum %>% select("MouseID","Genotype", "Sex"))
 df_meta <- merge(df, subset, by= "MouseID")
 
 generate_violinplots(df_meta, Genotype, Average_Count,0,400)+
@@ -54,6 +54,9 @@ wilcox.test(Average_Count~Genotype,wt_mut)
 wt_mut <- df_meta %>% filter(Genotype!="MUT") %>% 
   filter(Genotype!="Tg_Neg")
 wilcox.test(Average_Count~Genotype,wt_mut)
+
+lm <- lm(Average_Count~  Sex + Genotype, data = df_meta)
+summary(lm)
 
 ## PFF GFAP Cell Count-- 
 data <- readr::read_csv(here("Analysis_Files/PFF/PFF_GFAP.csv"))

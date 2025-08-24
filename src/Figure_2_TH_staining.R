@@ -6,12 +6,12 @@ library(cowplot)
 library(tidyr)
 
 ## Environment --
-here::i_am("Rscripts/Figure_2_TH_staining.R")
+here::i_am("src/Figure_2_TH_staining.R")
 
 generate_violinplots <- function(input_data, X, Y, min,max){
   data<-as.data.frame(input_data)
     ggplot(data=data,aes(x={{X}},y={{Y}}, fill={{X}})) + 
-    geom_violin(alpha=0.25,position=position_dodge(width=.75),size=1,color="black",draw_quantiles=c(0.5))+
+    geom_boxplot(alpha=0.25,position=position_dodge(width=.75),size=1,color="black")+
     #geom_boxplot(alpha=0.25)+ 
     #geom_quasirandom(alpha=0.1)+
     scale_fill_viridis_d()+
@@ -24,7 +24,7 @@ generate_violinplots <- function(input_data, X, Y, min,max){
 }
 
 ## ASO TH-- 
-data <- readr::read_csv(here("Analysis_Files", "ASO","ASO_TH_CTCF.csv"))
+data <- readr::read_csv(here("data", "ASO","ASO_TH_CTCF.csv"))
 data$Genotype<-factor(data$Genotype,levels=c("WT","HET","MUT"))
 
 striatum <- data %>% filter(Category=="Striatum_1" | Category=="Striatum_2")
@@ -122,7 +122,7 @@ plot_grid(aso_th_intden, aso_th_mean,
           labels=c("A","B"))
 
 ## PFF TH-- 
-data <- readr::read_csv(here("Analysis_Files","PFF","PFF_TH_CTCF.csv"))
+data <- readr::read_csv(here("data","PFF","PFF_TH_CTCF.csv"))
 data$Genotype<-factor(data$Genotype,levels=c("WT","HET","MUT"))
 data$Category <- factor(data$Category)
 data$Category
@@ -236,12 +236,12 @@ names(striatum)
 ipsilateral <- striatum %>% filter(Category=="Ipsilateral")
 contralateral <- striatum %>% filter(Category=="Contralateral")
 
-lme_model <- lme(Corrected_Mean ~  Genotype, 
+lme_model <- lme(Corrected_Mean ~  Sex + Genotype, 
                  random = ~ 1 | MouseID, 
                  data = ipsilateral)
 summary(lme_model)
 
-lme_model <- lme(Corrected_Mean ~  Genotype, 
+lme_model <- lme(Corrected_Mean ~ Sex + Genotype, 
                  random = ~ 1 | MouseID, 
                  data = contralateral)
 summary(lme_model)

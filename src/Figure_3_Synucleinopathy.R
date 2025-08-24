@@ -6,13 +6,13 @@ library(cowplot)
 library(tidyr)
 
 ## Environment --
-here::i_am("Rscripts/Figure_3_Synucleinopathy.R")
+here::i_am("src/Figure_3_Synucleinopathy.R")
 
 generate_violinplots <- function(input_data, X, Y, min,max){
   data<-as.data.frame(input_data)
     ggplot(data=data,aes(x={{X}},y={{Y}}, fill={{X}})) + 
-    geom_violin(alpha=0.25,position=position_dodge(width=.75),size=1,color="black",draw_quantiles=c(0.5))+
-    #geom_boxplot(alpha=0.25)+ 
+    #geom_violin(alpha=0.25,position=position_dodge(width=.75),size=1,color="black",draw_quantiles=c(0.5))+
+    geom_boxplot(alpha=0.25)+ 
     #geom_quasirandom(alpha=0.1)+
     scale_fill_viridis_d()+
     geom_point(size=1,position=position_jitter(width=0.25),alpha=0.3)+
@@ -24,7 +24,7 @@ generate_violinplots <- function(input_data, X, Y, min,max){
 }
 
 ## PFF Synucleinopathy-- 
-data <- readr::read_csv(here("Analysis_Files/PFF/PFF Brain Staining and Imaging Record - Analysis_Rb_pS129.csv"))
+data <- readr::read_csv(here("data/PFF/PFF Brain Staining and Imaging Record - Analysis_Rb_pS129.csv"))
 data$Genotype<-factor(data$Genotype,levels=c("WT","HET","MUT"))
 names(data)
 striatum <- data %>% filter(Exclude=="NO" & Optimal_Threshold=="YES" & Particle_Size=="3.5-10")
@@ -87,13 +87,16 @@ ipsi_average <- generate_violinplots(df_meta_ipsi, Genotype, Average_Count,0,160
   facet_wrap(~Category)+
   theme(plot.title = element_text(hjust = 0.5))
 
-plot_grid( NULL, NULL, NULL,
+top <- plot_grid( NULL, NULL, NULL,
            NULL, NULL,NULL,
            ipsi_average,contra_average,
           labels=c("A","","",
-                   "B","","",
-                   "C","D"),
-          ncol=3, nrow=3)
+                   "B","",""),
+          ncol=3, nrow=2)
+
+bottom <- plot_grid(ipsi_average,contra_average,
+                  labels=c("C","D"))
+plot_grid(top,bottom, nrow=2, rel_heights = c(3,1))
 
 ## Statistics -- 
 names(striatum)
