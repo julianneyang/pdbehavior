@@ -28,7 +28,7 @@ generate_boxplots <- function(input_data, X, Y, min,max){
 }
 
 ## Rotarod -- 
-rotarod<-readr::read_csv(here("Analysis_Files", "Spontaneous", "Data_Rotarod_Analysis.csv"))
+rotarod<-readr::read_csv(here("data", "Spontaneous", "Data_Rotarod_Analysis.csv"))
 rotarod$Day <- factor(rotarod$Day, levels=c("One", "Two", "Three"))
 summary(rotarod$Average_Latency)
 
@@ -40,7 +40,7 @@ Rotarod_plot_by_Day <- generate_boxplots(rotarod, SLC_Genotype, Average_Latency,
   theme(plot.title = element_text(hjust = 0.5))
 
 ## Open Field --
-of <-readr::read_csv(here("Analysis_Files", "Spontaneous", "SLC_Spontaneous_Open_Field_Analysis.csv"))
+of <-readr::read_csv(here("data", "Spontaneous", "SLC_Spontaneous_Open_Field_Analysis.csv"))
 of$SLC_Genotype <- factor(of$SLC_Genotype, levels = c("WT", "HET", "MUT"))
 summary(of$Center_Time)
 summary(of$Distance)
@@ -56,7 +56,7 @@ of_distance <- generate_boxplots(of, SLC_Genotype, Distance,0,30) +
   theme(plot.title = element_text(hjust = 0.5))
 
 ## Object Location Memory -- 
-olm<- readr::read_csv(here("Analysis_Files", "Spontaneous", "Data_OLM_Analysis.csv"))
+olm<- readr::read_csv(here("data", "Spontaneous", "Data_OLM_Analysis.csv"))
 olm$Day <- factor(olm$Day)
 olm$Day <- plyr::revalue(olm$Day, c('1' = "Training", '2' = "Testing"))
 
@@ -68,7 +68,7 @@ olm_plot <- generate_boxplots(olm, SLC_Genotype, Percent_Time_Investigated,0,100
   theme(plot.title = element_text(hjust = 0.5))
 
 ## Weights -- 
-bw <- readr::read_csv(here("Analysis_Files", "Spontaneous", "SLC Spontaneous Weights - Sheet1.csv"))
+bw <- readr::read_csv(here("data", "Spontaneous", "SLC Spontaneous Weights - Sheet1.csv"))
 weight <- generate_boxplots(bw, SLC_Genotype, Weight,0,50) +
   ggtitle("Body Weight")+
   ylab("Weight (g)")+

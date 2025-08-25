@@ -29,7 +29,7 @@ generate_boxplots <- function(input_data, X, Y, min,max){
 }
 
 ## ASO Pole Test --
-data<-readr::read_csv(here("Analysis_Files", "ASO", "ASO Pole Test - All_Cohorts_Assign_Maximum_Time.csv"))
+data<-readr::read_csv(here("data", "ASO", "ASO Pole Test - All_Cohorts_Assign_Maximum_Time.csv"))
 data <- data %>%
   rowwise() %>%
   mutate(Average_Tturn = mean(c(Trial_1_Tturn, Trial_2_Tturn, Trial_3_Tturn, Trial_4_Tturn, Trial_5_Tturn), na.rm = TRUE)) %>%
@@ -49,6 +49,7 @@ data <- data %>%
 data$SLC_Genotype <- factor(data$SLC_Genotype, levels =c("WT","HET","MUT"))
 
 pole_tg_pos <- data %>% filter(ASO_Tg=="Positive")
+write.csv(pole_tg_pos,here("data/ASO/Fig_S4A_B.csv"))
 pos_slc_avg_turn <- generate_boxplots(pole_tg_pos, SLC_Genotype, Average_Tturn,0,20) +
   ylab("Average time to turn (s)")+
   xlab("")+
@@ -71,7 +72,7 @@ category_counts <- summary_table %>%
 result <- fisher.test(category_counts[, c("C", "S")])
 
 ## ASO Wire Hang --
-data<-readr::read_csv(here("Analysis_Files", "ASO", "Final_ASO_Wire_Hang.csv"))
+data<-readr::read_csv(here("data", "ASO", "Final_ASO_Wire_Hang.csv"))
 wirehang_tg_pos <- data %>% filter(ASO_Tg=="Positive")
 wirehang <-generate_boxplots(wirehang_tg_pos, SLC_Genotype, Time,0,200)+
   ylab("Total Hang Time (s)")+
@@ -80,7 +81,7 @@ wirehang <-generate_boxplots(wirehang_tg_pos, SLC_Genotype, Time,0,200)+
   theme(plot.title = element_text(hjust = 0.5)) 
 
 ## ASO Hindlimb Clasp -- 
-data<- readr::read_csv(here("Analysis_Files", "ASO", "ASO_Hindlimb_Clasping .csv"))
+data<- readr::read_csv(here("data", "ASO", "ASO_Hindlimb_Clasping .csv"))
 data$SLC_Genotype <- factor(data$SLC_Genotype, levels=c("WT", "HET", "MUT"))
 clasp_tg_pos <- data %>% filter(ASO_Tg=="Positive")
 
@@ -103,10 +104,12 @@ clasp_wt_mut <- clasp_tg_pos %>% filter(SLC_Genotype!="HET")
 wilcox.test(Score~SLC_Genotype, clasp_wt_mut)
 
 ## ASO Weights -- 
-bw <- readr::read_csv(here("Analysis_Files", "ASO","ASO Rotarod - Rotarod.csv"))
+bw <- readr::read_csv(here("data", "ASO","ASO Rotarod - Rotarod.csv"))
 bw_tg_pos <- bw %>% filter(ASO_Tg=="Positive") %>% 
   select(c("MouseID","Weight", "SLC_Genotype"))
 bw_tg_pos <- unique(bw_tg_pos)
+write.csv(bw_tg_pos, here("data/ASO/Fig_S4D.csv"))
+
 summary(bw_tg_pos$Weight)
 weight <- generate_boxplots(bw_tg_pos, SLC_Genotype, Weight,0,53) +
   ggtitle("ASO Body Weight")+
@@ -116,7 +119,7 @@ weight <- generate_boxplots(bw_tg_pos, SLC_Genotype, Weight,0,53) +
 weight 
 
 ## PFF Hindlimb Clasp
-pff_clasp<- readr::read_csv(here("Analysis_Files", "PFF", "PFF_Hindlimb_Clasp.csv"))
+pff_clasp<- readr::read_csv(here("data", "PFF", "PFF_Hindlimb_Clasp.csv"))
 pff_clasp$SLC_Genotype <- factor(pff_clasp$SLC_Genotype, levels=c("WT", "HET", "MUT"))
 
 pff_clasp_score <-  ggplot(data=pff_clasp,aes(x=SLC_Genotype,y=Score_Severe_HB, color=SLC_Genotype)) + 
@@ -139,7 +142,7 @@ wilcox.test(Score_Severe_HB~SLC_Genotype, clasp_wt_mut)
 
 
 ## PFF Nesting
-pff_nest<- readr::read_csv(here("Analysis_Files", "PFF", "PFF_Nesting_Score.csv"))
+pff_nest<- readr::read_csv(here("data", "PFF", "PFF_Nesting_Score.csv"))
 pff_nest$SLC_Genotype <- factor(pff_nest$SLC_Genotype, levels=c("WT", "HET", "MUT"))
 
 pff_nest_score <-  ggplot(data=pff_nest,aes(x=SLC_Genotype,y=Score_Severe, color=SLC_Genotype)) + 
@@ -162,7 +165,7 @@ nest_wt_mut <- pff_nest %>% filter(SLC_Genotype!="HET")
 wilcox.test(Score_Severe~SLC_Genotype, nest_wt_mut)
 
 ## PFF Wire Hang --
-wire_hang <- readr::read_csv(here("Analysis_Files", "PFF", "PFF_Wire_Hang - Wire_Hang.csv"))
+wire_hang <- readr::read_csv(here("data", "PFF", "PFF_Wire_Hang - Wire_Hang.csv"))
 wire_hang <- wire_hang %>% filter(DPI==90)
 wire_hang$DPI <- as.character(wire_hang$DPI)
 wire_hang$DPI <- plyr::revalue(wire_hang$DPI, c("90"="90 DPI"))
@@ -178,7 +181,7 @@ pff_wire_hang<-generate_boxplots(wire_hang, SLC_Genotype, Total_Hang_Time,0,650)
 pff_wire_hang
 
 ## PFF wire hang --
-wire_hang <- readr::read_csv(here("Analysis_Files", "PFF", "PFF_Wire_Hang - Wire_Hang.csv"))
+wire_hang <- readr::read_csv(here("data", "PFF", "PFF_Wire_Hang - Wire_Hang.csv"))
 wire_hang$DPI <- as.character(wire_hang$DPI)
 wire_hang$DPI <- factor(wire_hang$DPI, levels=c("90_DPI", "120_DPI","150_DPI","180_DPI"))
 wire_hang$DPI <- plyr::revalue(wire_hang$DPI, c("90"="90_DPI","150"="150_DPI", "120" = "120_DPI", "180"="180_DPI"))
@@ -193,7 +196,7 @@ pff_wire_hang<-generate_boxplots(wire_hang, SLC_Genotype, Total_Hang_Time,0,1000
 pff_wire_hang
 
 ## PFF Weights --
-pff_bw <- readr::read_csv(here("Analysis_Files/PFF/PFF Rotarod - PFF_Rotarod_Analysis.csv"))
+pff_bw <- readr::read_csv(here("data/PFF/PFF Rotarod - PFF_Rotarod_Analysis.csv"))
 pff_bw <- unique(pff_bw %>% select(c("MouseID","Weight","SLC_Genotype")))
 pff_weight <- generate_boxplots(pff_bw, SLC_Genotype, Weight,0, 40)+
   ggtitle("PFF Body Weight")+

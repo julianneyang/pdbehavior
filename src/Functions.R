@@ -448,7 +448,6 @@ make_combined_genus_level_taxa_dotplot <- function(ASV_significant_results_datas
   
   data$annotation <- gsub("\\.E","E",data$Genus)
   data$annotation <- gsub("\\.","_",data$annotation)
-  data$annotation <- gsub("\\ ","_",data$annotation)
   data$annotation <- gsub("__","_",data$annotation)
   #data$Genus <- gsub("\\..*","",data$Genus)
   data <- data %>% mutate(
@@ -464,6 +463,7 @@ make_combined_genus_level_taxa_dotplot <- function(ASV_significant_results_datas
       TRUE ~ annotation))
   data <- data %>% mutate(annotation = ifelse(data$Family=="", paste(data$Order,"(o)"), data$annotation))
   data <- data %>% mutate(annotation = ifelse(data$Order=="", paste(data$Class,"(c)"), data$annotation))
+  data$annotation <- gsub("\\.","_",data$annotation)
   
   #append relative abundance data 
   #relA <- readRDS("Trios/differential_taxa/L6_Luminal_ColonRelative_Abundance-ASV.RDS")

@@ -121,10 +121,7 @@ rotarod_bw <- merge(rotarod, bw,by="MouseID")
 rotarod_bw$SLC_Genotype.x <- factor(rotarod_bw$SLC_Genotype.x, levels = c("WT", "HET", "MUT"))
 lm_day1 <- lm(Average_Latency ~  Weight + SLC_Genotype.x + Sex.x, data = subset(rotarod_bw, Day == "One"))
 summary(lm_day1)
-lm_day2 <- lm(Average_Latency ~  Weight + SLC_Genotype.x + Sex.x, data = subset(rotarod_bw, Day == "Two"))
-summary(lm_day2)
-lm_day3 <- lm(Average_Latency ~  Weight + SLC_Genotype.x + Sex.x, data = subset(rotarod_bw, Day == "Three"))
-summary(lm_day3)
+
 
 ## OLM -- 
 olm_bw <- merge(bw, olm,by="MouseID")
