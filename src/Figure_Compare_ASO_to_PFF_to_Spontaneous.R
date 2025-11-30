@@ -151,10 +151,11 @@ plot_feature <- function(feature_name, df) {
       y = "Coefficient"
     ) +
     theme_cowplot(12)+
-    geom_vline(xintercept = 0) + 
+    theme(plot.title = element_text(size=12))+
+    geom_hline(yintercept = 0) + 
     theme(legend.position = "top",legend.justification = "center") + 
     theme(plot.title = element_text(hjust = 0.5)) +
-    scale_fill_manual(values= c("HET"="navy", "MUT" = "firebrick"))
+    scale_fill_manual(values= c("HET"="navy", "MUT" = "firebrick"),name="")
   
   return(p)
 }
@@ -178,15 +179,17 @@ Mature_intersect_PFF <- LT_lc_dat_filtered %>%
   filter(annotation %in% b) %>%
   mutate(Model= "Mature") %>% 
   full_join(PFF_intersect_mature) %>% 
-  dplyr::select(annotation,coef,Model)
+  dplyr::select(annotation,coef,Model,value)
 
 # Apply function to all features
+Mature_intersect_PFF$Model <- factor(Mature_intersect_PFF$Model, levels=c("PFF", "Mature"))
 features <- unique(Mature_intersect_PFF$annotation)
 pff_vs_mature <- list()
 for(i in seq_along(features)){
   pff_vs_mature[[i]] <- plot_feature(features[i], Mature_intersect_PFF)
 }
 
+pff_vs_mature[[1]]
 
 ### Make a full plot depicting relationships ---
 PFF_intersect_ASO <- PFF_lc_dat_filtered %>%
@@ -197,7 +200,7 @@ ASO_intersect_PFF <- ASO_lc_dat_filtered %>%
   filter(annotation %in% c) %>%
   mutate(Model= "ASO") %>% 
   full_join(PFF_intersect_ASO) %>% 
-  dplyr::select(annotation,coef,Model)
+  dplyr::select(annotation,coef,Model,value)
 
 # Apply function to all features
 features <- unique(ASO_intersect_PFF$annotation)
@@ -207,4 +210,17 @@ for(i in seq_along(features)){
 }
 
 ### Full Plot 
-plot_grid(comparison_plots[[1]], comparison_plots[[2]], comparison_plots[[3]], comparison_plots[[4]], comparison_plots[[5]])
+plot_grid(comparison_plots[[1]], comparison_plots[[2]], comparison_plots[[3]], comparison_plots[[4]], comparison_plots[[5]], 
+          pff_vs_mature[[1]], pff_vs_aso[[1]],ncol=5, nrow=2,
+          labels=c("B", "", "", "","", "C", "D"))
+
+### Calculate how many genera considered overlapped to begin with ---
+ASO_lc_dat <-read.table(here("results/ASO/differential_taxa/L6_Luminal_Colon_Maaslin2_Sex_Site_Genotype/all_results.tsv"), header=TRUE) %>%
+  filter(value =="HET") %>% clean_genera_names()
+PFF_lc_dat <-read.table(here("results/PFF/differential_taxa/L6_Luminal_Colon_Maaslin2_Sex_Study_Genotype_1-/all_results.tsv"), header=TRUE) %>% 
+  filter(value =="HET") %>% clean_genera_names()
+LT_lc_dat <-readr::read_delim(here("../slccolonpaper/slccolon/Long_Term/differential_taxa/L6_Luminal_Colon_L6_Maaslin2_Site_Sex_Genotype_1-MouseID/all_results.tsv")) %>%
+  filter(value =="HET") %>% clean_genera_names()
+
+see_shared_genera <- list(ASO = ASO_lc_dat$annotation, PFF = PFF_lc_dat$annotation, Mature = LT_lc_dat$annotation)
+ggvenn(see_shared_genera, c("ASO", "PFF", "Mature"),show_outside = "always")
