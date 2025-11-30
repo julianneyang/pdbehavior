@@ -147,10 +147,11 @@ plot_feature <- function(feature_name, df) {
     coord_flip() +
     labs(
       title = feature_name,
-      x = "Genotype Comparison (HET or MUT vs WT)",
+      x = NULL,
       y = "Coefficient"
     ) +
     theme_cowplot(12)+
+    geom_vline(xintercept = 0) + 
     theme(legend.position = "top",legend.justification = "center") + 
     theme(plot.title = element_text(hjust = 0.5)) +
     scale_fill_manual(values= c("HET"="navy", "MUT" = "firebrick"))
@@ -168,4 +169,42 @@ for(i in seq_along(features)){
 
 comparison_plots[[3]]
 
+### Make a full plot depicting relationships ---
+PFF_intersect_mature <- PFF_lc_dat_filtered %>%
+  filter(annotation %in% b) %>% 
+  mutate(Model = "PFF")
 
+Mature_intersect_PFF <- LT_lc_dat_filtered %>%
+  filter(annotation %in% b) %>%
+  mutate(Model= "Mature") %>% 
+  full_join(PFF_intersect_mature) %>% 
+  dplyr::select(annotation,coef,Model)
+
+# Apply function to all features
+features <- unique(Mature_intersect_PFF$annotation)
+pff_vs_mature <- list()
+for(i in seq_along(features)){
+  pff_vs_mature[[i]] <- plot_feature(features[i], Mature_intersect_PFF)
+}
+
+
+### Make a full plot depicting relationships ---
+PFF_intersect_ASO <- PFF_lc_dat_filtered %>%
+  filter(annotation %in% c) %>% 
+  mutate(Model = "PFF")
+
+ASO_intersect_PFF <- ASO_lc_dat_filtered %>%
+  filter(annotation %in% c) %>%
+  mutate(Model= "ASO") %>% 
+  full_join(PFF_intersect_ASO) %>% 
+  dplyr::select(annotation,coef,Model)
+
+# Apply function to all features
+features <- unique(ASO_intersect_PFF$annotation)
+pff_vs_aso <- list()
+for(i in seq_along(features)){
+  pff_vs_aso[[i]] <- plot_feature(features[i], ASO_intersect_PFF)
+}
+
+### Full Plot 
+plot_grid(comparison_plots[[1]], comparison_plots[[2]], comparison_plots[[3]], comparison_plots[[4]], comparison_plots[[5]])
