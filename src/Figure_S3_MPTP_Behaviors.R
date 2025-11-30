@@ -6,7 +6,7 @@ library(tidyr)
 library(ggbeeswarm)
 
 ## Environment --
-here::i_am("Rscripts/Figure_S2_MPTP_Behaviors.R")
+here::i_am("Rscripts/Figure_S3_MPTP_Behaviors.R")
 
 ## Functions --
 generate_boxplots <- function(input_data, X, Y, min,max){

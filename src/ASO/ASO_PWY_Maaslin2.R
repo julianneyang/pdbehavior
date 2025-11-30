@@ -6,6 +6,7 @@ library(cowplot)
 library(here)
 library(glue)
 library(tidyverse)
+library(circlize)
 
 here::i_am("Rscripts/ASO/ASO_L2_L6_Maaslin2.R")
 
@@ -191,6 +192,8 @@ combined_significant_features <- c(lc_pwy_het, lc_pwy_mut)
 lc_pwy <- lc_pwy %>% filter(feature %in% combined_significant_features) %>% 
   filter(metadata =="Genotype")
 
+
+
 # Restrict visualization just to features agreeing in direction in both HET and MUT 
 lc_pwy_filtered <- lc_pwy %>%
   group_by(feature) %>%
@@ -224,6 +227,13 @@ df_new$feature <- gsub("-",".",df_new$feature)
 
 data <- merge(lc_pwy,df_new, by="feature")
 # data <- data %>% mutate(coef_abs = abs(coef))
+fig_S6_bottom <- data %>% 
+  filter(coef< -0.5) %>% 
+  select(!c("X1", "X3","X4", "X5","X6",
+           "X7")) %>%
+  unique()
+
+write.csv(fig_S6_bottom, here("data/ASO/Fig_S6_bottom.csv"))
 
 plot <- data %>% 
   filter(coef< -0.5) %>% 
@@ -243,10 +253,19 @@ obj <- circos.track(track.index = 1, panel.fun = function(x, y) {
 }, bg.border = NA) 
 
 
+fig_S6_top <- data %>% 
+  filter(coef> 0.5) %>% 
+  select(!c("X1", "X3","X4", "X5","X6",
+            "X7")) %>%
+  unique()
+
+write.csv(fig_S6_top, here("data/ASO/Fig_S6_top.csv"))
+
 plot <- data %>% 
   filter(coef> 0.5) %>% 
   select(c("description", "X2")) %>%
   unique()
+
 
 plot$description <- str_wrap(plot$description, width=50)
 

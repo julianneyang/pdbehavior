@@ -282,6 +282,14 @@ df_new$feature <- gsub("-",".",df_new$feature)
 data <- merge(lc_pwy,df_new, by="feature")
 # data <- data %>% mutate(coef_abs = abs(coef))
 
+fig_S7_bottom <- data %>% 
+  filter(coef<= -0.5) %>% 
+  select(!c("X1", "X3","X4", "X5","X6",
+            "X7")) %>%
+  unique()
+
+write.csv(fig_S7_bottom, here("data/PFF/Fig_S7_bottom.csv"))
+
 plot <- data %>% 
   filter(coef<= -0.5) %>% 
   select(c("description", "X2")) %>%
@@ -300,6 +308,14 @@ obj <- circos.track(track.index = 1, panel.fun = function(x, y) {
               cex=1)
 }, bg.border = NA) 
 
+
+fig_S7_top<- data %>% 
+  filter(coef>= 0.5) %>% 
+  select(!c("X1", "X3","X4", "X5","X6",
+            "X7")) %>%
+  unique()
+
+write.csv(fig_S7_top, here("data/PFF/Fig_S7_top.csv"))
 
 plot <- data %>% 
   filter(coef>= 0.5) %>% 

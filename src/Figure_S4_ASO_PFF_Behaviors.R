@@ -6,7 +6,7 @@ library(tidyr)
 library(ggbeeswarm)
 
 ## Environment --
-here::i_am("Rscripts/Figure_S3_ASO_PFF_Behaviors.R")
+here::i_am("Rscripts/Figure_S4_ASO_PFF_Behaviors.R")
 
 ## Functions --
 generate_boxplots <- function(input_data, X, Y, min,max){
@@ -95,6 +95,7 @@ clasp_score <-  ggplot(data=clasp_tg_pos,aes(x=SLC_Genotype,y=Score_Truncated, c
   ylab("Score")+
   xlab("")+
   theme(plot.title = element_text(hjust = 0.5))
+
 clasp_score
 
 clasp_wt_het <- clasp_tg_pos %>% filter(SLC_Genotype!="MUT")
@@ -106,7 +107,7 @@ wilcox.test(Score~SLC_Genotype, clasp_wt_mut)
 ## ASO Weights -- 
 bw <- readr::read_csv(here("data", "ASO","ASO Rotarod - Rotarod.csv"))
 bw_tg_pos <- bw %>% filter(ASO_Tg=="Positive") %>% 
-  select(c("MouseID","Weight", "SLC_Genotype"))
+  select(c("MouseID","Weight", "SLC_Genotype", "Sex"))
 bw_tg_pos <- unique(bw_tg_pos)
 write.csv(bw_tg_pos, here("data/ASO/Fig_S4D.csv"))
 
@@ -183,8 +184,8 @@ pff_wire_hang
 ## PFF wire hang --
 wire_hang <- readr::read_csv(here("data", "PFF", "PFF_Wire_Hang - Wire_Hang.csv"))
 wire_hang$DPI <- as.character(wire_hang$DPI)
-wire_hang$DPI <- factor(wire_hang$DPI, levels=c("90_DPI", "120_DPI","150_DPI","180_DPI"))
 wire_hang$DPI <- plyr::revalue(wire_hang$DPI, c("90"="90_DPI","150"="150_DPI", "120" = "120_DPI", "180"="180_DPI"))
+wire_hang$DPI <- factor(wire_hang$DPI, levels=c("90_DPI", "120_DPI","150_DPI","180_DPI"))
 
 pff_wire_hang<-generate_boxplots(wire_hang, SLC_Genotype, Total_Hang_Time,0,1000)+
   facet_wrap(~DPI,nrow=1)+ 
@@ -197,7 +198,9 @@ pff_wire_hang
 
 ## PFF Weights --
 pff_bw <- readr::read_csv(here("data/PFF/PFF Rotarod - PFF_Rotarod_Analysis.csv"))
-pff_bw <- unique(pff_bw %>% select(c("MouseID","Weight","SLC_Genotype")))
+pff_bw <- unique(pff_bw %>% select(c("MouseID","Weight","SLC_Genotype","Sex")))
+write.csv(pff_bw, here("data/PFF/Fig_S4H.csv"))
+
 pff_weight <- generate_boxplots(pff_bw, SLC_Genotype, Weight,0, 40)+
   ggtitle("PFF Body Weight")+
   ylab("Weight (g)")+
@@ -238,6 +241,10 @@ summary(lm)
 ## Body Weight -- 
 bw$SLC_Genotype <- factor(bw$SLC_Genotype, levels=c("WT","HET", "MUT"))
 lm_day1 <- lm(Weight ~ Sex + SLC_Genotype, data = bw)
+summary(lm_day1)
+
+bw_tg_pos$SLC_Genotype <- factor(bw_tg_pos$SLC_Genotype, levels=c("WT","HET", "MUT"))
+lm_day1 <- lm(Weight ~ Sex + SLC_Genotype, data = bw_tg_pos)
 summary(lm_day1)
 
 ## Open Field --

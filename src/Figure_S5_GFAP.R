@@ -6,7 +6,7 @@ library(cowplot)
 library(tidyr)
 
 ## Environment --
-here::i_am("src/Figure_S3_GFAP.R")
+here::i_am("src/Figure_S5_GFAP.R")
 
 generate_violinplots <- function(input_data, X, Y, min,max){
   data<-as.data.frame(input_data)
@@ -39,21 +39,22 @@ df <- striatum %>%
 subset <- unique(striatum %>% select("MouseID","Genotype", "Sex"))
 df_meta <- merge(df, subset, by= "MouseID")
 
+
 generate_violinplots(df_meta, Genotype, Average_Count,0,400)+
   ggtitle("ASO GFAP")+
   ylab("GFAP + Cell Count")+
   xlab("")+
- # facet_wrap(~Category)+
+  facet_wrap(~Sex)+
   theme(plot.title = element_text(hjust = 0.5))
 
-wt_mut <- df_meta %>% filter(Genotype!="HET") %>% 
-  filter(Genotype!="Tg_Neg")
-wilcox.test(Average_Count~Genotype,wt_mut)
 
+sex <- read.csv(here("data/ASO/Fig_S5B.csv")) %>%
+  unique()
 
-wt_mut <- df_meta %>% filter(Genotype!="MUT") %>% 
-  filter(Genotype!="Tg_Neg")
-wilcox.test(Average_Count~Genotype,wt_mut)
+df_meta <- df_meta %>% 
+  select(!c("Sex")) %>%
+  inner_join(sex %>% dplyr::select("MouseID","Sex"), by="MouseID") %>%
+  unique()
 
 lm <- lm(Average_Count~  Sex + Genotype, data = df_meta)
 summary(lm)
