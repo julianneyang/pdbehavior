@@ -16,7 +16,7 @@ generate_violinplots <- function(input_data, X, Y, min,max){
     #geom_quasirandom(alpha=0.1)+
     scale_fill_viridis_d()+
     geom_point(size=1,position=position_jitter(width=0.25),alpha=0.3)+
-    theme_cowplot(16) +
+    theme_cowplot(12) +
     ylim(min,max)+
     theme(legend.position = "none") 
   
@@ -39,15 +39,6 @@ df <- striatum %>%
 subset <- unique(striatum %>% select("MouseID","Genotype", "Sex"))
 df_meta <- merge(df, subset, by= "MouseID")
 
-
-generate_violinplots(df_meta, Genotype, Average_Count,0,400)+
-  ggtitle("ASO GFAP")+
-  ylab("GFAP + Cell Count")+
-  xlab("")+
-  facet_wrap(~Sex)+
-  theme(plot.title = element_text(hjust = 0.5))
-
-
 sex <- read.csv(here("data/ASO/Fig_S5B.csv")) %>%
   unique()
 
@@ -56,95 +47,26 @@ df_meta <- df_meta %>%
   inner_join(sex %>% dplyr::select("MouseID","Sex"), by="MouseID") %>%
   unique()
 
+b <-generate_violinplots(df_meta, Genotype, Average_Count,0,400)+
+  ggtitle("ASO GFAP")+
+  ylab("GFAP + Cell Count")+
+  xlab("")+
+  #facet_wrap(~Sex)+
+  theme(plot.title = element_text(hjust = 0.5))
+
+
 lm <- lm(Average_Count~  Sex + Genotype, data = df_meta)
 summary(lm)
 
-## PFF GFAP Cell Count-- 
-data <- readr::read_csv(here("Analysis_Files/PFF/PFF_GFAP.csv"))
-data$Genotype<-factor(data$Genotype,levels=c("WT","HET","MUT"))
-names(data)
-striatum <- data %>% filter(EXCLUDE=="NO" & Particle_Size=="0-Inf")
-summary(striatum$Count)
+### Read in significantly associated taxa 
+corr_list <- read_rds(here("results/ASO/figures/lumcol_DAT_correlations_with_GFAP.rds"))
+corr_list[[1]] <-  corr_list[[1]] + 
+  theme(legend.justification = "center") + 
+  xlab("Relative Abundance")
+corr_list[[2]] <-  corr_list[[2]] + 
+  theme(legend.justification = "center") + 
+  xlab("Relative Abundance")
 
-ipsilateral <- striatum %>% filter(Category!="Contralateral")
-contralateral <- striatum %>% filter(Category=="Contralateral")
-
-ipsi_puncta <- generate_violinplots(ipsilateral, Genotype, Count,0,384)+
-  #ggtitle("PFF Puncta Analysis")+
-  ylab("GFAP + Cell Count")+
-  xlab("")+
-  #facet_wrap(~Category)+
-  theme(plot.title = element_text(hjust = 0.5))
-ipsi_puncta
-contra_puncta <- generate_violinplots(contralateral, Genotype, Count,0,250)+
-  #ggtitle("PFF Puncta Analysis")+
-  ylab("pS129 a-Syn Puncta Count")+
-  xlab("")+
-  facet_wrap(~Category)+
-  theme(plot.title = element_text(hjust = 0.5))
-
-plot_grid(ipsi_puncta, contra_puncta)
-
-# Plot results as an average of each mouse 
-df <- striatum %>%
-  group_by(MouseID, Category) %>%
-  summarise(Average_Count = mean(Count)) %>%
-  ungroup()
-
-subset <- unique(striatum %>% select("MouseID","Genotype","Sex"))
-df_meta <- merge(df, subset, by= "MouseID")
-df_meta_cont <- df_meta %>% filter(Category=="Contralateral")
-df_meta_ipsi <- df_meta %>% filter(Category!="Contralateral")
-
-contra_average <- generate_violinplots(df_meta_cont, Genotype, Average_Count,0,250)+
-  #ggtitle("PFF Contralateral")+
-  ylab("GFAP + Cell Count")+
-  xlab("")+
-  facet_wrap(~Category)+
-  theme(plot.title = element_text(hjust = 0.5))
-ipsi_average <- generate_violinplots(df_meta_ipsi, Genotype, Average_Count,0,384)+
-  #ggtitle("PFF Ipsilateral")+
-  ylab("GFAP + Cell Count")+
-  xlab("")+
-  facet_wrap(~Category)+
-  theme(plot.title = element_text(hjust = 0.5))
-
-plot_grid(ipsi_average,contra_average,labels=c("A","B"))
-
-plot_grid( NULL, NULL, NULL,
-           NULL, NULL,NULL,
-           ipsi_average,contra_average,
-           labels=c("A","","",
-                    "B","","",
-                    "C","D"),
-           ncol=3, nrow=3)
-
-## Statistics -- 
-names(striatum)
-ipsilateral <- striatum %>% filter(Category=="Ipsilateral")
-contralateral <- striatum %>% filter(Category=="Contralateral")
-
-lme_model <- lme(Count ~  Genotype, 
-                 random = ~ 1 | MouseID, 
-                 data = ipsilateral)
-summary(lme_model)
-
-lme_model <- lme(Count ~  Genotype, 
-                 random = ~ 1 | MouseID, 
-                 data = contralateral)
-summary(lme_model)
-
-
-wt_mut <- df_meta %>% filter(Genotype!="HET" & Category=="Ipsilateral") 
-wilcox.test(Average_Count~Genotype, data=wt_mut)
-t.test(Average_Count~Genotype, data=wt_mut)
-lm <- lm(Average_Count~  Sex + Genotype, data = wt_mut)
-summary(lm)
-
-wt_mut<- df_meta %>% filter(Genotype!="HET" & Category=="Contralateral") 
-wilcox.test(Average_Count~Genotype, data=wt_mut)
-t.test(Average_Count~Genotype, data=wt_mut)
-lm <- lm(Average_Count~  Sex + Genotype, data = wt_mut)
-summary(lm)
-
+### Assemble figure 
+plot_grid(b, NULL,corr_list[[1]], corr_list[[2]])
 
