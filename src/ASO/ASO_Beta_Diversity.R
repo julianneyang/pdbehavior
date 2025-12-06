@@ -63,6 +63,8 @@ names(lumcol_counts)==samples_lumcol_meta
 
 
 # Prevalence Filtering -
+source(here("src/Functions.R"))
+
 33*0.15
 jej_counts <- prevalence_filter(jej_counts,5)
 33*0.15
@@ -158,6 +160,50 @@ cowplot::plot_grid(jej_pcoa, cec_pcoa,
 
 ### Statistics ---
 
+### Append GFAP data ---
+gfap_meta <- read.csv(here("data/ASO/GFAP_meta.csv"))
+lumcol_gfap_meta <- merge(lumcol_meta, gfap_meta %>% 
+                                dplyr::select(c("MouseID","Average_GFAP", "Genotype")), by=c("MouseID","Genotype"))
+
+samples_lumcol_gfap_meta <- lumcol_gfap_meta$SampleID
+lumcol_gfap_counts <- counts %>% select(all_of(samples_lumcol_gfap_meta))
+names(lumcol_gfap_counts)==samples_lumcol_gfap_meta
+
+34*0.15
+lumcol_gfap_counts <- prevalence_filter(lumcol_gfap_counts,5)
+
+lumcol_gfap.dist <- calculate_rsjensen(lumcol_gfap_counts)
+
+# Luminal Colon 
+data.dist<-lumcol_gfap.dist
+metadata <- lumcol_gfap_meta %>% 
+  column_to_rownames("SampleID")
+
+target <- row.names(data.dist)
+metadata = metadata[match(target, row.names(metadata)),]
+target == row.names(metadata)
+data.dist <- as.dist(as(data.dist, "matrix"))
+
+set.seed(11)
+data.adonis=adonis2(data.dist ~ Sex + Site + Genotype + Average_GFAP, data=metadata, by="terms",permutations=10000)
+data.adonis
+
+set.seed(11)
+data.adonis=adonis2(data.dist ~Average_GFAP, data=metadata, by="terms",permutations=10000)
+data.adonis
+
+gfap_beta_diversity <- generate_pcoA_plots(distance_matrix=lumcol_gfap.dist,
+                                              counts = lumcol_gfap_counts,
+                                              metadata = lumcol_gfap_meta,
+                                              title="ASO Colon and Cecum",
+                                              colorvariable = Average_GFAP,
+                                              colorvector = cols,
+                                              # mds_meta_filepath = here("results/ASO/PCoA/Fig_5C_PcoA.csv"),
+                                              wa_scores_filepath = here("results/ASO/PCoA/GFAP_LuminalColon_RSJ_Top_Taxa_PcoA.csv")) +
+  scale_color_viridis_c()
+
+write_rds(gfap_beta_diversity, here("results/ASO/figures/gfap_beta_diversity.RDS"))
+
 ### Append Rotarod data ---
 ASO_rotarod <- read.csv(here("data/ASO/ASO Rotarod - Rotarod.csv"))
 ASO_rotarod <- ASO_rotarod %>% filter(Day=="One") %>%
@@ -191,6 +237,11 @@ data.adonis
 set.seed(11)
 data.adonis=adonis2(data.dist ~ Sex + Site + Genotype + Average_Latency, data=metadata, by="terms",permutations=10000)
 data.adonis
+
+set.seed(11)
+data.adonis=adonis2(data.dist ~ Average_Latency, data=metadata, by="terms",permutations=10000)
+data.adonis
+
 
 
 rotarod_beta_diversity <- generate_pcoA_plots(distance_matrix=lumcol.dist,

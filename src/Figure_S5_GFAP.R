@@ -67,6 +67,20 @@ corr_list[[2]] <-  corr_list[[2]] +
   theme(legend.justification = "center") + 
   xlab("Relative Abundance")
 
+### Read in the beta diversity figure
+gfap_beta_diversity <- read_rds(here("results/ASO/figures/gfap_beta_diversity.RDS")) + labs(title = "ASO Colonic Lumen",
+                                                                                            subtitle = bquote(paste(~italic(R)^2,"=0.044 ", 
+                                                                                                                    italic("P"),"<9.99 E-5"))) + 
+  theme(
+    plot.subtitle = element_text(hjust = 0.5)
+  )
+
+gfap_rotarod <- read_rds(here("results/ASO/figures/GFAP_rotarod_correlation.RDS")) +
+  theme(
+    plot.subtitle = element_text(hjust = 0.5)
+  )
+
 ### Assemble figure 
-plot_grid(b, NULL,corr_list[[1]], corr_list[[2]])
+plot_grid(b, gfap_rotarod,corr_list[[1]], corr_list[[2]])
+
 

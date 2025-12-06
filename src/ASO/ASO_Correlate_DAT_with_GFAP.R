@@ -39,10 +39,9 @@ gfap_meta <- gfap_meta %>%
 gfap_meta <- gfap_meta %>% 
   mutate(MouseID = replace(MouseID, MouseID == "43/899", "899")) %>%
   mutate(MouseID = replace(MouseID, MouseID == "44/891", "891")) %>%
-  mutate(MouseID = replace(MouseID, MouseID == "35", "923")) %>%
-  mutate(MouseID = replace(MouseID, MouseID == "847", "668")) 
+  mutate(MouseID = replace(MouseID, MouseID == "35", "923")) 
 
-
+write.csv(gfap_meta, here("data/ASO/GFAP_meta.csv"))
 
 
 ### Pull out significant DAT
