@@ -4,6 +4,7 @@ library(dplyr)
 library(nlme)
 library(cowplot)
 library(tidyr)
+library(emmeans)
 
 ## Environment --
 here::i_am("src/Figure_3_TH_staining.R")
@@ -54,6 +55,16 @@ aso_th_average_corrected_mean_per_mouse <- generate_violinplots(df_meta, Genotyp
   xlab("")+
   theme(plot.title = element_text(hjust = 0.5))
 
+## Statistics -- 
+
+# Fig 3D 
+df_meta_wt_mut <- df_meta %>% filter(Genotype!="HET")
+lm <- lm(Average_Mean ~ Sex + Genotype, data = df_meta_wt_mut)
+summary(lm)
+
+df_meta_wt_het <- df_meta %>% filter(Genotype!="MUT")
+lm <- lm(Average_Mean ~ Sex + Genotype, data = df_meta_wt_mut)
+summary(lm)
 
 ## PFF TH-- 
 data <- readr::read_csv(here("data","PFF","PFF_TH_CTCF.csv"))
@@ -93,23 +104,22 @@ contra_pff_th_average_mean_per_mouse <- generate_violinplots(contra_df_meta, Gen
 
 ## Statistics -- 
 
-# Fig 3D 
-df_meta_wt_mut <- df_meta %>% filter(Genotype!="HET")
-lm <- lm(Average_Mean ~ Sex + Genotype, data = df_meta_wt_mut)
-summary(lm)
-
-df_meta_wt_het <- df_meta %>% filter(Genotype!="MUT")
-lm <- lm(Average_Mean ~ Sex + Genotype, data = df_meta_wt_mut)
-summary(lm)
-
 # Fig 3E
 wt_het <- df_meta %>% filter(Genotype!="MUT" & Category=="Ipsilateral") 
-lm <- lm(Average_Mean ~ Sex + Genotype, data = wt_het)
-summary(lm)
+lm1 <- lm(Average_Mean ~ Sex + Genotype, data = wt_het)
+summary(lm1)
 
 wt_mut <- df_meta %>% filter(Genotype!="HET" & Category=="Ipsilateral") 
-lm <- lm(Average_Mean ~ Sex + Genotype, data = wt_mut)
+lm2 <- lm(Average_Mean ~ Sex + Genotype, data = wt_mut)
 summary(lm)
+
+p_vals <- c(
+  summary(lm1)$coefficients["GenotypeHET","Pr(>|t|)"],
+  summary(lm2)$coefficients["GenotypeMUT","Pr(>|t|)"]
+)
+
+p.adjust(p_vals, method="BH")      # Benjamini–Hochberg (FDR control)
+ 
 
 # Fig 3F
 wt_het <- df_meta %>% filter(Genotype!="MUT" & Category=="Contralateral") 
@@ -119,6 +129,8 @@ summary(lm)
 wt_mut <- df_meta %>% filter(Genotype!="HET" & Category=="Contralateral") 
 lm <- lm(Average_Mean ~ Sex + Genotype, data = wt_mut)
 summary(lm)
+
+
 
 ## Final Figure --
 

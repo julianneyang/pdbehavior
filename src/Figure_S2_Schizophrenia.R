@@ -1,8 +1,9 @@
 library(ggplot2)
 library(here)
 library(tidyr)
+library(cowplot)
 
-here::i_am("src/Figure_S1_Schizophrenia.R")
+here::i_am("src/Figure_S2_Schizophrenia.R")
 
 data<-read.csv("data/Q22/Startle_PPI_Analysis - Analysis.csv", header=TRUE)
 data$SLC_Genotype<-data$SLC
@@ -79,7 +80,7 @@ middle_startle <-generate_boxplots(data, SLC_Genotype, middle_average_VMax, 0,12
   ggtitle("Middle Startle")+
   theme(plot.title = element_text(hjust = 0.5))+
   facet_wrap(~Q22)+
-  stat_compare_means(comparisons=list(c("HET","MUT")),method="wilcox.test")+
+  #stat_compare_means(comparisons=list(c("HET","MUT")),method="wilcox.test")+
   labs(y="Average VMax")
 
 middle_startle
